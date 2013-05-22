@@ -1,7 +1,4 @@
-
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+set encoding=utf-8
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -15,8 +12,15 @@ set clipboard=unnamed
 
 
 
-
-
+" As you all may know with 'o' or 'O' you can insert 
+" a new line after/before the current line. 
+" But both commands enter the insert mode, 
+" which may sometimes not what you want. 
+" I put this in my vimrc-file to insert a new-line 
+" after the current line by pressing 
+" Enter (Shift-Enter for inserting a line before the current line): 
+map <S-Enter> O<Esc>j
+map <CR> o<Esc>k
 
 
 
@@ -125,7 +129,8 @@ set noswapfile
 if has('gui_running')
     " Adobe Source Code Pro
     " http://sourceforge.net/adobe/sourcesans/wiki/Home/
-    set guifont=Source\ Code\ Pro:h10
+    " https://github.com/Lokaltog/powerline-fonts"
+    set guifont=Anonymous\ Pro\ for\ Powerline:h11
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
@@ -141,9 +146,9 @@ call pathogen#infect()
 
 " Settings for vim-powerline
 " cd ~/.vim/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
+" git clone https://github.com/Lokaltog/vim-powerline.git
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 " Settings for ctrlp
 " cd ~/.vim/bundle
