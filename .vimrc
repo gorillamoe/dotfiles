@@ -1,5 +1,34 @@
 set encoding=utf-8
 
+" Disable arrow keys so you need to stick to hjkl
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+
+
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertLeave * :set relativenumber
+autocmd InsertEnter * :set number
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+
+
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
@@ -88,15 +117,11 @@ highlight ColorColumn ctermbg=233
 set history=700
 set undolevels=700
 
-" In my opinion the following is not true:
-" Real programmers don't use TABs but spaces
-"
-" But if you prefer spaces over tabs - just uncomment it..
-"" set tabstop=4
-"" set softtabstop=4
-"" set shiftwidth=4
-"" set shiftround
-"" set expandtab
+" Real programmers use TABs instead of spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
 
 " Make search case insensitive
 set hlsearch
@@ -112,8 +137,8 @@ set noswapfile
 
 if has('gui_running')
     set guifont=Anonymous\ Pro\ for\ Powerline:h11
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
+    " set guioptions-=m  "remove menu bar
+    " set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
 endif
 
