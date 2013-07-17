@@ -1,5 +1,4 @@
 set encoding=utf-8
-
 " Disable arrow keys so you need to stick to hjkl
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -10,10 +9,6 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-
-
-au FocusLost * :set number
-au FocusGained * :set relativenumber
 autocmd InsertLeave * :set relativenumber
 autocmd InsertEnter * :set number
 
@@ -34,12 +29,6 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 set pastetoggle=<F2>
 set clipboard=unnamed
-
-" https://github.com/bling/vim-airline
-" A better alternative for the powerline plugin
-" Don't forget to download patched fonts and set them as default font
-" in your terminal application or in the -has gui running- section.
-let g:airline_powerline_fonts=1
 
 " As you all may know with 'o' or 'O' you can insert 
 " a new line after/before the current line. 
@@ -94,11 +83,12 @@ set listchars=tab:>-,trail:-
 set list
 
 " Color scheme
+" http://www.vim.org/scripts/script.php?script_id=2465
+" ====================================================
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O molokai.vim https://github.com/walialu/molokai/raw/master/colors/molokai.vim
-color molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set t_Co=256
+colorscheme wombat256mod
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -137,7 +127,7 @@ set nowritebackup
 set noswapfile
 
 if has('gui_running')
-    set guifont=Anonymous\ Pro\ for\ Powerline:h11
+    set guifont=Menlo\ for\ Powerline:h10
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
@@ -148,6 +138,17 @@ endif
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
 call pathogen#infect()
+
+" https://github.com/bling/vim-airline
+" A better alternative for the powerline plugin
+" Don't forget to download patched fonts and set them as default font
+" in your terminal application or in the -has gui running- section.
+" ===================================================================
+" --- This is a fix for:
+" --- vim-airline doesn't appear until i create a new split
+set laststatus = 2
+" This will enable airline itself
+let g:airline_powerline_fonts = 1
 
 " Settings for ctrlp
 " cd ~/.vim/bundle
