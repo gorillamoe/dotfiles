@@ -146,9 +146,9 @@ call pathogen#infect()
 " ===================================================================
 " --- This is a fix for:
 " --- vim-airline doesn't appear until i create a new split
-set laststatus = 2
+set laststatus=2
 " This will enable airline itself
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 
 " Settings for ctrlp
 " cd ~/.vim/bundle
