@@ -12,8 +12,8 @@ noremap   <Right>  <NOP>
 
 
 
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+au FocusLost * :set number
+au FocusGained * :set relativenumber
 autocmd InsertLeave * :set relativenumber
 autocmd InsertEnter * :set number
 
@@ -95,9 +95,10 @@ set list
 
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-color wombat256mod
+" wget -O molokai.vim https://github.com/walialu/molokai/raw/master/colors/molokai.vim
+color molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
@@ -137,8 +138,8 @@ set noswapfile
 
 if has('gui_running')
     set guifont=Anonymous\ Pro\ for\ Powerline:h11
-    " set guioptions-=m  "remove menu bar
-    " set guioptions-=T  "remove toolbar
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
 endif
 
