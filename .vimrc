@@ -9,19 +9,18 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-autocmd InsertLeave * :set relativenumber
-autocmd InsertEnter * :set number
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
-
+if exists('relativenumber')
+	autocmd InsertLeave * :set relativenumber
+	autocmd InsertEnter * :set number
+	function! NumberToggle()
+		if(&relativenumber == 1)
+			set number
+		else
+			set relativenumber
+		endif
+	endfunc
+	nnoremap <C-n> :call NumberToggle()<cr>
+endif
 
 " Necesary for lots of cool vim things
 set nocompatible
