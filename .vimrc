@@ -23,6 +23,8 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 
+" Necesary for lots of cool vim things
+set nocompatible
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -127,10 +129,11 @@ set nowritebackup
 set noswapfile
 
 if has('gui_running')
-    set guifont=Menlo\ for\ Powerline:h10
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
+	set guifont=Consolas:h10
+	set antialias
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
 endif
 
 " Setup Pathogen to manage your plugins
