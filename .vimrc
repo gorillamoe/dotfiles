@@ -89,7 +89,10 @@ set list
 " ====================================================
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+set term=xterm
 set t_Co=256
+let &t_AB="\e[48;5;%dm"
+let &t_AF="\e[38;5;%dm"
 colorscheme wombat256mod
 
 " Enable syntax highlighting
