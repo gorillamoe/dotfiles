@@ -9,6 +9,8 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+
+
 if exists('+relativenumber')
 	autocmd InsertLeave * :set relativenumber
 	autocmd InsertEnter * :set number
@@ -182,6 +184,9 @@ function! OmniPopup(action)
     endif
     return a:action
 endfunction
+
+" Toggle NERDTree with CTRL + n
+noremap <Leader>k :NERDTreeToggle<CR>
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
