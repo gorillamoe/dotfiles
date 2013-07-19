@@ -9,7 +9,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-if exists('relativenumber')
+if exists('+relativenumber')
 	autocmd InsertLeave * :set relativenumber
 	autocmd InsertEnter * :set number
 	function! NumberToggle()
@@ -138,6 +138,7 @@ set noswapfile
 if has('gui_running')
 	set guifont=Consolas:h10
 	set antialias
+	set mouseshape=n:pencil
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar
