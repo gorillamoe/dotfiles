@@ -1,4 +1,8 @@
 set encoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix
+
 " Disable arrow keys so you need to stick to hjkl
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -8,21 +12,6 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-
-
-
-if exists('+relativenumber')
-	autocmd InsertLeave * :set relativenumber
-	autocmd InsertEnter * :set number
-	function! NumberToggle()
-		if(&relativenumber == 1)
-			set number
-		else
-			set relativenumber
-		endif
-	endfunc
-	nnoremap <C-n> :call NumberToggle()<cr>
-endif
 
 " Necesary for lots of cool vim things
 set nocompatible
@@ -109,21 +98,20 @@ set nowrap " don't automatically wrap on load
 set fo-=t " don't automatically wrap text when typing
 
 if exists('+colorcolumn')
-	set colorcolumn=80
-	highlight ColorColumn ctermbg=233
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=233
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 " Useful settings
 set history=700
 set undolevels=700
 
-" Real programmers use TABs instead of spaces
+" Real programmers use spaces instead of tabs
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+set expandtab
 
 " Make search case insensitive
 set hlsearch
@@ -138,12 +126,12 @@ set nowritebackup
 set noswapfile
 
 if has('gui_running')
-	set guifont=Consolas:h10
-	set antialias
-	set mouseshape=n:pencil
-	set guioptions-=m  "remove menu bar
-	set guioptions-=T  "remove toolbar
-	set guioptions-=r  "remove right-hand scroll bar
+    set guifont=Consolas:h10
+    set antialias
+    set mouseshape=n:pencil
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
 endif
 
 " Setup Pathogen to manage your plugins
@@ -190,4 +178,4 @@ noremap <Leader>k :NERDTreeToggle<CR>
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
-
+call pathogen#helptags()
