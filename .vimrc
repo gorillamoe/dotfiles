@@ -13,6 +13,10 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+"Markdown to HTML
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+</cr></leader>
+
 " Necesary for lots of cool vim things
 set nocompatible
 
