@@ -14,8 +14,7 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 "Markdown to HTML
-nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
-</cr></leader>
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr><cr></leader>
 
 
 autocmd Filetype java set makeprg=javac\ %
