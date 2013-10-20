@@ -1,8 +1,4 @@
 set encoding=utf-8
-
-" Use Unix as the standard file type
-set ffs=unix
-
 " Disable arrow keys so you need to stick to hjkl
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -13,9 +9,9 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-"Markdown to HTML
-nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
-</cr></leader>
+autocmd Filetype java set makeprg=javac\ %
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
 
 " Necesary for lots of cool vim things
 set nocompatible
@@ -112,10 +108,11 @@ endif
 set history=700
 set undolevels=700
 
-" Real programmers use spaces instead of tabs
+" Real programmers use TABs instead of spaces
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set softtabstop=4
+set noexpandtab
 
 " Make search case insensitive
 set hlsearch
@@ -162,6 +159,7 @@ let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
@@ -182,4 +180,5 @@ noremap <Leader>k :NERDTreeToggle<CR>
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
 call pathogen#helptags()
