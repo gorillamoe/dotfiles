@@ -1,4 +1,8 @@
 set encoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix
+
 " Disable arrow keys so you need to stick to hjkl
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -9,9 +13,13 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
+"Markdown to HTML
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+</cr></leader>
+
+
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-
 
 " Necesary for lots of cool vim things
 set nocompatible
@@ -108,11 +116,11 @@ endif
 set history=700
 set undolevels=700
 
-" Real programmers use TABs instead of spaces
+" Real programmers use spaces instead of tabs.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab
+set expandtab
 
 " Make search case insensitive
 set hlsearch
