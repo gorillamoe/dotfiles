@@ -134,7 +134,7 @@ set nowritebackup
 set noswapfile
 
 if has('gui_running')
-    set guifont=Consolas:h10
+    set guifont=Sauce\ Code\ Powerline:h10
     set antialias
     set mouseshape=n:pencil
     set guioptions-=m  "remove menu bar
