@@ -3,6 +3,12 @@ set encoding=utf-8
 " Use Unix as the standard file type
 set ffs=unix
 
+" Automatically change the current directory
+" Sometimes it is helpful if your working directory is always the same as the
+" file you are editing.
+" See: http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+set autochdir
+
 " Disable arrow keys so you need to stick to hjkl
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
