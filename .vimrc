@@ -35,16 +35,6 @@ set nocompatible
 set pastetoggle=<F2>
 set clipboard=unnamed
 
-" As you all may know with 'o' or 'O' you can insert 
-" a new line after/before the current line. 
-" But both commands enter the insert mode, 
-" which may sometimes not what you want. 
-" I put this in my vimrc-file to insert a new-line 
-" after the current line by pressing 
-" Enter (Shift-Enter for inserting a line before the current line): 
-map <S-Enter> O<Esc>j
-map <CR> o<Esc>k
-
 " Mouse and backspace
 set mouse=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
@@ -59,10 +49,6 @@ noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update<CR>
 
-" Quick quit command
-noremap <Leader>e :quit<CR> " Quit current window
-noremap <Leader>E :qa!<CR> " Quit all windows
-
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
 map <c-j> <c-w>j
@@ -73,9 +59,6 @@ map <c-h> <c-w>h
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
-
-" map sort function to a key
-vnoremap <Leader>s :sort<CR>
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -187,9 +170,6 @@ function! OmniPopup(action)
     endif
     return a:action
 endfunction
-
-" Toggle NERDTree with CTRL + n
-noremap <Leader>k :NERDTreeToggle<CR>
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
