@@ -4,7 +4,7 @@ set encoding=utf-8
 
 
 " Use Unix as the standard file type
-set ffs=unix
+set ff=unix
 
 
 " I mostly use this in a terminal, so this will make things look pretty :)
@@ -45,9 +45,6 @@ noremap   <Right>  <NOP>
 noremap s S
 nmap s S
 
-
-" Markdown to HTML
-nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr><cr></leader>
 
 
 autocmd Filetype java set makeprg=javac\ %
@@ -187,7 +184,7 @@ set noswapfile
 if has('gui_running')
     set guifont=Sauce\ Code\ Powerline:h10
     set antialias
-    set mouseshape=n:pencil
+    "set mouseshape=n:pencil
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
@@ -243,3 +240,25 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 
 call pathogen#helptags()
+
+if has("win32")
+    let g:pdv_template_dir =  "Y:\\vimfiles\\bundle\\pdv\\templates_snip"
+else
+  if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      "Mac options here
+    else
+        let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+    endif
+  endif
+endif
+
+" nnoremap <leader>doc :call pdv#DocumentCurrentLine()<CR>
+nnoremap <leader>doc :call pdv#DocumentCurrentLine()<CR>
+
+" Quickly turn search highlighting off.
+nnoremap <leader>k :nohl<CR>
+
+" Quickly switch between the actual and the last file in the buffer.
+nnoremap <leader>, :b#<CR>
