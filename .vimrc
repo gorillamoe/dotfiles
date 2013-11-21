@@ -1,5 +1,4 @@
-" There can be only one encoding and it's called UTF...
-" EEEEEEEEEEEEEEIIIIIIIIIIIIIIIIIIIIIIIIGHT!
+" There can be only one encoding and it's called UTF8
 set encoding=utf-8
 
 
@@ -241,21 +240,6 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 call pathogen#helptags()
 
-if has("win32")
-    let g:pdv_template_dir =  "Y:\\vimfiles\\bundle\\pdv\\templates_snip"
-else
-  if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-      "Mac options here
-    else
-        let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-    endif
-  endif
-endif
-
-" nnoremap <leader>doc :call pdv#DocumentCurrentLine()<CR>
-nnoremap <leader>doc :call pdv#DocumentCurrentLine()<CR>
 
 " Quickly turn search highlighting off.
 nnoremap <leader>k :nohl<CR>
