@@ -46,16 +46,7 @@ noremap   <Right>  <NOP>
 
 
 
-" Necesary to use use the awesome surround plugin by Tim Pope.
-" If we dont specify it here it might work,
-" but sometimes it just does't .. so why bother.. we do it here and
-" make sure it will always work!
-" https://github.com/tpope/vim-surround
-noremap s S
-nmap s S
-
-
-
+" Make command for java files.
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
