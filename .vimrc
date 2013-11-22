@@ -2,12 +2,20 @@
 set encoding=utf-8
 
 
+
 " Use Unix as the standard file type
 set ff=unix
 
 
+
+" Enable hidden buffers, so we can switch buffers without saving them.
+set hidden
+
+
+
 " I mostly use this in a terminal, so this will make things look pretty :)
 set background=dark
+
 
 
 " Automatically change the current directory
@@ -19,6 +27,7 @@ set background=dark
 " fashioned way .. :) anyways I leave it here.. probably I will re-enable it
 " someday ..
 " set autochdir
+
 
 
 " Disable arrow keys so you need to stick to hjkl
@@ -36,6 +45,7 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 
+
 " Necesary to use use the awesome surround plugin by Tim Pope.
 " If we dont specify it here it might work,
 " but sometimes it just does't .. so why bother.. we do it here and
@@ -50,8 +60,10 @@ autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
 
+
 " Necesary for lots of cool vim things
 set nocompatible
+
 
 
 " Better copy & paste
@@ -61,9 +73,11 @@ set pastetoggle=<F2>
 set clipboard=unnamed
 
 
+
 " Mouse and backspace
 set mouse=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
+
 
 
 " Rebind <Leader> key
@@ -72,10 +86,12 @@ set bs=2 " make backspace behave like normal again
 let mapleader = ","
 
 
+
 " Quicksave command
 noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update<CR>
+
 
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
@@ -86,9 +102,11 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 
+
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
+
 
 
 " easier moving of code blocks
@@ -103,11 +121,13 @@ set listchars=tab:>-,trail:-
 set list
 
 
+
 " Color schemes stuff
 set term=xterm
 set t_Co=256
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
+
 
 
 " Color schemes / themes 
@@ -134,11 +154,13 @@ let &t_AF="\e[38;5;%dm"
 colorscheme molokai
 
 
+
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 filetype off
 filetype plugin indent on
 syntax on
+
 
 
 " Showing line numbers and length
@@ -154,9 +176,11 @@ else
 endif
 
 
+
 " Useful settings
 set history=700
 set undolevels=700
+
 
 
 " Real programmers use spaces instead of tabs.
@@ -166,6 +190,7 @@ set softtabstop=4
 set expandtab
 
 
+
 " Make search case insensitive
 set hlsearch
 set incsearch
@@ -173,11 +198,13 @@ set ignorecase
 set smartcase
 
 
+
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
 set nowritebackup
 set noswapfile
+
 
 
 if has('gui_running')
@@ -190,11 +217,13 @@ if has('gui_running')
 endif
 
 
+
 " Setup Pathogen to manage your plugins
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
 call pathogen#infect()
+
 
 
 " https://github.com/bling/vim-airline
@@ -209,6 +238,7 @@ set laststatus=2
 let g:airline_powerline_fonts=1
 
 
+
 " Settings for ctrlp
 " cd ~/.vim/bundle
 " git clone https://github.com/kien/ctrlp.vim.git
@@ -219,10 +249,25 @@ set wildignore+=*/coverage/*
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
+
+call pathogen#helptags()
+
+
+
+" Quickly turn search highlighting off.
+nnoremap <leader>k :nohl<CR>
+
+
+
+" Quickly switch between the actual and the last file in the buffer.
+nnoremap <leader>, :b#<CR>
+
+
+
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 "" set completeopt=longest,menuone
-function! OmniPopup(action)
+function! g:OmniPopup(action)
     if pumvisible()
         if a:action == 'j'
             return "\<C-N>"
@@ -233,16 +278,18 @@ function! OmniPopup(action)
     return a:action
 endfunction
 
-
-inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
-
-
-call pathogen#helptags()
+inoremap <silent><C-j> <C-R>=g:OmniPopup('j')<CR>
+inoremap <silent><C-k> <C-R>=g:OmniPopup('k')<CR>
 
 
-" Quickly turn search highlighting off.
-nnoremap <leader>k :nohl<CR>
 
-" Quickly switch between the actual and the last file in the buffer.
-nnoremap <leader>, :b#<CR>
+" Toggle relative linenumbers on/off
+function! g:ToggleRelativeLineNumbers()
+    if(&rnu == 1)
+        set nornu
+    else
+        set rnu
+    endif
+endfunc
+
+nnoremap <leader>t :call g:ToggleRelativeLineNumbers()<CR>
