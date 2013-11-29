@@ -30,22 +30,6 @@ set background=dark
 
 
 
-" Disable arrow keys so you need to stick to hjkl
-"
-" I'm not using them anymore.. I just leave them in here, so my colleagues
-" at work are forced to learn the proper vim way and later on I then can easily
-" reassign them to something more useful.
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
-
-
-
 " Make command for java files.
 autocmd Filetype java set makeprg=javac\ %
 set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
@@ -246,7 +230,7 @@ call pathogen#helptags()
 
 
 " Quickly turn search highlighting off.
-nnoremap <leader>k :nohl<CR>
+nnoremap <leader>h :nohl<CR>
 
 
 
@@ -284,3 +268,30 @@ function! g:ToggleRelativeLineNumbers()
 endfunc
 
 nnoremap <leader>t :call g:ToggleRelativeLineNumbers()<CR>
+
+
+
+" NERD Tree Binding
+nnoremap <leader>k :NERDTreeToggle<CR>
+
+" NERD Tree Bookmarks file
+if filereadable("/home/walialu/.nerdtree-bookmarks")
+    let g:NERDTreeBookmarksFile = "/home/walialu/.nerdtree-bookmarks"
+endif
+
+
+
+" Search trough cTags
+" (index directory by calling ctags -R)
+nnoremap <leader>g :CtrlPTag<CR>
+
+
+
+
+" Toogle Tagbar plugin
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+
+
+" Quick SVN commit
+nnoremap <leader>svnc :cd %:p:h<CR>:!svn commit<CR>
