@@ -8,6 +8,40 @@ set ff=unix
 
 
 
+
+" Necesary for lots of cool vim things
+set nocompatible
+filetype off
+
+
+
+" Enable Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" " required! 
+Bundle 'gmarik/vundle'
+
+Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+
+
+
+filetype plugin indent on
+
+
+
 " Enable hidden buffers, so we can switch buffers without saving them.
 set hidden
 
@@ -36,8 +70,6 @@ set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 
 
 
-" Necesary for lots of cool vim things
-set nocompatible
 
 
 
@@ -50,7 +82,7 @@ set clipboard=unnamed
 
 
 " Mouse and backspace
-set mouse=a " on OSX press ALT and click
+set mouse-=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
 
 
@@ -132,10 +164,7 @@ colorscheme molokai
 
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
-filetype off
-filetype plugin indent on
 syntax on
-
 
 
 " Showing line numbers and length
@@ -159,9 +188,9 @@ set undolevels=700
 
 
 " Real programmers use spaces instead of tabs.
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 
@@ -192,15 +221,6 @@ if has('gui_running')
 endif
 
 
-
-" Setup Pathogen to manage your plugins
-" mkdir -p ~/.vim/autoload ~/.vim/bundle
-" curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
-" Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
-
-
-
 " https://github.com/bling/vim-airline
 " A better alternative for the powerline plugin
 " Don't forget to download patched fonts and set them as default font
@@ -222,10 +242,6 @@ set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-
-
-call pathogen#helptags()
 
 
 
