@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case $1 in
+i3)
+	exec i3
+	;; 
+i3|*)
+	exec i3
+	;;
+esac
+
+xbindkeys
