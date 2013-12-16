@@ -1,5 +1,9 @@
 ! .Xdefaults
-! <hcarvalhoalves@archlinux.us>
+!
+! Green and brown flavored theme.
+!
+! @version 1.0 Mother earth rocks!
+! @author <marco@vimlove.com>
 
 ! Colour scheme
 *background:#1a1a1a
@@ -9,17 +13,17 @@
 *color1:#ff6565
 *color2:#93d44f
 *color3:#eab93d
-*color4:#204a87
+*color4:#606F50
 *color5:#ce5c00
-*color6:#89b6e2
+*color6:#336F33
 *color7:#cccccc
 *color8:#555753
 *color9:#ff8d8d
 *color10:#c8e7a8
 *color11:#ffc123
-*color12:#3465a4
+*color12:#93d44f
 *color13:#f57900
-*color14:#46a4ff
+*color14:#676843
 *color15:#ffffff
 
 ! Xft resources
