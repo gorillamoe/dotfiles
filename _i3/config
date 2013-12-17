@@ -154,11 +154,13 @@ bar {
     colors {
         # class                 border    |   background   |    text    |   indicator
         # ----------------------------------------------------------------------------
-        statusline              #CCCCCC         #CCCCCC       #000000
-        background              #000000
-        separator               #666666
-        active_workspace        #606F50         #606F50       #DDDDDD
-        focused_workspace       #606F50         #606F50       #DDDDDD
+        statusline              #666666         #666666       #000000
+        background              #111111
+        separator               #CCCCCC
+        active_workspace        #809070         #606F50       #EEEEEE
+        focused_workspace       #809070         #606F50       #EEEEEE
+        inactive_workspace      #333333         #222222       #444444
+        urgent_workspace        #2f343a         #900000       #ffffff
     }
     status_command i3status
 }
@@ -169,4 +171,5 @@ bar {
 client.focused              #809070          #606F50        #EEEEEE
 client.focused_inactive     #333333          #5F676A        #EEEEEE
 client.urgent               #809070          #606F50        #EEEEEE
-client.unfocused            #333333          #5F676A        #EEEEEE
+    # topbar unfocused container
+client.unfocused            #333333          #222222        #444444
