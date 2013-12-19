@@ -37,9 +37,6 @@ Xft.rgba:none
 
 ! Xterm resources
 
-! Xft font name style
-XTerm*faceName:Sauce Code Powerline
-XTerm*faceSize:10
 ! Enable 256 color
 XTerm*termName:xterm-color
 XTerm*cursorBlink:false
@@ -52,8 +49,7 @@ XTerm*altSendsEscape:true
 XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:38
 XTerm*trimSelection: true
 
-! Sets Xcursor theme (installed under /usr/share/icons/ or ~/.icons/)
-Xcursor.theme:Vanilla-DMZ-AA
-
-URxvt.font: xft:Sauce Code Powerline:pixelsize=12
+URxvt.font: xft:Inconsolata for Powerline:pixelsize=12
 URxvt.scrollBar: false
+
+urxvt*perl-ext-common:      default,matcher,clipboard
