@@ -1,14 +1,18 @@
 #!/bin/bash
 
 case $1 in
-    openbox)
+    cinnamon)
         xbindkeys
         sh ~/.fehbg &
-        exec openbox
+        exec cinnamon-session
         ;;
-    i3|*)
+    i3)
         xbindkeys
         sh ~/.fehbg &
         exec i3
+        ;;
+    *)
+        xbindkeys
+        exec $1
         ;;
 esac
