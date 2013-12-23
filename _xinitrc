@@ -1,12 +1,14 @@
 #!/bin/bash
 
 case $1 in
-i3)
-    xbindkeys
-	exec i3
-	;; 
-i3|*)
-    xbindkeys
-	exec i3
-	;;
+    i3)
+        xbindkeys
+        sh ~/.fehbg &
+        exec i3
+        ;;
+    i3|*)
+        xbindkeys
+        sh ~/.fehbg &
+        exec i3
+        ;;
 esac
