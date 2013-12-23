@@ -1,10 +1,10 @@
 #!/bin/bash
 
 case $1 in
-    i3)
+    openbox)
         xbindkeys
         sh ~/.fehbg &
-        exec i3
+        exec openbox
         ;;
     i3|*)
         xbindkeys
