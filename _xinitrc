@@ -1,15 +1,16 @@
 #!/bin/bash
 
 case $1 in
-    i3)
-        xbindkeys
-        setxkbmap -option caps:escape
-        exec i3
-        ;;
     Cinnamon)
         xbindkeys
         setxkbmap -option caps:escape
         exec cinnamon-session
+        ;;
+    i3)
+        xbindkeys
+        setxkbmap -option caps:escape
+        sh ~/.fehbg &
+        exec i3
         ;;
     *)
         xbindkeys
