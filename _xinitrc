@@ -1,12 +1,18 @@
 #!/bin/bash
 
 case $1 in
-i3)
-	exec i3
-	;; 
-i3|*)
-	exec i3
-	;;
+    i3)
+        xbindkeys
+        setxkbmap -option caps:escape
+        exec i3
+        ;;
+    Cinnamon)
+        xbindkeys
+        setxkbmap -option caps:escape
+        exec cinnamon-session
+        ;;
+    *)
+        xbindkeys
+        exec $1
+        ;;
 esac
-
-xbindkeys
