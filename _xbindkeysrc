@@ -1,8 +1,8 @@
-"amixer set Master,0 5+ unmute"
+"amixer set Master,0 5+ unmute && volnoti-show `amixer get Master|tail -n1|sed -E 's/.*\[([0-9]+)\%\].*/\1/'`"
    XF86AudioRaiseVolume
 
-"amixer set Master,0 5- unmute"
+"amixer set Master,0 5- unmute && volnoti-show `amixer get Master|tail -n1|sed -E 's/.*\[([0-9]+)\%\].*/\1/'`"
    XF86AudioLowerVolume
 
-"amixer set Master,0 1+ toggle"
+"amixer set Master toggle && amixer get Master | grep '\[on\]' && volnoti-show `amixer get Master|tail -n1|sed -E 's/.*\[([0-9]+)\%\].*/\1/'` || volnoti-show -m"
    XF86AudioMute
