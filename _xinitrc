@@ -1,13 +1,15 @@
 #!/bin/bash
 
 case $1 in
-    Cinnamon)
+    gnome-session)
         xbindkeys
+        volnoti
         setxkbmap -option caps:escape
-        exec cinnamon-session
+        exec gnome-session
         ;;
     i3)
         xbindkeys
+        volnoti
         setxkbmap -option caps:escape
         sh ~/.fehbg &
         exec i3
