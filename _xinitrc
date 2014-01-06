@@ -1,7 +1,9 @@
 #!/bin/bash
 
+DEFAULT_SESSION="gnome"
+
 case $1 in
-    gnome-session)
+    gnome)
         xbindkeys
         volnoti
         setxkbmap -option caps:escape
