@@ -11,8 +11,8 @@
 # for_window [class="Gloobus-preview"] floating enable, border none
 # for_window [class="Pavucontrol"] floating enable, border normal
 
-for_window [class="Skype"] floating enable, border normal
-for_window [class="skype"] floating enable, border normal
+# for_window [class="Skype"] floating enable, border normal
+# for_window [class="skype"] floating enable, border normal
 
 # by ROLE (WM_WINDOW_ROLE)
 # Note: window_role is Typically useful for effecting child windows
@@ -21,7 +21,7 @@ for_window [class="skype"] floating enable, border normal
 # Tip: To find out what these values might be run:
 #       xprop | grep -i 'role'
 
-for_window [window_role="corebird-walialu"] floating enable, border normal
+# for_window [window_role="corebird-walialu"] floating enable, border normal
 
 set $mod Mod4
 
