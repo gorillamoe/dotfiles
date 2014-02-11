@@ -1,23 +1,16 @@
 #!/bin/bash
 
-DEFAULT_SESSION="gnome"
-
 case $1 in
-    gnome)
-        xbindkeys
-        volnoti
-        setxkbmap -option caps:escape
-        exec gnome-session
-        ;;
     i3)
         xbindkeys
         volnoti
-        setxkbmap -option caps:escape
+        xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
         sh ~/.fehbg &
         exec i3
         ;;
     *)
         xbindkeys
+        xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
         exec $1
         ;;
 esac
