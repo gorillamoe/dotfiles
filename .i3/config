@@ -183,7 +183,7 @@ bar {
 # class                      border    |   background   |    text    |   indicator
 # ----------------------------------------------------------------------------
 client.focused              #444444          #222222        #EEEEEE
-client.focused_inactive     #333333          #5F676A        #EEEEEE
+client.focused_inactive     #333333          #222222        #444444
 client.urgent               #809070          #606F50        #EEEEEE
     # topbar unfocused container
 client.unfocused            #333333          #222222        #444444
