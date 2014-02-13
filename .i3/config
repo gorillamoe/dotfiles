@@ -11,9 +11,12 @@
 # for_window [class="Gloobus-preview"] floating enable, border none
 # for_window [class="Pavucontrol"] floating enable, border normal
 
-# for_window [class="Skype"] floating enable, border normal
-# for_window [class="skype"] floating enable, border normal
-
+for_window [class="Skype"] floating enable, border normal
+for_window [class="skype"] floating enable, border normal
+for_window [class="Filezilla"] floating enable, border normal
+for_window [class="filezilla"] floating enable, border normal
+for_window [class="sun-awt-X11-XFramePeer"] floating enable, border normal
+for_window [class="jd-Main"] floating enable, border normal
 # by ROLE (WM_WINDOW_ROLE)
 # Note: window_role is Typically useful for effecting child windows
 #       such as instant messaging converstations, email composition
