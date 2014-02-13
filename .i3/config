@@ -171,8 +171,8 @@ bar {
         statusline              #666666         #666666       #000000
         background              #111111
         separator               #CCCCCC
-        active_workspace        #111111         #606F50       #EEEEEE
-        focused_workspace       #444444         #222222       #EEEEEE
+        active_workspace        #111111         #606F50       #FF9000
+        focused_workspace       #444444         #222222       #FF9000
         inactive_workspace      #333333         #222222       #444444
         urgent_workspace        #2f343a         #900000       #ffffff
     }
@@ -182,7 +182,7 @@ bar {
 
 # class                      border    |   background   |    text    |   indicator
 # ----------------------------------------------------------------------------
-client.focused              #444444          #222222        #EEEEEE
+client.focused              #444444          #222222        #FF9000
 client.focused_inactive     #333333          #222222        #444444
 client.urgent               #809070          #606F50        #EEEEEE
     # topbar unfocused container
