@@ -3,9 +3,12 @@ Walialu Linux dotfiles
 
 These are my (Arch-)Linux dot(/config)-files.
 
-I am currently sporting Gnome3 with [Numix][numixlink], [Conky][conkylink] and plank,
+I am currently sporting Gnome3 with
+[Numix][numixlink],
+[Conky][conkylink] and
+[Plank][planklink],
 so the config files might be only of interest to you if you are
-sporting a similar setup (or plan to be as as cool as I am ;-)
+sporting a similar setup (or plan to be as as cool as I am 😎
 
 ![Screenshot of my setup](screenshot-001.jpg)
 
