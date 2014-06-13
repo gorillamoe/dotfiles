@@ -1,0 +1,85 @@
+#!/bin/sh
+walialu_timerStart=$(date +'%s')
+walialu_currentWoringDir=$(pwd)
+walialu_sproutDir='/home/walialu/dev/sprout/branches/onmeda.de/'
+walialu_buildOutputDir='/home/walialu/'
+cd $walialu_sproutDir
+echo '-----------------------------------------------------------------------'
+
+
+
+echo 'Removing old build.zip...'
+rm -rf build.zip
+rm -rf ${walialu_buildOutputDir}build.zip
+
+
+
+echo 'Making new build...'
+middleman build --verbose
+
+
+
+echo 'Zipping up new contents...'
+zip -rq build.zip build
+
+
+
+echo 'Truncation existing build directory...'
+rm -rf build/*
+echo ''
+echo ''
+
+
+echo '======================================================================='
+echo 'File information of the current build zip:'
+echo '======================================================================='
+echo ''
+ls -lh build.zip
+echo ''
+echo '======================================================================='
+echo ''
+echo ''
+
+
+
+echo 'Moving build.zip'
+mv build.zip ${walialu_buildOutputDir}build.zip
+
+
+
+walialu_timerEnd=$(date +'%s')
+walialu_timeElapsed=$((walialu_timerEnd - walialu_timerStart))
+printf 'This script took %s seconds to finish.\r' $walialu_timeElapsed
+echo ''
+echo ''
+
+
+
+echo -n 'Do you want to inflate the build on the remote host? (y/n)'
+read -n1 walialu_transferAndInflate
+
+if [ $walialu_transferAndInflate = "y" ];
+then
+    echo ''
+    echo ''
+    echo 'Transfering file to live server...'
+    scp ${walialu_buildOutputDir}build.zip root@192.168.32.31:/tmp
+    echo 'Starting remote script...'
+    ssh root@192.168.32.31 'sh /home/webchef/bin/install_build.sh /tmp/build.zip'
+else
+    echo ''
+    echo 'You did not want to upload and inflate the build...'
+    echo ''
+fi
+
+
+walialu_timerEndFull=$(date +'%s')
+walialu_timeElapsedFull=$((walialu_timerEndFull - walialu_timerStart))
+cd $walialu_currentWoringDir
+echo ''
+echo ''
+printf 'The whole process (included uploading the file) took %s seconds to finish.\r' $walialu_timeElapsedFull
+echo ''
+echo ''
+echo '-----------------------------------------------------------------------'
+echo ''

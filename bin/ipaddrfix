@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo ip addr add 192.168.5.206/24 dev eno1
