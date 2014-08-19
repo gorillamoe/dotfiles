@@ -1,0 +1,9 @@
+#/bin/sh
+isMuted=$(amixer get Master | grep '\[off\]' | head -1 | wc -l)
+echo isMuted
+if [ $isMuted -eq 1 ];
+then
+  volnoti-show --mute
+else
+  amixer get Master | egrep -o "[0-9]+%" | head -1 | awk '{sub(/%/,"",$1); print $1}' | xargs volnoti-show
+fi
