@@ -1,7 +1,6 @@
 loadplugins '\.(js|penta)$'
 
 set! browser.tabs.closeWindowWithLastTab=false
-set editor='gnome-terminal -e vim'
 set showtabline=multitab
 colorscheme solarized-light
 
