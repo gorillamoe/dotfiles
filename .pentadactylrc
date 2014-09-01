@@ -2,7 +2,7 @@ loadplugins '\.(js|penta)$'
 
 set! browser.tabs.closeWindowWithLastTab=false
 set showtabline=multitab
-colorscheme solarized-light
+colorscheme solarized-dark
 
 "command! -description='watch yt video in mplayer' myt js ex.run("mplayer $(youtube-dl -g --max-quality 37 \'"+content.location.href+"\') &")
 "command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $(xclip -o)) &")
