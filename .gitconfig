@@ -35,3 +35,6 @@
 	dlc = diff --cached HEAD^
 	# Diff color
 	diffc = diff --color
+
+[push]
+	default = simple
