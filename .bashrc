@@ -36,8 +36,6 @@ export EDITOR=vim
 alias tmux="tmux -2"
 alias ls='ls --color=auto'
 
-archey3
-
 function 1080p-dl () { 
     _filename=$(youtube-dl --get-filename ${1});
     youtube-dl -o 'a.m4a' -f 140 "${1}";
