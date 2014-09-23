@@ -35,6 +35,10 @@ export EDITOR=vim
 # I want it all! All colors belong to me!
 alias tmux="tmux -2"
 alias ls='ls --color=auto'
+alias grep='grep --color'
+
+alias ".."="cd .."
+
 
 function 1080p-dl () { 
     _filename=$(youtube-dl --get-filename ${1});
