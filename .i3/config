@@ -175,6 +175,9 @@ bindsym $mod+x move workspace to output right
 # finds out, if available)
 bar {
   status_command i3status
+  mode hide
+  modifier Mod4
+  hidden_state hide
   colors {
     separator #dc322f
     background #002b36
