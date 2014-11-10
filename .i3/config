@@ -11,6 +11,8 @@
 # for_window [class="Gloobus-preview"] floating enable, border none
 # for_window [class="Pavucontrol"] floating enable, border normal
 
+for_window [window_role="pop-up"] floating enable
+
 for_window [class="Skype"] floating enable, border normal
 for_window [class="skype"] floating enable, border normal
 for_window [class="sun-awt-X11-XFramePeer"] floating enable, border normal
