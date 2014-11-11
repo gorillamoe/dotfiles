@@ -73,7 +73,7 @@ case "$mimetype" in
         try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
     # Ascii-previews of images:
     image/*)
-        img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
+        python ~/.config/ranger/img_display.py "$path" && exit 4;;
     # Display information about media files:
     video/* | audio/*)
         exiftool "$path" && exit 5
