@@ -10,4 +10,21 @@ set preview_images=true
 set preview
 set preview_images true
 set preview_files true
+open_wi
+search proj
+edit 
+open_with vim
 
+w
+delete 
+search samba
+search vb
+search soft
+search bull
+search 5.1.3
+! unzip
+search sama
+search Samaba
+delete
+search marco
+bd
