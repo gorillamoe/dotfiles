@@ -191,6 +191,7 @@ bar {
   }
 }
 
+hide_edge_borders both
 
 # class                      border    |   background   |    text    |   indicator
 # ----------------------------------------------------------------------------
