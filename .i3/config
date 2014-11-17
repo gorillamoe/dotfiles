@@ -192,6 +192,7 @@ bar {
 }
 
 hide_edge_borders both
+workspace_layout tabbed
 
 # class                      border    |   background   |    text    |   indicator
 # ----------------------------------------------------------------------------
