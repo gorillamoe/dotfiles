@@ -71,9 +71,8 @@ case "$mimetype" in
     # Syntax highlight for text files:
     text/* | */xml)
         try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
-    # Ascii-previews of images:
     image/*)
-        python ~/.config/ranger/img_display.py "$path" && exit 4;;
+        ~/.config/ranger/img_display.py "$path" && exit 4;;
     # Display information about media files:
     video/* | audio/*)
         exiftool "$path" && exit 5
