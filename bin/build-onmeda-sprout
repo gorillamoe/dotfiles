@@ -15,7 +15,7 @@ rm -rf ${walialu_buildOutputDir}build.zip
 
 
 echo 'Making new build...'
-middleman build --verbose
+bundle exec middleman build --verbose
 
 
 
