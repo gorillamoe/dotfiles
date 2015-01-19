@@ -25,7 +25,7 @@ setxkbmap -option caps:escape
 export PATH=$PATH:/home/walialu/bin
 export PATH=$PATH:/opt/android-sdk/tools/
 export PATH=$PATH:/opt/android-sdk/platform-tools/
-export PATH=$PATH:/home/walialu/.gem/ruby/2.1.0/bin
+export PATH=$PATH:/home/walialu/.gem/ruby/2.2.0/bin
 
 PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;33m\]\W\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
 
@@ -38,7 +38,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color'
 
 alias ".."="cd .."
-
+alias "ll"="ls -la"
 
 function 1080p-dl () { 
     _filename=$(youtube-dl --get-filename ${1});
