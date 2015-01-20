@@ -85,7 +85,7 @@ URxvt.pointerColorForeground: #586e75
 URxvt.cursorUnderline: false
 
 URxvt*background: #fdf6e3
-URxvt*foreground: #657b83
+URxvt*foreground: #000000
 URxvt*fading: 40
 URxvt*fadeColor: #fdf6e3
 URxvt*color0: #eee8d5
