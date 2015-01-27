@@ -37,4 +37,4 @@
 	diffc = diff --color
 
 [push]
-	default = simple
+    default = nothing
