@@ -81,3 +81,24 @@ URxvt*color9:      #e9605f
 URxvt*background:  #eeeeee
 URxvt*foreground:  #444444
 URxvt*cursorColor: #000000
+
+
+xterm*color0:      #424242
+xterm*color1:      #ba3b38
+xterm*color10:     #79ab87
+xterm*color11:     #e8a410
+xterm*color12:     #98c6ef
+xterm*color13:     #e499b2
+xterm*color14:     #579e9a
+xterm*color15:     #f4f2eb
+xterm*color2:      #5d865f
+xterm*color3:      #a8814a
+xterm*color4:      #88afd4
+xterm*color5:      #cc5985
+xterm*color6:      #376360
+xterm*color7:      #d0cfca
+xterm*color8:      #5d5d5d
+xterm*color9:      #e9605f
+xterm*background:  #eeeeee
+xterm*foreground:  #444444
+xterm*cursorColor: #000000
