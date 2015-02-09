@@ -29,10 +29,6 @@ for_window [class="jd-Main"] floating enable, border normal
 set $mod Mod4
 
 #### Custom key bindings
-
-##### Lock Screen
-##### Mod + Alt_Left + L
-bindsym $mod+Mod1+l exec i3lock -u -e -i /usr/local/share/i3lock-wallpaper.png --pointer=win
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 

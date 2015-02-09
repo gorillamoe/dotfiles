@@ -27,7 +27,7 @@ export PATH=$PATH:/opt/android-sdk/tools/
 export PATH=$PATH:/opt/android-sdk/platform-tools/
 export PATH=$PATH:/home/walialu/.gem/ruby/2.2.0/bin
 
-PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;33m\]\W\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
+PS1="\[\e[00;31m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;33m\]\H\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;35m\]\W\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
 
 # I <3 ViM
 export EDITOR=vim
