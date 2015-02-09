@@ -184,7 +184,7 @@ bar {
     separator #000000
     background #111111
     statusline #ffffff
-    focused_workspace #000000 #859900 #ffffff
+    focused_workspace #000000 #287AA9 #ffffff
     active_workspace #000000 #6c71c4 #ffffff
     inactive_workspace #000000 #93a1a1 #ffffff
     urgent_workspace #000000 #d33682 #ffffff
@@ -198,7 +198,7 @@ workspace_layout tabbed
 # ----------------------------------------------------------------------------
     # topbar unfocused container
 
-client.focused #859900 #859900 #fdf6e3 #859900
+client.focused #287AA9 #287AA9 #fdf6e3 #859900
 client.focused_inactive #111111 #111111 #eee8d5 #6c71c4
 client.unfocused #111111 #111111 #555555 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
