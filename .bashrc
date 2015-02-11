@@ -18,9 +18,12 @@ rm -f /tmp/ssh-agent-$USER-tmux
   export SSH_AUTH_SOCK=$SOCK
 fi
 
+
 # Who needs capslock anyway?
 # Remap capslock to escape
 setxkbmap -option caps:escape
+
+export TERM="rxvt-unicode-256color"
 
 export PATH=$PATH:/home/walialu/bin
 export PATH=$PATH:/opt/android-sdk/tools/
