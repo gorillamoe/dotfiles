@@ -3,28 +3,28 @@
 " Mantainer: Jairo Suarez <slayerjairo@gmail.com>
 " Last Modified: 2011-11-10 19:53:34
 " Note: Based on the molokai colorscheme for vim
-" adapted from monokai theme for textmate
+"       adapted from monokai theme for textmate
 " Version: 0.1
 " Name: Molokai
 
 hi clear
 " Section: Javascript - General{{{1
-hi -a Boolean color: #AE81FF;
-hi -a Function color: #A6E22E;
-hi -a Null color: #AE81FF; font-weight: bold;
-hi -a Number color: #AE81FF;
-hi -a Object color: #66D9EF;
-hi -a String color: #E6DB74;
-hi -a Comment color: #75715E;
-hi -a Key font-weight:bold;
+hi -a Boolean   color: #AE81FF;
+hi -a Function  color: #A6E22E;
+hi -a Null      color: #AE81FF; font-weight: bold;
+hi -a Number    color: #AE81FF;
+hi -a Object    color: #66D9EF;
+hi -a String    color: #E6DB74;
+hi -a Comment   color: #75715E;
+hi -a Key       font-weight:bold;
 hi -a Indicator color: #66D9EF;
-hi -a Keyword color: #F92672;
-hi -a URL color: #AE81FF;
-hi -a URLExtra color: #BCBCBC;
-hi -a Title color: #F92672;
-hi -a Tag color: #66D9EF;
-hi -a Disabled color: #960050;
-hi -a FontCode font-family: "Consolas", "Monaco"; font-size:9pt;
+hi -a Keyword   color: #F92672;
+hi -a URL       color: #AE81FF;
+hi -a URLExtra  color: #BCBCBC;
+hi -a Title     color: #F92672;
+hi -a Tag       color: #66D9EF;
+hi -a Disabled  color: #960050;
+hi -a FontCode  font-family: "Consolas", "Monaco"; font-size:9pt;
 " Normal{{{2
 hi -a Normal background: #272822 !important;
 hi -a Normal color: #F8F8F2 !important;
@@ -93,4 +93,5 @@ hi -a HintActive background-color: #66D9EF !important; color: #F8F8F2 !important
 hi -a HintElem background-color: inherit !important;
 hi -a HintElem -moz-box-shadow: 0px 0px 2px 2px rgba(102, 217, 239, .5);
 hi -a HintImage opacity: .5;
+hi -a ScrollBar
 " -*- vim -*- vim:set ft=vim et sw=2 sts=2:
