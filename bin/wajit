@@ -1,1 +1,1 @@
-java -jar /home/walialu/apps/wajit/wajit.jar $@
+java -jar /home/walialu/Apps/wajit/wajit.jar $@

@@ -1,1 +1,1 @@
-java -jar /home/walialu/apps/waps/waps.jar $@
+java -jar /home/walialu/Apps/waps/waps.jar $@

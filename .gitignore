@@ -6,3 +6,17 @@
 .pentadactyl/info/default/registers
 .pentadactyl/info/default/url-marks
 .config/ranger/history
+.config/Trolltech.conf
+.config/VirtualBox/
+.config/chromium/
+.config/dconf/
+.config/gtk-2.0/
+.config/libreoffice/
+.config/nautilus/
+.config/pulse/
+.config/user-dirs.dirs
+.config/user-dirs.locale
+.i3status.conf
+.ssh/*_rsa
+.ssh/known_hosts
+

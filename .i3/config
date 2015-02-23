@@ -173,22 +173,24 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+x move workspace to output right
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-  status_command i3status
-  mode hide
-  modifier Mod4
-  hidden_state hide
-  colors {
-    separator #000000
-    background #111111
-    statusline #ffffff
-    focused_workspace #000000 #287AA9 #ffffff
-    active_workspace #000000 #6c71c4 #ffffff
-    inactive_workspace #000000 #93a1a1 #ffffff
-    urgent_workspace #000000 #d33682 #ffffff
-  }
+    colors {
+        # Whole color settings
+        background #000000
+        statusline #ffffff
+        separator  #666666
+
+        # Type             border  background font
+        focused_workspace  #008fff #007fff #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #aa0000 #990000 #ffffff
+    }
+    modifier Mod4
+    position bottom
+    hidden_state hide
+    mode hide
+    status_command i3status
 }
 
 hide_edge_borders both
@@ -202,3 +204,11 @@ client.focused #287AA9 #287AA9 #fdf6e3 #859900
 client.focused_inactive #111111 #111111 #eee8d5 #6c71c4
 client.unfocused #111111 #111111 #555555 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+
+# Autostart stuff
+################################################################################
+# Some applications have to launched at startup, like setting wallpaper,
+# network manager applet etc.. This can be done from config file. Official wiki
+# here.
+exec --no-startup-id ~/dev/walialu/dotfiles/bin/autostart
