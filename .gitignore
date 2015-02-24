@@ -9,6 +9,7 @@
 .config/Trolltech.conf
 .config/VirtualBox/
 .config/chromium/
+.config/Synergy
 .config/dconf/
 .config/gtk-2.0/
 .config/libreoffice/

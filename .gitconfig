@@ -38,3 +38,6 @@
 
 [push]
     default = nothing
+
+[pull]
+    default = nothing
