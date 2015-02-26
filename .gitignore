@@ -14,10 +14,12 @@
 .config/gtk-2.0/
 .config/libreoffice/
 .config/nautilus/
+.config/autostart/
 .config/pulse/
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .i3status.conf
 .ssh/*_rsa
 .ssh/known_hosts
-
+.mutt/cache/
+.mutt/certificates/
