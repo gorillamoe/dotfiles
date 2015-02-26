@@ -32,6 +32,7 @@ PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[
 # I <3 ViM
 export EDITOR=vim
 export TERM=rxvt-256color
+export BROWSER=chromium
 
 # I want it all! All colors belong to me!
 alias tmux="tmux -2"
