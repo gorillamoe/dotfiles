@@ -9,5 +9,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 xrdb -merge .Xresources
-# exec gnome-session
 exec i3
