@@ -61,7 +61,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec dmenu_run
 
 # lockscreen key-binding
-bindsym $mod+mod1+l exec i3lock
+bindsym $mod+mod1+l exec i3lock -i ~/Pictures/wallpaper.png
 
 # change focus
 bindsym $mod+h focus left
