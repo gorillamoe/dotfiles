@@ -18,6 +18,20 @@ echo 'Making new build...'
 bundle exec middleman build --verbose
 
 
+## Checking for errors in build
+build_errors=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq)
+build_errors_counter=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq | wc -l)
+
+if [ $build_errors_counter -gt 0 ];
+then
+  echo 'Errors detected..'
+  echo ''
+  echo ''
+  echo $build_errors
+  exit 1;
+fi
+
+
 
 echo 'Zipping up new contents...'
 zip -rq build.zip build

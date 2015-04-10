@@ -203,7 +203,7 @@ workspace_layout tabbed
 # ----------------------------------------------------------------------------
     # topbar unfocused container
 
-client.focused #287AA9 #287AA9 #fdf6e3 #859900
+client.focused #067996 #067996 #fdf6e3 #859900
 client.focused_inactive #111111 #111111 #eee8d5 #6c71c4
 client.unfocused #111111 #111111 #555555 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
