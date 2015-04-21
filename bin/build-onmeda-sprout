@@ -3,9 +3,12 @@ walialu_timerStart=$(date +'%s')
 walialu_currentWoringDir=$(pwd)
 walialu_sproutDir='/home/walialu/dev/sprout/branches/onmeda.de/'
 walialu_buildOutputDir='/home/walialu/'
+walialu_force_switch=0
+if [ "$1" == "-f" ];then
+  walialu_force_switch=1
+fi
 cd $walialu_sproutDir
 echo '-----------------------------------------------------------------------'
-
 
 
 echo 'Removing old build.zip...'
@@ -22,15 +25,22 @@ bundle exec middleman build --verbose
 build_errors=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq)
 build_errors_counter=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq | wc -l)
 
-if [ $build_errors_counter -gt 0 ];
-then
-  echo 'Errors detected..'
+if [ $walialu_force_switch -eq 0 ];then
+  if [ $build_errors_counter -gt 0 ];
+  then
+    echo 'Errors detected..'
+    echo ''
+    echo ''
+    echo $build_errors
+    exit 1;
+  fi
+else
   echo ''
   echo ''
-  echo $build_errors
-  exit 1;
+  echo 'Force switch activated.. not checking for errors..'
+  echo 'Hero-mode is active.. May the force be with you ..'
+  echo ''
 fi
-
 
 
 echo 'Zipping up new contents...'
