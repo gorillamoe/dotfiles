@@ -19,19 +19,18 @@ rm -f /tmp/ssh-agent-$USER-tmux
 fi
 
 # History Management
-  # avoid duplicates..
-  export HISTCONTROL=ignoredups:erasedups
-  # append history entries..
-  shopt -s histappend
-  # After each command, save and reload history
-  export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
   export HISTTIMEFORMAT='%F %T '
 
+# Various shorthand stuff
 export PATH=$PATH:/home/walialu/bin
+# Android Development and Debugging
 export PATH=$PATH:/opt/android-sdk/tools/
 export PATH=$PATH:/opt/android-sdk/platform-tools/
+# Ruby
 export PATH=$PATH:/home/walialu/.gem/ruby/2.2.0/bin
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# This is sexy, isn't it?
 PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;33m\]\W\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
 
 # I <3 ViM
@@ -66,4 +65,6 @@ function 1080p-dl () {
         && rm a.m4a v.mp4
 }
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# CommaCD
+# See: https://github.com/shyiko/commacd
+source ~/.commacd.bash

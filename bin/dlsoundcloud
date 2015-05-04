@@ -1,0 +1,15 @@
+#/bin/bash
+if [ -z "$1" ]
+  then
+    echo "Soundcloud URL must be the first argument.."
+    echo "None given!"
+    exit;
+fi
+if [ -z "$2" ]
+  then
+    DOWNLOAD_PATH=./
+else
+    DOWNLOAD_PATH=$2
+fi
+
+~/bin/soundcloud-dl/scdl -l $1 -p $DOWNLOAD_PATH

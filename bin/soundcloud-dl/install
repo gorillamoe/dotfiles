@@ -1,0 +1,52 @@
+#!/bin/bash
+# Author: FlyinGrub
+# Check my github : https://github.com/flyingrub/soundcloud-dl
+# Share it if you like ;)
+##############################################################
+echo ''
+echo ' *---------------------------------------------------------------------------*'
+echo '|                             SCDL Installer                                  |'
+echo ' *---------------------------------------------------------------------------*'
+echo ''
+
+function install() {
+    detectedOS
+
+    [[ "$platform" == 'linux'  ]] && sudo apt-get update && sudo apt-get -y install curl eyeD3
+    [[ "$platform" == 'redhat' ]] && sudo yum install curl python-eyed3
+    [[ "$platform" == 'arch'   ]] && sudo pacman -S curl python2-eyed3
+
+    if [[ "$platform" == 'darwin' ]] ; then
+        brew instal curl eyeD3
+        cp scdl /usr/local/bin/
+    else
+        sudo cp scdl /usr/bin/
+    fi
+    cp .scdl.cfg $HOME/
+}
+
+function detectedOS(){
+    unamestr=$(uname)
+    platform=$(echo "$unamestr" | tr '[:upper:]' '[:lower:]')
+    [[ -f /etc/redhat-release  ]] && platform='redhat'
+    [[ -f /etc/arch-release    ]] && platform='arch'
+}
+
+function init(){
+if [[ -f "$HOME/.scdl.cfg" ]]; then
+    read -p 'Would you like to reinstall ?\n' reinstall
+    case "$reinstall" in
+        "y")
+            echo 'Installation...' && install;;
+        "n")
+            echo 'Bye!';;
+        *)
+            echo 'Bad option' && init;;
+    esac
+else
+    echo -e 'No Config file detected... I will install scdl for you.\n'
+    install
+fi
+}
+
+init
