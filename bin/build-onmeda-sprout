@@ -1,8 +1,8 @@
 #!/bin/sh
 walialu_timerStart=$(date +'%s')
 walialu_currentWoringDir=$(pwd)
-walialu_sproutDir='/home/walialu/dev/sprout/branches/onmeda.de/'
-walialu_buildOutputDir='/home/walialu/'
+walialu_sproutDir=$HOME'/devel/sprout/branches/onmeda.de/'
+walialu_buildOutputDir=$HOME
 walialu_force_switch=0
 if [ "$1" == "-f" ];then
   walialu_force_switch=1
@@ -22,8 +22,8 @@ bundle exec middleman build --verbose
 
 
 ## Checking for errors in build
-build_errors=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq)
-build_errors_counter=$(grep -R "home/walialu" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq | wc -l)
+build_errors=$(grep -R "home/marco" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq)
+build_errors_counter=$(grep -R "home/marco" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq | wc -l)
 
 if [ $walialu_force_switch -eq 0 ];then
   if [ $build_errors_counter -gt 0 ];

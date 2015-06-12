@@ -22,13 +22,16 @@ fi
   export HISTTIMEFORMAT='%F %T '
 
 # Various shorthand stuff
-export PATH=$PATH:/home/walialu/bin
+export PATH=$PATH:$HOME/bin
 # Android Development and Debugging
 export PATH=$PATH:/opt/android-sdk/tools/
 export PATH=$PATH:/opt/android-sdk/platform-tools/
 # Ruby
-export PATH=$PATH:/home/walialu/.gem/ruby/2.2.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Go path
+export GOPATH=$HOME/apps/go
+export PATH=$PATH:$GOPATH/bin
 
 # This is sexy, isn't it?
 PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;33m\]\W\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
@@ -36,10 +39,7 @@ PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[
 # I <3 ViM
 export EDITOR=vim
 # .. and rxvt
-export TERM="rxvt-unicode-256color"
-# Go path
-export GOPATH=$HOME/apps/go
-export PATH=$PATH:$GOPATH/bin
+export TERM="xterm-256color"
 
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/chromium

@@ -35,9 +35,9 @@ bindsym $mod+minus scratchpad show
 
 
 #### Volume control
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+ unmute && /home/walialu/bin/volumeinfo
-bindsym XF86AudioLowerVolume exec amixer -q set Master 10%- unmute && /home/walialu/bin/volumeinfo
-bindsym XF86AudioMute exec amixer -q set Master toggle && /home/walialu/bin/volumeinfo
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+ unmute && ~/bin/volumeinfo
+bindsym XF86AudioLowerVolume exec amixer -q set Master 10%- unmute && ~/bin/volumeinfo
+bindsym XF86AudioMute exec amixer -q set Master toggle && ~/bin/volumeinfo
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -184,8 +184,8 @@ bar {
         separator  #666666
 
         # Type             border  background font
-        focused_workspace  #008fff #007fff #ffffff
-        active_workspace   #333333 #5f676a #ffffff
+        focused_workspace  #A6E22E #333333 #F92672
+        active_workspace   #333333 #A6E22E #ffffff
         inactive_workspace #333333 #222222 #888888
         urgent_workspace   #aa0000 #990000 #ffffff
     }
@@ -196,14 +196,14 @@ bar {
     status_command i3status
 }
 
-hide_edge_borders both
+hide_edge_borders none
 workspace_layout tabbed
 
 # class                      border    |   background   |    text    |   indicator
 # ----------------------------------------------------------------------------
     # topbar unfocused container
 
-client.focused #067996 #067996 #fdf6e3 #859900
+client.focused #A6E22E #333333 #F92672 #859900
 client.focused_inactive #111111 #111111 #eee8d5 #6c71c4
 client.unfocused #111111 #111111 #555555 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
