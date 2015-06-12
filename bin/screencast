@@ -1,0 +1,9 @@
+#!/bin/bash
+
+STAMPER=$(date +"%Y-%m-%d--%H-%M-%S")
+OUTPUT_FILE="$STAMPER".avi
+if [ ! -z "$1" ];then
+  OUTPUT_FILE=$1
+fi
+
+ffmpeg -f x11grab -show_region 1 -y -r 25 -s 1920x1080 -i :0.0+0,0 -vcodec ffv1 $OUTPUT_FILE
