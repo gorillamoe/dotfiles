@@ -62,9 +62,8 @@ URxvt.intensityStyles: false
 *pointerColorBackground: #586e75
 *pointerColorForeground: #93a1a1
 
-! http://dotshare.it/dots/169/
-URxvt*background:        #000000
-URxvt*foreground:        #cccccc
+URxvt*background: #101010
+URxvt*foreground: #d0d0d0
 URxvt*cursorColor:       #999999
 URxvt*colorBD:           #ffffff
 URxvt*colorUL:           #ffff99
@@ -98,43 +97,3 @@ URxvt*color15:         #FFFFFF
 ! ------------------------------------------------------------------------------
 ! --- end of terminal colors section -------------------------------------------
 ! ------------------------------------------------------------------------------
-
-!! source: https://github.com/spazzpp2/dotfiles/blob/29819a5ac5e451bfa39bc324378aa508ef75cae8/Molokai.xrdb
-! Molokai theme
-!URxvt*background: #101010
-!URxvt*foreground: #d0d0d0
-!URxvt*color0: #101010
-!URxvt*color1: #960050
-!URxvt*color2: #66aa11
-!URxvt*color3: #c47f2c
-!URxvt*color4: #30309b
-!URxvt*color5: #7e40a5
-!URxvt*color6: #3579a8
-!URxvt*color7: #9999aa
-!URxvt*color8: #303030
-!URxvt*color9: #ff0090
-!URxvt*color10: #80ff00
-!URxvt*color11: #ffba68
-!URxvt*color12: #5f5fee
-!URxvt*color13: #bb88dd
-!URxvt*color14: #4eb4fa
-!URxvt*color15: #d0d0d0
-!*xterm*background: #101010
-!*xterm*foreground: #d0d0d0
-!*xterm*cursorColor: #d0d0d0
-!*xterm*color0: #101010
-!*xterm*color1: #960050
-!*xterm*color2: #66aa11
-!*xterm*color3: #c47f2c
-!*xterm*color4: #30309b
-!*xterm*color5: #7e40a5
-!*xterm*color6: #3579a8
-!*xterm*color7: #9999aa
-!*xterm*color8: #303030
-!*xterm*color9: #ff0090
-!*xterm*color10: #80ff00
-!*xterm*color11: #ffba68
-!*xterm*color12: #5f5fee
-!*xterm*color13: #bb88dd
-!*xterm*color14: #4eb4fa
-!*xterm*color15: #d0d0d0

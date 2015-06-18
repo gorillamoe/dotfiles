@@ -1,111 +1,55 @@
-#!/bin/sh
+#!/bin/bash
 
-smb_username=""
-smb_password=""
-smb_host=""
-configfile=$HOME/.smbutilsrc
+SMB_HOST=""
+SMB_USERNAME=""
+SMB_PASSWORD=""
+CONFIGFILE=$HOME/smbutils.json
 
-if [ "$#" -ne 1 ] && [ "$#" -ne 2 ];
-then
-    echo "Illegal number of parameters"
-    exit
+if [ "$#" -ne 1 ]; then
+  echo "Illegal number of arguments!"
+  exit 1
 fi
 
-if [ -r $configfile ]; then
-    # check if the file contains something we don't want
-    if egrep -q -v '^#|^[^ ]*=[^;]*' "$configfile"; then
-      echo "Config file is unclean, cleaning it..." >&2
-      # filter the original to a new file
-      egrep '^#|^[^ ]*=[^;&]*'  "$configfile" > "$configfile_secured"
-      configfile="$configfile_secured"
-    fi
-
-    # now source it, either the original or the filtered variant
-    source "$configfile"
+if [ -r $CONFIGFILE ]; then
+  SMB_HOST=$(jq .host $CONFIGFILE)
+  SMB_USERNAME=$(jq .username $CONFIGFILE)
+else
+  echo "Configfile does not exist: " $CONFIGFILE
+  exit 2
 fi
 
-if [ $1 = "info" ];
-then
-    if [ $smb_username = "" ];
-    then
-        echo 'Enter Username (e.g.: koelngofeminin\\walialu)'
-        read smb_username
-    fi
 
-    if [ $smb_domain = "" ];
-    then
-        echo 'Enter Domain (e.g. koelngofeminin)'
-        read smb_domain
-    fi
 
-    if [ $smb_host = "" ];
-    then
-        echo 'Enter SMB Hostname/IP (e.g.: gofeminincloud)'
-        read smb_host
-    fi
 
-    if [ $smb_username != "" ];
-    then
-        if [ $smb_password != "" ];
-        then
-            smbclient -L //${smb_host} -U${smb_domain}\\${smb_username}
-        else
-            smbclient -L //${smb_host} -U${domain}\\${smb_username}%"${smb_password}"
-        fi
-    fi
+if [ "$1" = "list" ]; then
+  smbclient --command 'print -' --user=$SMB_USERNAME --list=$SMB_HOST
+  exit 0
 fi
 
-if [ $1 = "mount" ];
-then
-    if [ $smb_username = "" ];
-    then
-        echo 'Enter Username (e.g. walialu)'
-        read smb_username
-    fi
 
-    if [ $smb_host = "" ];
-    then
-        echo 'Enter SMB Location (e.g.: gofeminincloud/design)'
-        read smb_host
-        smb_mountpath=$HOME/SambaShares/$(echo $smb_host|cut -d'/' -f 2-)
-    else
-        if [ "$#" -ne 1 ];
-        then
-            smb_mountpoint=$2
-        else
-            echo 'Enter SMB Location (e.g.: design)'
-            read smb_mountpoint
-        fi
-        smb_mountpath=$HOME/SambaShares/$smb_mountpoint
-    fi
 
-    if [ $smb_username != "" ];
-    then
-        mkdir -p $smb_mountpath
 
-        if [ "$smb_password" = "" ];
-        then
-            sudo mount -t cifs //${smb_host}/$smb_mountpoint $smb_mountpath -o username=${smb_username}
-        else
-            sudo mount -t cifs //${smb_host}/$smb_mountpoint $smb_mountpath -o username=${smb_username},password="${smb_password}"
-        fi
-    fi
+if [ "$1" = "mount" ]; then
+  echo 'Enter SMB Location (e.g.: design): '
+  read SMB_MOUNTPOINT
+  SMB_MOUNTPATH=$HOME/SambaUtils/$SMB_MOUNTPOINT
+  mkdir -p $SMB_MOUNTPATH
+  sudo mount -t cifs //${SMB_HOST}/$SMB_MOUNTPOINT $SMB_MOUNTPATH -o username=${SMB_USERNAME}
 fi
 
-if [ $1 = "unmount" ] || [ $1 = "umount" ];
-then
-    if [ "$#" -ne 1 ];
-    then
-        smb_mountpoint=$2
-    else
-        echo 'Enter Mountpoint (e.g.: design)'
-        read smb_mountpoint
-    fi
-    smb_mountpath=$HOME/SambaShares/$smb_mountpoint
-    sudo umount $smb_mountpath
+
+
+
+if [ "$1" = "unmount" ] || [ $1 = "umount" ]; then
+  echo 'Enter Mountpoint (e.g.: design)'
+  read SMB_MOUNTPOINT
+    SMB_MOUNTPATH=$HOME/SambaUtils/$SMB_MOUNTPOINT
+    sudo umount $SMB_MOUNTPATH
 fi
 
-if [ $1 = "mounthelp" ];
-then
-    echo 'https://wiki.archlinux.de/title/Laufwerk_als_User_mounten#Mit_sudo'
+
+
+
+if [ "$1" = "help" ]; then
+  echo 'https://wiki.archlinux.de/title/Laufwerk_als_User_mounten#Mit_sudo'
 fi

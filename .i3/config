@@ -214,4 +214,4 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 # Some applications have to launched at startup, like setting wallpaper,
 # network manager applet etc.. This can be done from config file. Official wiki
 # here.
-exec --no-startup-id ~/dev/walialu/dotfiles/bin/autostart
+exec --no-startup-id ~/devel/babbafresh/dotfiles/bin/autostart

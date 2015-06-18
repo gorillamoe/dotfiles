@@ -2,7 +2,7 @@
 walialu_timerStart=$(date +'%s')
 walialu_currentWoringDir=$(pwd)
 walialu_sproutDir=$HOME'/devel/sprout/branches/onmeda.de/'
-walialu_buildOutputDir=$HOME
+walialu_buildOutputDir=$HOME/
 walialu_force_switch=0
 if [ "$1" == "-f" ];then
   walialu_force_switch=1
