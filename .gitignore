@@ -8,6 +8,7 @@
 .config/ranger/history
 .config/
 !.config/ranger
+.config/ranger/history
 .i3status.conf
 .ssh/*_rsa
 .ssh/known_hosts
