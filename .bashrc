@@ -7,6 +7,7 @@
 # Start ssh-agent with x session
 # (bound to session -> max one per session)
 alias startx='ssh-agent startx'
+/usr/bin/xrdb -merge $HOME/.Xresources
 
 # Predictable SSH authentication socket location.
 # http://qq.is/article/ssh-keys-through-screen
@@ -34,12 +35,12 @@ export GOPATH=$HOME/apps/go
 export PATH=$PATH:$GOPATH/bin
 
 # This is sexy, isn't it?
-PS1="\[\e[00;37m\][\[\e[0m\]\[\e[00;35m\]\u\[\e[0m\]\[\e[00;32m\]@\[\e[0m\]\[\e[00;36m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;33m\]\W\[\e[0m\]\[\e[00;37m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
+PS1="\[\e[01;48m\][\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;36m\]@\[\e[0m\]\[\e[01;35m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;00m\]\W\[\e[0m\]\[\e[01;48m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
 
 # I <3 ViM
 export EDITOR=vim
 # .. and rxvt
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/chromium

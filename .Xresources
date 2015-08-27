@@ -55,45 +55,23 @@ URxvt.cursorUnderline: false
 
 URxvt.intensityStyles: false
 
-!!Source http://github.com/altercation/solarized
 
-!!*fading: 40
-*fadeColor: #002b36
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
+URxvt*foreground: black
+URxvt*background: white
 
-URxvt*background: #101010
-URxvt*foreground: #d0d0d0
-URxvt*cursorColor:       #999999
-URxvt*colorBD:           #ffffff
-URxvt*colorUL:           #ffff99
-
-!BLK
-URxvt*color0:           #666666
-URxvt*color8:           #999999
-!RED
-URxvt*color1:          #CC6699
-URxvt*color9:         #FF99CC
-!GRN
-URxvt*color2:           #99CC66
-URxvt*color10:         #CCFF99
-!YEL
-URxvt*color3:          #CC9966
-URxvt*color11:         #FFCC99
-!BLU
-URxvt*color4:          #6699CC
-URxvt*color12:         #99CCFF
-!MAG
-URxvt*color5:           #9966CC
-URxvt*color13:          #CC99FF
-!CYN
-URxvt*color6:          #66CC99
-URxvt*color14:         #99FFCC
-!WHT
-URxvt*color7:          #CCCCCC
-URxvt*color15:         #FFFFFF
-
-
-! ------------------------------------------------------------------------------
-! --- end of terminal colors section -------------------------------------------
-! ------------------------------------------------------------------------------
+URxvt*color0:  #2E3436
+URxvt*color1:  #a40000
+URxvt*color2:  #4E9A06
+URxvt*color3:  #C4A000
+URxvt*color4:  #3465A4
+URxvt*color5:  #75507B
+URxvt*color6:  #ce5c00
+URxvt*color7:  #babdb9
+URxvt*color8:  #555753
+URxvt*color9:  #EF2929
+URxvt*color10: #8AE234
+URxvt*color11: #FCE94F
+URxvt*color12: #729FCF
+URxvt*color13: #AD7FA8
+URxvt*color14: #fcaf3e
+URxvt*color15: #EEEEEC
