@@ -56,8 +56,8 @@ URxvt.cursorUnderline: false
 URxvt.intensityStyles: false
 
 
-URxvt*foreground: black
-URxvt*background: white
+URxvt*foreground: white
+URxvt*background: #121212
 
 URxvt*color0:  #2E3436
 URxvt*color1:  #a40000
