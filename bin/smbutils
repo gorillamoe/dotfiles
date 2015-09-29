@@ -11,8 +11,8 @@ if [ "$#" -ne 1 ]; then
 fi
 
 if [ -r $CONFIGFILE ]; then
-  SMB_HOST=$(jq .host $CONFIGFILE)
-  SMB_USERNAME=$(jq .username $CONFIGFILE)
+  SMB_HOST=$(jq .host $CONFIGFILE | tr -d '"')
+  SMB_USERNAME=$(jq .username $CONFIGFILE | tr -d '"')
 else
   echo "Configfile does not exist: " $CONFIGFILE
   exit 2
@@ -32,6 +32,7 @@ fi
 if [ "$1" = "mount" ]; then
   echo 'Enter SMB Location (e.g.: design): '
   read SMB_MOUNTPOINT
+  echo ${SMB_HOST}
   SMB_MOUNTPATH=$HOME/SambaUtils/$SMB_MOUNTPOINT
   mkdir -p $SMB_MOUNTPATH
   sudo mount -t cifs //${SMB_HOST}/$SMB_MOUNTPOINT $SMB_MOUNTPATH -o username=${SMB_USERNAME}

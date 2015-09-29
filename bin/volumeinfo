@@ -1,5 +1,5 @@
 #/bin/sh
-VOL=$(amixer get Master | grep Left: | sed 's|[^[]*\[\([0-9]*\).*|\1|')
+VOL=$(amixer get Master | grep Mono: | sed 's|[^[]*\[\([0-9]*\).*|\1|')
 [[ $(amixer get Master | grep "\[off\]") ]] && volnoti-show -m $VOL && exit
 volnoti-show $VOL
   # amixer get Master | egrep -o "[0-9]+%" | head -1 | awk '{sub(/%/,"",$1); print $1}' | xargs volnoti-show
