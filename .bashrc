@@ -37,6 +37,11 @@ export PATH=$PATH:$GOPATH/bin
 # This is sexy, isn't it?
 PS1="\[\e[01;48m\][\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;36m\]@\[\e[0m\]\[\e[01;35m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;00m\]\W\[\e[0m\]\[\e[01;48m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
 
+# Saves a lot of tab presses for me!
+# Found here:
+# http://stackoverflow.com/questions/8917480/bash-completion-how-to-get-rid-of-unneeded-tab-presses
+bind 'set show-all-if-ambiguous on'
+
 # I <3 ViM
 export EDITOR=vim
 # .. and rxvt
