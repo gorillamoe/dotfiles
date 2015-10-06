@@ -1,0 +1,40 @@
+#!/bin/bash
+x1="/*="
+x2="|| #"
+x3="\\*="
+
+CURRENT_DIR=`pwd`
+
+if [ -z $1 ]; then
+  echo "First argument needs point to the input directory."
+  exit 1
+fi
+if [ -z $2 ]; then
+  echo "Second argument needs point to the output directory."
+  exit 2
+fi
+
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+
+if [ ! -d "$OUTPUT_DIR" ]; then
+  mkdir -p $OUTPUT_DIR
+  if [ $? -eq 0 ]; then
+    echo ".. created output directory .."
+  else
+    echo ".. output directory does not exist .."
+    echo ".. tried to create the specified directory, but failed.. "
+    echo ".. probably you lack the required permissions.. "
+    exit 3
+  fi
+fi
+
+cp -r $INPUT_DIR/. $OUTPUT_DIR
+
+cd $INPUT_DIR
+
+for file in $(find * -type f -name "*.php");
+  do fgrep -v -e "$x1" -e "$x2" -e "$x3" "$file" >"${OUTPUT_DIR}/${file%.*}.php"
+done
+
+cd $CURRENT_DIR
