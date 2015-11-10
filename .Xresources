@@ -46,32 +46,45 @@ URxvt.perl-ext-common: default,matcher,font-size
 URxvt.matcher.button: 1
 URxvt.url-launcher: chromium
 
-URxvt.pointerColorBackground: #93a1a1
-URxvt.pointerColorForeground: #586e75
-URxvt.pointerBlank: true
-URxvt.cursorBlink: true
-URxvt.cursorColor: #586e75
-URxvt.cursorUnderline: false
-
 URxvt.intensityStyles: false
 
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-URxvt*foreground: white
-URxvt*background: #121212
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
-URxvt*color0:  #2E3436
-URxvt*color1:  #a40000
-URxvt*color2:  #4E9A06
-URxvt*color3:  #C4A000
-URxvt*color4:  #3465A4
-URxvt*color5:  #75507B
-URxvt*color6:  #ce5c00
-URxvt*color7:  #babdb9
-URxvt*color8:  #555753
-URxvt*color9:  #EF2929
-URxvt*color10: #8AE234
-URxvt*color11: #FCE94F
-URxvt*color12: #729FCF
-URxvt*color13: #AD7FA8
-URxvt*color14: #fcaf3e
-URxvt*color15: #EEEEEC
+URxvt*background:            S_base3
+URxvt*foreground:            S_base00
+URxvt*fadeColor:             S_base3
+URxvt*cursorColor:           S_base01
+URxvt*pointerColorBackground:S_base1
+URxvt*pointerColorForeground:S_base01
+URxvt*color0:                S_base02
+URxvt*color8:                S_base03
+URxvt*color1:                S_red
+URxvt*color9:                S_orange
+URxvt*color2:                S_green
+URxvt*color10:               S_base01
+URxvt*color3:                S_yellow
+URxvt*color11:               S_base00
+URxvt*color4:                S_blue
+URxvt*color12:               S_base0
+URxvt*color5:                S_magenta
+URxvt*color13:               S_violet
+URxvt*color6:                S_cyan
+URxvt*color14:               S_base1
+URxvt*color7:                S_base2
+URxvt*color15:               S_base3
