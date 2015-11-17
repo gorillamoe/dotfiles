@@ -45,42 +45,31 @@ URxvt.matcher.button: 1
 URxvt.url-launcher: chromium
 
 URxvt.intensityStyles: false
-! Molokai theme
-URxvt*background: #101010
-URxvt*foreground: #d0d0d0
-URxvt*color0: #101010
-URxvt*color1: #960050
-URxvt*color2: #66aa11
-URxvt*color3: #c47f2c
-URxvt*color4: #30309b
-URxvt*color5: #7e40a5
-URxvt*color6: #3579a8
-URxvt*color7: #9999aa
-URxvt*color8: #303030
-URxvt*color9: #ff0090
-URxvt*color10: #80ff00
-URxvt*color11: #ffba68
-URxvt*color12: #5f5fee
-URxvt*color13: #bb88dd
-URxvt*color14: #4eb4fa
-URxvt*color15: #d0d0d0
 
-*xterm*background: #101010
-*xterm*foreground: #d0d0d0
-*xterm*cursorColor: #d0d0d0
-*xterm*color0: #101010
-*xterm*color1: #960050
-*xterm*color2: #66aa11
-*xterm*color3: #c47f2c
-*xterm*color4: #30309b
-*xterm*color5: #7e40a5
-*xterm*color6: #3579a8
-*xterm*color7: #9999aa
-*xterm*color8: #303030
-*xterm*color9: #ff0090
-*xterm*color10: #80ff00
-*xterm*color11: #ffba68
-*xterm*color12: #5f5fee
-*xterm*color13: #bb88dd
-*xterm*color14: #4eb4fa
-*xterm*color15: #d0d0d0
+! Wombat Colors
+URxvt*foreground: rgb:ff/ff/ff
+URxvt*background: rgb:16/16/16
+!black
+URxvt*color0: rgb:16/16/16
+URxvt*color8: rgb:85/7B/6F
+!red
+URxvt*color1: rgb:e5/78/6d
+URxvt*color9: rgb:9d/2a/3a
+!green
+URxvt*color2: rgb:ca/e6/82
+URxvt*color10: rgb:8b/be/34
+!brown/yellow
+URxvt*color3: rgb:ff/e1/61
+URxvt*color11: rgb:ff/c4/42
+!blue
+URxvt*color4: rgb:52/83/d7
+URxvt*color12: rgb:3b/5d/9a
+!magenta
+URxvt*color5: rgb:b6/98/d9
+URxvt*color13: rgb:a5/7a/c4
+!cyan
+URxvt*color6: rgb:a8/c6/f2
+URxvt*color14: rgb:5d/a7/e1
+!white
+URxvt*color7: rgb:f6/f3/e8
+URxvt*color15: rgb:d3/d7/cf
