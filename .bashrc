@@ -57,6 +57,7 @@ fi
 # I want it all! All colors belong to me!
 alias 'tmux'='tmux -2'
 alias 'ls'='ls --color=auto'
+alias 'lsd'='ls -1 -d --color=auto */'
 alias 'll'='ls -la'
 alias '..'='cd ..'
 alias 'fuck'='$(thefuck $(fc -ln -1))'
