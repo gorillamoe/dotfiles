@@ -43,7 +43,7 @@ PS1="\[\e[01;48m\][\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;36m\]@\[\e[0m\]\[\e[
 bind 'set show-all-if-ambiguous on'
 
 # I <3 ViM
-export EDITOR=vim
+export EDITOR=nvim
 # .. and rxvt
 export TERM="screen-256color"
 
@@ -55,6 +55,8 @@ if [ -n "$DISPLAY" ];then
 fi
 
 # I want it all! All colors belong to me!
+alias 'vim'='nvim'
+alias 'vi'='nvim'
 alias 'tmux'='tmux -2'
 alias 'ls'='ls --color=auto'
 alias 'lsd'='ls -1 -d --color=auto */'
