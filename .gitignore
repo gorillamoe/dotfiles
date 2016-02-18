@@ -5,10 +5,11 @@
 .pentadactyl/info/default/register-ring
 .pentadactyl/info/default/registers
 .pentadactyl/info/default/url-marks
-.config/ranger/history
 .config/
-!.config/ranger
-.config/ranger/history
+!.config/ranger/bookmarks
+!.config/ranger/img_display.py
+!.config/ranger/scope.sh
+!.config/ranger/rc.conf
 .i3status.conf
 .ssh/*_rsa
 .ssh/known_hosts
