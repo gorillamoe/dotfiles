@@ -28,7 +28,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/opt/android-sdk/tools/
 export PATH=$PATH:/opt/android-sdk/platform-tools/
 # Ruby
-export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Go path
 export GOPATH=$HOME/apps/go
