@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $HOME/apps/autocomp
+java -jar autocomp.jar 2>&1 debug.log &
