@@ -6,8 +6,9 @@
 #   COMMACD_NOTTY - set it to "on" when you want to suppress user input (= print multiple matches and exit)
 #   COMMACD_NOFUZZYFALLBACK - set it to "on" if you don't want commacd to use "fuzzy matching" as a fallback for
 #     "no matches by prefix" (introduced in 0.2.0)
+#   COMMACD_SEQSTART - set it to 1 if you want "multiple choices" to start from 1 instead of 0
 #
-# @version 0.2.1
+# @version 0.3.2
 # @author Stanley Shyiko <stanley.shyiko@gmail.com>
 # @license MIT
 
@@ -22,7 +23,7 @@ _commacd_join() { local IFS="$1"; shift; echo "$*"; }
 _commacd_expand() ( shopt -s extglob nullglob; local ex=($1); printf "%s\n" "${ex[@]}"; )
 
 _command_cd() {
-  local dir=$1
+  local dir=$1 IFS=$' \t\n'
   if [[ -z "$COMMACD_CD" ]]; then
     builtin cd "$dir" && pwd
   else
@@ -34,12 +35,12 @@ _command_cd() {
 _commacd_choose_match() {
   local matches=("$@")
   for i in "${!matches[@]}"; do
-    printf "%s\t%s\n" "$i" "${matches[$i]}" >&2
+    printf "%s\t%s\n" "$((i+${COMMACD_SEQSTART:-0}))" "${matches[$i]}" >&2
   done
   local selection;
   read -e -p ': ' selection >&2
   if [[ -n "$selection" ]]; then
-    echo -n "${matches[$selection]}"
+    echo -n "${matches[$((selection-${COMMACD_SEQSTART:-0}))]}"
   else
     echo -n "$PWD"
   fi
@@ -92,7 +93,7 @@ _commacd_forward() {
 
 # search backward for the vcs root (`,,`)
 _commacd_backward_vcs_root() {
-  local dir="$PWD"
+  local dir="${PWD%/*}"
   while [[ ! -d "$dir/.git" && ! -d "$dir/.hg" && ! -d "$dir/.svn" ]]; do
     dir="${dir%/*}"
     if [[ -z "$dir" ]]; then
@@ -186,6 +187,10 @@ _commacd_backward_forward() {
   _command_cd "$dir"
 }
 
+_commacd_completion_invalid() {
+  if [[ "$2" == "$PWD" || "${2// /\\ }" == "$1" ]]; then return 0; else return 1; fi
+}
+
 _commacd_completion() {
   local pattern=${COMP_WORDS[COMP_CWORD]} IFS=$'\n'
   # shellcheck disable=SC2088
@@ -194,8 +199,13 @@ _commacd_completion() {
     pattern=$(echo ~/"${pattern:2}")
   fi
   local completion=($(COMMACD_NOTTY=on $1 "$pattern"))
-  if [[ "$completion" == "$PWD" || "${completion// /\\ }" == "$pattern" ]]; then
-    return
+  if _commacd_completion_invalid "$pattern" "$completion"; then
+    pattern="$pattern?"
+    # retry with ? matching
+    completion=($(COMMACD_NOTTY=on $1 "$pattern"))
+    if _commacd_completion_invalid "$pattern" "$completion"; then
+      return
+    fi
   fi
   # remove trailing / (if any)
   for i in "${!completion[@]}"; do
