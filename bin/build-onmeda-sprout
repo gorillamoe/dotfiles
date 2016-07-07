@@ -1,19 +1,19 @@
 #!/bin/sh
-walialu_timerStart=$(date +'%s')
-walialu_currentWoringDir=$(pwd)
-walialu_sproutDir=$HOME'/devel/sprout/branches/onmeda.de/'
-walialu_buildOutputDir=$HOME/
-walialu_force_switch=0
+A1D_timerStart=$(date +'%s')
+A1D_currentWoringDir=$(pwd)
+A1D_sproutDir=$HOME'/Code/sprout/branches/onmeda.de/'
+A1D_buildOutputDir=$HOME/
+A1D_force_switch=0
 if [ "$1" == "-f" ];then
-  walialu_force_switch=1
+  A1D_force_switch=1
 fi
-cd $walialu_sproutDir
+cd $A1D_sproutDir
 echo '-----------------------------------------------------------------------'
 
 
 echo 'Removing old build.zip...'
 rm -rf build.zip
-rm -rf ${walialu_buildOutputDir}build.zip
+rm -rf ${A1D_buildOutputDir}build.zip
 
 
 
@@ -25,7 +25,7 @@ bundle exec middleman build --verbose
 build_errors=$(grep -R "home/marco" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq)
 build_errors_counter=$(grep -R "home/marco" build/ | egrep "\.css|\.js" | cut -f1 -d":" | uniq | wc -l)
 
-if [ $walialu_force_switch -eq 0 ];then
+if [ $A1D_force_switch -eq 0 ];then
   if [ $build_errors_counter -gt 0 ];
   then
     echo 'Errors detected..'
@@ -67,29 +67,29 @@ echo ''
 
 
 echo 'Moving build.zip'
-mv build.zip ${walialu_buildOutputDir}build.zip
+mv build.zip ${A1D_buildOutputDir}build.zip
 
 
 
-walialu_timerEnd=$(date +'%s')
-walialu_timeElapsed=$((walialu_timerEnd - walialu_timerStart))
-printf 'This script took %s seconds to finish.\r' $walialu_timeElapsed
+A1D_timerEnd=$(date +'%s')
+A1D_timeElapsed=$((A1D_timerEnd - A1D_timerStart))
+printf 'This script took %s seconds to finish.\r' $A1D_timeElapsed
 echo ''
 echo ''
 
 
 
 echo -n 'Do you want to inflate the build on the remote host? (y/n)'
-read -n1 walialu_transferAndInflate
+read -n1 A1D_transferAndInflate
 
-if [ $walialu_transferAndInflate = "y" ];
+if [ $A1D_transferAndInflate = "y" ];
 then
     echo ''
     echo ''
     echo 'Transfering file to live server...'
-    scp ${walialu_buildOutputDir}build.zip root@192.168.32.31:/tmp
+    scp ${A1D_buildOutputDir}build.zip root@192.168.32.33:/tmp
     echo 'Starting remote script...'
-    ssh root@192.168.32.31 'sh /home/webchef/bin/install_build.sh /tmp/build.zip'
+    ssh root@192.168.32.33 'sh /home/webchef/bin/install_build.sh /tmp/build.zip'
 else
     echo ''
     echo 'You did not want to upload and inflate the build...'
@@ -97,12 +97,12 @@ else
 fi
 
 
-walialu_timerEndFull=$(date +'%s')
-walialu_timeElapsedFull=$((walialu_timerEndFull - walialu_timerStart))
-cd $walialu_currentWoringDir
+A1D_timerEndFull=$(date +'%s')
+A1D_timeElapsedFull=$((A1D_timerEndFull - A1D_timerStart))
+cd $A1D_currentWoringDir
 echo ''
 echo ''
-printf 'The whole process (included uploading the file) took %s seconds to finish.\r' $walialu_timeElapsedFull
+printf 'The whole process (included uploading the file) took %s seconds to finish.\r' $A1D_timeElapsedFull
 echo ''
 echo ''
 echo '-----------------------------------------------------------------------'
