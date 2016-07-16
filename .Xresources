@@ -49,11 +49,11 @@ URxvt.intensityStyles: false
 #define S_base03        #002b36
 #define S_base02        #062531
 #define S_base01        #19cf86
-#define S_base00        #000000
+#define S_base00        #ffffff
 #define S_base0         #1b95e0
 #define S_base1         #91d2fa
 #define S_base2         #ddd7c4
-#define S_base3         #ffffff
+#define S_base3         #000000
 
 URxvt*background:            S_base3
 URxvt*foreground:            S_base00
