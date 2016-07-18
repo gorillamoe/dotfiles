@@ -65,8 +65,8 @@ URxvt*pointerColorForeground:S_base01
 #define S_yellow        #000000
 #define S_orange        #ff691f
 #define S_red           #e81c4f
-#define S_magenta       #981ceb
-#define S_violet        #981ceb
+#define S_magenta       #ba3eff
+#define S_violet        #ba3eff
 #define S_blue          #1b95e0
 #define S_cyan          #91d2fa
 #define S_green         #19cf86
