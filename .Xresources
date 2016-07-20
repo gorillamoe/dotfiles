@@ -62,7 +62,7 @@ URxvt*cursorColor:           S_base01
 URxvt*pointerColorBackground:S_base1
 URxvt*pointerColorForeground:S_base01
 
-#define S_yellow        #000000
+#define S_yellow        #fab81e
 #define S_orange        #ff691f
 #define S_red           #e81c4f
 #define S_magenta       #ba3eff
