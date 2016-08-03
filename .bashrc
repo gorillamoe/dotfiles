@@ -63,7 +63,7 @@ alias 'lsd'='ls -1 -d --color=auto */'
 alias 'll'='ls -la'
 alias '..'='cd ..'
 alias 'fuck'='$(thefuck $(fc -ln -1))'
-alias 'grep'='grep -r --color'
+alias 'grep'='grep --color'
 
 function 1080p-dl () { 
     _filename=$(youtube-dl --get-filename ${1});
