@@ -1,3 +1,4 @@
 ao=alsa
 nolirc=1
 msgcolor=1
+msglevel=all=-1:statusline=5:cplayer=5
