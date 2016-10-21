@@ -26,7 +26,7 @@ URxvt.internalBorder: 3
 URxvt.lineSpace: 0
 
 ! Fonts
-URxvt*.font: xft:Source\ Code\ Pro\ for\ Powerline:Light:size=9
+URxvt*.font: xft:Source\ Code\ Pro\ for\ Powerline:Light:size=14
 
 ! Scrollbar
 URxvt.scrollStyle: rxvt
@@ -46,59 +46,41 @@ URxvt.url-launcher: chromium
 
 URxvt.intensityStyles: false
 
-#define S_base03        #002b36
-#define S_base02        #062531
-#define S_base01        #19cf86
-#define S_base00        #ffffff
-#define S_base0         #1b95e0
-#define S_base1         #91d2fa
-#define S_base2         #ddd7c4
-#define S_base3         #000000
-
-URxvt*background:            S_base3
-URxvt*foreground:            S_base00
-URxvt*fadeColor:             S_base3
-URxvt*cursorColor:           S_base01
-URxvt*pointerColorBackground:S_base1
-URxvt*pointerColorForeground:S_base01
-
-#define S_yellow        #de9b00
-#define S_orange        #ff691f
-#define S_red           #e81c4f
-#define S_magenta       #ba3eff
-#define S_violet        #ba3eff
-#define S_blue          #1b95e0
-#define S_cyan          #91d2fa
-#define S_green         #19cf86
+urxvt.background:            #000000
+urxvt.foreground:            #ffffff
+urxvt.fadeColor:             #000000
+urxvt.cursorColor:           #19cf86
+urxvt.pointerColorBackground:#91d2fa
+urxvt.pointerColorForeground:#19cf86
 
 !! black dark/light
-URxvt*color0:                S_base02
-URxvt*color8:                S_base03
+urxvt.color0:                #062531
+urxvt.color8:                #002b36
 
 !! red dark/light
-URxvt*color1:                S_red
-URxvt*color9:                S_orange
+urxvt.color1:                #e81c4f
+urxvt.color9:                #ff691f
 
 !! green dark/light
-URxvt*color2:                S_green
-URxvt*color10:               S_base01
+urxvt.color2:                #19cf86
+urxvt.color10:               #19cf86
 
 !! yellow dark/light
-URxvt*color3:                S_yellow
-URxvt*color11:               S_base00
+urxvt.color3:                #de9b00
+urxvt.color11:               #ffffff
 
 !! blue dark/light
-URxvt*color4:                S_blue
-URxvt*color12:               S_base0
+urxvt.color4:                #1b95e0
+urxvt.color12:               #1b95e0
 
 !! magenta dark/light
-URxvt*color5:                S_magenta
-URxvt*color13:               S_violet
+urxvt.color5:                #ba3eff
+urxvt.color13:               #ba3eff
 
 !! cyan dark/light
-URxvt*color6:                S_cyan
-URxvt*color14:               S_base1
+urxvt.color6:                #91d2fa
+urxvt.color14:               #91d2fa
 
 !! white dark/light
-URxvt*color7:                S_base2
-URxvt*color15:               S_base3
+urxvt.color7:                #ddd7c4
+urxvt.color15:               #000000
