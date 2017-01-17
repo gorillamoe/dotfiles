@@ -10,13 +10,12 @@ alias startx='ssh-agent startx'
 /usr/bin/xrdb -merge $HOME/.Xresources
 
 # Predictable SSH authentication socket location.
-# http://qq.is/article/ssh-keys-through-screen
-SOCK="/tmp/ssh-agent-$USER-screen"
-if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
-then
-rm -f /tmp/ssh-agent-$USER-tmux
-  ln -sf $SSH_AUTH_SOCK $SOCK
-  export SSH_AUTH_SOCK=$SOCK
+# https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+  eval "$(<~/.ssh-agent-thing)" &>/dev/null
 fi
 
 # History Management
