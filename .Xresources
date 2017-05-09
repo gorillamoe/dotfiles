@@ -44,43 +44,41 @@ URxvt.perl-ext-common: default,matcher,font-size
 URxvt.matcher.button: 1
 URxvt.url-launcher: chromium
 
-URxvt.intensityStyles: false
+urxvt*foreground: white
+urxvt*background: black
+urxvt*transparent: true
+urxvt*shading: 15
 
-urxvt.background:            #000000
-urxvt.foreground:            #ffffff
-urxvt.fadeColor:             #000000
-urxvt.cursorColor:           #19cf86
-urxvt.pointerColorBackground:#91d2fa
-urxvt.pointerColorForeground:#19cf86
+urxvt.color0:  #2E3436
+urxvt.color1:  #a40000
+urxvt.color2:  #4E9A06
+urxvt.color3:  #C4A000
+urxvt.color4:  #3465A4
+urxvt.color5:  #75507B
+urxvt.color6:  #ce5c00
+urxvt.color7:  #babdb9
+urxvt.color8:  #555753
+urxvt.color9:  #EF2929
+urxvt.color10: #8AE234
+urxvt.color11: #FCE94F
+urxvt.color12: #729FCF
+urxvt.color13: #AD7FA8
+urxvt.color14: #fcaf3e
+urxvt.color15: #EEEEEC
 
-!! black dark/light
-urxvt.color0:                #062531
-urxvt.color8:                #002b36
-
-!! red dark/light
-urxvt.color1:                #e81c4f
-urxvt.color9:                #ff691f
-
-!! green dark/light
-urxvt.color2:                #19cf86
-urxvt.color10:               #19cf86
-
-!! yellow dark/light
-urxvt.color3:                #de9b00
-urxvt.color11:               #ffffff
-
-!! blue dark/light
-urxvt.color4:                #1b95e0
-urxvt.color12:               #1b95e0
-
-!! magenta dark/light
-urxvt.color5:                #ba3eff
-urxvt.color13:               #ba3eff
-
-!! cyan dark/light
-urxvt.color6:                #91d2fa
-urxvt.color14:               #91d2fa
-
-!! white dark/light
-urxvt.color7:                #ddd7c4
-urxvt.color15:               #000000
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
