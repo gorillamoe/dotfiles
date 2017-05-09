@@ -1,4 +1,4 @@
-Walialu Linux dotfiles
+emkae's linux dotfiles
 ======================
 
 These are my (Arch-)Linux dot(/config)-files.
