@@ -1,0 +1,63 @@
+#!/bin/bash
+check_bin_avail(){
+  command -v $1 >/dev/null 2>&1 || { echo >&2 "$1 required, but it's not installed.  Aborting."; exit 1; }
+}
+
+show_usage(){
+  echo "Usage:"
+  echo " video2gif inputfile.mp4 outputfile.gif [optional looping count, defaults to 0 (infinity)]"
+}
+
+main(){
+  check_bin_avail "ffmpeg"
+  check_bin_avail "convert"
+  local OPTS_INPUT_FILE=$1
+  local OPTS_OUTPUT_FILE=$2
+  local OPTS_LOOP=0
+  local OPTS_SCALE=640
+  local OPTS_DELAY=20
+  local OPTS_FPS_VALUE=5
+
+  # Use -gt 1 to consume two arguments per pass in the loop (e.g. each
+  # argument has a corresponding value to go with it).
+  # Use -gt 0 to consume one or more arguments per pass in the loop (e.g.
+  # some arguments don't have a corresponding value to go with it such
+  # as in the --default example).
+  # note: if this is set to -gt 0 the /etc/hosts part is not recognized ( may be a bug )
+    while [[ $# -gt 1 ]]; do
+    key="$1"
+    case $key in
+        -e|--extension)
+        EXTENSION="$2"
+        shift # past argument
+        ;;
+        -s|--searchpath)
+        SEARCHPATH="$2"
+        shift # past argument
+        ;;
+        -l|--lib)
+        LIBPATH="$2"
+        shift # past argument
+        ;;
+        --default)
+        DEFAULT=YES
+        ;;
+        *)
+        # unknown option
+        ;;
+    esac
+    shift # past argument or value
+  done
+
+  if [ ! -n "$1" ]; then show_usage; exit 2; fi
+  if [ ! -n "$2" ]; then show_usage; exit 3; fi
+
+  if [ -n "$3" ]; then OPTS_LOOP=$(( $3 * -1 )); fi
+  if [ -n "$4" ]; then OPTS_SCALE=$4; fi
+  if [ -n "$5" ]; then OPTS_DELAY=$(( 100 / $5 )); OPTS_FPS_VALUE=$5; fi
+
+  ffmpeg -i $OPTS_INPUT_FILE -vf scale=$OPTS_SCALE:-1 -r $OPTS_FPS_VALUE -f image2pipe -vcodec ppm - | \
+    convert -delay $OPTS_DELAY -loop $OPTS_LOOP - $OPTS_OUTPUT_FILE
+}
+
+main $#
