@@ -77,3 +77,5 @@ function 1080p-dl () {
 # CommaCD
 # See: https://github.com/shyiko/commacd
 source ~/.commacd.bash
+alias t='todo.sh -d ~/.todo.cfg'
+export TODOTXT_DEFAULT_ACTION=ls
