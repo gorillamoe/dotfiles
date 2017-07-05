@@ -12,6 +12,7 @@
 !.config/ranger/rc.conf
 .i3status.conf
 .ssh/*_rsa
+.ssh/*_rsa.pub
 .ssh/known_hosts
 .mutt/cache/
 .mutt/certificates/
