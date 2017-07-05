@@ -24,14 +24,16 @@ fi
 # Various shorthand stuff
 export PATH=$PATH:$HOME/bin
 # Android Development and Debugging
-export PATH=$PATH:/opt/android-sdk/tools/
-export PATH=$PATH:/opt/android-sdk/platform-tools/
+export PATH=$PATH:$HOME/Android/Sdk/tools
+export PATH=$PATH:$HOME/Android/Sdk/platform-tools
 # Ruby
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Go path
 export GOPATH=$HOME/apps/go
 export PATH=$PATH:$GOPATH/bin
+# PHP Composer Executables Path
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # This is sexy, isn't it?
 PS1="\[\e[01;48m\][\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;36m\]@\[\e[0m\]\[\e[01;35m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;00m\]\W\[\e[0m\]\[\e[01;48m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
@@ -79,3 +81,15 @@ function 1080p-dl () {
 source ~/.commacd.bash
 alias t='todo.sh -d ~/.todo.cfg'
 export TODOTXT_DEFAULT_ACTION=ls
+
+# Auto CD into directory by typing its name
+# Source: https://apple.stackexchange.com/questions/55412/cd-to-a-directory-by-typing-its-name
+shopt -s autocd
+
+# Gets the last downloaded file
+# Source: http://blog.jpalardy.com/posts/get-your-last-downloaded-file/
+ldf() {  # stands for "last downloaded file"
+  local file=~/Downloads/$(ls -1t ~/Downloads/ | head -n1)
+  read -p "confirm: $file "
+  mv "$file" .
+}
