@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Usage:
+#
+# run-when-changed /path/to/file/that/can/change.txt "command-to-be executed"
+#
+# A real world example might look like this:
+#
+# run-when-changed src/sass/unetz.sass "sass src/sass/unetz.sass:dist/css/style.css"
+#
+#
+# I know that sass has this built-in, but I can't think about another good
+# example that everyone out there groks immediately.
+
+main() {
+  local LTIME
+  LTIME=$(stat -c %Z "$1")
+  while true
+  do
+    local ATIME
+    ATIME=$(stat -c %Z "$1")
+    if [[ "$ATIME" != "$LTIME" ]]; then
+      echo "$2"
+      eval "$2"
+      local LTIME=$ATIME
+    fi
+    sleep 2
+  done
+}
+
+main "$1" "$2"
