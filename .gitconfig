@@ -3,6 +3,9 @@
 	email = walialu@users.noreply.github.com
 	signingkey = BE278ACC70E46EDE
 
+[core]
+        autocrlf = input
+
 [color]
 	status = auto
 
