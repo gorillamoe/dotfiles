@@ -1,0 +1,6 @@
+[user]
+        name = Marco Kellershoff
+        email = marco.kellershoff@gofeminin.de
+	signingkey = 95C582E82F2DCF19A6833CFD2594C0F6BA4FD7B2
+[commit]
+        gpgsign = true

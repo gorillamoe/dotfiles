@@ -1,47 +1,49 @@
 [user]
-	name = Marco Kellershoff
-	email = walialu@users.noreply.github.com
-	signingkey = BE278ACC70E46EDE
+        name = Marco Kellershoff
+        email = marco.kellershoff@gmail.com
 
-[core]
-        autocrlf = input
+[includeIf "gitdir:~/Code/gofeminin.de"]
+[includeIf "gitdir:~/Code/onmeda.de"]
+[includeIf "gitdir:~/www/backend.onmeda.de"]
+[includeIf "gitdir:~/www/onmeda.de"]
+        path = ~/.gitconfig-work
 
 [color]
-	status = auto
+        status = auto
 
 [color "status"]
-	added = green
-	changed = blue
-	untracked = magenta
-	deleted = red
+        added = green
+        changed = blue
+        untracked = magenta
+        deleted = red
 
 [alias]
-	# git co
-	st = status
-	# git co
-	co = checkout
-	# git commit
-	ci = commit
-	# List commits showing changed files is invoked with git ll and looks like
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	# List with no colors if you need to chain the out put with Unix pipes:
-	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-	# List oneline commits showing dates
-	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	# List oneline commits showing relative dates
-	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-	# see all the commits related to a file, with the diff of the changes
-	filelog = log -u
-	fl = log -u
-	# Show modified files in last commit:
-	dl = "!git ll -1"
-	# Show a diff last commit:
-	dlc = diff --cached HEAD^
-	# Diff color
-	diffc = 'git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+        # git co
+        st = status
+        # git co
+        co = checkout
+        # git commit
+        ci = commit
+        # List commits showing changed files is invoked with git ll and looks like
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        # List with no colors if you need to chain the out put with Unix pipes:
+        lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+        # List oneline commits showing dates
+        lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+        # List oneline commits showing relative dates
+        ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+        # see all the commits related to a file, with the diff of the changes
+        filelog = log -u
+        fl = log -u
+        # Show modified files in last commit:
+        dl = "!git ll -1"
+        # Show a diff last commit:
+        dlc = diff --cached HEAD^
+        # Diff color
+        diffc = 'git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
 
 [push]
-	default = nothing
+        default = nothing
 
 [pull]
-	default = nothing
+        default = nothing
