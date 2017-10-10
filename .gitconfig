@@ -1,6 +1,10 @@
 [user]
         name = Marco Kellershoff
         email = marco.kellershoff@gmail.com
+        signingkey = 444B07DA30AF7D2F65DA417BBE278ACC70E46EDE
+
+[commit]
+        gpgsign = true
 
 [includeIf "gitdir:~/Code/gofeminin.de"]
 [includeIf "gitdir:~/Code/onmeda.de"]
