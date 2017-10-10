@@ -36,7 +36,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # This is sexy, isn't it?
-PS1="\[\e[01;48m\][\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;36m\]@\[\e[0m\]\[\e[01;35m\]\h\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[00;00m\]\W\[\e[0m\]\[\e[01;48m\]]\[\e[0m\]\[\e[00;31m\]\\$\[\e[0m\] "
+PS1="\[\033[38;5;2m\]\w: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
 
 # Saves a lot of tab presses for me!
 # Found here:
@@ -59,12 +59,9 @@ fi
 alias 'vim'='nvim'
 alias 'vi'='nvim'
 alias 'tmux'='tmux -2'
-alias 'ls'='ls --color=auto'
-alias 'lsd'='ls -1 -d --color=auto */'
 alias 'll'='ls -la'
 alias '..'='cd ..'
 alias 'fuck'='$(thefuck $(fc -ln -1))'
-alias 'grep'='grep --color'
 
 function 1080p-dl () { 
     _filename=$(youtube-dl --get-filename ${1});
@@ -89,7 +86,9 @@ shopt -s autocd
 # Gets the last downloaded file
 # Source: http://blog.jpalardy.com/posts/get-your-last-downloaded-file/
 ldf() {  # stands for "last downloaded file"
-  local file=~/Downloads/$(ls -1t ~/Downloads/ | head -n1)
+  local file=$HOME/Downloads/$(/usr/bin/ls -1t ~/Downloads/ | head -n1)
   read -p "confirm: $file "
   mv "$file" .
 }
+
+alias ls=exa
