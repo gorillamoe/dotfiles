@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+
+send_command(){
+        if [[ -z $1 ]]; then
+                exit 1
+        fi
+        local user="mkellershoff"
+        local server="192.168.32.67"
+        ssh $user@$server "sudo $1"
+}
+
+main(){
+        if [[ -z $1 ]]; then
+                exit 2
+        fi
+        local domain=$1
+        send_command "rndc reload $domain."
+        send_command "rndc retransfer $domain."
+        send_command "rndc reload $domain."
+        send_command "rndc reload $domain."
+        send_command "rndc retransfer $domain."
+}
+main "$1"
