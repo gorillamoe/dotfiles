@@ -1,15 +1,18 @@
 [user]
         name = Marco Kellershoff
-        email = marco.kellershoff@gmail.com
+	email = marco.kellershoff@gmail.com
         signingkey = 444B07DA30AF7D2F65DA417BBE278ACC70E46EDE
 
 [commit]
         gpgsign = true
 
-[includeIf "gitdir:~/Code/gofeminin.de"]
-[includeIf "gitdir:~/Code/onmeda.de"]
-[includeIf "gitdir:~/www/backend.onmeda.de"]
-[includeIf "gitdir:~/www/onmeda.de"]
+[includeIf "gitdir:~/Code/gofeminin.de/"]
+        path = ~/.gitconfig-work
+[includeIf "gitdir:~/Code/onmeda.de/"]
+        path = ~/.gitconfig-work
+[includeIf "gitdir:/www/backend.onmeda.de/"]
+        path = ~/.gitconfig-work
+[includeIf "gitdir:/www/onmeda.de/"]
         path = ~/.gitconfig-work
 
 [color]
