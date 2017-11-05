@@ -1,8 +1,7 @@
 #/bin/sh
 
 # Simple Symlink-Script by Marco Kellershoff
-# emkae.net
-# mnmlst.org
+# walialu.com
 # Feel free to grab it and modify it without any restrictions!
 
 EXCLUDED_FILES=("." ".." ".git" ".gitignore" "setup.sh" "readme.markdown")
@@ -13,7 +12,7 @@ contains_element () {
   return 0
 }
 
-WORKING_DIR=`pwd`
+WORKING_DIR=$(pwd)
 
 for file in `ls -a1`; do
     contains_element "$file" "${EXCLUDED_FILES[@]}";
