@@ -16,9 +16,13 @@ main(){
         fi
         local domain=$1
         send_command "rndc reload $domain."
+        sleep 5
         send_command "rndc retransfer $domain."
+        sleep 5
         send_command "rndc reload $domain."
+        sleep 5
         send_command "rndc reload $domain."
+        sleep 5
         send_command "rndc retransfer $domain."
 }
 main "$1"
