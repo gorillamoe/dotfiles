@@ -27,8 +27,8 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/Android/Sdk/tools
 export PATH=$PATH:$HOME/Android/Sdk/platform-tools
 # Ruby
-export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+ # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 # Go path
 export GOPATH=$HOME/apps/go
 export PATH=$PATH:$GOPATH/bin
@@ -44,7 +44,7 @@ PS1="\[\033[38;5;2m\]\w: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
 bind 'set show-all-if-ambiguous on'
 
 # I <3 ViM
-export EDITOR=nvim
+export EDITOR=vim
 # .. and rxvt
 export TERM="screen-256color"
 
@@ -56,8 +56,6 @@ if [ -n "$DISPLAY" ];then
 fi
 
 # I want it all! All colors belong to me!
-alias 'vim'='nvim'
-alias 'vi'='nvim'
 alias 'tmux'='tmux -2'
 alias 'll'='ls -la'
 alias '..'='cd ..'
