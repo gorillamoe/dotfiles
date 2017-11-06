@@ -1,159 +1,67 @@
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-Xft.dpi: 96
-Xft.antialias: true
-Xft.rgba: rgb
-Xft.hinting: true
-Xft.hintstyle: hintslight
-
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
-
 URxvt*termName: rxvt
-URxvt.depth: 16
-URxvt.geometry: 90x30
-URxvt.transparent: false
-URxvt.fading: 0
-URxvt.loginShell: true
+URxvt*depth: 24
+URxvt*geometry: 90x30
+URxvt*transparent: false
+URxvt*fading: 0
+URxvt*loginShell: true
 ! scrollback buffer lines - 65535 is max on most machines (64 is default)
 URxvt*saveLines: 65535
-URxvt.internalBorder: 3
-URxvt.lineSpace: 0
+URxvt*internalBorder: 3
+URxvt*lineSpace: 0
 
 ! Fonts
-URxvt*.font: xft:Source\ Code\ Pro\ for\ Powerline:Light:size=10
+URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:Light:size=12
 
 ! Scrollbar
-URxvt.scrollStyle: rxvt
-URxvt.scrollBar: false
+URxvt*scrollBar: false
 
 ! Change font-size on the fly
 ! https://github.com/majutsushi/urxvt-font-size
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.C-Left:   perl:font-size:reset
-URxvt.keysym.C-Right:  perl:font-size:reset
+URxvt*keysym.C-Up:     perl:font-size:increase
+URxvt*keysym.C-Down:   perl:font-size:decrease
+URxvt*keysym.C-Left:   perl:font-size:reset
+URxvt*keysym.C-Right:  perl:font-size:reset
 
 ! Perl extensions
-URxvt.perl-ext-common: default,matcher,font-size
-URxvt.matcher.button: 1
-URxvt.url-launcher: chromium
+URxvt*perl-ext-common: default,matcher,font-size
+URxvt*matcher.button: 1
+URxvt*url-launcher: google-chrome-stable
+URxvt*intensityStyles: false
 
-urxvt*foreground: white
-urxvt*background: black
-urxvt*transparent: true
-urxvt*shading: 15
+! special
+URxvt*foreground:   #ABB2BF
+URxvt*background:   #282C34
+URxvt*cursorColor:  #ABB2BF
 
-! colors
-urxvt*.cursorColor:  #b3bdcb
-*.cursorColor:  #b3bdcb
-urxvt*.background: #404552
-*.background: #404552
-urxvt*.foreground: #b3bdcb
-*.foreground: #b3bdcb
-! Black + DarkGrey
-urxvt*.color0:  #404552
-*.color0:  #404552
-urxvt*.color8:  #2a303b
-*.color8:  #2a303b
-! DarkRed + Red
-urxvt*.color1:  #cc575d
-*.color1:  #cc575d
-urxvt*.color9:  #a3464a
-*.color9:  #a3464a
-! DarkGreen + Green
-urxvt*.color2:  #2679db
-*.color2:  #2679db
-urxvt*.color10: #75a9e8
-*.color10: #75a9e8
-! DarkYellow + Yellow
-urxvt*.color3:  #b3bdcb
-*.color3:  #b3bdcb
-urxvt*.color11: #CAD1DB
-*.color11: #CAD1DB
-! DarkBlue + Blue
-urxvt*.color4:  #5294e2
-*.color4:  #5294e2
-urxvt*.color12: #97bfee
-*.color12: #97bfee
-! DarkMagenta + Magenta
-urxvt*.color5:  #404552
-*.color5:  #404552
-urxvt*.color13: #686d79
-*.color13: #686d79
-! DarkCyan + Cyan
-urxvt*.color6:  #b3bdcb
-*.color6:  #b3bdcb
-urxvt*.color14: #383c4a
-*.color14: #383c4a
-! LightGrey + White
-urxvt*.color7:  #E1E5EA
-*.color7:  #E1E5EA
-urxvt*.color15: #ffffff
-*.color15: #ffffff
-! for 256 color stuff
-urxvt*.color24:  #076678
-*.color24:  #076678
-urxvt*.color66:  #427b58
-*.color66:  #427b58
-urxvt*.color88:  #9d0006
-*.color88:  #9d0006
-urxvt*.color96:  #8f3f71
-*.color96:  #8f3f71
-urxvt*.color100: #79740e
-*.color100: #79740e
-urxvt*.color108: #8ec07c
-*.color108: #8ec07c
-urxvt*.color109: #83a598
-*.color109: #83a598
-urxvt*.color130: #af3a03
-*.color130: #af3a03
-urxvt*.color136: #b57614
-*.color136: #b57614
-urxvt*.color142: #b8bb26
-*.color142: #b8bb26
-urxvt*.color167: #fb4934
-*.color167: #fb4934
-urxvt*.color175: #d3869b
-*.color175: #d3869b
-urxvt*.color208: #fe8019
-*.color208: #fe8019
-urxvt*.color214: #fabd2f
-*.color214: #fabd2f
-urxvt*.color223: #ebdbb2
-*.color223: #ebdbb2
-urxvt*.color228: #f4e8ba
-*.color228: #f4e8ba
-urxvt*.color229: #fdf4c1
-*.color229: #fdf4c1
-urxvt*.color230: #ffffc8
-*.color230: #ffffc8
-urxvt*.color234: #1d2021
-*.color234: #1d2021
-urxvt*.color235: #404552
-*.color235: #404552
-urxvt*.color236: #32302f
-*.color236: #32302f
-urxvt*.color237: #3c3836
-*.color237: #3c3836
-urxvt*.color239: #504945
-*.color239: #504945
-urxvt*.color241: #665c54
-*.color241: #665c54
-urxvt*.color243: #7c6f64
-*.color243: #7c6f64
-urxvt*.color244: #928374
-*.color244: #928374
-urxvt*.color245: #928374
-*.color245: #928374
-urxvt*.color246: #a89984
-*.color246: #a89984
-urxvt*.color248: #bdae93
-*.color248: #bdae93
-urxvt*.color250: #d5c4a1
-*.color250: #d5c4a1
+! black
+URxvt*color0:       #282C34
+URxvt*color8:       #3E4452
+
+! red
+URxvt*color1:       #E06C75
+URxvt*color9:       #BE5046
+
+! green
+URxvt*color2:       #98C379
+URxvt*color10:      #98C379
+
+! yellow
+URxvt*color3:       #E5C07B
+URxvt*color11:      #D19A66
+
+! blue
+URxvt*color4:       #61AFEF
+URxvt*color12:      #61AFEF
+
+! magenta
+URxvt*color5:       #C678DD
+URxvt*color13:      #C678DD
+
+! cyan
+URxvt*color6:       #56B6C2
+URxvt*color14:      #56B6C2
+
+! white
+URxvt*color7:       #ABB2BF
+URxvt*color15:      #5C6370
+
