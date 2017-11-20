@@ -7,7 +7,6 @@
 # Start ssh-agent with x session
 # (bound to session -> max one per session)
 alias startx='ssh-agent startx'
-/usr/bin/xrdb -merge $HOME/.Xresources
 
 # Predictable SSH authentication socket location.
 # https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
@@ -43,10 +42,12 @@ PS1="\[\033[38;5;2m\]\w: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
 # http://stackoverflow.com/questions/8917480/bash-completion-how-to-get-rid-of-unneeded-tab-presses
 bind 'set show-all-if-ambiguous on'
 
-# I <3 ViM
-export EDITOR=vim
+# I <3 Neovim
+export EDITOR=nvim
+alias vim=nvim
+alias vi=nvim
 # .. and rxvt
-export TERM="screen-256color"
+#export TERM="screen-256color"
 
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/chromium
