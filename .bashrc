@@ -25,6 +25,8 @@ export PATH=$PATH:$HOME/bin
 # Android Development and Debugging
 export PATH=$PATH:$HOME/Android/Sdk/tools
 export PATH=$PATH:$HOME/Android/Sdk/platform-tools
+# Add yarn binaries
+export PATH=$PATH:$HOME/.yarn/bin
 # Ruby
  # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
