@@ -3,6 +3,9 @@
 	email = marco.kellershoff@gmail.com
         signingkey = 444B07DA30AF7D2F65DA417BBE278ACC70E46EDE
 
+[credential]
+	helper = gnome-keyring
+
 [commit]
         gpgsign = true
 
