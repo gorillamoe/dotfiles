@@ -29,12 +29,18 @@ export PATH=$PATH:$HOME/Android/Sdk/platform-tools
 export PATH=$PATH:$HOME/.yarn/bin
 # Ruby
  # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 # Go path
 export GOPATH=$HOME/apps/go
 export PATH=$PATH:$GOPATH/bin
 # PHP Composer Executables Path
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+
+if hash archey3 2>/dev/null; then
+        archey3
+fi
 
 # This is sexy, isn't it?
 PS1="\[\033[38;5;2m\]\w: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
