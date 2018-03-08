@@ -39,7 +39,7 @@
         # List with no colors if you need to chain the out put with Unix pipes:
         lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
         # List oneline commits showing dates
-        lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+        lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local --date=format:'%Y-%m-%d %H:%M:%S'
         # List oneline commits showing relative dates
         ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
         # see all the commits related to a file, with the diff of the changes
@@ -51,9 +51,15 @@
         dlc = diff --cached HEAD^
         # Diff color
         diffc = 'git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+        # git lds --show-signature with optional limit ( like `git log -3`)
+        # Just do `git sig` for the most recent one or `git log 7` for the 7
+        # most recent ones.
+        sig = "!f() { if [[ ! -z $1 ]]; then git lds --show-signature -$1; else git lds --show-signature -1; fi; }; f"
 
 [push]
         default = nothing
 
 [pull]
         default = nothing
+[merge]
+	conflictstyle = diff3
