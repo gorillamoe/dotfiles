@@ -55,6 +55,7 @@
         # Just do `git sig` for the most recent one or `git log 7` for the 7
         # most recent ones.
         sig = "!f() { if [[ ! -z $1 ]]; then git lds --show-signature -$1; else git lds --show-signature -1; fi; }; f"
+        soc = log --show-signature -n 1
 
 [push]
         default = nothing
