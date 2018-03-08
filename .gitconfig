@@ -1,10 +1,10 @@
 [user]
         name = Marco Kellershoff
-	email = marco.kellershoff@gmail.com
+        email = marco.kellershoff@gmail.com
         signingkey = 444B07DA30AF7D2F65DA417BBE278ACC70E46EDE
 
 [credential]
-	helper = gnome-keyring
+        helper = gnome-keyring
 
 [commit]
         gpgsign = true
@@ -62,4 +62,5 @@
 [pull]
         default = nothing
 [merge]
-	conflictstyle = diff3
+        conflictstyle = diff3
+
