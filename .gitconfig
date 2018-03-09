@@ -9,15 +9,6 @@
 [commit]
         gpgsign = true
 
-[includeIf "gitdir:~/Code/gofeminin.de/"]
-        path = ~/.gitconfig-work
-[includeIf "gitdir:~/Code/onmeda.de/"]
-        path = ~/.gitconfig-work
-[includeIf "gitdir:/www/backend.onmeda.de/"]
-        path = ~/.gitconfig-work
-[includeIf "gitdir:/www/onmeda.de/"]
-        path = ~/.gitconfig-work
-
 [color]
         status = auto
 
