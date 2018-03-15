@@ -47,6 +47,9 @@
         # most recent ones.
         sig = "!f() { if [[ ! -z $1 ]]; then git lds --show-signature -$1; else git lds --show-signature -1; fi; }; f"
         soc = log --show-signature -n 1
+        # This is what git blame should look like in the first place
+        # bbl stands for better blame
+        bbl = log -p -M --follow --stat --show-signature --
 
 [push]
         default = nothing
