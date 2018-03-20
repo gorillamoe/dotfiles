@@ -1,0 +1,36 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DEFAULT_GOPATH="/go"
+
+print_help() {
+        echo -ne "Usage:\n\n\
+        setgopath reset\n\
+        Resets \$GOPATH to $DEFAULT_GOPATH\n\n\
+        setgopath add\n\
+        Sets \$GOPATH to \$GOPATH:\$(pwd)\n\n\
+        setgopath\n\
+        Sets \$GOPATH to \$(pwd)\
+        \n\n"
+}
+
+main() {
+        if [[ $# == 0 ]]; then
+                export GOPATH=$(pwd)
+        else
+                if [[ $1 == "reset" ]]; then
+                        export GOPATH=$DEFAULT_GOPATH
+                fi
+                if [[ $1 == "add" ]]; then
+                        export GOPATH=$DEFAULT_GOPATH:$(pwd)
+                fi
+                if [[ $1 == "help" ]]; then
+                        print_help
+                fi
+        fi
+        echo -ne "\$GOPATH set to: $GOPATH\n\n"
+}
+
+main "$@"
+
