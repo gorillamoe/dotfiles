@@ -37,7 +37,15 @@ export GOPATH=/go
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # This is sexy, isn't it?
-PS1="\[\033[38;5;2m\]\w: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
+function color_my_prompt {
+        local defaults="\[\033[38;5;2m\]: )"
+        local git_branch_color="\[\033[31m\]"
+        local git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+        local last_color="\[\033[00m\]"
+        export PS1="$defaults$git_branch_color$__git_branch$last_color "
+}
+#PS1="\[\033[38;5;2m\]: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
+color_my_prompt
 
 # Saves a lot of tab presses for me!
 # Found here:
@@ -64,7 +72,7 @@ alias 'll'='ls -la'
 alias '..'='cd ..'
 alias 'fuck'='$(thefuck $(fc -ln -1))'
 
-function 1080p-dl () { 
+function 1080p-dl () {
     _filename=$(youtube-dl --get-filename ${1});
     youtube-dl -o 'a.m4a' -f 140 "${1}";
     youtube-dl -o 'v.mp4' -f 137 "${1}";
