@@ -42,7 +42,7 @@ function color_my_prompt {
         local git_branch_color="\[\033[31m\]"
         local git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
         local last_color="\[\033[00m\]"
-        export PS1="$defaults$git_branch_color$__git_branch$last_color "
+        export PS1="$defaults$git_branch_color$git_branch$last_color "
 }
 #PS1="\[\033[38;5;2m\]: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
 color_my_prompt
