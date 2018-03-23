@@ -37,15 +37,7 @@ export GOPATH=/go
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # This is sexy, isn't it?
-function color_my_prompt {
-        local defaults="\[\033[38;5;2m\]: )"
-        local git_branch_color="\[\033[31m\]"
-        local git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
-        local last_color="\[\033[00m\]"
-        export PS1="$defaults$git_branch_color$git_branch$last_color "
-}
-#PS1="\[\033[38;5;2m\]: ) \[\033[38;5;15m\]\[$(tput sgr0)\]"
-color_my_prompt
+source $HOME/.sexy-ps1.bash
 
 # Saves a lot of tab presses for me!
 # Found here:
