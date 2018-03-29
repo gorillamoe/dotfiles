@@ -18,12 +18,18 @@ print_help() {
 main() {
         if [[ $# == 0 ]]; then
                 export GOPATH=$(pwd)
+                export GOBIN=$GOPATH/bin
+                export PATH=$PATH:$GOBIN
         else
                 if [[ $1 == "reset" ]]; then
                         export GOPATH=$DEFAULT_GOPATH
+                        export GOBIN=$GOPATH/bin
+                        export PATH=$PATH:$GOBIN
                 fi
                 if [[ $1 == "add" ]]; then
                         export GOPATH=$DEFAULT_GOPATH:$(pwd)
+                        export GOBIN=$GOPATH/bin
+                        export PATH=$PATH:$GOBIN
                 fi
                 if [[ $1 == "help" ]]; then
                         print_help
