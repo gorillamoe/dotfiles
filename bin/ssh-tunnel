@@ -49,9 +49,9 @@ write_pid_file() {
         local ports=$3
         local gateway=$4
         local command=$5
-        local unixtimestamp=$(date +%s)
+        local uuid=$(date +%s%N)
         local pid_file_contents=$(make_pid_file "$user" "$host" "$ports" "$gateway" "$command")
-        echo "$pid_file_contents" > $SSH_TUNNELS_PID_DIR/$unixtimestamp
+        echo "$pid_file_contents" > $SSH_TUNNELS_PID_DIR/$uuid
 }
 
 make_pid_file() {
@@ -80,6 +80,14 @@ get_pid_value() {
 get_proccess_info_by_pid() {
         local command="$(get_pid_value "$1" "command")"
         ps aux | grep "$command" | head -1
+}
+
+kill_all() {
+        local pid
+        for pid in $(list_add_pid_files); do
+                kill_pid "$pid"
+        done
+
 }
 
 kill_pid() {
@@ -123,6 +131,15 @@ add_tunnel() {
         write_pid_file "$user" "$1" "$2" "$3" "ssh -f -N -L ${ports[0]}:$1:${ports[1]} $3"
 }
 
+add_file() {
+        local line
+        while IFS="\n" read -r line || [[ -n "$line" ]]; do
+                if [[ "${line:0:1}" != "#" ]]; then
+                        add_tunnel $line
+                fi
+        done < "$1"
+}
+
 setup() {
         if [[ ! -d $SSH_TUNNELS_PID_DIR ]]; then
                 mkdir $SSH_TUNNELS_PID_DIR
@@ -143,12 +160,20 @@ main() {
                 kill_pid "$2"
                 exit
         fi
+        if [[ $# == 1 ]] && [[ $1 == "killall" ]]; then
+                kill_all
+                exit
+        fi
         if [[ $# == 3 ]] && [[ $1 == "get" ]]; then
                 get_pid_value "$2" "$3"
                 exit
         fi
         if [[ $# == 4 ]] && [[ $1 == "add" ]]; then
                 add_tunnel "$2" "$3" "$4"
+                exit
+        fi
+        if [[ $# == 2 ]] && ([[ $1 == "addfile" ]] || [[ $1 == "addall" ]] || [[ $1 == "file" ]]); then
+                add_file "$2"
                 exit
         fi
         if [[ $# == 1 ]] && ( [[ $1 == "ls" ]] || [[ $1 == "list" ]] ); then
