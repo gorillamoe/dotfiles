@@ -33,6 +33,9 @@ URxvt.url-launcher: /usr/bin/xdg-open
 URxvt*matcher.button: 1
 URxvt*intensityStyles: false
 
+! Fix emacs style shell navigation
+xterm*eightBitInput: false
+
 ! special
 URxvt*foreground:   #ABB2BF
 URxvt*background:   #282C34
