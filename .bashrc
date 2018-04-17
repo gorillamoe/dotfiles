@@ -50,8 +50,8 @@ bind 'set show-all-if-ambiguous on'
 export EDITOR=nvim
 alias vim=nvim
 alias vi=nvim
-# .. and rxvt
-#export TERM="screen-256color"
+# .. and xterm
+export TERM="xterm"
 
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/google-chrome-stable
