@@ -54,7 +54,7 @@ alias vi=nvim
 #export TERM="screen-256color"
 
 if [ -n "$DISPLAY" ];then
-  export BROWSER=/usr/bin/chromium
+  export BROWSER=/usr/bin/google-chrome-stable
   # Who needs capslock anyway?
   # Remap capslock to escape
   setxkbmap -option caps:escape
