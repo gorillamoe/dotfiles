@@ -51,7 +51,7 @@ export EDITOR=nvim
 alias vim=nvim
 alias vi=nvim
 # .. and xterm
-export TERM="xterm"
+export TERM="xterm-256color"
 
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/google-chrome-stable
