@@ -21,7 +21,7 @@ fi
   export HISTTIMEFORMAT='%F %T '
 
 # Various shorthand stuff
-export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.mylocalbin
 # Android Development and Debugging
 export PATH=$PATH:$HOME/Android/Sdk/tools
 export PATH=$PATH:$HOME/Android/Sdk/platform-tools
