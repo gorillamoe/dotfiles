@@ -50,6 +50,9 @@
         # This is what git blame should look like in the first place
         # bbl stands for better blame
         bbl = log -p -M --follow --stat --show-signature --
+        # shorthands for git add -p (patch)
+        patch = add -p
+        yank = add -p
 
 [push]
         default = nothing
