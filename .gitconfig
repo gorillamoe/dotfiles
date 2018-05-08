@@ -53,6 +53,7 @@
         # shorthands for git add -p (patch)
         patch = add -p
         yank = add -p
+        yy = add -p
 
 [push]
         default = nothing
