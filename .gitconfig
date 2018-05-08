@@ -63,3 +63,5 @@
 [merge]
         conflictstyle = diff3
 
+[core]
+	whitespace = -blank-at-eof
