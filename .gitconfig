@@ -38,6 +38,8 @@
         fl = log -u
         # Show modified files in last commit:
         dl = "!git ll -1"
+        # Show a cached diff:
+        dc = diff --cached
         # Show a diff last commit:
         dlc = diff --cached HEAD^
         # Diff color
