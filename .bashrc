@@ -94,4 +94,9 @@ ldf() {  # stands for "last downloaded file"
   mv "$file" .
 }
 
+switch_kubeconfig() {
+        local kubeconfig_path=$(realpath $1)
+        export KUBECONFIG=$kubeconfig_path
+}
+
 alias ls=exa
