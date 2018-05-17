@@ -32,7 +32,7 @@ export PATH=$PATH:$HOME/.yarn/bin
 export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 # Go path
-export GOPATH=/go
+export GOPATH=$HOME/Code/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOBIN"
 # PHP Composer Executables Path
