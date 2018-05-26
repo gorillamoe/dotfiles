@@ -19,10 +19,14 @@
         deleted = red
 
 [alias]
-        # git co
+        # git status
         st = status
+        # git branch
+        b = branch
         # git co
         co = checkout
+        # git checkout -b
+        cob = checkout -b
         # git commit
         ci = commit
         # List commits showing changed files is invoked with git ll and looks like
@@ -38,6 +42,8 @@
         fl = log -u
         # Show modified files in last commit:
         dl = "!git ll -1"
+        # Show diff
+        d = diff
         # Show a cached diff:
         dc = diff --cached
         # Show a diff last commit:
