@@ -1,7 +1,7 @@
 #/bin/sh
 
 # Simple Symlink-Script by Marco Kellershoff
-# walialu.com
+# about.walialu.com
 # Feel free to grab it and modify it without any restrictions!
 
 EXCLUDED_FILES=("." ".." ".git" ".gitignore" "setup.sh" "readme.markdown")
