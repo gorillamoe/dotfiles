@@ -20,6 +20,7 @@ fi
 # History Management
   export HISTTIMEFORMAT='%F %T '
 
+export EDITOR=nvim
 # Various shorthand stuff
 export PATH=$PATH:$HOME/.mylocalbin
 # Android Development and Debugging
@@ -46,11 +47,6 @@ source $HOME/.sexy-ps1.bash
 # http://stackoverflow.com/questions/8917480/bash-completion-how-to-get-rid-of-unneeded-tab-presses
 bind 'set show-all-if-ambiguous on'
 
-# I <3 Neovim
-export EDITOR=nvim
-alias vim=nvim
-alias vi=nvim
-# .. and xterm
 export TERM="xterm-256color"
 
 if [ -n "$DISPLAY" ];then
@@ -59,12 +55,6 @@ if [ -n "$DISPLAY" ];then
   # Remap capslock to escape
   setxkbmap -option caps:escape
 fi
-
-# I want it all! All colors belong to me!
-alias 'tmux'='tmux -2'
-alias 'll'='ls -la'
-alias '..'='cd ..'
-alias 'fuck'='$(thefuck $(fc -ln -1))'
 
 function 1080p-dl () {
     _filename=$(youtube-dl --get-filename ${1});
@@ -79,7 +69,6 @@ function 1080p-dl () {
 # CommaCD
 # See: https://github.com/shyiko/commacd
 source ~/.commacd.bash
-alias t='todo.sh -d ~/.todo.cfg'
 export TODOTXT_DEFAULT_ACTION=ls
 
 # Auto CD into directory by typing its name
@@ -99,4 +88,4 @@ switch_kubeconfig() {
         export KUBECONFIG=$kubeconfig_path
 }
 
-alias ls=exa
+source $HOME/.bash_aliases
