@@ -10,6 +10,7 @@
 !.config/ranger/img_display.py
 !.config/ranger/scope.sh
 !.config/ranger/rc.conf
+!.config/trizen/trizen.conf
 .i3status.conf
 .ssh/*_rsa
 .ssh/*_rsa.pub
