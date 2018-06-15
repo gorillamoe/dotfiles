@@ -2,7 +2,6 @@ alias ip='ip --color'
 alias ipb='ip --color --brief'
 alias ls='exa'
 alias yaourt='trizen'
-alias cd=','
 
 # I <3 Neovim
 alias vim=nvim
