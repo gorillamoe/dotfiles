@@ -1,7 +1,7 @@
 #/bin/sh
 
-# Simple Symlink-Script by Marco Kellershoff
-# about.walialu.com
+# Simple Symlink-Script by Gorilla Moe
+# https://gorilla.moe
 # Feel free to grab it and modify it without any restrictions!
 
 EXCLUDED_FILES=("." ".." ".git" ".gitignore" "setup.sh" "readme.markdown")
@@ -29,3 +29,4 @@ for file in `ls -a1`; do
 
     fi
 done
+

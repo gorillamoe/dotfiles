@@ -1,5 +1,5 @@
-walialu's linux dotfiles
-======================
+Gorilla Moe's linux dotfiles
+============================
 
 These are my (Arch-)Linux dot(/config)-files.
 
