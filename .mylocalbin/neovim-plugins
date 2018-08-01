@@ -1,0 +1,8 @@
+#!/bin/bash
+main() {
+        cd $HOME/code/$USER/neovimfiles && \
+        ./update.bash "$@"        
+}
+
+main "$@"
+
