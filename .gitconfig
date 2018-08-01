@@ -62,6 +62,8 @@
         patch = add -p
         yank = add -p
         yy = add -p
+        # Rebase shorthands
+        re = pull --rebase
 
 [push]
         default = nothing
