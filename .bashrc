@@ -26,6 +26,8 @@ export PATH=$PATH:$HOME/.mylocalbin
 # Android Development and Debugging
 export PATH=$PATH:$HOME/Android/Sdk/tools
 export PATH=$PATH:$HOME/Android/Sdk/platform-tools
+# Add node global path
+ export PATH=~/.npm-global/bin:$PATH
 # Add yarn binaries
 export PATH=$PATH:$HOME/.yarn/bin
 # Ruby
