@@ -1,0 +1,11 @@
+#!/bin/bash
+main() {
+        local userhost="marco@gate.allheim.com"
+        if [[ ! -z $1 ]]; then
+                userhost="$1"
+        fi
+        sshuttle --dns -r "$userhost" 0/0
+}
+
+main "$@"
+
