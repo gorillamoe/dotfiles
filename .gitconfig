@@ -64,6 +64,8 @@
         yy = add -p
         # Rebase shorthands
         re = pull --rebase
+        # Push all branches
+        pushall = "!git remote | xargs -L1 git push --all"
 
 [push]
         default = nothing
