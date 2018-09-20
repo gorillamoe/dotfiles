@@ -1,31 +1,3 @@
-#### RULES FOR SPECIFIC APPLICATIONS ####
-
-# by APPLICATION (WM_CLASS)
-# Note: class is typically useful for applying custom settings to
-#       to entire applications, including child windows. If this
-#       isn't want you want see the ROLE section, below.
-# Tip: To find out what these values might be run:
-#       xprop | grep -i 'class'
-# for_window [class="File-roller"] floating enable, border normal
-# for_window [class="Speedcrunch"] floating enable, border normal
-# for_window [class="Gloobus-preview"] floating enable, border none
-# for_window [class="Pavucontrol"] floating enable, border normal
-
-for_window [window_role="pop-up"] floating enable
-
-for_window [class="Skype"] floating enable, border normal
-for_window [class="skype"] floating enable, border normal
-for_window [class="sun-awt-X11-XFramePeer"] floating enable, border normal
-for_window [class="jd-Main"] floating enable, border normal
-# by ROLE (WM_WINDOW_ROLE)
-# Note: window_role is Typically useful for effecting child windows
-#       such as instant messaging converstations, email composition
-#       windows, etc.
-# Tip: To find out what these values might be run:
-#       xprop | grep -i 'role'
-
-# for_window [window_role="corebird-walialu"] floating enable, border normal
-
 set $mod Mod4
 
 #### Custom key bindings
