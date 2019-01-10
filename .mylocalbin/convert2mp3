@@ -1,8 +1,0 @@
-#!/bin/bash
-if [ -z "$1" ]; then
-    echo "First parameter needs to be input files extension (e.g. .ogg)"
-    exit
-fi
-for a in *.$1; do
-  ffmpeg -i "$a" -qscale:a 0 "${a[@]/%$1/mp3}"
-done

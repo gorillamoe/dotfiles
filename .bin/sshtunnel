@@ -4,7 +4,7 @@ main() {
         if [[ ! -z $1 ]]; then
                 userhost="$1"
         fi
-        sshuttle --dns -r "$userhost" 0/0
+        sshuttle -l 0.0.0.0 --dns -x 213.203.193.226 -x 172.17.0.2 -x 192.168.2.110 -r "$userhost" 0/0
 }
 
 main "$@"
