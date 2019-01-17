@@ -1,39 +1,51 @@
-set $mod Mod4
+set $mod mod4
 
-#### Custom key bindings
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+font pango:Terminus 8
+
+#Molokai colors
+set $background #121112
+set $foreground #d0cfd0
+set $gray       #262622
+set $primary    #387bab
+set $secondary  #98ff19
+set $tertiary   #ff9926
+set $warning    #d74083
 
 
-
-#### Volume control
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 10%+ unmute && ~/bin/volumeinfo
-bindsym XF86AudioLowerVolume exec amixer -q set Master 10%- unmute && ~/bin/volumeinfo
-bindsym XF86AudioMute exec amixer -q set Master toggle && ~/bin/volumeinfo
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-font pango:DejaVu Sans Mono 10
+set $ws1  "1: 1"
+set $ws2  "2: 2"
+set $ws3  "3: 3"
+set $ws4  "4: 4"
+set $ws5  "5: 5"
+set $ws6  "6: 6"
+set $ws7  "7: 7"
+set $ws8  "8: 8"
+set $ws9  "9: 9"
+set $ws10 "10: 10"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
+
+#file manager
+bindsym $mod+f exec gnome-terminal -e ranger
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+s kill
+
+#change volume
+bindsym XF86AudioLowerVolume exec amixer sset Master 2-
+bindsym XF86AudioRaiseVolume exec amixer sset Master 2+
+bindsym XF86AudioMute exec amixer sset Master toggle
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-
-# lockscreen key-binding
-bindsym $mod+mod1+l exec i3lock -i ~/Pictures/lockscreen-wallpaper.png
+bindsym $mod+d exec i3-dmenu-desktop  #-nb "#161614" -nf "#a0a089" -sb "#a0a08c" -sf "#161614"
+# -w 1000 -h 38 -x 183 -y 300
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
 
 # change focus
 bindsym $mod+h focus left
@@ -66,12 +78,12 @@ bindsym $mod+Shift+Ctrl+h split h
 bindsym $mod+Shift+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+t fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+d layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+x layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -80,16 +92,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
-
+bindsym $mod+c focus parent
+ 
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace (ViM-like)
-bindsym $mod+Ctrl+h workspace prev
-bindsym $mod+Ctrl+l workspace next
-
-# switch to workspace (default behaviour)
+# switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -116,18 +124,14 @@ bindsym $mod+Shift+0 move container to workspace 10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+f exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym l resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -144,46 +148,41 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+p mode "resize"
 
-bindsym $mod+x move workspace to output right
+# colors                BORDER      BACKGROUND TEXT        INDICATOR
+client.focused          $primary    $primary   $background $secondary
+client.focused_inactive $gray       $gray      $foreground $gray
+client.unfocused        $gray       $gray      $background $gray
+client.urgent           $warning    $warning   $foreground $warning  
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
+   status_command    i3blocks
+    position          top
+    workspace_buttons yes
+    #mode hide
+    #hidden_state hide
+    #modifier Mod4
+    #font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+    font pango: terminus 8
     colors {
-        # Whole color settings
-        background #000000
-        statusline #ffffff
-        separator  #666666
-
-        # Type             border  background font
-        focused_workspace  #A6E22E #333333 #F92672
-        active_workspace   #333333 #A6E22E #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #aa0000 #990000 #ffffff
+        background $background
+        statusline $secondary
+        
+        # Colors go <border> <background> <text> <indicator>
+        focused_workspace $background $background $tertiary
+        active_workspace $background $background $primary
+        inactive_workspace $background $background $primary
+        urgent_workspace $background $background $warning
     }
-    modifier Mod4
-    position bottom
-    hidden_state hide
-    mode hide
-    status_command i3status
 }
 
-hide_edge_borders none
-workspace_layout tabbed
 
-# class                      border    |   background   |    text    |   indicator
-# ----------------------------------------------------------------------------
-    # topbar unfocused container
+exec --no-startup-id nm-applet
 
-client.focused #A6E22E #333333 #F92672 #859900
-client.focused_inactive #111111 #111111 #eee8d5 #6c71c4
-client.unfocused #111111 #111111 #555555 #586e75
-client.urgent #d33682 #d33682 #fdf6e3 #dc322f
-
-
-# Autostart stuff
-################################################################################
-# Some applications have to launched at startup, like setting wallpaper,
-# network manager applet etc.. This can be done from config file. Official wiki
-# here.
-exec --no-startup-id ~/devel/babbafresh/dotfiles/bin/autostart
+#removes window titles
+for_window [class=".*"] border pixel 1
+gaps inner 10
+gaps outer 0
