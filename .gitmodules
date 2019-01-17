@@ -1,3 +1,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/kitty/themes/one-dark"]
+	path = .config/kitty/themes/one-dark
+	url = https://git.superevilmegaco.com/marco/kitty-theme-one-dark.git
