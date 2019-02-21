@@ -130,8 +130,8 @@ fzf_git_log_pickaxe() {
         commits=$(git log --oneline --color=always -S "$@" | fzf --ansi --no-sort --height 100% --preview "git show --color=always {1}")
         if [[ -n $commits ]]; then
                 local hashes
-                hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-                git show "$hashes"
+                hashes=$(echo "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+                git show "${hashes%% }"
         fi
 }
 
