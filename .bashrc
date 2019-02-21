@@ -18,31 +18,14 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 # History Management
-  export HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T '
+export HISTSIZE=9999
+export HISTIGNORE="&:ls*:ll*::[bf]g:exit:pwd:clear:mount:umount:[ \\t]*:fg"
 
 export EDITOR=nvim
-# Various shorthand stuff
-export PATH=$PATH:$HOME/.mylocalbin
-# Android Development and Debugging
-export PATH=$PATH:$HOME/Android/Sdk/tools
-export PATH=$PATH:$HOME/Android/Sdk/platform-tools
-# Add node global path
- export PATH=~/.npm-global/bin:$PATH
-# Add yarn binaries
-export PATH=$PATH:$HOME/.yarn/bin
-# Ruby
- # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
-export PATH="$PATH:$HOME/.rvm/bin"
-# Go path
-export GOPATH=$HOME/code/go
-export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOBIN"
-# PHP Composer Executables Path
-export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # This is sexy, isn't it?
-source $HOME/.sexy-ps1.bash
+source "$HOME/.sexy-ps1.bash"
 
 # Saves a lot of tab presses for me!
 # Found here:
@@ -58,16 +41,6 @@ if [ -n "$DISPLAY" ];then
   setxkbmap -option caps:escape
 fi
 
-function 1080p-dl () {
-    _filename=$(youtube-dl --get-filename ${1});
-    youtube-dl -o 'a.m4a' -f 140 "${1}";
-    youtube-dl -o 'v.mp4' -f 137 "${1}";
-    ffmpeg -i "v.mp4" -i "a.m4a" \
-        -c:v copy -c:a copy \
-        "${_filename}" \
-        && rm a.m4a v.mp4
-}
-
 # CommaCD
 # See: https://github.com/shyiko/commacd
 source ~/.commacd.bash
@@ -77,18 +50,104 @@ export TODOTXT_DEFAULT_ACTION=ls
 # Source: https://apple.stackexchange.com/questions/55412/cd-to-a-directory-by-typing-its-name
 shopt -s autocd
 
-# Gets the last downloaded file
-# Source: http://blog.jpalardy.com/posts/get-your-last-downloaded-file/
-ldf() {  # stands for "last downloaded file"
-  local file=$HOME/Downloads/$(/usr/bin/ls -1t ~/Downloads/ | head -n1)
-  read -p "confirm: $file "
-  mv "$file" .
-}
-
 switch_kubeconfig() {
         local kubeconfig_path=$(realpath $1)
         export KUBECONFIG=$kubeconfig_path
 }
 
+# fzf config start
+
+export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+export FZF_DEFAULT_OPTS='--height 75% --multi --reverse --bind ctrl-f:page-down,ctrl-b:page-up'
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+fzf_find_edit() {
+        local file
+        file=$(
+        fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+        )
+        if [[ -n $file ]]; then
+                "$EDITOR" "$file"
+        fi
+}
+
+alias ffe='fzf_find_edit'
+
+fzf_grep_edit(){
+        if [[ $# == 0 ]]; then
+                echo 'Error: search term was not provided.'
+                return
+        fi
+        local match
+        match=$(rg --color=never --line-number "$1" | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}")
+        local file
+        file=$(echo "$match" | cut -d':' -f1)
+        if [[ -n $file ]]; then
+                "$EDITOR" "$file" +"$(echo "$match" | cut -d':' -f2)"
+        fi
+}
+
+alias fge='fzf_grep_edit'
+
+fzf_kill() {
+        local pids
+        pids=$(ps -f -u "$USER" | sed 1d | fzf --multi | tr -s "[:blank:]" | cut -d' ' -f3)
+        if [[ -n $pids ]]; then
+                echo "$pids" | xargs kill -9 "$@"
+        fi
+}
+
+alias fkill='fzf_kill'
+
+fzf_git_log() {
+        local commits
+        commits=$(git ll --color=always "$@" | fzf --ansi --no-sort --height 100% --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I@ sh -c 'git show --color=always @'")
+        if [[ -n $commits ]]; then
+                local hashes
+                hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+                git show "$hashes"
+        fi
+}
+
+alias gll='fzf_git_log'
+
+fzf_git_reflog() {
+        local hash
+        hash=$(git reflog --color=always "$@" | fzf --no-multi --ansi --no-sort --height 100% --preview "git show --color=always {1}")
+        echo "$hash"
+}
+
+alias grf='fzf_git_reflog'
+
+fzf_git_log_pickaxe() {
+        if [[ $# == 0 ]]; then
+                echo 'Error: search term was not provided.'
+                return
+        fi
+        local commits
+        commits=$(git log --oneline --color=always -S "$@" | fzf --ansi --no-sort --height 100% --preview "git show --color=always {1}")
+        if [[ -n $commits ]]; then
+                local hashes
+                hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+                git show "$hashes"
+        fi
+}
+
+alias glS='fzf_git_log_pickaxe'
+
+ #fzf config end
+
+
+
 source $HOME/.bash_aliases
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:./node_modules/.bin"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
