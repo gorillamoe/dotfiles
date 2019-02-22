@@ -139,7 +139,15 @@ alias glS='fzf_git_log_pickaxe'
 
  #fzf config end
 
+# tmux config start
 
+function tmux_send_keys_helper {
+        tmux send-keys -t "$1" "${*:2}" enter
+}
+
+alias t='tmux_send_keys_helper'
+
+# tmux config end
 
 source $HOME/.bash_aliases
 
