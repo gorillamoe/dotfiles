@@ -12,5 +12,3 @@ alias 'll'='ls -la'
 alias '..'='cd ..'
 alias 'fuck'='$(thefuck $(fc -ln -1))'
 
-alias t='todo.sh -d ~/.todo.cfg'
-
