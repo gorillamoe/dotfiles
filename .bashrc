@@ -149,6 +149,21 @@ alias t='tmux_send_keys_helper'
 
 # tmux config end
 
+# git config start
+
+if [ -f /usr/share/bash-completion/completions/git ]; then
+        . /usr/share/bash-completion/completions/git
+fi
+
+function git_superevil_shorthand {
+         if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi 
+}
+
+alias g='git_superevil_shorthand'
+complete -o default -o nospace -F _git g
+
+# git config end
+
 source $HOME/.bash_aliases
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
