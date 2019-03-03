@@ -27,6 +27,10 @@ export EDITOR=nvim
 # This is sexy, isn't it?
 source "$HOME/.sexy-ps1.bash"
 
+# kubectl auto-complete
+# shellcheck source=/dev/null
+source <(kubectl completion bash)
+
 # Saves a lot of tab presses for me!
 # Found here:
 # http://stackoverflow.com/questions/8917480/bash-completion-how-to-get-rid-of-unneeded-tab-presses
@@ -163,6 +167,9 @@ alias g='git_superevil_shorthand'
 complete -o default -o nospace -F _git g
 
 # git config end
+
+# Add auto complete for minio client
+complete -C /usr/bin/mc mc
 
 source $HOME/.bash_aliases
 
