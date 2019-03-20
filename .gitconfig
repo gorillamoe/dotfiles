@@ -29,6 +29,10 @@
         co = checkout
         # git checkout -b
         cob = checkout -b
+        # merge graph
+        tree = log --graph --oneline --all
+        # merge graph
+        treed = tree --pretty=fuller
         # git commit
         ci = commit
         # List commits showing changed files is invoked with git ll and looks like
