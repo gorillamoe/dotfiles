@@ -173,6 +173,8 @@ complete -C /usr/bin/mc mc
 
 source $HOME/.bash_aliases
 
+export PATH="$PATH:$HOME/.bin"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:./node_modules/.bin"
 
