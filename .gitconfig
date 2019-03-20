@@ -19,6 +19,8 @@
         deleted = red
 
 [alias]
+        # git add
+        a = add
         # git status
         st = status
         # git branch
