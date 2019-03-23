@@ -69,7 +69,8 @@
         yank = add -p
         yy = add -p
         # Rebase shorthands
-        re = pull --rebase
+        re = "!f(){ git fetch && git branch | awk  '{print $2}' | xargs git rebase; };f"
+
         # Push all branches
         pushall = "!git remote | xargs -L1 git push --all"
 
