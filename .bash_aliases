@@ -1,6 +1,6 @@
 alias ip='ip --color'
 alias ipb='ip --color --brief'
-alias ls='lsd'
+alias ls='exa'
 
 # I <3 Neovim
 alias vim=nvim
