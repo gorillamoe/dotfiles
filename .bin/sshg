@@ -42,6 +42,19 @@ main() {
                                 ssh-add "$key"
                         done
                 fi
+                if [[ "$action" == "A" ]] || \
+                        [[ "$action" == "addall" ]]; then
+                        local key
+                        local keyset
+                        title "Loading all available keys"
+                        result=$(jq -rcM ".groups[]" < "$HOME/.sshg.json")
+                        for keyset in $result; do
+                                key=$(jq -rc '.keys[]' <<< "$keyset")
+                                echo "$keyset" | jq -rc '.keys[]' | while read -r key; do
+                                        ssh-add "$key"
+                                done
+                        done
+                fi
                 if [[ "$action" == "avail" ]]; then
                         local key
                         title "Listing all available groups and keys"
