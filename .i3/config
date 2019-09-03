@@ -27,10 +27,10 @@ set $ws10 "10: 10"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 
 #file manager
-bindsym $mod+f exec gnome-terminal -e ranger
+bindsym $mod+f exec kitty -e ranger
 
 # kill focused window
 bindsym $mod+s kill
@@ -93,7 +93,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+c focus parent
- 
+
 # focus the child container
 #bindsym $mod+d focus child
 
