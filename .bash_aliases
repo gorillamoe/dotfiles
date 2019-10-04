@@ -6,6 +6,10 @@ alias ls='exa'
 alias vim=nvim
 alias vi=nvim
 alias 'v'='nvim'
+alias 'nv'='nvim -u NONE'
+
+# easier sudo with env
+alias 'sudoo'='sudo -E'
 
 # I want it all! All colors belong to me!
 alias 'tmux'='tmux -2'
