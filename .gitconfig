@@ -21,6 +21,8 @@
 [alias]
         # git add
         a = add
+        # git add
+        aa = add -A
         # git status
         st = status
         # git branch
