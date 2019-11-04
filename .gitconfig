@@ -77,7 +77,7 @@
         pushall = "!git remote | xargs -L1 git push --all"
 
         ## Yolo, you're a savage!
-	yolo = "!f(){ git add -A && git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\" && git push origin $(git rev-parse --abbrev-ref HEAD); };f"
+	yolo = "!f(){ git add -A && git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\" && git push origin $(git rev-parse --abbrev-ref HEAD); };f"
 
 [push]
         default = nothing
