@@ -11,10 +11,10 @@ alias startx='ssh-agent startx'
 # Predictable SSH authentication socket location.
 # https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  ssh-agent > ~/.ssh-agent-thing
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-  eval "$(<~/.ssh-agent-thing)" &>/dev/null
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    eval "$(<"$XDG_RUNTIME_DIR/ssh-agent.env")"
 fi
 
 # History Management
