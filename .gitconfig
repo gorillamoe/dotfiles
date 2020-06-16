@@ -1,7 +1,7 @@
 [user]
         name = Marco Kellershoff
-        email = hello@gorilla.moe
-        signingkey = CB7D5FDB7B297013D8A9882007CBBE35363A011D
+        email = marco@kellershoff.net
+        signingkey = E4D325C3FF77285C
 
 [credential]
         helper = gnome-keyring
