@@ -20,9 +20,10 @@ fi
 # History Management
 export HISTTIMEFORMAT='%F %T '
 export HISTSIZE=9999
-export HISTIGNORE="&:ls*:ll*::[bf]g:exit:pwd:clear:mount:umount:[ \\t]*:fg"
 
 export EDITOR=nvim
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
 
 # This is sexy, isn't it?
 source "$HOME/.sexy-ps1.bash"
@@ -191,6 +192,7 @@ complete -C /usr/bin/mc mc
 source $HOME/.bash_aliases
 
 export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:./node_modules/.bin"
@@ -200,3 +202,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+eval $(opam env)
+
+# tabtab source for yarn package
+# uninstall by removing these lines or running `tabtab uninstall yarn`
+[ -f /home/marco/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/marco/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash
+
+source /home/marco/.config/broot/launcher/bash/br
