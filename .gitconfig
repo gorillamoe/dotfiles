@@ -90,3 +90,5 @@
 
 [core]
         whitespace = -blank-at-eof
+[init]
+	defaultBranch = main
