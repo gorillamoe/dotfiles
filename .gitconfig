@@ -79,6 +79,9 @@
         ## Yolo, you're a savage!
 	yolo = "!f(){ git add -A && git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\" && git push origin $(git rev-parse --abbrev-ref HEAD); };f"
 
+	# amend + reset author + timestamp + no edit
+	ar = commit --amend --reset-author --no-edit
+
 [push]
         default = nothing
 
