@@ -78,7 +78,7 @@
         default = nothing
         rebase = false
 [merge]
-        conflictstyle = merge
+        conflictstyle = diff3
 
 [core]
         whitespace = -blank-at-eof
