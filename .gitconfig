@@ -70,26 +70,15 @@
         patch = add -p
         yank = add -p
         yy = add -p
-        # Rebase shorthands
-        re = "!f(){ git fetch && git branch | awk  '{print $2}' | xargs git rebase; };f"
-
-        # Push all branches
-        pushall = "!git remote | xargs -L1 git push --all"
-
-        ## Yolo, you're a savage!
-	yolo = "!f(){ git add -A && git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\" && git push origin $(git rev-parse --abbrev-ref HEAD); };f"
-
-	# amend + reset author + timestamp + no edit
-	ar = commit --amend --reset-author --no-edit
 
 [push]
         default = nothing
 
 [pull]
         default = nothing
-	rebase = false
+        rebase = false
 [merge]
-        conflictstyle = diff3
+        conflictstyle = merge
 
 [core]
         whitespace = -blank-at-eof
