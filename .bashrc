@@ -1,4 +1,4 @@
-#
+#!/usr/bin/env bash
 # ~/.bashrc
 #
 
@@ -25,166 +25,31 @@ export EDITOR=nvim
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/
 
-# This is sexy, isn't it?
-source "$HOME/.sexy-ps1.bash"
-
-# kubectl auto-complete
-# shellcheck source=/dev/null
-source <(kubectl completion bash)
+function color_my_prompt() {
+  local color_red
+  local color_green
+  local color_yellow
+  local color_blue
+  local color_cyan
+  local reset_color
+  color_red=$(tput setaf 1)
+  color_green=$(tput setaf 2)
+  color_yellow=$(tput setaf 3)
+  color_blue=$(tput setaf 4)
+  color_cyan=$(tput setaf 5)
+  reset_color=$(tput sgr 0)
+  export PS1="\[$color_red\]\u\[$color_yellow\]@\[$color_blue\]\h\[$color_cyan2\]:\[$color_cyan\]\W\[$color_green\]\$\[$reset_color\] "
+}
+color_my_prompt
 
 # Saves a lot of tab presses for me!
 # Found here:
 # http://stackoverflow.com/questions/8917480/bash-completion-how-to-get-rid-of-unneeded-tab-presses
 bind 'set show-all-if-ambiguous on'
 
-export TERM="xterm-256color"
-
 if [ -n "$DISPLAY" ];then
   export BROWSER=/usr/bin/google-chrome-stable
-  # Who needs capslock anyway?
-  # Remap capslock to escape
-  setxkbmap -option caps:escape
 fi
-
-# CommaCD
-# See: https://github.com/shyiko/commacd
-source ~/.commacd.bash
-export TODOTXT_DEFAULT_ACTION=ls
-
-# Auto CD into directory by typing its name
-# Source: https://apple.stackexchange.com/questions/55412/cd-to-a-directory-by-typing-its-name
-shopt -s autocd
-
-switch_kubeconfig() {
-        local kubeconfig_path=$(realpath $1)
-        export KUBECONFIG=$kubeconfig_path
-}
-
-# fzf config start
-
-export FZF_DEFAULT_COMMAND='fd --type f --color=never'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fd --type d . --color=never'
-export FZF_DEFAULT_OPTS='--height 75% --multi --reverse --bind ctrl-f:page-down,ctrl-b:page-up'
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
-fzf_find_edit() {
-        local file
-        file=$(
-        fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
-        )
-        if [[ -n $file ]]; then
-                "$EDITOR" "$file"
-        fi
-}
-
-alias ffe='fzf_find_edit'
-
-fzf_grep_edit(){
-        if [[ $# == 0 ]]; then
-                echo 'Error: search term was not provided.'
-                return
-        fi
-        local match
-        match=$(rg --color=never --line-number "$1" | fzf --no-multi --delimiter : --preview "bat --color=always --line-range {2}: {1}")
-        local file
-        file=$(echo "$match" | cut -d':' -f1)
-        if [[ -n $file ]]; then
-                "$EDITOR" "$file" +"$(echo "$match" | cut -d':' -f2)"
-        fi
-}
-
-alias fge='fzf_grep_edit'
-
-fzf_kill() {
-        local pids
-        pids=$(ps -f -u "$USER" | sed 1d | fzf --multi | tr -s "[:blank:]" | cut -d' ' -f3)
-        if [[ -n $pids ]]; then
-                echo "$pids" | xargs kill -9 "$@"
-        fi
-}
-
-alias fkill='fzf_kill'
-
-fzf_git_log() {
-        local commits
-        commits=$(git ll --color=always "$@" | fzf --ansi --no-sort --height 100% --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I@ sh -c 'git show --color=always @'")
-        if [[ -n $commits ]]; then
-                local hashes
-                hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
-                git show "$hashes"
-        fi
-}
-
-alias gll='fzf_git_log'
-
-fzf_git_reflog() {
-        local hash
-        hash=$(git reflog --color=always "$@" | fzf --no-multi --ansi --no-sort --height 100% --preview "git show --color=always {1}")
-        echo "$hash"
-}
-
-alias grf='fzf_git_reflog'
-
-fzf_git_log_pickaxe() {
-        if [[ $# == 0 ]]; then
-                echo 'Error: search term was not provided.'
-                return
-        fi
-        local commits
-        commits=$(git log --oneline --color=always -S "$@" | fzf --ansi --no-sort --height 100% --preview "git show --color=always {1}")
-        if [[ -n $commits ]]; then
-                local hashes
-                hashes=$(echo "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-                git show "${hashes%% }"
-        fi
-}
-
-alias glS='fzf_git_log_pickaxe'
-
- #fzf config end
-
-# tmux config start
-
-function tmux_send_keys_helper {
-        tmux send-keys -t "$1" "${*:2}" enter
-}
-
-alias t='tmux_send_keys_helper'
-
-# tmux config end
-
-# git config start
-
-if [ -f /usr/share/bash-completion/completions/git ]; then
-        . /usr/share/bash-completion/completions/git
-fi
-
-function git_superevil_shorthand {
-         if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi 
-}
-
-alias g='git_superevil_shorthand'
-complete -o default -o nospace -F _git g
-
-# git config end
-
-# ranger config start
-
-function ranger-cd {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
-
-# This binds Ctrl-O to ranger-cd:
-bind '"\C-o":"ranger-cd\C-m"'
-
-# ranger config end
 
 # Add auto complete for minio client
 complete -C /usr/bin/mc mc
@@ -192,20 +57,15 @@ complete -C /usr/bin/mc mc
 source $HOME/.bash_aliases
 
 export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Nodemodules
 export PATH="$PATH:./node_modules/.bin"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+source /usr/share/nvm/init-nvm.sh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
 
-eval $(opam env)
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /home/marco/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash ] && . /home/marco/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash
-
-source /home/marco/.config/broot/launcher/bash/br
