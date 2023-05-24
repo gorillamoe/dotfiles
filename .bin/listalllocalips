@@ -1,1 +1,0 @@
-sudo arp-scan --interface=$1 --localnet

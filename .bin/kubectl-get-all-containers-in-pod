@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-main() {
-        kubectl get pods "$@" -o jsonpath='{.spec.containers[*].name}'
-        echo ""
-}
-
-main "$@"
-
