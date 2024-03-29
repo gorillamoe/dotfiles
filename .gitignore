@@ -2,5 +2,4 @@
 /.ssh/*_rsa.pub
 /.ssh/known_hosts
 /.tmux/plugins/*
-!/.tmux/plugins/tpm
 tags
