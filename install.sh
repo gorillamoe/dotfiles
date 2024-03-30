@@ -1,44 +1,31 @@
 #!/usr/bin/env bash
 
 # Stuff I usaully use on a new Pop!_OS install
+#
+# Install scripts for packages that are not available in the default repositories
+# go into install-scripts/packages folder.
+#
+# Files in the files folder will be symlinked to the home directory via
+# the install-scripts/symlinks.sh script at the end of the install process.
 
 # List of packages to install via the default repositories
 DEFAULT_REPO_PACKAGES=(
     "curl"
-    "git"
     "tmux"
     "wget"
     "zsh"
 )
 
-# Neovim release tag to install
-NEOVIM_RELEASE_TAG="v0.9.5"
-
-# Node Version Manager release tag to install
-NVM_RELEASE_TAG="v0.39.7"
-
-# Node version to install
-NODE_VERSION="20.12.0"
+# Absolute path of this script
+ABSOULTE_SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Update package list & install default packages
-sudo apt update && sudo apt install -y ${DEFAULT_REPO_PACKAGES[@]}
+sudo apt update && sudo apt install -y "${DEFAULT_REPO_PACKAGES[@]}"
 
-# Download and install neovim
-wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim.appimage && chmod +x nvim.appimage && sudo mv nvim.appimage /usr/bin/nvim
+# Install packages from the install-scripts/packages folder
+for file in install-scripts/packages/*.sh; do
+    bash "$file"
+done
 
-# oh-my-zsh install
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# tmux plugin manager install
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Install node version manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_RELEASE_TAG/install.sh | bash
-
-# Source nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Download and install node via nvm
-nvm install $NODE_VERSION && nvm use $NODE_VERSION
+# Symlink files from the files folder
+bash install-scripts/symlink.sh "$ABSOULTE_SCRIPT_PATH"
