@@ -33,13 +33,13 @@ symlinks:
         destination: $HOME/.editorconfig
   - name: oh-my-zsh
     files:
-      - source: .oh-my-zsh/custom
-        destination: $HOME/.oh-my-zsh/custom
+      - source: .oh-my-zsh/custom/aliases.zsh
+        destination: $HOME/.oh-my-zsh/custom/aliases.zsh
   - name: git
     files:
       - source: .gitconfig
         destination: $HOME/.gitconfig
-  - name: WezTerm
+  - name: wezterm
     files:
       - source: .wezterm.lua
         destination: $HOME/.wezterm.lua
