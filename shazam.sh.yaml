@@ -6,6 +6,7 @@ packages:
   - name: tmux
   - name: bat
     binary: batcat
+  - name: sqlite
 
 customs:
   - name: wezterm
