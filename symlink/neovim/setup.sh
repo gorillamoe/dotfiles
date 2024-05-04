@@ -7,9 +7,9 @@ if [ ! -d "$HOME/.config" ]; then
   mkdir "$HOME/.config"
 fi
 
-if [ -d "$HOME/.config/kitty" ] || [ -L "$HOME/.config/kitty" ]; then
-  echo "$HOME/.config/kitty already exists. Skipping..."
+if [ -d "$HOME/.config/nvim" ] || [ -L "$HOME/.config/nvim" ]; then
+  echo "$HOME/.config/nvim already exists. Skipping..."
   exit 0
 fi
 
-ln -s "$SCRIPT_PATH/kitty" "$HOME/.config"
+ln -s "$SCRIPT_PATH/nvim" "$HOME/.config"

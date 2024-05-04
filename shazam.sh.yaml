@@ -1,0 +1,49 @@
+packages:
+  - name: curl
+  - name: exa
+  - name: jq
+  - name: shellcheck
+  - name: tmux
+  - name: bat
+    binary: batcat
+
+customs:
+  - name: wezterm
+    sudo: true
+  - name: neovim
+    sudo: true
+  - name: node-version-manager
+  - name: oh-my-zsh
+  - name: tmux-plugin-manager
+
+symlinks:
+  - name: neovim
+    files:
+      - source: nvim
+        destination: $HOME/.config/nvim
+  - name: tmux
+    files:
+      - source: .tmux
+        destination: $HOME/.tmux
+      - source: .tmux.conf
+        destination: $HOME/.tmux.conf
+  - name: editorconfig
+    files:
+      - source: .editorconfig
+        destination: $HOME/.editorconfig
+  - name: oh-my-zsh
+    files:
+      - source: .oh-my-zsh/custom
+        destination: $HOME/.oh-my-zsh/custom
+  - name: git
+    files:
+      - source: .gitconfig
+        destination: $HOME/.gitconfig
+  - name: WezTerm
+    files:
+      - source: .wezterm.lua
+        destination: $HOME/.wezterm.lua
+  - name: ssh
+    files:
+      - source: .ssh
+        destination: $HOME/.ssh
