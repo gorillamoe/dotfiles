@@ -9,6 +9,7 @@ packages:
   - name: bat
     binary: batcat
   - name: sqlite
+  - name: fzf
   - name: fd-find
     binary: fdfind
 
