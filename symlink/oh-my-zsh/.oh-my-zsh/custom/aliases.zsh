@@ -10,4 +10,9 @@ alias 'sudoo'='sudo -E'
 alias 'll'='exa -la'
 alias '..'='cd ..'
 alias 'gopen'='xdg-open'
-alias 'icat'='kitty +kitten icat'
+if command -v batcat &> /dev/null; then
+  alias 'bat'='batcat'
+fi
+if command -v fdfind &> /dev/null; then
+  alias 'fd'='fdfind'
+fi

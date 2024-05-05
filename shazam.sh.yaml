@@ -4,9 +4,13 @@ packages:
   - name: jq
   - name: shellcheck
   - name: tmux
+  - name: ripgrep
+    binary: rg
   - name: bat
     binary: batcat
   - name: sqlite
+  - name: fd-find
+    binary: fdfind
 
 customs:
   - name: wezterm
