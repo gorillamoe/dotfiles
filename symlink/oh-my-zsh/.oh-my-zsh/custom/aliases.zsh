@@ -17,11 +17,46 @@ if command -v fdfind &> /dev/null; then
   alias 'fd'='fdfind'
 fi
 
-alias ","="cd \$(fd --type d --hidden --exclude \'.git\' --exclude \'.npm\' | fzf-tmux -p)"
+,() {
+  local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@")
+  if [ -z "$fdres" ]; then
+    echo "No results $@"
+    return
+  fi
+  local c=$(echo $fdres | wc -l)
+  if [ $c -eq 1 ]; then
+    cd $fdres
+  else
+    local r=$(echo $fdres | fzf-tmux -p)
+    if [ -z "$r" ]; then
+      return
+    fi
+    cd $r
+  fi
+}
+
 ,,() {
-  local r=$(fd --type f --hidden --exclude '.git' --exclude '.npm' | fzf-tmux -p)
-  local dn=$(dirname $r)
-  local fn=$(realpath -s --relative-to=$dn $r)
-  cd $dn
-  nvim $fn
+  local fdres=$(fd --type f --hidden --exclude '.git' --exclude '.npm' "$@")
+  if [ -z "$fdres" ]; then
+    echo "No results"
+    return
+  fi
+  local c=$(echo $fdres | wc -l)
+  # TODO find a clever way to cd into the directory that is the base
+  # e.g. the one containing the .git directory
+  if [ $c -eq 1 ]; then
+    local dn=$(dirname $fdres)
+    local fn=$(realpath -s --relative-to=$dn $fdres)
+    cd $dn
+    nvim $fn
+  else
+    local r=$(echo $fdres | fzf-tmux -p)
+    if [ -z "$r" ]; then
+      return
+    fi
+    local dn=$(dirname $r)
+    local fn=$(realpath -s --relative-to=$dn $r)
+    cd $dn
+    nvim $fn
+  fi
 }
