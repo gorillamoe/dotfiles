@@ -36,19 +36,31 @@ fi
 }
 
 ,,() {
-  local fdres=$(fd --type f --hidden --exclude '.git' --exclude '.npm' "$@")
+  local gr
+  local dn
+  local fn
+  local fdres
+  local c
+  fdres=$(fd --type f --hidden --exclude '.git' --exclude '.npm' "$@")
   if [ -z "$fdres" ]; then
     echo "No results"
     return
   fi
-  local c=$(echo $fdres | wc -l)
-  # TODO find a clever way to cd into the directory that is the base
-  # e.g. the one containing the .git directory
+  c=$(echo $fdres | wc -l)
   if [ $c -eq 1 ]; then
-    local dn=$(dirname $fdres)
-    local fn=$(realpath -s --relative-to=$dn $fdres)
+    dn=$(dirname $fdres)
+    fn=$(realpath -s --relative-to=$dn $fdres)
     cd $dn
-    nvim $fn
+    gr=$(git rev-parse --show-toplevel 2> /dev/null)
+    if [ -z "$gr" ]; then # no git root detected
+      nvim $fn
+    else # git root detected, open file relative to git root
+      dn="$gr"
+      cd $dn
+      fdres=$(fd --type f --hidden --exclude '.git' --exclude '.npm' "$@")
+      fn=$(realpath -s --relative-to=$dn $fdres)
+      nvim $fn
+    fi
   else
     local r=$(echo $fdres | fzf-tmux -p)
     if [ -z "$r" ]; then
