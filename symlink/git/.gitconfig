@@ -70,7 +70,8 @@
   patch = add -p
   yank = add -p
   yy = add -p
-
+  # shorthands for getting git root
+  root = rev-parse --show-toplevel
 [push]
   default = nothing
 
