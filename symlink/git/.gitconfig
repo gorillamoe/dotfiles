@@ -19,6 +19,8 @@
   deleted = red
 
 [alias]
+  # git backup
+  bak = "!git add -A && git commit --amend --reuse-message=HEAD"
   # git add
   a = add
   # git add
