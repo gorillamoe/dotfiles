@@ -15,7 +15,7 @@ see [pop_os-setup.sh](./pop_os-setup.sh) for more details.
 Various dotfiles will be symlinked:
 
  - See [symlink/](./symlink/) and
- - See [shazam.sh.yaml](./shazam.sh.yml) (`.symlinks`) for more details.
+ - See [shazam.sh.yml](./shazam.sh.yml) (`.symlinks`) for more details.
 
 ## Installation
 
