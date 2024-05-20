@@ -1,27 +1,3 @@
-packages:
-  - name: curl
-  - name: exa
-  - name: jq
-  - name: shellcheck
-  - name: tmux
-  - name: ripgrep
-    binary: rg
-  - name: bat
-    binary: batcat
-  - name: sqlite
-  - name: fzf
-  - name: fd-find
-    binary: fdfind
-
-customs:
-  - name: wezterm
-    sudo: true
-  - name: neovim
-    sudo: true
-  - name: node-version-manager
-  - name: oh-my-zsh
-  - name: tmux-plugin-manager
-
 symlinks:
   - name: neovim
     files:
