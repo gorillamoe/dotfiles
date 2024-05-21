@@ -53,15 +53,6 @@ config.font_rules = {
   },
 }
 
-wezterm.log_info(wezterm.format {
-  { Attribute = { Italic = true  } },
-  { Foreground = { AnsiColor = 'Fuchsia' } },
-  { Background = { Color = 'blue' } },
-  { Text = 'Hello ' },
-  'ResetAttributes',
-  { Text = 'this text has default attributes' },
-})
-
 config.font_size = 12.0
 config.enable_wayland = true
 
