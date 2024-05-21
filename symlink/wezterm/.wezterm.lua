@@ -2,6 +2,9 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
+config.initial_cols = 80
+config.initial_rows = 25
+
 config.color_scheme = 'BlulocoDark'
 
 config.font = wezterm.font_with_fallback({
