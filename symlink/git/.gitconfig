@@ -75,11 +75,11 @@
   # shorthands for getting git root
   root = rev-parse --show-toplevel
 [push]
-  default = nothing
+  default = simple
 
 [pull]
-  default = nothing
-  rebase = false
+  default = simple
+  rebase = true
 
 [merge]
   conflictstyle = diff3
