@@ -1,4 +1,8 @@
 symlinks:
+  - name: touchegg
+    files:
+      - source: touchegg
+        destination: $HOME/.config/touchegg
   - name: neovim
     files:
       - source: nvim
