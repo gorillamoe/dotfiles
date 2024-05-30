@@ -13,10 +13,10 @@ exec --no-startup-id dex --autostart --environment i3
 # Use betterscreenlock as a screen locker
 bindsym $Mod+Escape exec "betterscreenlock --lock"
 
-# Use xautolock to automatically suspend the system after 20 minutes of inactivity
-# Also use betterscreenlock to lock the screen before after 10 minutes of inactivity
+# Use xautolock to automatically suspend the system after 15 minutes of inactivity
+# Also use betterscreenlock to lock the screen before after 5 minutes of inactivity
 # and turn the screen off.
-exec --no-startup-id xautolock -time 20 -locker "systemctl suspend" -notify 600 -notifier "betterscreenlock --lock | xset dpms force off" &
+exec --no-startup-id xautolock -time 15 -locker "systemctl suspend" -notify 300 -notifier "betterscreenlock --lock | xset dpms force off" &
 
 # xss-lock grabs a logind suspend inhibit lock and will use betterscreenlock
 # to lock the screen before suspend.
