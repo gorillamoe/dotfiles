@@ -6,6 +6,9 @@ set $alt Mod1
 # is used in the bar {} block below.
 font pango:FiraCode Nerd Font 14
 
+# Start picom as a compositor
+exec --no-startup-id picom
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3

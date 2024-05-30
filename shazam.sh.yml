@@ -3,6 +3,10 @@ symlinks:
     files:
       - source: .profile
         destination: $HOME/.profile
+  - name: picom
+    files:
+      - source: picom
+        destination: $HOME/.config/picom
   - name: rofi
     files:
       - source: rofi
