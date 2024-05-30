@@ -149,3 +149,22 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Theme colors like bluloco-dark
+set $blue      #10B1FE
+set $mauve     #9F7EFE
+set $red       #FF6480
+set $yellow    #FFCC00
+set $green     #3FC56B
+set $text      #ABB2BF
+set $overlay0  #636D83
+set $base      #282C34
+set $mantle    #21242D
+
+# target                 title       bg        text      indicator    border
+client.focused           $mantle     $blue     $mantle   $blue        $blue
+client.focused_inactive  $overlay0   $base     $text     $green       $overlay0
+client.unfocused         $overlay0   $mantle   $text     $green       $overlay0
+client.urgent            $red        $base     $red      $overlay0    $red
+client.placeholder       $overlay0   $mantle   $text     $overlay0    $overlay0
+client.background        $mantle
