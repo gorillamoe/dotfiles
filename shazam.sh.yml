@@ -1,4 +1,8 @@
 symlinks:
+  - name: betterlockscreen
+    files:
+      - source: betterlockscreen
+        destination: $HOME/.config/betterlockscreen
   - name: i3wm
     files:
       - source: i3

@@ -9,13 +9,17 @@ font pango:FiraCode Nerd Font 14
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Use gnome-screensaver as lockscreen
-bindsym $Mod+Escape exec "xdg-screensaver lock"
+# Use betterscreenlock as a screen locker
+bindsym $Mod+Escape exec "betterscreenlock --lock"
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# TODO: do not use i3lock, use gnome stuff, because I fancy it..
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Use xautolock to automatically suspend the system after 20 minutes of inactivity
+# Also use betterscreenlock to lock the screen before after 10 minutes of inactivity
+# and turn the screen off.
+exec --no-startup-id xautolock -time 20 -locker "systemctl suspend" -notify 600 -notifier "betterscreenlock --lock | xset dpms force off" &
+
+# xss-lock grabs a logind suspend inhibit lock and will use betterscreenlock
+# to lock the screen before suspend.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- "betterscreenlock --lock"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
