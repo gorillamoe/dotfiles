@@ -44,6 +44,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec wezterm
 
+# next workspace
+bindsym $mod+n workspace next
+# previous workspace
+bindsym $mod+p workspace prev
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
