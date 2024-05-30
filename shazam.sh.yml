@@ -1,4 +1,8 @@
 symlinks:
+  - name: rofi
+    files:
+      - source: rofi
+        destination: $HOME/.config/rofi
   - name: betterlockscreen
     files:
       - source: betterlockscreen
