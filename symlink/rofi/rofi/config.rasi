@@ -1,15 +1,16 @@
 configuration{
-    modi: "run,window,combi";
+    combi-modi: "window,drun";
+    modi: "combi";
     icon-theme: "Oranchelo";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     location: 0;
-    disable-history: false;
+    disable-history: true;
     hide-scrollbar: true;
-    display-combi: " 🖥️  All ";
-    display-run: " 🏃  Run ";
-    display-window: " 🪟  Window";
+    display-combi: " 🖥️ All ";
+    display-drun: " 🏃 Run ";
+    display-window: " 🪟 Window";
     sidebar-mode: true;
 }
 
