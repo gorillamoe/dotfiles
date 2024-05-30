@@ -10,13 +10,13 @@ font pango:FiraCode Nerd Font 14
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Use betterscreenlock as a screen locker
-bindsym $Mod+Escape exec "betterscreenlock --lock"
+# Use betterlockscreen as a screen locker
+bindsym $Mod+Escape exec "betterlockscreen --lock"
 
 # Use xautolock to automatically suspend the system after 15 minutes of inactivity
-# Also use betterscreenlock to lock the screen before after 5 minutes of inactivity
+# Also use betterlockscreen to lock the screen before after 5 minutes of inactivity
 # and turn the screen off.
-exec --no-startup-id xautolock -time 15 -locker "systemctl suspend" -notify 300 -notifier "betterscreenlock --lock | xset dpms force off" &
+exec --no-startup-id xautolock -time 15 -locker "systemctl suspend" -notify 300 -notifier "betterlockscreen --lock | xset dpms force off" &
 
 # xss-lock grabs a logind suspend inhibit lock and will use betterscreenlock
 # to lock the screen before suspend.
