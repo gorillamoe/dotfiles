@@ -1,5 +1,6 @@
 # setting mod key to option
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -44,7 +45,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 
 # start rofi, a dmenu replacement on steroids
-bindsym $mod+d exec "rofi -show combi"
+bindsym $mod+space exec "rofi -show combi"
 
 # change focus
 bindsym $mod+h focus left
@@ -76,7 +77,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # toggle keyboard layout
-bindsym $mod+space exec $HOME/.config/i3/toggle-keyboard-layout.sh
+bindsym $mod+$alt+space exec $HOME/.config/i3/toggle-keyboard-layout.sh
 
 # focus the child container
 #bindsym $mod+d focus child

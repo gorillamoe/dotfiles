@@ -10,6 +10,12 @@ if [ "$layout" = "us,de" ]; then
 elif [ "$layout" = "de,us" ]; then
   setxkbmap -layout us,de
   setxkbmap -option 'grp:alt_shift_toggle'
+elif [ "$layout" = "de" ]; then
+  setxkbmap -layout us,de
+  setxkbmap -option 'grp:alt_shift_toggle'
+elif [ "$layout" = "us" ]; then
+  setxkbmap -layout de,us
+  setxkbmap -option 'grp:alt_shift_toggle'
 else
     echo "The script does not support the layout: $layout"
 fi
