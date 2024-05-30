@@ -1,4 +1,12 @@
 symlinks:
+  - name: i3wm
+    files:
+      - source: i3
+        destination: $HOME/.config/i3
+  - name: polybar
+    files:
+      - source: polybar
+        destination: $HOME/.config/polybar
   - name: touchegg
     files:
       - source: touchegg
