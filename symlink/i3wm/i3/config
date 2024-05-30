@@ -9,9 +9,6 @@ font pango:FiraCode Nerd Font 14
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# Start gnome keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
-
 # Use betterscreenlock as a screen locker
 bindsym $Mod+Escape exec "betterscreenlock --lock"
 

@@ -1,4 +1,8 @@
 symlinks:
+  - name: profile
+    files:
+      - source: .profile
+        destination: $HOME/.profile
   - name: rofi
     files:
       - source: rofi
