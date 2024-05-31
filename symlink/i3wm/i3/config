@@ -2,9 +2,9 @@
 set $mod Mod4
 set $alt Mod1
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:FiraCode Nerd Font 14
+# Font for window titles.
+# HACK: we will hide the title bars with this "hack"
+font pango:DejaVu Sans Mono 0
 
 # Start picom as a compositor
 exec --no-startup-id picom
