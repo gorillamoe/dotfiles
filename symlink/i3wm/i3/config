@@ -13,6 +13,9 @@ exec --no-startup-id picom
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+# Set background using feh
+exec --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper.png
+
 # Use betterlockscreen as a screen locker
 bindsym $Mod+Escape exec "betterlockscreen --lock"
 
