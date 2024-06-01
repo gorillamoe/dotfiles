@@ -1,110 +1,94 @@
 * {
-    bg-col:  #21242D;
-    bg-col-light: #21242D;
-    border-col: #21242D;
-    selected-col: #21242D;
+    bg0:    #2E3440F2;
+    bg1:    #3B4252;
+    bg2:    #4C566A80;
+    bg3:    #88C0D0F2;
+    fg0:    #D8DEE9;
+    fg1:    #ECEFF4;
+    fg2:    #D8DEE9;
+    fg3:    #4C566A;
     blue: #10B1FE;
-    fg-col: #ABB2BF;
-    fg-col2: #FF6480;
-    grey: #636D83;
+    red: #FF6480;
     width: 600;
     font: "FiraCode Nerd Font 14";
 }
 
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+* {
+    background-color:   transparent;
+    text-color:         @fg0;
+
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
 }
 
 window {
-    height: 360px;
-    border: 3px;
-    border-color: @border-col;
-    background-color: @bg-col;
+    location:       center;
+    width:          480;
+    background-color:   @bg0;
 }
 
 mainbox {
-    background-color: @bg-col;
+    padding:    12px;
 }
 
 inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
+    background-color:   @bg1;
+    border-color:       @red;
+
+    border:         2px;
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ prompt, entry ];
 }
 
 prompt {
-    background-color: @blue;
-    padding: 6px;
-    text-color: @bg-col;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
+    text-color: @fg2;
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
-}
-
-listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
-    columns: 1;
-    lines: 5;
-    background-color: @bg-col;
-}
-
-element {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
-}
-
-element-icon {
-    size: 14px;
-}
-
-element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
-}
-
-mode-switcher {
-    spacing: 0;
-  }
-
-button {
-    padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5;
-    horizontal-align: 0.5;
-}
-
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    placeholder:        "Search";
+    placeholder-color:  @fg3;
 }
 
 message {
-    background-color: @bg-col-light;
-    margin: 2px;
-    padding: 2px;
-    border-radius: 5px;
+    margin:             12px 0 0;
+    border-color:       @bg2;
+    background-color:   @bg2;
 }
 
 textbox {
-    padding: 6px;
-    margin: 20px 0px 0px 20px;
-    text-color: @blue;
-    background-color: @bg-col-light;
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+}
+
+element normal active {
+    text-color: @bg3;
+}
+
+element selected normal, element selected active {
+    background-color:   @blue;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
 }

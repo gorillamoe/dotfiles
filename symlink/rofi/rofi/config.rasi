@@ -8,10 +8,11 @@ configuration{
     location: 0;
     disable-history: true;
     hide-scrollbar: true;
-    display-combi: " 🖥️ All ";
-    display-drun: " 🏃 Run ";
-    display-window: " 🪟 Window";
+    display-combi: " 🖥️ ";
+    display-drun: "";
+    display-window: "";
     sidebar-mode: true;
+    application-fallback-icon: "application-fallback-icon.png";
 }
 
 @theme "bluloco"
