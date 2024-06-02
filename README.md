@@ -15,9 +15,12 @@ see [pop_os-setup.sh](./pop_os-setup.sh) for more details.
 Various dotfiles will be symlinked:
 
  - See [configurations/](./configurations/) and
- - [shazam.sh.yml](./shazam.sh.yml) (`.configurations`) for more details.
+ - [shazam.yml](./shazam.yml) (`.configurations`) for more details.
 
 ## Installation
+
+> [!NOTE]
+> [shazam.sh](https://github.com/mistweaverco/shazam.sh) is used to symlink the dotfiles.
 
 ```sh
 # Ensure directory exists
@@ -26,7 +29,6 @@ mkdir -p ~/projects/personal
 # Clone the repository
 git clone git@github.com:gorillamoe/dotfiles.git ~/projects/personal/dotfiles
 
-# Change directory and run the install script
-cd ~/projects/personal/dotfiles
-shazam # shazam.sh package manager on steroids - https://github.com/mistweaverco/shazam.sh
+# Change directory and run shazam
+cd ~/projects/personal/dotfiles && shazam
 ```
