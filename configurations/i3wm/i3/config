@@ -22,11 +22,7 @@ bindsym $Mod+Escape exec "betterlockscreen --lock"
 # Use xautolock to automatically suspend the system after 15 minutes of inactivity
 # Also use betterlockscreen to lock the screen before after 5 minutes of inactivity
 # and turn the screen off.
-exec --no-startup-id xautolock -time 15 -locker "systemctl suspend" -notify 300 -notifier "xset dpms force off" &
-
-# xss-lock grabs a logind suspend inhibit lock and will use betterscreenlock
-# to lock the screen before suspend.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- "betterscreenlock --lock"
+exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/xautolock/suspend.sh" -notify 300 -notifier "$HOME/.config/xautolock/screenoff.sh" &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.

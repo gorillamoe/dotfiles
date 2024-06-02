@@ -1,58 +1,89 @@
-symlinks:
+configurations:
+  # mainly used for gnome-keyring to automagically unlock the keyring
   - name: profile
     files:
       - source: .profile
         destination: $HOME/.profile
+  # picom is a compositor manager
+  # tbh, I don't know what I'm doing with it
+  # I just copied the config from someone else
   - name: picom
     files:
       - source: picom
         destination: $HOME/.config/picom
+  # xautolock scripts for suspend and screenoff
+  # I use xautolock to lock the screen after a certain amount of time
+  # and to turn off the screen after a certain amount of time
+  # I also use it to suspend the system after a certain amount of time
+  - name: xautolock
+    files:
+      - source: xautolock
+        destination: $HOME/.config/xautolock
+  # rofi is a dmenu replacement
+  # I use it for launching applications and switching windows
+  # It can be also used for ssh connections, bookmarks, etc.
   - name: rofi
     files:
       - source: rofi
         destination: $HOME/.config/rofi
+  # betterlockscreen is a lockscreen manager
+  # It's pretty out of the box and just works
   - name: betterlockscreen
     files:
       - source: betterlockscreen
         destination: $HOME/.config/betterlockscreen
+  # i3wm is THE tiling window manager
+  # I use it for everything
   - name: i3wm
     files:
       - source: i3
         destination: $HOME/.config/i3
+  # polybar is a status bar on steroids
+  # I use it to display system information
   - name: polybar
     files:
       - source: polybar
         destination: $HOME/.config/polybar
+  # touchegg is a multitouch gesture manager
+  # I use it to manage multitouch gestures
+  # I disabled most of the gestures because they were annoying
   - name: touchegg
     files:
       - source: touchegg
         destination: $HOME/.config/touchegg
+  # neovim configuration
   - name: neovim
     files:
       - source: nvim
         destination: $HOME/.config/nvim
+  # tmux configuration
   - name: tmux
     files:
       - source: .tmux
         destination: $HOME/.tmux
       - source: .tmux.conf
         destination: $HOME/.tmux.conf
+  # sane defaults for editorconfig
   - name: editorconfig
     files:
       - source: .editorconfig
         destination: $HOME/.editorconfig
+  # zsh configuration
   - name: oh-my-zsh
     files:
       - source: .oh-my-zsh/custom/aliases.zsh
         destination: $HOME/.oh-my-zsh/custom/aliases.zsh
+  # sane defaults for git
   - name: git
     files:
       - source: .gitconfig
         destination: $HOME/.gitconfig
+  # sane defaults for wezterm
   - name: wezterm
     files:
       - source: .wezterm.lua
         destination: $HOME/.wezterm.lua
+  # sane defaults for ssh
   - name: ssh
     files:
       - source: .ssh
