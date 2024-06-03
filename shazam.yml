@@ -51,11 +51,6 @@ configurations:
     files:
       - source: touchegg
         destination: $HOME/.config/touchegg
-  # neovim configuration
-  - name: neovim
-    files:
-      - source: nvim
-        destination: $HOME/.config/nvim
   # tmux configuration
   - name: tmux
     files:
