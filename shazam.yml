@@ -81,5 +81,5 @@ configurations:
   # sane defaults for ssh
   - name: ssh
     files:
-      - source: .ssh
-        destination: $HOME/.ssh
+      - source: .ssh/config
+        destination: $HOME/.ssh/config

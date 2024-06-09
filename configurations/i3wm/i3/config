@@ -6,15 +6,15 @@ set $alt Mod1
 # HACK: we will hide the title bars with this "hack"
 font pango:DejaVu Sans Mono 0
 
-# Start picom as a compositor
-exec --no-startup-id picom
+# Start picom as a compositor (on all windows)
+exec --no-startup-id DISPLAY=":0" picom -b
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
 # Set background using feh
-exec --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper.png
+exec --no-startup-id feh --no-fehbg --bg-fill $HOME/.config/i3/wallpaper.png
 
 # Use betterlockscreen as a screen locker
 bindsym $Mod+Escape exec "betterlockscreen --lock"
