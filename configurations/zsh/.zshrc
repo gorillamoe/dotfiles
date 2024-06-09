@@ -1,4 +1,4 @@
-CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/zsh}"
+CONFIG_HOME="$HOME/.config/zsh"
 
 source "$CONFIG_HOME/sourcing/history.zsh"
 source "$CONFIG_HOME/sourcing/zinit.zsh"
