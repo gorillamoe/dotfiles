@@ -23,12 +23,28 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     type = 'git'
     style = 'plain'
     background = 'transparent'
-    foreground = '#6c6c6c'
+    foreground = 'p:grey'
     template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}</>'
 
     [blocks.segments.properties]
       branch_icon = ''
+      commit_icon = '@'
       fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'exectutiontime'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'yellow'
+    template = '{{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      threshold = 5000
+      style = 'austin'
 
 [[blocks]]
   type = 'prompt'
@@ -53,6 +69,11 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   background = 'transparent'
   template = '❯ '
 
+[secondary_prompt]
+  background = 'transparent'
+  foreground = 'magenta'
+  template = '❯❯ '
+
 [palette]
   black = '#262B44'
   blue = '#4B95E9'
@@ -61,3 +82,4 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   red = '#D81E5B'
   white = '#E0DEF4'
   yellow = '#F3AE35'
+  grey = '#6C6C6C'
