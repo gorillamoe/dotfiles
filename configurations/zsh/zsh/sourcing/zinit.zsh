@@ -8,3 +8,15 @@ if [[ ! -d $ZINIT_HOME ]]; then
 fi
 
 source "$ZINIT_HOME/zinit.zsh"
+
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+    zdharma-continuum/history-search-multi-word \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"bindkey '^n' autosuggest-accept" \
+    zsh-users/zsh-autosuggestions \
+
+zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+zstyle ':completion:*' menu select
