@@ -5,7 +5,7 @@ sudo apt update
 sudo apt install -y curl exa jq shellcheck \
   tmux ripgrep bat sqlite fzf fd-find zsh \
   i3 rofi polybar xautolock feh pavucontrol arandr \
-  picom, blueman
+  picom blueman dunst
 
 # Install wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
