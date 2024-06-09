@@ -1,10 +1,17 @@
 CONFIG_HOME="$HOME/.config/zsh"
+SOURCE_DIR="$CONFIG_HOME/sourcing"
 
-source "$CONFIG_HOME/sourcing/history.zsh"
-source "$CONFIG_HOME/sourcing/zinit.zsh"
-source "$CONFIG_HOME/sourcing/oh-my-posh.zsh"
-source "$CONFIG_HOME/sourcing/path.zsh"
-source "$CONFIG_HOME/sourcing/editor.zsh"
-source "$CONFIG_HOME/sourcing/nvm.zsh"
-source "$CONFIG_HOME/sourcing/aliases.zsh"
+SOURCES_FILES=(
+  "history"
+  "zinit"
+  "oh-my-posh"
+  "path"
+  "editor"
+  "nvm"
+  "aliases"
+)
+
+for file in "${SOURCES_FILES[@]}"; do
+  source "$SOURCE_DIR/$file.zsh"
+done
 
