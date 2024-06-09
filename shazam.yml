@@ -64,10 +64,17 @@ configurations:
       - source: .editorconfig
         destination: $HOME/.editorconfig
   # zsh configuration
-  - name: oh-my-zsh
+  - name: zsh
     files:
-      - source: .oh-my-zsh/custom/aliases.zsh
-        destination: $HOME/.oh-my-zsh/custom/aliases.zsh
+      - source: zsh
+        destination: $HOME/.config/zsh
+      - source: .zshrc
+        destination: $HOME/.zshrc
+  # oh my posh configuration
+  - name: oh-my-posh
+    files:
+      - source: oh-my-posh
+        destination: $HOME/.config/oh-my-posh
   # sane defaults for git
   - name: git
     files:
