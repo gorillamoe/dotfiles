@@ -4,6 +4,11 @@ configurations:
     files:
       - source: .profile
         destination: $HOME/.profile
+  # dunst is a notification manager
+  - name: dunst
+    files:
+      - source: dunst
+        destination: $HOME/.config/dunst
   # picom is a compositor manager
   # tbh, I don't know what I'm doing with it
   # I just copied the config from someone else

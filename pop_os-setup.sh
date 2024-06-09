@@ -34,7 +34,7 @@ nvm install $NODE_VERSION && nvm use $NODE_VERSION
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Neovim release tag to install
-NEOVIM_RELEASE_TAG="v0.9.5"
+NEOVIM_RELEASE_TAG="v0.10.0"
 
 # Download and install neovim
 wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim.appimage && \
@@ -42,10 +42,8 @@ wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim
   sudo mv nvim.appimage /usr/bin/nvim
 
 # Install shazam.sh for symlink management
-wget "https://github.com/mistweaverco/shazam.sh/releases/download/v1.0.3/shazam.sh-1.0.3-linux.tar.gz" && \
-  tar -xvf "shazam.sh-1.0.4-linux.tar.gz" && \
-  sudo mv shzm /usr/bin/shzm && \
-  rm "shazam.sh-1.0.4-linux.tar.gz"
+wget "https://github.com/mistweaverco/shazam.sh/releases/download/v1.0.0/shazam-linux" \
+  sudo mv shazam-linux /usr/bin/shazam
 
 # Symlink dotfiles
-shzm
+shazam
