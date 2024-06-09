@@ -36,7 +36,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   overflow = 'hidden'
 
   [[blocks.segments]]
-    type = 'exectutiontime'
+    type = 'executiontime'
     style = 'plain'
     background = 'transparent'
     foreground = 'yellow'
