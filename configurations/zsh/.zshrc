@@ -7,7 +7,6 @@ SOURCES_FILES=(
   "oh-my-posh"
   "path"
   "editor"
-  "nvm"
   "aliases"
 )
 

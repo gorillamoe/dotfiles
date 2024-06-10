@@ -9,6 +9,9 @@ fi
 
 source "$ZINIT_HOME/zinit.zsh"
 
+# lazy load nvm
+export NVM_LAZY_LOAD=true
+
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
@@ -17,6 +20,7 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"bindkey '^n' autosuggest-accept" \
     zsh-users/zsh-autosuggestions \
+    lukechilds/zsh-nvm
 
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 zstyle ':completion:*' menu select
