@@ -8,6 +8,7 @@ SOURCES_FILES=(
   "path"
   "editor"
   "aliases"
+  "functions"
 )
 
 for file in "${SOURCES_FILES[@]}"; do
