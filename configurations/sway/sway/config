@@ -151,9 +151,11 @@ set $text      #ABB2BF
 set $overlay0  #636D83
 set $base      #282C34
 set $mantle    #21242D
+set $focus_bg  #64727D
+set $focus_fg  #ffffff
 
 # target                 title       bg        text      indicator    border
-client.focused           $mantle     $blue     $mantle   $blue        $blue
+client.focused           $focus_fg   $focus_bg $focus_fg $focus_bg    $focus_bg
 client.focused_inactive  $overlay0   $base     $text     $green       $overlay0
 client.unfocused         $overlay0   $mantle   $text     $green       $overlay0
 client.urgent            $red        $base     $red      $overlay0    $red
