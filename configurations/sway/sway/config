@@ -1,0 +1,161 @@
+# setting mod key to option
+set $mod Mod4
+set $alt Mod1
+
+# Tap to click enabled
+input "type:touchpad" {
+  tap enabled
+}
+
+# Font for window titles.
+font pango:DejaVu Sans Mono 10
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment sway
+
+# Display management
+# See .config/kanshi/config
+exec_always --no-startup-id kanshi &
+
+# Use betterlockscreen as a screen locker
+bindsym $mod+Escape exec "betterlockscreen --lock"
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec wezterm
+
+# next workspace
+bindsym $mod+n workspace next
+# previous workspace
+bindsym $mod+p workspace prev
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi, a dmenu replacement on steroids
+bindsym $mod+space exec "rofi -show combi"
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+Control+j split h
+
+# split in vertical orientation
+bindsym $mod+Control+k split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# toggle keyboard layout
+bindsym $mod+$alt+space exec $HOME/.config/i3/toggle-keyboard-layout.sh
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Theme colors like bluloco-dark
+set $blue      #10B1FE
+set $mauve     #9F7EFE
+set $red       #FF6480
+set $yellow    #FFCC00
+set $green     #3FC56B
+set $text      #ABB2BF
+set $overlay0  #636D83
+set $base      #282C34
+set $mantle    #21242D
+
+# target                 title       bg        text      indicator    border
+client.focused           $mantle     $blue     $mantle   $blue        $blue
+client.focused_inactive  $overlay0   $base     $text     $green       $overlay0
+client.unfocused         $overlay0   $mantle   $text     $green       $overlay0
+client.urgent            $red        $base     $red      $overlay0    $red
+client.placeholder       $overlay0   $mantle   $text     $overlay0    $overlay0
+client.background        $mantle
+
+# Make some gaps
+gaps inner 10
+
+bar {
+  swaybar_command waybar
+}
