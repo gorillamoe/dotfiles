@@ -98,6 +98,8 @@ configurations:
         destination: $HOME/.config/zsh
       - source: .zshrc
         destination: $HOME/.zshrc
+      - source: .zshenv
+        destination: $HOME/.zshenv
   # oh my posh configuration
   - name: oh-my-posh
     files:

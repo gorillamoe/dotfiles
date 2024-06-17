@@ -5,7 +5,7 @@ sudo apt update
 sudo apt install -y curl exa jq shellcheck \
   tmux ripgrep batcat sqlite fzf fd-find zsh \
   sway rofi waybar feh pavucontrol arandr \
-  blueman dunst gnome-keyring lxappearance
+  blueman dunst gnome-keyring lxappearance pyenv
 
 # Install wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
@@ -23,6 +23,9 @@ NEOVIM_RELEASE_TAG="v0.10.0"
 wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim.appimage && \
   chmod +x nvim.appimage && \
   sudo mv nvim.appimage /usr/bin/nvim
+
+# Install pyenv
+curl https://pyenv.run | bash
 
 # Install shazam.sh for symlink management
 wget "https://github.com/mistweaverco/shazam.sh/releases/download/v1.0.0/shazam-linux" \
