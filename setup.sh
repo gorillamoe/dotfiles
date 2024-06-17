@@ -5,7 +5,7 @@ sudo apt update
 sudo apt install -y curl exa jq shellcheck \
   tmux ripgrep batcat sqlite fzf fd-find zsh \
   sway rofi waybar feh pavucontrol arandr \
-  blueman dunst gnome-keyring
+  blueman dunst gnome-keyring lxappearance
 
 # Install wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
