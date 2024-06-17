@@ -1,0 +1,12 @@
+[Unit]
+Description=Start gnome-keyring for the Secrets Service, and PKCS #11
+Before=graphical-session-pre.target
+
+[Service]
+Type=simple
+StandartError=journal
+ExecStart=/usr/bin/gnome-keyring-daemon --foreground --components pkcs11,secrets,ssh
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session-pre.target

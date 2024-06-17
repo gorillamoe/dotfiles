@@ -21,9 +21,6 @@ font pango:DejaVu Sans Mono 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment sway
 
-# Gnome keyring auto unlock
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
-
 # Display management
 # See .config/kanshi/config
 exec_always --no-startup-id kanshi &

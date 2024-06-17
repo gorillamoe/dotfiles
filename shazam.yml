@@ -1,4 +1,17 @@
 configurations:
+  # Prefer dark mode in GTK applications
+  - name: gtk-3.0
+    files:
+      - source: settings.ini
+        destination: $HOME/.config/gtk-3.0/settings.ini
+  - name: systemd
+    files:
+      # Gnome-Keyring-Daemon with Secrets & SSH support
+      # systemctl daemon-reload --user
+      # systemctl enable --user --now gnome-keyring-daemon.service
+      # systemctl status --user gnome-keyring-daemon.service
+      - source: user/gnome-keyring-daemon.service
+        destination: $HOME/.config/systemd/user/gnome-keyring-daemon.service
   # display management on wayland via kanshi
   - name: kanshi
     files:
