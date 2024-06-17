@@ -4,11 +4,6 @@ configurations:
     files:
       - source: kanshi
         destination: $HOME/.config/kanshi
-  # mainly used for gnome-keyring to automagically unlock the keyring
-  - name: profile
-    files:
-      - source: .profile
-        destination: $HOME/.profile
   # dunst is a notification manager
   - name: dunst
     files:

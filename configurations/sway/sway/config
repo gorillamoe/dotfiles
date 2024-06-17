@@ -14,6 +14,9 @@ font pango:DejaVu Sans Mono 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment sway
 
+# Gnome keyring auto unlock
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+
 # Display management
 # See .config/kanshi/config
 exec_always --no-startup-id kanshi &
@@ -133,6 +136,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Tabbing behavior
+bindsym $mod+tab workspace next_on_output
+bindsym $mod+Shift+tab workspace prev_on_output
 
 # Theme colors like bluloco-dark
 set $blue      #10B1FE
