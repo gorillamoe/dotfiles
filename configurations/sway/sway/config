@@ -7,6 +7,13 @@ input "type:touchpad" {
   tap enabled
 }
 
+# US and DE keyboard layout with Alt+Shift to toggle
+input "type:keyboard" {
+  xkb_layout us,de
+  xkb_variant ,nodeadkeys
+  xkb_options grp:alt_shift_toggle
+}
+
 # Font for window titles.
 font pango:DejaVu Sans Mono 10
 
@@ -123,16 +130,16 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit swa
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  # These bindings trigger as soon as you enter the resize mode
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  # back to normal: Enter or Escape or $mod+r
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
