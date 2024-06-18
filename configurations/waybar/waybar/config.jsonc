@@ -17,6 +17,7 @@
   "modules-right": [
     "idle_inhibitor",
     "pulseaudio",
+    "custom/dnd",
     "sway/language",
     "cpu",
     "memory",
@@ -115,6 +116,7 @@
     "format-muted": " {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
+    "smooth-scrolling-threshold": 5,
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -125,5 +127,13 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "custom/dnd": {
+    "format": "{icon} {}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/dnd.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1
   }
 }

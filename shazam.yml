@@ -22,21 +22,6 @@ configurations:
     files:
       - source: dunst
         destination: $HOME/.config/dunst
-  # picom is a compositor manager
-  # tbh, I don't know what I'm doing with it
-  # I just copied the config from someone else
-  - name: picom
-    files:
-      - source: picom
-        destination: $HOME/.config/picom
-  # xautolock scripts for suspend and screenoff
-  # I use xautolock to lock the screen after a certain amount of time
-  # and to turn off the screen after a certain amount of time
-  # I also use it to suspend the system after a certain amount of time
-  - name: xautolock
-    files:
-      - source: xautolock
-        destination: $HOME/.config/xautolock
   # rofi is a dmenu replacement
   # I use it for launching applications and switching windows
   # It can be also used for ssh connections, bookmarks, etc.
@@ -60,18 +45,6 @@ configurations:
     files:
       - source: waybar
         destination: $HOME/.config/waybar
-  # i3wm is THE tiling window manager
-  # I use it for everything
-  - name: i3wm
-    files:
-      - source: i3
-        destination: $HOME/.config/i3
-  # polybar is a status bar on steroids
-  # I use it to display system information
-  - name: polybar
-    files:
-      - source: polybar
-        destination: $HOME/.config/polybar
   # touchegg is a multitouch gesture manager
   # I use it to manage multitouch gestures
   # I disabled most of the gestures because they were annoying

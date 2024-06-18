@@ -1,14 +1,14 @@
 Gorilla Moe's Pop!_OS Setup Files
 =================================
 
-This is my 🦍🍌 Pop!_OS setup ♻️ repository.
+This is my 🦍🍌 Linux 🐧 setup ♻️ repository.
 
 It contains my dotfiles, as well as a few scripts to set up my system the way I love it ❤️.
 
 ## The following software will be installed
 
 Various software will be installed from the package manager,
-see [pop_os-setup.sh](./pop_os-setup.sh) for more details.
+see [setup.sh](./setup.sh) for more details.
 
 ## The following software will be configured / symlinked
 

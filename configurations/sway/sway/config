@@ -17,16 +17,32 @@ input "type:keyboard" {
 # Font for window titles.
 font pango:DejaVu Sans Mono 10
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment sway
+# Enable screensharing in browsers
+exec_always --no-startup-id "$HOME/.config/sway/scripts/enable-screensharing.sh"
+
+# Prepare environment variables for sway
+exec_always "$HOME/.config/sway/scripts/prep-env.sh"
+
+# Start touchegg
+exec_always --no-startup-id touchegg &
 
 # Display management
 # See .config/kanshi/config
 exec_always --no-startup-id kanshi &
 
-# Use betterlockscreen as a screen locker
-bindsym $mod+Escape exec "betterlockscreen --lock"
+# Idle management
+# Turn off displays after 5 minutes of inactivity.
+# Puts system to sleep after 10 minutes of inactivity and locks the screen.
+exec_always --no-startup-id "$HOME/.config/sway/scripts/idle.sh"
+
+# Set background image
+exec_always --no-startup-id "$HOME/.config/sway/scripts/set-wallpaper.sh"
+
+# start dunst as notification daemon
+exec_always --no-startup-id "$HOME/.config/dunst/scripts/start.sh"
+
+# Use swaylock as a screen locker
+bindsym $mod+Escape exec "$HOME/.config/sway/scripts/lock.sh"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
