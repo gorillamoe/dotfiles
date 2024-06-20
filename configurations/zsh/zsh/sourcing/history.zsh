@@ -1,6 +1,6 @@
 
-export HISTFILESIZE=
 export HISTSIZE=50000
+export SAVEHIST=50000
 export HISTFILE=~/.zsh_history
 
 # INFO:
