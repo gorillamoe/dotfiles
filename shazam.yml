@@ -29,12 +29,6 @@ configurations:
     files:
       - source: rofi
         destination: $HOME/.config/rofi
-  # betterlockscreen is a lockscreen manager
-  # It's pretty out of the box and just works
-  - name: betterlockscreen
-    files:
-      - source: betterlockscreen
-        destination: $HOME/.config/betterlockscreen
   # sway is a tiling window manager i3 replacement for wayland
   - name: sway
     files:
