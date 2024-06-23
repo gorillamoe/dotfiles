@@ -1,5 +1,5 @@
-Gorilla Moe's Pop!_OS Setup Files
-=================================
+Gorilla Moe's Ubuntu Setup Files
+================================
 
 This is my 🦍🍌 Linux 🐧 setup ♻️ repository.
 
