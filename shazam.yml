@@ -1,51 +1,9 @@
 configurations:
-  # Prefer dark mode in GTK applications
-  - name: gtk-3.0
+  # wallpaper
+  - name: pictures
     files:
-      - source: settings.ini
-        destination: $HOME/.config/gtk-3.0/settings.ini
-  - name: systemd
-    files:
-      # Gnome-Keyring-Daemon with Secrets & SSH support
-      # systemctl daemon-reload --user
-      # systemctl enable --user --now gnome-keyring-daemon.service
-      # systemctl status --user gnome-keyring-daemon.service
-      - source: user/gnome-keyring-daemon.service
-        destination: $HOME/.config/systemd/user/gnome-keyring-daemon.service
-  # display management on wayland via kanshi
-  - name: kanshi
-    files:
-      - source: kanshi
-        destination: $HOME/.config/kanshi
-  # dunst is a notification manager
-  - name: dunst
-    files:
-      - source: dunst
-        destination: $HOME/.config/dunst
-  # rofi is a dmenu replacement
-  # I use it for launching applications and switching windows
-  # It can be also used for ssh connections, bookmarks, etc.
-  - name: rofi
-    files:
-      - source: rofi
-        destination: $HOME/.config/rofi
-  # sway is a tiling window manager i3 replacement for wayland
-  - name: sway
-    files:
-      - source: sway
-        destination: $HOME/.config/sway
-  # waybar - sway i3 polybar replacement
-  - name: waybar
-    files:
-      - source: waybar
-        destination: $HOME/.config/waybar
-  # touchegg is a multitouch gesture manager
-  # I use it to manage multitouch gestures
-  # I disabled most of the gestures because they were annoying
-  - name: touchegg
-    files:
-      - source: touchegg
-        destination: $HOME/.config/touchegg
+      - source: wallpaper.jpg
+        destination: $HOME/Pictures/wallpaper.jpg
   # tmux configuration
   - name: tmux
     files:

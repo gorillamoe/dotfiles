@@ -22,34 +22,21 @@ SHAZAM_RELEASE_TAG="v1.0.0"
 sudo apt update
 
 sudo apt install -y \
-  arandr \
   bat \
-  blueman \
-  cargo \
   curl \
-  dunst \
   eza \
   fd-find \
   fuse \
   fzf \
   gcc \
   gnome \
-  gnome-keyring \
   jq \
-  kanshi \
   lua5.4 \
   luarocks \
-  lxappearance \
-  pavucontrol \
   ripgrep \
-  rofi \
   shellcheck \
-  sway \
-  swayidle \
-  swaylock \
   touchegg \
   tmux \
-  waybar \
   zsh
 
 # Install fonts
