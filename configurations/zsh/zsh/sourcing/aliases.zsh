@@ -7,7 +7,7 @@ alias vi=nvim
 # easier sudo with env
 alias 'sudoo'='sudo -E'
 
-alias 'll'='exa -la'
+alias 'll'='eza -la'
 alias '..'='cd ..'
 alias 'gopen'='xdg-open'
 
