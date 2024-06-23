@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+# NOTE:
+# For convience,
+# Make passwordless sudo possible via
+# sudo visudo
+# and add the following line to the end of the file
+# <username> ALL=(ALL) NOPASSWD: ALL
+#
+# HACK:
+# If you happen to be a vim user,
+# you can replace the default editor with vim
+# sudo update-alternatives --config editor
+# before editing the sudoers file
+
+# Neovim release tag to install
+NEOVIM_RELEASE_TAG="v0.10.0"
+
+# Shazam release tag to install
+SHAZAM_RELEASE_TAG="v1.0.0"
+
 sudo apt update
 
 sudo apt install -y \
@@ -54,14 +73,8 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 
-# Install PyEnv
-curl https://pyenv.run | bash
-
 # tmux plugin manager install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Neovim release tag to install
-NEOVIM_RELEASE_TAG="v0.10.0"
 
 # Download and install neovim
 wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim.appimage
@@ -72,9 +85,9 @@ sudo mv nvim.appimage /usr/bin/nvim
 curl https://pyenv.run | bash
 
 # Install shazam.sh for symlink management
-wget "https://github.com/mistweaverco/shazam.sh/releases/download/v1.0.0/shazam-linux" && \
-  chmod +x shazam-linux && \
-  sudo mv shazam-linux /usr/bin/shazam
+wget "https://github.com/mistweaverco/shazam.sh/releases/download/$SHAZAM_RELEASE_TAG/shazam-linux"
+chmod +x shazam-linux
+sudo mv shazam-linux /usr/bin/shazam
 
 # Symlink dotfiles
 shazam

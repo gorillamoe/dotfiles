@@ -4,12 +4,9 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 32, // Waybar height (to be removed for auto height)
   "spacing": 4, // Gaps between modules (4px)
-  // Choose the order of the modules
   "modules-left": [
     "sway/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
-    "sway/window"
+    "sway/mode"
   ],
   // "modules-center": [
   // tbd
