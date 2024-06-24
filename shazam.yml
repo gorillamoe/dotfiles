@@ -7,8 +7,6 @@ configurations:
   # tmux configuration
   - name: tmux
     files:
-      - source: .tmux
-        destination: $HOME/.tmux
       - source: .tmux.conf
         destination: $HOME/.tmux.conf
   # sane defaults for editorconfig
