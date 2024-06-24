@@ -40,6 +40,7 @@ sudo apt install -y \
   jq \
   lua5.4 \
   luarocks \
+  make \
   pipx \
   ripgrep \
   shellcheck \
