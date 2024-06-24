@@ -35,10 +35,12 @@ sudo apt install -y \
   fzf \
   gcc \
   gnome \
+  gnome-shell-extension-manager \
   htop \
   jq \
   lua5.4 \
   luarocks \
+  pipx \
   ripgrep \
   shellcheck \
   touchegg \
@@ -46,7 +48,6 @@ sudo apt install -y \
   zsh
 
 # Install Go
-############
 if [ -f /usr/local/go/bin/go ] && [ "$(go version | awk '{print $3}')" = "go$GO_VERSION" ]; then
   echo "📦 Go already installed"
   echo "💡 Skipping Go installation"
@@ -62,7 +63,6 @@ else
 fi
 
 # Install fonts
-###############
 FONTS_INSTALLED=0
 if [ ! -d ~/.local/share/fonts ]; then
   mkdir -p ~/.local/share/fonts
@@ -94,7 +94,6 @@ if [ $FONTS_INSTALLED -eq 1 ]; then
 fi
 
 # Install wezterm
-#################
 if [ -f /usr/bin/wezterm ]; then
   echo "📦 wezterm already installed"
   echo "💡 Skipping wezterm installation"
@@ -106,7 +105,6 @@ else
 fi
 
 # Install Google Chrome
-#######################
 if [ -f /usr/bin/google-chrome ]; then
   echo "📦 Google Chrome already installed"
   echo "💡 Skipping Google Chrome installation"
@@ -117,7 +115,6 @@ else
 fi
 
 # tmux plugin manager install
-#############################
 if [ -d ~/.tmux/plugins/tpm ]; then
   echo "📦 tmux plugin manager already installed"
   echo "💡 Skipping tmux plugin manager installation"
@@ -126,7 +123,6 @@ else
 fi
 
 # Install Neovim
-################
 if [ -f /usr/bin/nvim ]; then
   echo "📦 Neovim already installed"
   echo "💡 Skipping Neovim installation"
@@ -137,7 +133,6 @@ else
 fi
 
 # Install pyenv
-###############
 if [ -d ~/.pyenv ]; then
   echo "📦 pyenv already installed"
   echo "💡 Skipping pyenv installation"
@@ -146,7 +141,6 @@ else
 fi
 
 # Install shazam.sh and symlink dotfiles
-########################################
 if [ -f /usr/bin/shazam ]; then
   echo "📦 shazam.sh already installed"
   echo "💡 Skipping shazam.sh installation"
@@ -155,11 +149,15 @@ else
   chmod +x shazam-linux
   sudo mv shazam-linux /usr/bin/shazam
 fi
-## Symlink dotfiles
+# Symlink dotfiles
 shazam
 
+# Ensure $HOME/.local/bin directory exists
+if [ ! -d ~/.local/bin ]; then
+  mkdir -p ~/.local/bin
+fi
+
 # Make zsh the default shell
-############################
 if [ "$SHELL" = "/bin/zsh" ]; then
   echo "📦 zsh already the default shell"
   echo "💡 Skipping zsh default shell setup"
@@ -167,3 +165,27 @@ else
   chsh -s "$(which zsh)"
 fi
 
+# Install Gnome extensions
+if [ -f "$HOME/.local/bin/gext" ]; then
+  echo "📦 gnome-extensions-cli already installed"
+  echo "💡 Skipping gnome-extensions-cli installation"
+else
+  pipx install gnome-extensions-cli --system-site-packages
+fi
+
+# Install & configure tactile
+if [ -d ~/.local/share/gnome-shell/extensions/tactile@lundal.io/ ]; then
+  echo "📦 tactile already installed"
+  echo "💡 Skipping tactile installation"
+else
+  gext install tactile@lundal.io
+  sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas/
+  sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+  gsettings set org.gnome.shell.extensions.tactile col-0 2
+  gsettings set org.gnome.shell.extensions.tactile col-1 2
+  gsettings set org.gnome.shell.extensions.tactile col-2 0
+  gsettings set org.gnome.shell.extensions.tactile col-3 0
+  gsettings set org.gnome.shell.extensions.tactile row-0 1
+  gsettings set org.gnome.shell.extensions.tactile row-1 1
+  gsettings set org.gnome.shell.extensions.tactile gap-size 8
+fi
