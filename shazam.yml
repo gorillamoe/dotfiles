@@ -33,6 +33,8 @@ configurations:
     files:
       - source: .gitconfig
         destination: $HOME/.gitconfig
+      - source: work/.gitconfig
+        destination: $HOME/projects/work/.gitconfig
   # sane defaults for wezterm
   - name: wezterm
     files:

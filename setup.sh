@@ -31,6 +31,7 @@ sudo apt install -y \
   curl \
   eza \
   fd-find \
+  flameshot \
   fuse3 \
   fzf \
   gcc \
