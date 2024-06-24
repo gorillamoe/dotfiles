@@ -35,6 +35,7 @@ sudo apt install -y \
   fzf \
   gcc \
   gnome \
+  htop \
   jq \
   lua5.4 \
   luarocks \
