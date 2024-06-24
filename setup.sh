@@ -21,6 +21,9 @@ NEOVIM_RELEASE_TAG="v0.10.0"
 # Shazam release tag to install
 SHAZAM_RELEASE_TAG="v1.0.0"
 
+# Go version to install
+GO_VERSION="1.22.4"
+
 sudo apt update
 
 sudo apt install -y \
@@ -41,6 +44,22 @@ sudo apt install -y \
   tmux \
   zsh
 
+# Install Go
+############
+if [ -f /usr/local/go/bin/go ] && [ "$(go version | awk '{print $3}')" = "go$GO_VERSION" ]; then
+  echo "📦 Go already installed"
+  echo "💡 Skipping Go installation"
+else
+  if [ -f /usr/local/go/bin/go ]; then
+    echo "📌 Go already installed but not the required version"
+    echo "🧹 Removing the existing Go installation"
+    rm -rf /usr/local/go
+  fi
+  wget https://golang.org/dl/go$GO_VERSION.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf go$GO_VERSION.linux-amd64.tar.gz
+  rm go$GO_VERSION.linux-amd64.tar.gz
+fi
+
 # Install fonts
 ###############
 FONTS_INSTALLED=0
@@ -48,8 +67,8 @@ if [ ! -d ~/.local/share/fonts ]; then
   mkdir -p ~/.local/share/fonts
 fi
 if [ -f ~/.local/share/fonts/FiraCodeNerdFont-Regular.ttf ]; then
-  echo "FiraCodeNerdFont already installed"
-  echo "Skipping FiraCode installation"
+  echo "📦 FiraCodeNerdFont already installed"
+  echo "💡 Skipping FiraCode installation"
 else
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
   unzip FiraCode.zip -d ~/.local/share/fonts
@@ -59,8 +78,8 @@ else
   FONTS_INSTALLED=1
 fi
 if [ -f ~/.local/share/fonts/VictorMonoNerdFont-Regular.ttf ]; then
-  echo "VictorMonoNerdFont already installed"
-  echo "Skipping VictorMono installation"
+  echo "📦 VictorMonoNerdFont already installed"
+  echo "💡 Skipping VictorMono installation"
 else
   wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/VictorMono.zip
   unzip VictorMono.zip -d ~/.local/share/fonts
@@ -74,9 +93,10 @@ if [ $FONTS_INSTALLED -eq 1 ]; then
 fi
 
 # Install wezterm
+#################
 if [ -f /usr/bin/wezterm ]; then
-  echo "wezterm already installed"
-  echo "Skipping wezterm installation"
+  echo "📦 wezterm already installed"
+  echo "💡 Skipping wezterm installation"
 else
   curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
   echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
@@ -85,9 +105,10 @@ else
 fi
 
 # Install Google Chrome
+#######################
 if [ -f /usr/bin/google-chrome ]; then
-  echo "Google Chrome already installed"
-  echo "Skipping Google Chrome installation"
+  echo "📦 Google Chrome already installed"
+  echo "💡 Skipping Google Chrome installation"
 else
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo apt install -y ./google-chrome-stable_current_amd64.deb
@@ -95,17 +116,19 @@ else
 fi
 
 # tmux plugin manager install
+#############################
 if [ -d ~/.tmux/plugins/tpm ]; then
-  echo "tmux plugin manager already installed"
-  echo "Skipping tmux plugin manager installation"
+  echo "📦 tmux plugin manager already installed"
+  echo "💡 Skipping tmux plugin manager installation"
 else
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Download and install neovim
+# Install Neovim
+################
 if [ -f /usr/bin/nvim ]; then
-  echo "Neovim already installed"
-  echo "Skipping Neovim installation"
+  echo "📦 Neovim already installed"
+  echo "💡 Skipping Neovim installation"
 else
   wget https://github.com/neovim/neovim/releases/download/$NEOVIM_RELEASE_TAG/nvim.appimage
   chmod +x nvim.appimage
@@ -113,30 +136,32 @@ else
 fi
 
 # Install pyenv
+###############
 if [ -d ~/.pyenv ]; then
-  echo "pyenv already installed"
-  echo "Skipping pyenv installation"
+  echo "📦 pyenv already installed"
+  echo "💡 Skipping pyenv installation"
 else
   curl https://pyenv.run | bash
 fi
 
-# Install shazam.sh for symlink management
+# Install shazam.sh and symlink dotfiles
+########################################
 if [ -f /usr/bin/shazam ]; then
-  echo "shazam.sh already installed"
-  echo "Skipping shazam.sh installation"
+  echo "📦 shazam.sh already installed"
+  echo "💡 Skipping shazam.sh installation"
 else
   wget "https://github.com/mistweaverco/shazam.sh/releases/download/$SHAZAM_RELEASE_TAG/shazam-linux"
   chmod +x shazam-linux
   sudo mv shazam-linux /usr/bin/shazam
 fi
-
-# Symlink dotfiles
+## Symlink dotfiles
 shazam
 
 # Make zsh the default shell
+############################
 if [ "$SHELL" = "/bin/zsh" ]; then
-  echo "zsh already the default shell"
-  echo "Skipping zsh default shell setup"
+  echo "📦 zsh already the default shell"
+  echo "💡 Skipping zsh default shell setup"
 else
   chsh -s "$(which zsh)"
 fi
