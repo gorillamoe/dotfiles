@@ -78,6 +78,7 @@
   root = rev-parse --show-toplevel
 [push]
   default = simple
+  autoSetupRemote = true
 
 [pull]
   default = simple
