@@ -28,6 +28,8 @@ sudo apt update
 
 sudo apt install -y \
   bat \
+  build-essential \
+  curl \
   curl \
   eza \
   fd-find \
@@ -39,14 +41,29 @@ sudo apt install -y \
   gnome-shell-extension-manager \
   htop \
   jq \
+  libbz2-dev \
+  libffi-dev \
+  liblzma-dev \
+  libncurses5-dev \
+  libncursesw5-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  llvm \
   lua5.4 \
   luarocks \
   make \
+  make \
   pipx \
+  python3-openssl
   ripgrep \
   shellcheck \
-  touchegg \
+  tk-dev \
   tmux \
+  touchegg \
+  wget \
+  xz-utils \
+  zlib1g-dev \                                                                                               43.097s
   zsh
 
 # Install Go
@@ -167,27 +184,23 @@ else
   chsh -s "$(which zsh)"
 fi
 
-# Install Gnome extensions
-if [ -f "$HOME/.local/bin/gext" ]; then
-  echo "📦 gnome-extensions-cli already installed"
-  echo "💡 Skipping gnome-extensions-cli installation"
-else
-  pipx install gnome-extensions-cli --system-site-packages
-fi
+# Install Docker
 
-# Install & configure tactile
-if [ -d ~/.local/share/gnome-shell/extensions/tactile@lundal.io/ ]; then
-  echo "📦 tactile already installed"
-  echo "💡 Skipping tactile installation"
-else
-  gext install tactile@lundal.io
-  sudo cp ~/.local/share/gnome-shell/extensions/tactile@lundal.io/schemas/org.gnome.shell.extensions.tactile.gschema.xml /usr/share/glib-2.0/schemas/
-  sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-  gsettings set org.gnome.shell.extensions.tactile col-0 2
-  gsettings set org.gnome.shell.extensions.tactile col-1 2
-  gsettings set org.gnome.shell.extensions.tactile col-2 0
-  gsettings set org.gnome.shell.extensions.tactile col-3 0
-  gsettings set org.gnome.shell.extensions.tactile row-0 1
-  gsettings set org.gnome.shell.extensions.tactile row-1 1
-  gsettings set org.gnome.shell.extensions.tactile gap-size 8
-fi
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo groupadd docker
+sudo usermod -aG docker "$USER"
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl start docker.service
