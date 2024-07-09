@@ -54,6 +54,7 @@ sudo apt install -y \
   luarocks \
   make \
   make \
+  net-tools \
   pipx \
   python3-openssl
   ripgrep \
