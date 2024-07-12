@@ -29,6 +29,7 @@ sudo apt update
 sudo apt install -y \
   bat \
   build-essential \
+  cargo \
   curl \
   curl \
   eza \
