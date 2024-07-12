@@ -1,3 +1,6 @@
+# Cargo path
+export PATH=$HOME/.cargo/bin:$PATH
+
 # Go path
 export GOPATH=$HOME/go
 
