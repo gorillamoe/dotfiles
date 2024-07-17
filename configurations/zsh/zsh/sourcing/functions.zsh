@@ -53,3 +53,7 @@
     nvim $fn
   fi
 }
+
+source-dotenv() {
+  [ ! -f .env ] || export $(grep -v '^#' .env | xargs)
+}
