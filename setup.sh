@@ -57,7 +57,7 @@ sudo apt install -y \
   make \
   net-tools \
   pipx \
-  python3-openssl
+  python3-openssl \
   ripgrep \
   shellcheck \
   tk-dev \
@@ -65,7 +65,7 @@ sudo apt install -y \
   touchegg \
   wget \
   xz-utils \
-  zlib1g-dev \                                                                                               43.097s
+  zlib1g-dev \
   zsh
 
 # Install Go
