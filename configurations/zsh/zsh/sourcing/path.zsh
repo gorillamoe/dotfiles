@@ -4,6 +4,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 # Go path
 export GOPATH=$HOME/go
 
+# Lua Language Server
+export PATH=$HOME/.lua-language-server/bin:$PATH
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
 
