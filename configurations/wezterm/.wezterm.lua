@@ -1,11 +1,11 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
 config.initial_cols = 80
 config.initial_rows = 25
 
-config.color_scheme = 'BlulocoDark'
+config.color_scheme = "retro-theme"
 
 config.font = wezterm.font_with_fallback({
   "FiraCode Nerd Font",
@@ -42,7 +42,7 @@ config.font_rules = {
       stretch = "Normal",
       weight = "Regular",
       style = "Normal",
-    })
+    }),
   },
   {
     italic = false,
@@ -52,7 +52,7 @@ config.font_rules = {
       stretch = "Normal",
       weight = "Bold",
       style = "Normal",
-    })
+    }),
   },
 }
 
