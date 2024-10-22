@@ -35,6 +35,13 @@ configurations:
         destination: $HOME/.gitconfig
       - source: work/.gitconfig
         destination: $HOME/projects/work/.gitconfig
+  # sane defaults for kitty
+  - name: kitty
+    files:
+      - source: kitty.conf
+        destination: $HOME/.config/kitty/kitty.conf
+      - source: themes
+        destination: $HOME/.config/kitty/themes
   # sane defaults for wezterm
   - name: wezterm
     files:
