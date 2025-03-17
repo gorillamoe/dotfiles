@@ -103,6 +103,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias ls='eza --icons=always'
 
+# Terraform and Terragrunt
+alias tf='terraform'
+alias tg='terragrunt'
+
 # I <3 Neovim
 alias vim=nvim
 alias vi=nvim
