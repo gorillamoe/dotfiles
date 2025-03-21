@@ -134,6 +134,7 @@ tmuxa() {
   tmux new-session -A -s "$session_name"
 }
 
+# Search downwards
 ,() {
   local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@")
   if [ -z "$fdres" ]; then
@@ -150,6 +151,66 @@ tmuxa() {
     fi
     cd $r
   fi
+}
+
+# Search upwards
+,,() {
+  local current_dir=$(pwd)
+  local found=0
+  while [[ "$current_dir" != "/" ]]; do
+    local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@" "$current_dir" | awk -F/ -v d="$(dirname "$current_dir")" '$0 == d "/" $NF')
+    if [ -n "$fdres" ]; then
+      local c=$(echo "$fdres" | wc -l)
+      if [ "$c" -eq 1 ]; then
+        cd "$fdres"
+        found=1
+        break
+      else
+        local r=$(echo "$fdres" | fzf-tmux -p)
+        if [ -n "$r" ]; then
+          cd "$r"
+          found=1
+          break
+        fi
+      fi
+    fi
+    current_dir=$(dirname "$current_dir")
+  done
+  if [ "$found" -eq 0 ]; then
+    local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@" "/")
+    if [ -n "$fdres" ]; then
+      local c=$(echo "$fdres" | wc -l)
+      if [ "$c" -eq 1 ]; then
+        cd "$fdres"
+      else
+        local r=$(echo "$fdres" | fzf-tmux -p)
+        if [ -n "$r" ]; then
+          cd "$r"
+        fi
+      fi
+    else
+        echo "No results $@"
+    fi
+  fi
+}
+
+cdx() {
+  local count=$1
+  if [[ ! "$count" =~ ^[0-9]+$ ]]; then
+    echo "cdx: Argument must be a positive integer."
+    return 1
+  fi
+
+  local current_dir=$(pwd)
+
+  for ((i = 0; i < count; i++)); do
+    if [[ "$current_dir" == "/" ]]; then
+      echo "cdx: Already at root directory."
+      return 1
+    fi
+    current_dir=$(dirname "$current_dir")
+    cd "$current_dir"
+  done
 }
 
 # https://direnv.net/docs/hook.html#zsh
