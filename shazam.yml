@@ -53,3 +53,10 @@ configurations:
     files:
       - source: zana
         destination: $HOME/.config/zana
+  # Vale linter configuration
+  - name: vale
+    files:
+      - source: .vale
+        destination: $HOME/.vale
+      - source: vale.ini
+        destination: $HOME/vale.ini
