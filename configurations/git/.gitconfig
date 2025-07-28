@@ -1,7 +1,7 @@
 [user]
   name = Marco Kellershoff
-  email = marco@kellershoff.net
-  signingkey = E4D325C3FF77285C
+  email = marco@mistweaverco.com
+  signingkey = B343EA40D2D7A7AC
 
 [credential]
   helper = gnome-keyring
