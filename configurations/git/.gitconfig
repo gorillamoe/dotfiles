@@ -23,6 +23,10 @@
   bak = "!git add -A && git commit --amend --reuse-message=HEAD"
   # add all files, commit with latest message, and push force-with-lease
   pwl = "!git add -A && git commit --amend --reuse-message=HEAD --reset-author && git push --force-with-lease"
+  # get latest tag
+  lt = "!git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 \"$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=1 | tail -n 1)\""
+  # get previous tag before the latest tag
+  pt = "!git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 \"$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=2 | tail -n 1)\""
   # git add
   a = add
   # git add
