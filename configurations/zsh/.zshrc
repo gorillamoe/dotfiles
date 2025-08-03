@@ -281,4 +281,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Init zoxide
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
+  alias cd='z'
 fi
