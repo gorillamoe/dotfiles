@@ -111,6 +111,14 @@ else
   curl -fsSL https://bun.sh/install | bash
 fi
 
+# Install deno
+if [ -d ~/.deno ]; then
+  echo "📦 deno already installed"
+  echo "💡 Skipping deno installation"
+else
+  curl -fsSL https://deno.land/install.sh | sh
+fi
+
 # Install shazam.sh and symlink dotfiles
 if [ -f /usr/bin/shazam ]; then
   echo "📦 shazam.sh already installed"

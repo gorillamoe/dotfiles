@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/marco/.zsh/completions:"* ]]; then export FPATH="/home/marco/.zsh/completions:$FPATH"; fi
 autoload -U +X compinit && compinit
 
 # Make alt + combo work in tmux
@@ -283,3 +285,4 @@ if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
   alias cd='z'
 fi
+. "/home/marco/.deno/env"
