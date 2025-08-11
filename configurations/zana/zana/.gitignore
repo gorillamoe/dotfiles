@@ -1,2 +1,16 @@
-zana-registry.json*
-packages/
+# Zana configuration directory .gitignore
+# Ignore zip files
+*.zip
+
+# Ignore zana-registry file
+zana-registry.json
+
+# Ignore bin directory
+/bin
+
+# Ignore packages directory
+/packages
+
+# Ignore other common temporary files
+*.tmp
+*.log

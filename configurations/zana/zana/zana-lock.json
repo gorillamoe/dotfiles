@@ -1,1 +1,68 @@
-{"packages":[{"sourceId":"pkg:npm/@prisma/language-server","version":"6.4.1"},{"sourceId":"pkg:npm/@tailwindcss/language-server","version":"0.14.8"},{"sourceId":"pkg:npm/bash-language-server","version":"5.4.3"},{"sourceId":"pkg:npm/diagnostic-languageserver","version":"1.15.0"},{"sourceId":"pkg:npm/dockerfile-language-server-nodejs","version":"0.13.0"},{"sourceId":"pkg:npm/eslint","version":"9.21.0"},{"sourceId":"pkg:npm/intelephense","version":"1.14.3"},{"sourceId":"pkg:npm/pyright","version":"1.1.396"},{"sourceId":"pkg:npm/sql-language-server","version":"1.7.1"},{"sourceId":"pkg:npm/svelte-language-server","version":"0.17.11"},{"sourceId":"pkg:npm/typescript-language-server","version":"4.3.4"},{"sourceId":"pkg:npm/vim-language-server","version":"2.3.1"},{"sourceId":"pkg:npm/vscode-langservers-extracted","version":"4.10.0"},{"sourceId":"pkg:npm/yaml-language-server","version":"1.17.0"},{"sourceId":"pkg:npm/@mistweaverco/kulala-ls","version":"1.8.1"},{"sourceId":"pkg:npm/@mistweaverco/kulala-fmt","version":"2.7.1"}]}
+{
+  "packages": [
+    {
+      "sourceId": "pkg:npm/@prisma/language-server",
+      "version": "6.13.0"
+    },
+    {
+      "sourceId": "pkg:npm/@tailwindcss/language-server",
+      "version": "0.14.26"
+    },
+    {
+      "sourceId": "pkg:npm/bash-language-server",
+      "version": "5.6.0"
+    },
+    {
+      "sourceId": "pkg:npm/diagnostic-languageserver",
+      "version": "1.15.0"
+    },
+    {
+      "sourceId": "pkg:npm/dockerfile-language-server-nodejs",
+      "version": "0.14.1"
+    },
+    {
+      "sourceId": "pkg:npm/eslint",
+      "version": "9.33.0"
+    },
+    {
+      "sourceId": "pkg:npm/intelephense",
+      "version": "1.14.4"
+    },
+    {
+      "sourceId": "pkg:npm/pyright",
+      "version": "1.1.403"
+    },
+    {
+      "sourceId": "pkg:npm/sql-language-server",
+      "version": "1.7.1"
+    },
+    {
+      "sourceId": "pkg:npm/svelte-language-server",
+      "version": "0.17.18"
+    },
+    {
+      "sourceId": "pkg:npm/typescript-language-server",
+      "version": "4.4.0"
+    },
+    {
+      "sourceId": "pkg:npm/vim-language-server",
+      "version": "2.3.1"
+    },
+    {
+      "sourceId": "pkg:npm/vscode-langservers-extracted",
+      "version": "4.10.0"
+    },
+    {
+      "sourceId": "pkg:npm/yaml-language-server",
+      "version": "1.18.0"
+    },
+    {
+      "sourceId": "pkg:npm/@mistweaverco/kulala-ls",
+      "version": "1.9.0"
+    },
+    {
+      "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",
+      "version": "2.10.0"
+    }
+  ]
+}
