@@ -19,6 +19,8 @@
   deleted = red
 
 [alias]
+  # easy rebasing, by just taking theirs
+  reco = '!git restore --theirs . && git add . && GIT_EDITOR=true git rebase --continue'
   # git backup
   bak = "!git add -A && git commit --amend --reuse-message=HEAD"
   # add all files, commit with latest message, and push force-with-lease
