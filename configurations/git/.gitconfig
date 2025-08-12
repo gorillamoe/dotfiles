@@ -41,8 +41,6 @@
   co = checkout
   # git checkout -b
   cob = checkout -b
-  # git reset $file && git checkout $file
-  reco = reset HEAD --
   # merge graph
   tree = log --graph --oneline --all
   # merge graph
