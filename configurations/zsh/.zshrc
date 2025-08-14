@@ -275,7 +275,8 @@ function sesh-sessions() {
   }
 }
 
-bindkey -s '^k' 'sesh-sessions\n'
+zle -N sesh-sessions
+bindkey '^k' sesh-sessions
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
