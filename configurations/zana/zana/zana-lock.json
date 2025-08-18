@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "pkg:npm/@prisma/language-server",
-      "version": "6.13.0"
+      "version": "6.14.0\nnpm notice\nnpm notice New major version of npm available! 10.9.3 -\u003e 11.5.2\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.2\nnpm notice To update run: npm install -g npm@11.5.2\nnpm notice"
     },
     {
       "sourceId": "pkg:npm/@tailwindcss/language-server",
@@ -38,7 +38,7 @@
     },
     {
       "sourceId": "pkg:npm/svelte-language-server",
-      "version": "0.17.18"
+      "version": "0.17.19"
     },
     {
       "sourceId": "pkg:npm/typescript-language-server",
@@ -58,7 +58,7 @@
     },
     {
       "sourceId": "pkg:npm/@mistweaverco/kulala-ls",
-      "version": "1.9.0"
+      "version": "1.10.0"
     },
     {
       "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",

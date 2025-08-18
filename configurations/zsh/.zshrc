@@ -6,6 +6,10 @@ source /usr/share/zsh/share/antigen.zsh
 antigen bundle mroth/evalcache
 antigen apply
 
+# Zana
+# getzana.net
+_evalcache zana env zsh
+
 # Make alt + combo work in tmux
 bindkey -e
 
