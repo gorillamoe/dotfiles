@@ -20,6 +20,7 @@ pamac install -y \
   curl \
   direnv \
   docker \
+  dust \
   eza \
   fd-find \
   fuse3 \
