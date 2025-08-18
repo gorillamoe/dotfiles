@@ -2,6 +2,10 @@
 if [[ ":$FPATH:" != *":/home/marco/.zsh/completions:"* ]]; then export FPATH="/home/marco/.zsh/completions:$FPATH"; fi
 autoload -U +X compinit && compinit
 
+source /usr/share/zsh/share/antigen.zsh
+antigen bundle mroth/evalcache
+antigen apply
+
 # Make alt + combo work in tmux
 bindkey -e
 
@@ -85,7 +89,7 @@ if ! command -v oh-my-posh &> /dev/null; then
   curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/default.toml)"
+_evalcache oh-my-posh init zsh --config $HOME/.config/oh-my-posh/default.toml
 
 # Cargo path
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -225,11 +229,10 @@ yy() {
 }
 
 # https://direnv.net/docs/hook.html#zsh
-eval "$(direnv hook zsh)"
+_evalcache direnv hook zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Mise
+_evalcache mise activate zsh
 
 # Node Modules
 # This neeeds to come after nvm
@@ -241,15 +244,13 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 # Google Cloud CLI
 export PATH="/opt/google-cloud-cli/bin:$PATH"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
 [[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # rustup
 . "$HOME/.cargo/env"
+
+# Deno
+. "/home/marco/.deno/env"
 
 # sesh
 function sesh-sessions() {
@@ -278,12 +279,8 @@ function sesh-sessions() {
 zle -N sesh-sessions
 bindkey '^k' sesh-sessions
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Init zoxide
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
   alias cd='z'
 fi
-. "/home/marco/.deno/env"

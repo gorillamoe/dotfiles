@@ -13,6 +13,7 @@ set -euo pipefail
 SHAZAM_RELEASE_TAG="v1.0.0"
 
 pamac install -y \
+  antigen \
   bat \
   build-essential \
   cargo \
@@ -42,6 +43,7 @@ pamac install -y \
   luarocks \
   make \
   make \
+  mise \
   net-tools \
   pipx \
   ripgrep \
@@ -93,14 +95,6 @@ if [ -d ~/.tmux/plugins/tpm ]; then
   echo "💡 Skipping tmux plugin manager installation"
 else
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
-# Install pyenv
-if [ -d ~/.pyenv ]; then
-  echo "📦 pyenv already installed"
-  echo "💡 Skipping pyenv installation"
-else
-  curl https://pyenv.run | bash
 fi
 
 # Install bun
