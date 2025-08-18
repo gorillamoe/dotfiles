@@ -43,17 +43,14 @@ pamac install -y \
   lua5.4 \
   luarocks \
   make \
-  make \
   mise \
   net-tools \
-  pipx \
   ripgrep \
   shellcheck \
   terragrunt \
   tfswitch \
   tk-dev \
   tmux \
-  touchegg \
   wget \
   xz-utils \
   zlib1g-dev \
