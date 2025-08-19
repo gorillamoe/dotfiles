@@ -92,6 +92,7 @@
 
 [merge]
   conflictstyle = diff3
+	tool = diffconflicts
 
 [core]
   whitespace = -blank-at-eof
@@ -101,3 +102,8 @@
 
 [includeIf "gitdir:~/projects/work/"]
   path = ~/projects/work/.gitconfig
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
