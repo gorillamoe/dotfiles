@@ -100,6 +100,13 @@
 [init]
   defaultBranch = main
 
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+
+[mergetool]
+	keepBackup = false
+
 [includeIf "gitdir:~/projects/work/"]
   path = ~/projects/work/.gitconfig
 [mergetool "diffconflicts"]
