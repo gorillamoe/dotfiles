@@ -1,0 +1,10 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Marco Kellershoff"
+email = "marco@mistweaverco.com"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+backends.gpg.program = "gpg2"
