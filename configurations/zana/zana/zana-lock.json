@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "pkg:npm/@prisma/language-server",
-      "version": "6.16.1"
+      "version": "6.16.2"
     },
     {
       "sourceId": "pkg:npm/@tailwindcss/language-server",
@@ -42,7 +42,7 @@
     },
     {
       "sourceId": "pkg:npm/typescript-language-server",
-      "version": "4.4.0"
+      "version": "5.0.0"
     },
     {
       "sourceId": "pkg:npm/vim-language-server",
