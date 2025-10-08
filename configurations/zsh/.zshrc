@@ -232,11 +232,11 @@ yy() {
   rm -f -- "$tmp"
 }
 
-# https://direnv.net/docs/hook.html#zsh
-_evalcache direnv hook zsh
-
 # Mise
 _evalcache mise activate zsh
+
+# https://direnv.net/docs/hook.html#zsh
+_evalcache direnv hook zsh
 
 # Node Modules
 # This neeeds to come after nvm
