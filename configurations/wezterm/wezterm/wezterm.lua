@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 
 -- keybindings
 config.leader = tmux.leader
-config.keys = utils.tbl_deep_extend("force", tmux.keys, keybinds.keys)
+config.keys = utils.merge_keys(tmux.keys, keybinds.keys)
 
 -- font settings
 config.font = font_settings.font
@@ -19,7 +19,6 @@ config.font_size = font_settings.font_size
 -- apply vhs-era theme colors
 config.colors = vhs_era_theme.colors
 config.window_frame = vhs_era_theme.window_frame
-config.color_scheme = vhs_era_theme.color_scheme
 
 -- misc settings
 config.enable_wayland = true

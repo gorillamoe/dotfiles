@@ -1,8 +1,15 @@
 local wezterm = require("wezterm")
+local workspace_switcher = require("wezterm-workspace-switcher")
 
-local config = wezterm.config_builder()
+local config = {}
 
 config.keys = {
+  -- workspace switcher
+  {
+    mods = "LEADER|CTRL",
+    key = "k",
+    action = workspace_switcher.switch_workspace(),
+  },
   -- fullscreen
   {
     mods = "LEADER|SHIFT",
@@ -11,4 +18,4 @@ config.keys = {
   },
 }
 
-return config
+return { keys = config.keys }

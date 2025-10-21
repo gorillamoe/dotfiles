@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local config = wezterm.config_builder()
+local config = {}
 
 --- Mimic tmux
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
@@ -67,4 +67,7 @@ config.keys = {
   },
 }
 
-return config
+return {
+  leader = config.leader,
+  keys = config.keys,
+}
