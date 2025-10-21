@@ -3,6 +3,7 @@ local vhs_era_theme = require("themes.vhs-era.wezterm")
 local tmux = require("wezterm-tmux")
 local font_settings = require("wezterm-fonts")
 local keybinds = require("wezterm-keybinds")
+local mouse = require("wezterm-mouse")
 local utils = require("wezterm-utils")
 
 local config = wezterm.config_builder()
@@ -15,6 +16,9 @@ end)
 -- keybindings
 config.leader = tmux.leader
 config.keys = utils.merge_keys(tmux.keys, keybinds.keys)
+
+-- mouse bindings
+config.mouse_bindings = mouse.bindings
 
 -- font settings
 config.font = font_settings.font
