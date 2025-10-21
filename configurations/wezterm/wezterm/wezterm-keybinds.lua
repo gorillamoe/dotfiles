@@ -6,7 +6,7 @@ local config = {}
 config.keys = {
   -- workspace switcher
   {
-    mods = "LEADER|CTRL",
+    mods = "CTRL",
     key = "k",
     action = workspace_switcher.switch_workspace(),
   },
