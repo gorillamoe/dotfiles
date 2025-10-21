@@ -11,6 +11,11 @@ return {
       key = "k",
       action = workspace_switcher.switch_workspace(),
     },
+    {
+      mods = "LEADER|CTRL", -- use LEADER + CTRL + k to avoid conflict with CTRL + k in neovim
+      key = "k",
+      action = workspace_switcher.switch_workspace(),
+    },
     -- fullscreen
     {
       mods = "LEADER|SHIFT",
