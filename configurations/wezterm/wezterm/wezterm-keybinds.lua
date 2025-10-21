@@ -3,6 +3,12 @@ local workspace_switcher = require("wezterm-workspace-switcher")
 
 return {
   keys = {
+    -- search
+    {
+      mods = "LEADER",
+      key = "/",
+      action = wezterm.action.Search({ CaseInSensitiveString = "" }),
+    },
     -- reset font size
     { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
     -- workspace switcher
