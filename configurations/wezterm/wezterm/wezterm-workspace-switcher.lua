@@ -16,12 +16,21 @@ local is_windows = string.find(wezterm.target_triple, "windows") ~= nil
 ---@field zoxide_path string
 ---@field choices {get_zoxide_elements: (fun(choices: InputSelector_choices, opts: choice_opts?): InputSelector_choices), get_workspace_elements: (fun(choices: InputSelector_choices): (InputSelector_choices, workspace_ids))}
 ---@field workspace_formatter fun(label: string): string
+---@field zoxide_formatter fun(label: string): string
 local M = {
   zoxide_path = "zoxide",
   choices = {},
   workspace_formatter = function(label)
     return wezterm.format({
-      { Text = "󱂬 : " .. label },
+      { Text = "⚡ " },
+      { Foreground = { AnsiColor = "Purple" } },
+      { Text = label },
+    })
+  end,
+  zoxide_formatter = function(label)
+    return wezterm.format({
+      { Foreground = { AnsiColor = "Grey" } },
+      { Text = label },
     })
   end,
 }
@@ -70,7 +79,7 @@ function M.choices.get_zoxide_elements(choice_table, opts)
     if not opts.workspace_ids[updated_path] then
       table.insert(choice_table, {
         id = path,
-        label = updated_path,
+        label = M.zoxide_formatter(updated_path),
       })
     end
   end
