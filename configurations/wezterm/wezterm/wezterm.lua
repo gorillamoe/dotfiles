@@ -7,6 +7,11 @@ local utils = require("wezterm-utils")
 
 local config = wezterm.config_builder()
 
+-- show active workspace on the right status area
+wezterm.on("update-right-status", function(window)
+  window:set_right_status(window:active_workspace())
+end)
+
 -- keybindings
 config.leader = tmux.leader
 config.keys = utils.merge_keys(tmux.keys, keybinds.keys)

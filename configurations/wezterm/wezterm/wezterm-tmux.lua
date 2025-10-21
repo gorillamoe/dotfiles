@@ -34,16 +34,28 @@ config.keys = {
     key = "z",
     action = wezterm.action.TogglePaneZoomState,
   },
-  -- next pane
+  -- next tab
   {
     mods = "LEADER",
     key = "n",
+    action = wezterm.action.ActivateTabRelative(1),
+  },
+  -- previous tab
+  {
+    mods = "LEADER",
+    key = "p",
+    action = wezterm.action.ActivateTabRelative(-1),
+  },
+  -- next pane
+  {
+    mods = "LEADER",
+    key = "l",
     action = wezterm.action.ActivatePaneDirection("Next"),
   },
   -- previous pane
   {
     mods = "LEADER",
-    key = "p",
+    key = "h",
     action = wezterm.action.ActivatePaneDirection("Prev"),
   },
   {
