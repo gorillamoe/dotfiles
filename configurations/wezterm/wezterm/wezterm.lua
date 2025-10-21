@@ -28,6 +28,7 @@ config.font_size = font_settings.font_size
 -- apply vhs-era theme colors
 config.colors = vhs_era_theme.colors
 config.window_frame = vhs_era_theme.window_frame
+config.inactive_pane_hsb = vhs_era_theme.inactive_pane_hsb
 
 -- misc settings
 config.enable_wayland = true

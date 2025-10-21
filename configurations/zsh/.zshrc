@@ -136,93 +136,6 @@ if command -v fdfind &> /dev/null; then
   alias 'fd'='fdfind'
 fi
 
-# tmux is love, tmux is life
-# attach to a new or existing tmux session
-# Use default session name (0), if not specified
-tmuxa() {
-  local session_name="${1:-0}" # Use the first argument, or 0 if none provided
-  tmux new-session -A -s "$session_name"
-}
-
-# Search downwards
-,() {
-  local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@")
-  if [ -z "$fdres" ]; then
-    echo "No results $@"
-    return
-  fi
-  local c=$(echo $fdres | wc -l)
-  if [ $c -eq 1 ]; then
-    cd $fdres
-  else
-    local r=$(echo $fdres | fzf-tmux -p)
-    if [ -z "$r" ]; then
-      return
-    fi
-    cd $r
-  fi
-}
-
-# Search upwards
-,,() {
-  local current_dir=$(pwd)
-  local found=0
-  while [[ "$current_dir" != "/" ]]; do
-    local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@" "$current_dir" | awk -F/ -v d="$(dirname "$current_dir")" '$0 == d "/" $NF')
-    if [ -n "$fdres" ]; then
-      local c=$(echo "$fdres" | wc -l)
-      if [ "$c" -eq 1 ]; then
-        cd "$fdres"
-        found=1
-        break
-      else
-        local r=$(echo "$fdres" | fzf-tmux -p)
-        if [ -n "$r" ]; then
-          cd "$r"
-          found=1
-          break
-        fi
-      fi
-    fi
-    current_dir=$(dirname "$current_dir")
-  done
-  if [ "$found" -eq 0 ]; then
-    local fdres=$(fd --type d --hidden --exclude '.git' --exclude '.npm' "$@" "/")
-    if [ -n "$fdres" ]; then
-      local c=$(echo "$fdres" | wc -l)
-      if [ "$c" -eq 1 ]; then
-        cd "$fdres"
-      else
-        local r=$(echo "$fdres" | fzf-tmux -p)
-        if [ -n "$r" ]; then
-          cd "$r"
-        fi
-      fi
-    else
-        echo "No results $@"
-    fi
-  fi
-}
-
-cdx() {
-  local count=$1
-  if [[ ! "$count" =~ ^[0-9]+$ ]]; then
-    echo "cdx: Argument must be a positive integer."
-    return 1
-  fi
-
-  local current_dir=$(pwd)
-
-  for ((i = 0; i < count; i++)); do
-    if [[ "$current_dir" == "/" ]]; then
-      echo "cdx: Already at root directory."
-      return 1
-    fi
-    current_dir=$(dirname "$current_dir")
-    cd "$current_dir"
-  done
-}
-
 yy() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
@@ -237,6 +150,9 @@ _evalcache mise activate zsh
 
 # https://direnv.net/docs/hook.html#zsh
 _evalcache direnv hook zsh
+
+# Zoxide
+_evalcache zoxide init zsh
 
 # Node Modules
 # This neeeds to come after nvm
@@ -255,9 +171,3 @@ export PATH="/opt/google-cloud-cli/bin:$PATH"
 
 # Deno
 . "/home/marco/.deno/env"
-
-# Init zoxide
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
-  alias cd='z'
-fi
