@@ -4,6 +4,8 @@ configurations:
     files:
       - source: wallpaper.jpg
         destination: $HOME/Pictures/wallpaper.jpg
+      - source: wallpaper.webp
+        destination: $HOME/Pictures/wallpaper.webp
   # tmux configuration
   - name: tmux
     files:
