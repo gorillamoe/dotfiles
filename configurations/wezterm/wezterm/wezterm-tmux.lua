@@ -46,13 +46,25 @@ config.keys = {
     key = "p",
     action = wezterm.action.ActivateTabRelative(-1),
   },
-  -- next pane
+  -- up pane
+  {
+    mods = "LEADER",
+    key = "k",
+    action = wezterm.action.ActivatePaneDirection("Up"),
+  },
+  -- down pane
+  {
+    mods = "LEADER",
+    key = "j",
+    action = wezterm.action.ActivatePaneDirection("Down"),
+  },
+  -- right pane
   {
     mods = "LEADER",
     key = "l",
     action = wezterm.action.ActivatePaneDirection("Next"),
   },
-  -- previous pane
+  -- left pane
   {
     mods = "LEADER",
     key = "h",
