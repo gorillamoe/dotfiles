@@ -1,0 +1,3 @@
+[submodule "configurations/wezterm/themes/vhs-era"]
+	path = configurations/wezterm/themes/vhs-era
+	url = git@github.com:mistweaverco/vhs-era-theme.terminal.git

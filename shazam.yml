@@ -46,8 +46,8 @@ configurations:
   # sane defaults for wezterm
   - name: wezterm
     files:
-      - source: .wezterm.lua
-        destination: $HOME/.wezterm.lua
+      - source: wezterm
+        destination: $HOME/.config/wezterm
   # sane defaults for ssh
   - name: ssh
     files:
