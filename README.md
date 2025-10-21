@@ -27,6 +27,7 @@ mkdir -p ~/projects/personal
 
 # Clone the repository
 git clone git@github.com:gorillamoe/dotfiles.git ~/projects/personal/dotfiles
+git submodule update --init --recursive --remote 
 
 # Change directory and run shazam
 cd ~/projects/personal/dotfiles && shazam
