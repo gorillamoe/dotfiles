@@ -3,6 +3,12 @@ local workspace_switcher = require("wezterm-workspace-switcher")
 
 return {
   keys = {
+    -- copy mode / vim mode
+    {
+      mods = "LEADER",
+      key = "v",
+      action = wezterm.action.ActivateCopyMode,
+    },
     -- search
     {
       mods = "LEADER",
