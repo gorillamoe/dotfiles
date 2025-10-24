@@ -1,0 +1,21 @@
+theme = "sunset"
+
+[servers.liberachat]
+should_ghost = true
+ghost_sequence = ["REGAIN"]
+nickname = "GorillaMoe"
+server = "irc.libera.chat"
+channels = [
+  "#mistweaverco",
+  "#technicalrenaissance"
+]
+nick_password_file_first_line_only = true
+nick_password_file = "~/.config/halloy/passwords/liberachat"
+
+[servers.liberachat.sasl.plain]
+username = "GorillaMoe"
+password_file_first_line_only = true
+password_file = "~/.config/halloy/passwords/liberachat"
+
+[buffer.channel.topic]
+enabled = true

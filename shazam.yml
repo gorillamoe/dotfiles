@@ -1,4 +1,10 @@
+---
 configurations:
+  # halloy irc client configuration
+  - name: halloy
+    files:
+      - source: halloy
+        destination: $HOME/.config/halloy
   # wallpaper
   - name: pictures
     files:
