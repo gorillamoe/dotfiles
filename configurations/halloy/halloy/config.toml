@@ -1,9 +1,27 @@
 theme = "sunset"
 
+[buffer.chathistory]
+infinite_scroll = true
+
+[buffer.commands]
+show_description = true
+
+[buffer.timestamp]
+format = "%Y-%m-%d %H:%M:%S"
+
+[actions.buffer]
+click_channel_name = "replace-pane"
+click_highlight = "replace-pane"
+click_username = "replace-pane"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
 [servers.liberachat]
 should_ghost = true
 ghost_sequence = ["REGAIN"]
 nickname = "GorillaMoe"
+username = "GorillaMoe"
 server = "irc.libera.chat"
 channels = [
   "#mistweaverco",
