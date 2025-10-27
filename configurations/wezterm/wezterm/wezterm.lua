@@ -5,13 +5,9 @@ local font_settings = require("wezterm-fonts")
 local keybinds = require("wezterm-keybinds")
 local mouse = require("wezterm-mouse")
 local utils = require("wezterm-utils")
+local tabline = require("wezterm-tabline")
 
 local config = wezterm.config_builder()
-
--- show active workspace on the right status area
-wezterm.on("update-right-status", function(window)
-  window:set_right_status(window:active_workspace())
-end)
 
 -- keybindings
 config.leader = tmux.leader
@@ -30,10 +26,28 @@ config.colors = vhs_era_theme.colors
 config.window_frame = vhs_era_theme.window_frame
 config.inactive_pane_hsb = vhs_era_theme.inactive_pane_hsb
 
+tabline.setup({
+  options = {
+    theme = vhs_era_theme.colors,
+  },
+  sections = {
+    tabline_a = { "mode" },
+    tabline_b = { "workspace" },
+    tabline_c = { " " },
+    tab_active = { "index", { "process", padding = { left = 0, right = 1 } }, { "zoomed", padding = 0 } },
+    tab_inactive = { "index", { "process", padding = { left = 0, right = 1 } } },
+    tabline_x = {},
+    tabline_y = {},
+    tabline_z = { "domain" },
+  },
+  extensions = {},
+})
+
+tabline.apply_to_config(config)
+
 -- misc settings
 config.enable_wayland = true
 config.initial_cols = 80
 config.initial_rows = 25
-config.hide_tab_bar_if_only_one_tab = true
 
 return config
