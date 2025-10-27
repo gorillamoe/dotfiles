@@ -7,7 +7,11 @@ set -euo pipefail
 # Make passwordless sudo possible via
 # sudo visudo
 # and add the following line to the end of the file
-# <username> ALL=(ALL) NOPASSWD: ALL
+# marco ALL=(ALL) NOPASSWD: ALL
+# ---
+# also cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules
+# to /etc/polkit-1/rules.d/99-pamac-overrides.rules
+# and then sudo systemctl reload polkit.service
 
 # Shazam release tag to install
 SHAZAM_RELEASE_TAG="v1.0.0"

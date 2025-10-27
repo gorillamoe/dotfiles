@@ -2,7 +2,9 @@
 
 This is my 🦍🍌 Linux 🐧 setup ♻️ repository.
 
-It contains my dotfiles, as well as a few scripts to set up my system the way I love it ❤️.
+It contains my dotfiles,
+as well as a few scripts to set up my system
+the way I love it ❤️.
 
 ## The following software will be installed
 
@@ -14,7 +16,7 @@ see [setup.sh](./setup.sh) for more details.
 Various dotfiles will be symlinked:
 
  - See [configurations/](./configurations/) and
- - [shazam.yml](./shazam.yml) (`.configurations`) for more details.
+ - [shazam.yml](./shazam.yml) (`configurations`) for more details.
 
 ## Installation
 
@@ -29,6 +31,8 @@ mkdir -p ~/projects/personal
 git clone git@github.com:gorillamoe/dotfiles.git ~/projects/personal/dotfiles
 git submodule update --init --recursive --remote 
 
-# Change directory and run shazam
-cd ~/projects/personal/dotfiles && shazam
+# Change directory
+cd ~/projects/personal/dotfiles
+# .. and run the setup script
+./setup.sh
 ```

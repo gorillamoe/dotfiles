@@ -1,0 +1,5 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.manjaro.pamac.commit" && subject.isInGroup("marco")) {
+        return polkit.Result.YES;
+    }
+})
