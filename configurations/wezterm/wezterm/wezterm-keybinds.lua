@@ -3,6 +3,12 @@ local workspace_switcher = require("wezterm-workspace-switcher")
 
 return {
   keys = {
+    --  wezterm tab navigator
+    {
+      mods = "LEADER",
+      key = "w",
+      action = wezterm.action.ShowTabNavigator,
+    },
     -- copy mode / vim mode
     {
       mods = "LEADER",
