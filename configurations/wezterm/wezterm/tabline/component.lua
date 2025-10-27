@@ -1,8 +1,8 @@
-local wezterm = require('wezterm')
-local util = require('tabline.util')
-local config = require('tabline.config')
-local extension = require('tabline.extension')
-local mode = require('tabline.components.window.mode')
+local wezterm = require("wezterm")
+local util = require("tabline.util")
+local config = require("tabline.config")
+local extension = require("tabline.extension")
+local mode = require("tabline.components.window.mode")
 
 local M = {}
 
@@ -31,12 +31,12 @@ local function create_attributes(window)
   attributes_a = {
     { Foreground = { Color = colors.a.fg } },
     { Background = { Color = colors.a.bg } },
-    { Attribute = { Intensity = 'Bold' } },
+    { Attribute = { Intensity = "Bold" } },
   }
   attributes_b = {
     { Foreground = { Color = colors.b.fg } },
     { Background = { Color = colors.b.bg } },
-    { Attribute = { Intensity = 'Normal' } },
+    { Attribute = { Intensity = "Normal" } },
   }
   attributes_c = {
     { Foreground = { Color = colors.c.fg } },
@@ -49,12 +49,12 @@ local function create_attributes(window)
   attributes_y = {
     { Foreground = { Color = colors.y and colors.y.fg or colors.b.fg } },
     { Background = { Color = colors.y and colors.y.bg or colors.b.bg } },
-    { Attribute = { Intensity = 'Normal' } },
+    { Attribute = { Intensity = "Normal" } },
   }
   attributes_z = {
     { Foreground = { Color = colors.z and colors.z.fg or colors.a.fg } },
     { Background = { Color = colors.z and colors.z.bg or colors.a.bg } },
-    { Attribute = { Intensity = 'Bold' } },
+    { Attribute = { Intensity = "Bold" } },
   }
   section_seperator_attributes_a = {
     { Foreground = { Color = colors.a.bg } },
@@ -85,7 +85,7 @@ end
 local function insert_component_separators(components, is_left)
   local i = 1
   while i <= #components do
-    if type(components[i]) == 'table' and components[i].Text and i < #components then
+    if type(components[i]) == "table" and components[i].Text and i < #components then
       table.insert(components, i + 1, is_left and left_component_separator or right_component_separator)
       i = i + 1
     end

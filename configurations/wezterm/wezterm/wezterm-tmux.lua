@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 --- Mimic tmux
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
   -- rename tab
   {
