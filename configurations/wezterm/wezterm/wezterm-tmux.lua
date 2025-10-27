@@ -5,6 +5,19 @@ local config = {}
 --- Mimic tmux
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
+  -- rename tab
+  {
+    mods = "LEADER",
+    key = ",",
+    action = wezterm.action.PromptInputLine({
+      description = "Enter new tab name",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    }),
+  },
   -- splitting
   {
     mods = "LEADER",
