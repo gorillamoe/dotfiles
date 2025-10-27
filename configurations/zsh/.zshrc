@@ -16,13 +16,17 @@ zle -N edit-command-line
 bindkey -v
 bindkey -M vicmd v edit-command-line
 export VI_MODE_SET_CURSOR=true
-function zle-keymap-select {
-  if [[ $KEYMAP == vicmd ]]; then
-    echo -ne '\e[1 q'  # block cursor
-  else
-    echo -ne '\e[6 q'  # beam cursor
-  fi
+# change cursor shape in vi mode
+zle-keymap-select () {
+    if [[ $KEYMAP == vicmd ]]; then
+        # the command mode for vi
+        echo -ne "\e[2 q"
+    else
+        # the insert mode for vi
+        echo -ne "\e[5 q"
+    fi
 }
+precmd_functions+=(zle-keymap-select)
 zle -N zle-keymap-select
 
 # Keybindings
