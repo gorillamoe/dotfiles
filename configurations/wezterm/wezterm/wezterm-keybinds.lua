@@ -9,6 +9,12 @@ return {
       key = "w",
       action = wezterm.action.ShowTabNavigator,
     },
+    -- quit tabs
+    {
+      mods = "LEADER",
+      key = "q",
+      action = wezterm.action.CloseCurrentTab({ confirm = true }),
+    },
     -- copy mode / vim mode
     {
       mods = "LEADER",
@@ -36,8 +42,8 @@ return {
     },
     -- fullscreen
     {
-      mods = "LEADER|SHIFT",
-      key = "F",
+      mods = "LEADER",
+      key = "o",
       action = wezterm.action.ToggleFullScreen,
     },
   },
