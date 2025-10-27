@@ -9,11 +9,11 @@ return {
       key = "w",
       action = wezterm.action.ShowTabNavigator,
     },
-    -- quit tabs
+    -- quit pane, or tab if no pane
     {
       mods = "LEADER",
       key = "q",
-      action = wezterm.action.CloseCurrentTab({ confirm = true }),
+      action = wezterm.action.CloseCurrentPane({ confirm = true }),
     },
     -- copy mode / vim mode
     {
