@@ -10,8 +10,20 @@ antigen apply
 # getzana.net
 _evalcache zana env zsh
 
-# Make alt + combo work in tmux
-bindkey -e
+# Enable vi keybindings
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -v
+bindkey -M vicmd v edit-command-line
+export VI_MODE_SET_CURSOR=true
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[1 q'  # block cursor
+  else
+    echo -ne '\e[6 q'  # beam cursor
+  fi
+}
+zle -N zle-keymap-select
 
 # Keybindings
 ## Home key
