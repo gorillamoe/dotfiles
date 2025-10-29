@@ -52,6 +52,7 @@ pamac install -y \
   lua5.4 \
   luarocks \
   make \
+  marksman \
   mise \
   net-tools \
   ripgrep \
