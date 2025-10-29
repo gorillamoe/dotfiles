@@ -13,6 +13,10 @@ set -euo pipefail
 # sudo cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules /etc/polkit-1/rules.d/
 # and then
 # sudo systemctl reload polkit.service
+# ---
+# add ILoveCandy in your /etc/pacman.conf file
+# in the Misc options, for a fancier pacman experience
+
 
 # Shazam release tag to install
 SHAZAM_RELEASE_TAG="v1.0.0"
