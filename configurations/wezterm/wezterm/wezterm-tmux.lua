@@ -5,6 +5,19 @@ local config = {}
 --- Mimic tmux
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
+  -- rename workspace
+  {
+    mods = "LEADER",
+    key = ".",
+    action = wezterm.action.PromptInputLine({
+      description = "Enter new tab workspace name",
+      action = wezterm.action_callback(function(_, _, line)
+        if line then
+          wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+        end
+      end),
+    }),
+  },
   -- rename tab
   {
     mods = "LEADER",
