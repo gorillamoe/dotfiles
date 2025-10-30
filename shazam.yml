@@ -12,11 +12,6 @@ configurations:
         destination: $HOME/Pictures/wallpaper.jpg
       - source: wallpaper.webp
         destination: $HOME/Pictures/wallpaper.webp
-  # tmux configuration
-  - name: tmux
-    files:
-      - source: .tmux.conf
-        destination: $HOME/.tmux.conf
   # sane defaults for editorconfig
   - name: editorconfig
     files:
@@ -44,13 +39,6 @@ configurations:
     files:
       - source: jj
         destination: $HOME/.config/jj
-  # sane defaults for kitty
-  - name: kitty
-    files:
-      - source: kitty.conf
-        destination: $HOME/.config/kitty/kitty.conf
-      - source: themes
-        destination: $HOME/.config/kitty/themes
   # sane defaults for wezterm
   - name: wezterm
     files:
