@@ -15,13 +15,25 @@ git submodule update --init --recursive --remote
 
 # Set up passwordless sudo for the current user
 echo "🔒 Setting up passwordless sudo for user $USER"
-sudo tee "/etc/sudoers.d/$USER" >/dev/null <<EOF
+if  [ -f "/etc/sudoers.d/$USER" ]; then
+  echo "📦 Passwordless sudo already configured for user $USER"
+  echo "💡 Skipping sudoers setup"
+else
+  echo "🔄 Configuring passwordless sudo for user $USER"
+  sudo tee "/etc/sudoers.d/$USER" >/dev/null <<EOF
 $USER ALL=(ALL) NOPASSWD: ALL
 EOF
+fi
 
 # Copy polkit rules to allow pamac to run without password
 echo "🔒 Setting up polkit rules for pamac"
-sudo cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules /etc/polkit-1/rules.d/
+if [ -f "/etc/polkit-1/rules.d/99-pamac-overrides.rules" ]; then
+  echo "📦 Polkit rules for pamac already exist"
+  echo "💡 Skipping polkit rules setup"
+else
+  echo "🔄 Copying polkit rules for pamac"
+  sudo cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules /etc/polkit-1/rules.d/
+fi
 
 echo "📦 Updating system packages"
 pamac install -y \
