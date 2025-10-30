@@ -36,52 +36,50 @@ else
 fi
 
 echo "📦 Updating system packages"
-pamac install -y \
+pamac install --no-confirm \
   antigen \
   bat \
-  build-essential \
   cargo \
   curl \
   direnv \
   docker \
   dust \
   eza \
-  fd-find \
+  fd \
   fuse3 \
   fzf \
   gcc \
   gnome \
-  gnome-shell-extension-manager \
+  gnome-shell-extensions \
+  pamac-gnome-integration \
   htop \
   btop \
   jq \
-  libbz2-dev \
-  libffi-dev \
-  liblzma-dev \
-  libncurses5-dev \
-  libncursesw5-dev \
-  libreadline-dev \
-  libsqlite3-dev \
-  libssl-dev \
+  bzip2 \
+  libffi \
+  ncurses \
+  readline \
+  sqlite3 \
   llvm \
-  lua5.4 \
+  lua \
   luarocks \
   make \
   marksman \
   mise \
   net-tools \
+  openssl \
   ripgrep \
   shellcheck \
   slides \
   terragrunt \
   tfswitch \
-  tk-dev \
+  tk \
   tmux \
   vhs \
   wezterm \
   wget \
-  xz-utils \
-  zlib1g-dev \
+  xz \
+  zlib \
   zsh
 
 # Ensure $HOME/.local/bin directory exists
