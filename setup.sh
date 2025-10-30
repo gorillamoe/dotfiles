@@ -155,7 +155,7 @@ shazam
 
 # Make zsh the default shell
 echo "🔄 Setting zsh as the default shell"
-if [ "$SHELL" = "/bin/zsh" ]; then
+if [[ "$SHELL" = *zsh ]]; then
   echo "📦 zsh already the default shell"
   echo "💡 Skipping zsh default shell setup"
 else
