@@ -65,6 +65,7 @@ pamac install -y \
   tfswitch \
   tk-dev \
   tmux \
+  vhs \
   wezterm \
   wget \
   xz-utils \
