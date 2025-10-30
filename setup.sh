@@ -60,6 +60,7 @@ pamac install -y \
   net-tools \
   ripgrep \
   shellcheck \
+  slides \
   terragrunt \
   tfswitch \
   tk-dev \
