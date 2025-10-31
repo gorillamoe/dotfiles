@@ -74,7 +74,6 @@ pamac install --no-confirm \
   terragrunt \
   tfswitch \
   tk \
-  tmux \
   vhs \
   wezterm \
   wget \
