@@ -10,9 +10,18 @@ return {
       action = wezterm.action.PromptInputLine({
         description = "Enter a new window size in px as:\n"
           .. "<width>,<height> or +/- values.\n\n"
-          .. "Single value to set both width and height.",
+          .. "Single value to set both width and height."
+          .. "'auto' to 80% of available screen size.",
         action = wezterm.action_callback(function(window, _, line)
           if line then
+            if line == "auto" then
+              local screens = wezterm.gui.screens()
+              local active_screen = screens["active"]
+              local xpx = math.floor(active_screen.width * 0.8)
+              local ypx = math.floor(active_screen.height * 0.8)
+              window:set_inner_size(xpx, ypx)
+              return
+            end
             -- input can be like "80,24", "+10,+5", "-10,-5"
             -- also "+10, -5" or "-10, +5" or "+10" or "-5" or "80"
             local dimensions = window:get_dimensions()
