@@ -9,7 +9,7 @@ return {
       key = "R",
       action = wezterm.action.PromptInputLine({
         description = "Enter a new window size in px as:\n"
-          .. "<width>,<height> or +/- values.\n\n"
+          .. "<width>x<height> or +/- values.\n\n"
           .. "Single value to set both width and height."
           .. "'auto' to 80% of available screen size.",
         action = wezterm.action_callback(function(window, _, line)
@@ -22,11 +22,11 @@ return {
               window:set_inner_size(xpx, ypx)
               return
             end
-            -- input can be like "80,24", "+10,+5", "-10,-5"
+            -- input can be like "80x24", "+10x+5", "-10x-5"
             -- also "+10, -5" or "-10, +5" or "+10" or "-5" or "80"
             local dimensions = window:get_dimensions()
             local width, height = dimensions.pixel_width, dimensions.pixel_height
-            local xpx, ypx = line:match("^%s*([+-]?%d+)%s*,%s*([+-]?%d+)%s*$")
+            local xpx, ypx = line:match("^%s*([+-]?%d+)%s*x%s*([+-]?%d+)%s*$")
             local single_value = line:match("^%s*([+-]?%d+)%s*$")
             if single_value then
               if single_value:sub(1, 1) == "+" or single_value:sub(1, 1) == "-" then
