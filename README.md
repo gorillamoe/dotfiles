@@ -36,3 +36,18 @@ cd ~/projects/personal/dotfiles
 # .. and run the setup script
 ./setup.sh
 ```
+
+Download private SSH keys and place them in `~/.ssh/`
+
+```sh
+cp path/to/private/id_rsa ~/.ssh/id_rsa
+cp path/to/private/id_rsa.pub ~/.ssh/id_rsa.pub
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
+```
+
+Download private GPG keys and import them:
+
+```sh
+gpg --import path/to/private/key.asc
+```
