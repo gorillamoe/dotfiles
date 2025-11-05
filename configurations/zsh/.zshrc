@@ -179,7 +179,7 @@ export PATH="/opt/google-cloud-cli/bin:$PATH"
 [[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # rustup
-. "$HOME/.cargo/env"
+[[ -d $HOME/.cargo/env ]] && . "$HOME/.cargo/env"
 
 # Deno
 . "/home/marco/.deno/env"

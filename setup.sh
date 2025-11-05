@@ -39,6 +39,7 @@ echo "📦 Updating system packages"
 pamac install --no-confirm \
   antigen \
   bat \
+  carapace \
   cargo \
   curl \
   direnv \
@@ -49,6 +50,7 @@ pamac install --no-confirm \
   fuse3 \
   fzf \
   gcc \
+  gcr-4 \
   gnome \
   gnome-shell-extensions \
   pamac-gnome-integration \
@@ -79,6 +81,7 @@ pamac install --no-confirm \
   wget \
   xz \
   zlib \
+  zoxide \
   zsh
 
 # Ensure $HOME/.local/bin directory exists
@@ -100,7 +103,6 @@ else
   cp -p ./configurations/fonts/fira-code-nerd-font/* ~/.local/share/fonts/
   rm ~/.local/share/fonts/*.md
   rm ~/.local/share/fonts/LICENSE*
-  rm FiraCode.zip
   FONTS_INSTALLED=1
 fi
 if [ -f ~/.local/share/fonts/VictorMonoNerdFont-Regular.ttf ]; then
@@ -135,6 +137,20 @@ else
   curl -fsSL https://deno.land/install.sh | sh
 fi
 
+# Install rustup
+if [ -d ~/.cargo ]; then
+  echo "📦 rustup already installed"
+  echo "💡 Skipping rustup installation"
+else
+  echo "📦 Installing rustup (Rust toolchain manager)"
+  if command -v rust &>/dev/null; then
+    echo "📦 Rust already installed"
+    echo "💡 Removing existing Rust installation to avoid conflicts"
+    pamac remove --no-confirm rust
+  fi
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
 # Install shazam.sh and symlink dotfiles
 echo "📦 Installing shazam.sh for dotfiles management"
 if [ -f /usr/bin/shazam ]; then
@@ -159,6 +175,9 @@ else
   chsh -s "$(which zsh)"
 fi
 
+# Enable auto ssh key unlocking
+systemctl enable --user --now gcr-ssh-agent.service
+
 # Configure docker
 echo "🐳 Configuring Docker to run without sudo"
 if groups "$USER" | grep &>/dev/null '\bdocker\b'; then
@@ -166,7 +185,10 @@ if groups "$USER" | grep &>/dev/null '\bdocker\b'; then
   echo "💡 Skipping docker group setup"
 else
   echo "🔄 Adding user '$USER' to the docker group"
-  sudo groupadd docker
+  if ! getent group docker &>/dev/null; then
+    echo "🆕 Docker group does not exist. Creating docker group."
+    sudo groupadd docker
+  fi
   sudo usermod -aG docker "$USER"
 fi
 

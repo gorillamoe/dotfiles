@@ -17,6 +17,11 @@ configurations:
     files:
       - source: .editorconfig
         destination: $HOME/.editorconfig
+  # mise configuration
+  - name: mise
+    files:
+      - source: mise
+        destination: $HOME/.config/mise
   # zsh configuration
   - name: zsh
     files:
