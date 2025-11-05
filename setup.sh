@@ -78,6 +78,7 @@ pamac install --no-confirm \
   ripgrep \
   shellcheck \
   slides \
+  stylua \
   terragrunt \
   tfswitch \
   tk \
