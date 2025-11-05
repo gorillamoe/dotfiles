@@ -67,6 +67,8 @@ pamac install --no-confirm \
   sqlite3 \
   llvm \
   lua \
+  luacheck \
+  lua-lanes \
   luarocks \
   make \
   marksman \
