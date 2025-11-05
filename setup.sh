@@ -9,6 +9,9 @@ set -euo pipefail
 # Shazam release tag to install
 SHAZAM_RELEASE_TAG="v1.0.0"
 
+# Zana release tag to install
+ZANA_RELEASE_TAG="v0.7.1"
+
 # Update git submodules
 echo "🔄 Updating git submodules"
 git submodule update --init --recursive --remote
@@ -76,6 +79,7 @@ pamac install --no-confirm \
   terragrunt \
   tfswitch \
   tk \
+  vale \
   vhs \
   wezterm \
   wget \
@@ -160,6 +164,17 @@ else
   wget "https://github.com/mistweaverco/shazam.sh/releases/download/$SHAZAM_RELEASE_TAG/shazam-linux"
   chmod +x shazam-linux
   sudo mv shazam-linux /usr/bin/shazam
+fi
+
+# Install shazam.sh and symlink dotfiles
+echo "📦 Installing Zana for LSP and Linter management"
+if [ -f /usr/bin/zana ]; then
+  echo "📦 Zana already installed"
+  echo "💡 Skipping Zana installation"
+else
+  wget "https://github.com/mistweaverco/zana-client/releases/download/$ZANA_RELEASE_TAG/zana-linux-amd64"
+  chmod +x zana-linux-amd64
+  sudo mv zana-linux-amd64 /usr/bin/zana
 fi
 
 # Symlink dotfiles

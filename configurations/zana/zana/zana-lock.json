@@ -2,11 +2,11 @@
   "packages": [
     {
       "sourceId": "pkg:npm/@prisma/language-server",
-      "version": "6.16.2"
+      "version": "6.19.0"
     },
     {
       "sourceId": "pkg:npm/@tailwindcss/language-server",
-      "version": "0.14.26"
+      "version": "0.14.29"
     },
     {
       "sourceId": "pkg:npm/bash-language-server",
@@ -18,11 +18,11 @@
     },
     {
       "sourceId": "pkg:npm/dockerfile-language-server-nodejs",
-      "version": "0.14.1"
+      "version": "0.15.0"
     },
     {
       "sourceId": "pkg:npm/eslint",
-      "version": "9.35.0"
+      "version": "9.39.1"
     },
     {
       "sourceId": "pkg:npm/intelephense",
@@ -30,7 +30,7 @@
     },
     {
       "sourceId": "pkg:npm/pyright",
-      "version": "1.1.405"
+      "version": "1.1.407"
     },
     {
       "sourceId": "pkg:npm/sql-language-server",
@@ -38,11 +38,11 @@
     },
     {
       "sourceId": "pkg:npm/svelte-language-server",
-      "version": "0.17.19"
+      "version": "0.17.21"
     },
     {
       "sourceId": "pkg:npm/typescript-language-server",
-      "version": "5.0.0"
+      "version": "5.1.1"
     },
     {
       "sourceId": "pkg:npm/vim-language-server",
@@ -54,7 +54,7 @@
     },
     {
       "sourceId": "pkg:npm/yaml-language-server",
-      "version": "1.18.0"
+      "version": "1.19.2"
     },
     {
       "sourceId": "pkg:npm/@mistweaverco/kulala-ls",
@@ -62,7 +62,7 @@
     },
     {
       "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",
-      "version": "2.10.0"
+      "version": "2.10.2"
     }
   ]
 }
