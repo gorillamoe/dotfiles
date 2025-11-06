@@ -57,10 +57,6 @@
       "version": "1.19.2"
     },
     {
-      "sourceId": "pkg:npm/@mistweaverco/kulala-ls",
-      "version": "1.10.0"
-    },
-    {
       "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",
       "version": "2.10.2"
     }
