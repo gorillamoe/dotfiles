@@ -59,6 +59,10 @@
     {
       "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",
       "version": "2.10.2"
+    },
+    {
+      "sourceId": "pkg:pypi/yamllint",
+      "version": "1.37.1"
     }
   ]
 }
