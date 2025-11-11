@@ -79,6 +79,7 @@ pamac install --no-confirm \
   shellcheck \
   slides \
   stylua \
+  terraform-ls \
   terragrunt \
   tfswitch \
   tk \
