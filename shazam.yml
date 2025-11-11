@@ -12,6 +12,8 @@ configurations:
         destination: $HOME/Pictures/wallpaper.jpg
       - source: wallpaper.webp
         destination: $HOME/Pictures/wallpaper.webp
+      - source: avatar.png
+        destination: $HOME/Pictures/avatar.png
   # sane defaults for editorconfig
   - name: editorconfig
     files:
