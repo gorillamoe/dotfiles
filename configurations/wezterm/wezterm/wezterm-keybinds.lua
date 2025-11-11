@@ -68,6 +68,12 @@ return {
       key = "w",
       action = wezterm.action.ShowTabNavigator,
     },
+    -- quit all panes and tabs and exit wezterm
+    {
+      mods = "LEADER",
+      key = "Q",
+      action = wezterm.action.QuitApplication,
+    },
     -- quit pane, or tab if no pane
     {
       mods = "LEADER",
