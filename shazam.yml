@@ -19,6 +19,11 @@ configurations:
     files:
       - source: .editorconfig
         destination: $HOME/.editorconfig
+  # My scripts
+  - name: scripts
+    files:
+      - source: scripts
+        destination: $HOME/.local/scripts
   # mise configuration
   - name: mise
     files:

@@ -47,6 +47,7 @@ pamac install --no-confirm \
   curl \
   direnv \
   docker \
+  docker-buildx \
   dust \
   eza \
   fd \

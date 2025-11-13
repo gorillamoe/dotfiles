@@ -183,3 +183,6 @@ export PATH="/opt/google-cloud-cli/bin:$PATH"
 
 # Deno
 . "/home/marco/.deno/env"
+
+# My own scripts take precedence
+[[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
