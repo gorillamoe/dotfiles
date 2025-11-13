@@ -10,4 +10,4 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-sshuttle -r "$1" 0/0
+sudo sshuttle -r "$1" 0/0
