@@ -88,13 +88,13 @@ config.keys = {
   {
     mods = "LEADER",
     key = "l",
-    action = wezterm.action.ActivatePaneDirection("Next"),
+    action = wezterm.action.ActivatePaneDirection("Right"),
   },
   -- left pane
   {
     mods = "LEADER",
     key = "h",
-    action = wezterm.action.ActivatePaneDirection("Prev"),
+    action = wezterm.action.ActivatePaneDirection("Left"),
   },
   {
     mods = "LEADER",
