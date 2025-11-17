@@ -50,6 +50,7 @@ pamac install --no-confirm \
   docker-buildx \
   dust \
   eza \
+  fastfetch \
   fd \
   fuse3 \
   fzf \
