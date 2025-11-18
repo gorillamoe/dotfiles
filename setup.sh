@@ -76,6 +76,7 @@ pamac install --no-confirm \
   make \
   marksman \
   mise \
+  netcat \
   net-tools \
   openssl \
   ripgrep \
