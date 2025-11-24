@@ -42,9 +42,7 @@
   # git checkout -b
   cob = checkout -b
   # merge graph
-  tree = log --graph --oneline --all
-  # merge graph
-  treed = tree --pretty=fuller
+  tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an (%G?)%C(reset)' --all
   # git commit
   ci = commit
   # List commits showing changed files is invoked with git ll and looks like
