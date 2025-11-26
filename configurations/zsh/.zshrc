@@ -172,6 +172,9 @@ _evalcache zoxide init zsh
 # so that it always prefers the local version
 export PATH="node_modules/.bin:$PATH"
 
+# .NET tools
+export PATH="$PATH:/home/marco/.dotnet/tools"
+
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # Google Cloud CLI

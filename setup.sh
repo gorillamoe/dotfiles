@@ -49,6 +49,7 @@ pamac install --no-confirm \
   direnv \
   docker \
   docker-buildx \
+  dotnet-sdk \
   dust \
   eza \
   fastfetch \
@@ -80,7 +81,6 @@ pamac install --no-confirm \
   mise \
   netcat \
   net-tools \
-  omnisharp-roslyn \
   openssl \
   oryx \
   ripgrep \
@@ -167,6 +167,10 @@ else
   fi
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
+
+# Install dotnet packages
+echo "📦 Installing .NET global tools"
+dotnet tool install --global csharp-ls
 
 # Install shazam.sh and symlink dotfiles
 echo "📦 Installing shazam.sh for dotfiles management"
