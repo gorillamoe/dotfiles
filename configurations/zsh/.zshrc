@@ -127,17 +127,14 @@ export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# better ls
 alias ls='eza --icons=always'
 
 # I <3 Neovim
 alias vim=nvim
 alias vi=nvim
 
-# easier sudo with env
-alias 'sudoo'='sudo -E'
-
 alias 'll'='ls -la'
-alias '..'='cd ..'
 alias 'gopen'='xdg-open'
 
 if command -v batcat &> /dev/null; then
@@ -148,6 +145,7 @@ if command -v fdfind &> /dev/null; then
   alias 'fd'='fdfind'
 fi
 
+# Use yazi to change directory and update shell cwd
 yy() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
@@ -156,6 +154,9 @@ yy() {
   fi
   rm -f -- "$tmp"
 }
+
+# shorthand for yazi
+alias 'y'='yazi'
 
 # Mise
 _evalcache mise activate zsh
