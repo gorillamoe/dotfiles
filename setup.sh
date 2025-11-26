@@ -50,6 +50,7 @@ pamac install --no-confirm \
   direnv \
   docker \
   docker-buildx \
+  dos2unix \
   dotnet-sdk \
   dust \
   eza \
@@ -172,6 +173,7 @@ fi
 # Install dotnet packages
 echo "📦 Installing .NET global tools"
 dotnet tool install --global csharp-ls
+dotnet tool install --global csharpier
 
 # Install shazam.sh and symlink dotfiles
 echo "📦 Installing shazam.sh for dotfiles management"
