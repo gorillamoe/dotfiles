@@ -80,6 +80,7 @@ pamac install --no-confirm \
   mise \
   netcat \
   net-tools \
+  omnisharp-roslyn \
   openssl \
   oryx \
   ripgrep \
