@@ -66,6 +66,7 @@ pamac install --no-confirm \
   bzip2 \
   libffi \
   ncurses \
+  pandoc \
   readline \
   sqlite3 \
   llvm \
