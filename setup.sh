@@ -97,6 +97,7 @@ pamac install --no-confirm \
   wget \
   xz \
   zlib \
+  zls \
   zoxide \
   zsh
 
