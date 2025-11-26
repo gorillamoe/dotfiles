@@ -41,6 +41,7 @@ fi
 echo "📦 Updating system packages"
 pamac install --no-confirm \
   antigen \
+  bandwhich \
   bat \
   carapace \
   cargo \
