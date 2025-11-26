@@ -79,6 +79,7 @@ pamac install --no-confirm \
   netcat \
   net-tools \
   openssl \
+  oryx \
   ripgrep \
   shellcheck \
   slides \
