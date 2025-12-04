@@ -63,6 +63,10 @@
     {
       "sourceId": "pkg:pypi/yamllint",
       "version": "1.37.1"
+    },
+    {
+      "sourceId": "pkg:npm/@typescript/native-preview",
+      "version": "7.0.0-dev.20251204.1"
     }
   ]
 }
