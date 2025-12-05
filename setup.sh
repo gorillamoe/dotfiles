@@ -68,6 +68,7 @@ pamac install --no-confirm \
   jq \
   bzip2 \
   libffi \
+  ncdu \
   ncurses \
   pandoc \
   readline \
