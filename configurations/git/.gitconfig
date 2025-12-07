@@ -19,19 +19,34 @@
   deleted = red
 
 [alias]
-  # easy rebasing, by just taking theirs
-  reco = '!git restore --theirs . && git add . && GIT_EDITOR=true git rebase --continue'
-  # git backup
-  bak = "!git add -A && git commit --amend --reuse-message=HEAD"
-  # add all files, commit with latest message, and push force-with-lease
-  pwl = "!git add -A && git commit --amend --reuse-message=HEAD --reset-author && git push --force-with-lease"
+  # Clean branches
+  cb = "!git-branch-cleaner.sh"
+  # just an alias for rebase --continue
+  reco = rebase --continue
+  # git wip
+  # checks if the latest commit message contains "wip" (ignoring case)
+  # if it does, it amends the commit with all current changes
+  # if it doesn't, it stages all changes and creates a new commit with message "WIP"
+  wip = "!f() { \
+    if git log -1 --pretty=%B | grep -iq 'wip'; then \
+      git commit --amend --no-edit; \
+    else \
+      git add -A && git commit -m 'WIP'; \
+    fi; \
+  }; f"
+  # Adds all changes, including deletions, amends, but opens editor for changing commit message
+  amend = commit --amend --reset-author -a
+  # like am, but keep the author info
+  amend-keep = commit --amend -a
   # get latest tag
+  # matches tags like v1.2.3
   lt = "!git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 \"$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=1 | tail -n 1)\""
   # get previous tag before the latest tag
+  # matches tags like v1.2.3
   pt = "!git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 \"$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=2 | tail -n 1)\""
-  # git add
-  a = add
-  # git add
+  # release - create a new tag and push it
+  # usage: git release <"patch"|"minor"|"major"> [<create-annotated-tag-truthish-value>]
+  release = "!git-release.sh \"$1\" \"$2\""
   aa = add -A
   # git status
   st = status
@@ -53,33 +68,34 @@
   lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=local --date=format:'%Y-%m-%d %H:%M:%S'
   # List oneline commits showing relative dates
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-  # see all the commits related to a file, with the diff of the changes
-  filelog = log -u
-  fl = log -u
-  # Show modified files in last commit:
-  dl = "!git ll -1"
+  # see all the commits related to a file,
+  # with the diff of the changes
+  # Optionally filter by a search term for file names
+  # like `git filelog-diff README` or `git fl-diff src/
+  filelog-diff = log -u
+  fl-diff = log -u
+  # see all the commits related to a file,
+  # without the diff of the changes.
+  # Optionally filter by a search term for file names
+  # like `git filelog README` or `git fl src/`
+  filelog = log --stat
+  fl = log --stat
   # Show diff
   d = diff
   # Show a cached diff:
   dc = diff --cached
-  # Show a diff last commit:
-  dlc = diff --cached HEAD^
-  # Diff color
-  diffc = 'git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
   # git lds --show-signature with optional limit ( like `git log -3`)
   # Just do `git sig` for the most recent one or `git log 7` for the 7
   # most recent ones.
   sig = "!f() { if [[ ! -z $1 ]]; then git lds --show-signature -$1; else git lds --show-signature -1; fi; }; f"
-  soc = log --show-signature -n 1
   # This is what git blame should look like in the first place
   # bbl stands for better blame
-  bbl = log -p -M --follow --stat --show-signature --
-  # shorthands for git add -p (patch)
-  patch = add -p
-  yank = add -p
+  bbl = "!f() { git blame --root -w -M -C -c --porcelain \"$@\" | awk 'BEGIN {OFS=\"\\t\"; H=\"\\033[33m\"; A=\"\\033[36m\"; D=\"\\033[34m\"; R=\"\\033[0m\"} /^([0-9a-f]{40})/ {commit=substr($1, 1, 12)} /^author / {author=substr($0, 8)} /^author-time / {date=strftime(\"%Y-%m-%d\", $2)} /^\t/ {print H commit R, A author R, D date R, substr($0, 2)}'; }; f"
+  # shorthand for git add -p (patch)
   yy = add -p
   # shorthands for getting git root
   root = rev-parse --show-toplevel
+
 [push]
   default = simple
   autoSetupRemote = true
@@ -90,7 +106,7 @@
 
 [merge]
   conflictstyle = diff3
-	tool = diffconflicts
+  tool = diffconflicts
 
 [core]
   whitespace = -blank-at-eof
@@ -98,17 +114,12 @@
 [init]
   defaultBranch = main
 
-[mergetool "diffconflicts"]
-	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
-
 [mergetool]
-	keepBackup = false
+  keepBackup = false
+
+[mergetool "diffconflicts"]
+  cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+  trustExitCode = true
 
 [includeIf "gitdir:~/projects/work/"]
   path = ~/projects/work/.gitconfig
-[mergetool "diffconflicts"]
-	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
-[mergetool]
-	keepBackup = false
