@@ -44,6 +44,7 @@ pamac install --no-confirm \
   aspnet-runtime \
   bandwhich \
   bat \
+  btop \
   carapace \
   cargo \
   curl \
@@ -64,7 +65,6 @@ pamac install --no-confirm \
   gnome-shell-extensions \
   pamac-gnome-integration \
   htop \
-  btop \
   jq \
   bzip2 \
   libffi \
