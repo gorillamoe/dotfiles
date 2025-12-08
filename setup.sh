@@ -47,6 +47,7 @@ pamac install --no-confirm \
   btop \
   carapace \
   cargo \
+  cosign \
   curl \
   direnv \
   docker \
