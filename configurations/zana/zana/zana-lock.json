@@ -21,10 +21,6 @@
       "version": "0.15.0"
     },
     {
-      "sourceId": "pkg:npm/eslint",
-      "version": "9.39.1"
-    },
-    {
       "sourceId": "pkg:npm/intelephense",
       "version": "1.16.2"
     },
@@ -55,10 +51,6 @@
     {
       "sourceId": "pkg:npm/yaml-language-server",
       "version": "1.19.2"
-    },
-    {
-      "sourceId": "pkg:npm/@mistweaverco/kulala-fmt",
-      "version": "2.11.0"
     },
     {
       "sourceId": "pkg:pypi/yamllint",
