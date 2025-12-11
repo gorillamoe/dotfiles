@@ -100,6 +100,7 @@ pamac install --no-confirm \
   wezterm \
   wget \
   xz \
+  yazi \
   zlib \
   zls \
   zoxide \
