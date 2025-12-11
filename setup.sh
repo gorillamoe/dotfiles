@@ -190,7 +190,7 @@ fi
 
 # Install shazam.sh and symlink dotfiles
 echo "📦 Installing Zana for LSP and Linter management"
-if [ -f /usr/bin/zana ]; then
+if [ -f "$HOME/.local/bin/zana" ]; then
   echo "📦 Zana already installed"
   echo "💡 Skipping Zana installation"
 else
