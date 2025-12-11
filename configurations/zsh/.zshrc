@@ -6,16 +6,51 @@ source /usr/share/zsh/share/antigen.zsh
 antigen bundle mroth/evalcache
 antigen apply
 
+# store the absolute path of the current directory.
+typeset -g ZSH_CWD="$PWD"
+
+# Zsh executes this after every directory change.
+function chpwd() {
+    ZSH_CWD="$PWD"
+}
+
 # Zana
 # getzana.net
 _evalcache zana env zsh
 
+###
+#  Enable vi keybindings
+###
+
+# Custom widget to edit command line in Neovim in
+# the current working directory
+function zle-edit-command-line-cwd {
+  local temp_file=$(mktemp -t zsh_cmd_XXXXXXXXXXX -p "$ZSH_CWD")
+  print -r -- $BUFFER > $temp_file
+
+  # Open the temporary file in neovim with zsh filetype
+  command nvim --cmd "set filetype=zsh" "$temp_file"
+
+  # Read the content back into the Zsh buffer after editing.
+  if [[ -f $temp_file ]]; then
+    BUFFER=$(cat $temp_file)
+    CURSOR=$#BUFFER
+    rm $temp_file
+    # enter insert mode after returning from nvim
+    zle vi-insert
+  fi
+}
+
+# Register the widget with Zsh's line editor
+zle -N zle-edit-command-line-cwd
+
+# Bind the new widget to 'v' in vi command mode
+bindkey -M vicmd v zle-edit-command-line-cwd
+
 # Enable vi keybindings
-autoload edit-command-line
-zle -N edit-command-line
 bindkey -v
-bindkey -M vicmd v edit-command-line
 export VI_MODE_SET_CURSOR=true
+
 # change cursor shape in vi mode
 zle-keymap-select () {
     if [[ $KEYMAP == vicmd ]]; then
@@ -26,6 +61,7 @@ zle-keymap-select () {
         echo -ne "\e[5 q"
     fi
 }
+
 precmd_functions+=(zle-keymap-select)
 zle -N zle-keymap-select
 
