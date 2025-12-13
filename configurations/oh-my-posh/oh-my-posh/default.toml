@@ -1,79 +1,65 @@
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
 version = 3
 final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
 [palette]
-  black = '#262B44'
-  blue = '#4B95E9'
-  green = '#59C9A5'
-  grey = '#6C6C6C'
-  orange = '#F07623'
-  red = '#D81E5B'
-  white = '#E0DEF4'
-  yellow = '#F3AE35'
-
-[secondary_prompt]
-  template = '❯❯ '
-  foreground = 'magenta'
-  background = 'transparent'
-
-[transient_prompt]
-  template = '❯ '
-  foreground = ''
-  background = 'transparent'
-  foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}', '{{ if eq .Code 0 }}magenta{{ end }}']
+background = "#002b36"
+foreground = "#d5d5d5"
+blue = "#61AFEF"
+green = "#98c379"
+cyan = "#56B6C2"
+path = "#2C3E50"
+time_bg = "#3B4252"
+git_clean = "#A3BE8C"
+git_dirty = "#D08770"
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
+  type = "prompt"
+  alignment = "left"
+
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    foreground = "p:green"
+    template = "\u256D "
+
+  [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    foreground = "p:blue"
+    template = " \uE5FF {{ .Path }} "
+
+[[blocks]]
+  type = "prompt"
+  alignment = "right"
+
+  [[blocks.segments]]
+    type = "git"
+    style = "plain"
+    foreground = "p:green"
+    foreground_templates = [ "{{ if or (.Working.Changed) (.Staging.Changed) }}#FFEB3B{{ end }}", "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}", "{{ if gt .Ahead 0 }}#B388FF{{ end }}", "{{ if gt .Behind 0 }}#B388FB{{ end }}" ]
+    template = "{{ .HEAD }} {{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
+    [blocks.segments.options]
+    fetch_status = true
+    fetch_upstream_icon = false
+    source = "cli"
+    [blocks.segments.options.mapped_branches]
+    "feat/*" = "🚀 "
+    "bug/*" = "🐛 "
+
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
   newline = true
 
   [[blocks.segments]]
-    style = 'plain'
-    template = '{{ .Path }}'
-    foreground = 'blue'
-    background = 'transparent'
-    type = 'path'
-
-    [blocks.segments.properties]
-      style = 'full'
+    type = "text"
+    style = "plain"
+    foreground = "p:green"
+    template = "\u2570 "
 
   [[blocks.segments]]
-    style = 'plain'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}</>'
-    foreground = 'p:grey'
-    background = 'transparent'
-    type = 'git'
-
-    [blocks.segments.properties]
-      branch_icon = ''
-      commit_icon = '@'
-      fetch_status = true
-
-[[blocks]]
-  type = 'rprompt'
-  overflow = 'hidden'
-
-  [[blocks.segments]]
-    style = 'plain'
-    template = '{{ .FormattedMs }}'
-    foreground = 'yellow'
-    background = 'transparent'
-    type = 'executiontime'
-
-    [blocks.segments.properties]
-      style = 'austin'
-      threshold = 5000
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-
-  [[blocks.segments]]
-    style = 'plain'
-    template = '❯'
-    foreground = ''
-    background = 'transparent'
-    type = 'text'
-    foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}', '{{ if eq .Code 0 }}magenta{{ end }}']
+    type = "text"
+    style = "plain"
+    foreground = "p:green"
+    template = "> "
