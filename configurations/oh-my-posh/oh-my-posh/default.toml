@@ -43,9 +43,6 @@ git_dirty = "#D08770"
     fetch_status = true
     fetch_upstream_icon = false
     source = "cli"
-    [blocks.segments.options.mapped_branches]
-    "feat/*" = "🚀 "
-    "bug/*" = "🐛 "
 
 [[blocks]]
   type = "prompt"
