@@ -58,5 +58,22 @@ git_dirty = "#D08770"
   [[blocks.segments]]
     type = "text"
     style = "plain"
+    foreground_templates = ['{{ if gt .Code 0 }}#EE0066{{ end }}', '{{ if eq .Code 0 }}green{{ end }}']
     foreground = "p:green"
-    template = "> "
+    template = "{{ if gt .Code 0 }}{{ .Code }} > {{ end }}{{ if eq .Code 0 }}> {{ end }}"
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+  alignment = "right"
+
+  [[blocks.segments]]
+    type = "executiontime"
+    style = "plain"
+    foreground = "#E5C07B"
+    template = " {{ .FormattedMs }} "
+
+    [blocks.segments.options]
+      threshold = 500
+      style = "austin"
+      always_enabled = true
