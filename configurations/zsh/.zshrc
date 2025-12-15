@@ -1,10 +1,41 @@
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/marco/.zsh/completions:"* ]]; then export FPATH="/home/marco/.zsh/completions:$FPATH"; fi
-autoload -U +X compinit && compinit
 
+# Antigen
 source /usr/share/zsh/share/antigen.zsh
+# Evalcache
 antigen bundle mroth/evalcache
 antigen apply
+
+# Zinit
+
+# Set the directory where we want to store zinit and the plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download and install zinit if it's not already installed
+if [[ ! -d $ZINIT_HOME ]]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "$ZINIT_HOME/zinit.zsh"
+zinit wait lucid for \
+  zdharma-continuum/fast-syntax-highlighting \
+  zdharma-continuum/history-search-multi-word \
+  blockf \
+  zsh-users/zsh-completions \
+  zsh-users/zsh-autosuggestions
+
+# Completion system MUST be initialized ONCE
+autoload -Uz compinit
+compinit
+
+compdef g=git
+
+# Carapace must come AFTER compinit
+export CARAPACE_BRIDGES='zsh,bash,inshellisense'
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+_evalcache carapace _carapace
 
 # store the absolute path of the current directory.
 typeset -g ZSH_CWD="$PWD"
@@ -115,29 +146,6 @@ setopt HIST_IGNORE_SPACE
 # Record time of command in history
 setopt EXTENDED_HISTORY
 
-export CARAPACE_BRIDGES='zsh,bash,inshellisense' # optional
-zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
-source <(carapace _carapace)
-
-# Set the directory where we want to store zinit and the plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download and install zinit if it's not already installed
-if [[ ! -d $ZINIT_HOME ]]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-source "$ZINIT_HOME/zinit.zsh"
-
-zinit wait lucid for \
-  zdharma-continuum/fast-syntax-highlighting \
-  zdharma-continuum/history-search-multi-word \
-  blockf \
-  zsh-users/zsh-completions \
-  atload"bindkey '^n' autosuggest-accept" \
-  zsh-users/zsh-autosuggestions
-
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 
 # Install oh-my-posh, if not already installed
@@ -165,6 +173,17 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # better ls
 alias ls='eza --icons=always'
+
+# git aliasses
+# with arguments, pass them to git
+# e.g. g commit -m "message"
+g() {
+  if [ "$#" -eq 0 ]; then
+    git status
+    return
+  fi
+  git "$@"
+}
 
 # I <3 Neovim
 alias vim=nvim

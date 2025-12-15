@@ -3,9 +3,9 @@
 # git-release.sh takes the following argument patch|minor|major
 # and creates a new semver tag based on the latest tag
 # For example, if the latest tag is v1.2.3 and you run
-# git release minor, it will create tag v1.3.0
-# git release patch will create v1.2.4
-# git release major will create v2.0.0
+# git release minor|feat|feature, it will create tag v1.3.0
+# git release patch|bug|bugfix|fix will create v1.2.4
+# git release major|break|breaking will create v2.0.0
 # If there are no tags, it will create v0.1.0 for minor,
 # v0.0.1 for patch and v1.0.0 for major
 # It will also push the tag to the remote
@@ -43,11 +43,11 @@ set_new_tag() {
   PATCH=${parts[2]};
 
   case "$RELEASE_TYPE" in
-    major)
+    major|break|breaking)
       NEW_TAG="v$((MAJOR + 1)).0.0";;
-    minor)
+    minor|feat|feature)
     NEW_TAG="v$MAJOR.$((MINOR + 1)).0";;
-    patch|"" )
+    patch|bug|bugfix|fix|"")
       NEW_TAG="v$MAJOR.$MINOR.$((PATCH + 1))";;
     *)
       echo "Usage: git release [patch|minor|major] [<create release message boolean>]"

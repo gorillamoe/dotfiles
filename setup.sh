@@ -45,7 +45,7 @@ pamac install --no-confirm \
   bandwhich \
   bat \
   btop \
-  carapace \
+  carapace-bin \
   cargo \
   cosign \
   curl \
