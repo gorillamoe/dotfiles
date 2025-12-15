@@ -17,8 +17,10 @@ return {
             if line == "auto" then
               local screens = wezterm.gui.screens()
               local active_screen = screens["active"]
-              local xpx = math.floor(active_screen.width * 0.8)
               local ypx = math.floor(active_screen.height * 0.8)
+              -- don't go too wide for typical monitor aspect ratios
+              -- assume 16:9 max
+              local xpx = math.floor((ypx * 16) / 9)
               window:set_inner_size(xpx, ypx)
               return
             end
