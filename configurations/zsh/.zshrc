@@ -24,6 +24,7 @@ zinit wait lucid for \
   zdharma-continuum/history-search-multi-word \
   blockf \
   zsh-users/zsh-completions \
+  atload"bindkey '^n' autosuggest-accept" \
   zsh-users/zsh-autosuggestions
 
 # Completion system MUST be initialized ONCE
