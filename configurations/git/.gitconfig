@@ -108,6 +108,9 @@
   conflictstyle = diff3
   tool = diffconflicts
 
+[pager]
+  diff = false
+
 [core]
   whitespace = -blank-at-eof
 
