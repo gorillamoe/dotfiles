@@ -52,8 +52,10 @@
   st = status
   # git branch
   b = branch
-  # git co
+  # git co - used to checkout branches or files
   co = checkout
+  # git sw is switch - used to switch branches
+  sw = switch
   # git checkout -b
   cob = checkout -b
   # merge graph
