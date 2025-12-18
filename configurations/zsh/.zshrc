@@ -36,7 +36,8 @@ compdef g=git
 # Carapace must come AFTER compinit
 export CARAPACE_BRIDGES='zsh,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-_evalcache carapace _carapace
+# Carapace can't be cached, for whatever reason
+source <(carapace env zsh)
 
 # store the absolute path of the current directory.
 typeset -g ZSH_CWD="$PWD"
