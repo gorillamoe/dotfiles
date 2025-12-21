@@ -1,0 +1,4 @@
+# Ignore when search via ripgrep
+/configurations/fonts/
+/configurations/pictures/
+/configurations/vale/.vale
