@@ -1,6 +1,6 @@
 version = 3
 final_space = true
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
+console_title_template = "Terminal"
 
 [palette]
 background = "#002b36"

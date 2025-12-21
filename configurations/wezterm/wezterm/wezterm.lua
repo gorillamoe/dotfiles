@@ -45,8 +45,9 @@ tabline.setup({
 
 tabline.apply_to_config(config)
 
--- misc settings
-config.enable_wayland = true
+-- misc settings --
+-- prevents crashes with scaling
+config.enable_wayland = false
 config.initial_cols = 80
 config.initial_rows = 25
 
