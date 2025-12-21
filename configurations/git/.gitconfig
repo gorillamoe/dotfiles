@@ -19,6 +19,8 @@
   deleted = red
 
 [alias]
+  # Git stash pop, but shorter
+  unstash = stash pop
   # Clean branches
   cb = "!git-branch-cleaner.sh"
   # just an alias for rebase --continue
