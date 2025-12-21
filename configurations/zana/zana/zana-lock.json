@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "pkg:npm/@prisma/language-server",
-      "version": "31.1.0"
+      "version": "31.3.4"
     },
     {
       "sourceId": "pkg:npm/@tailwindcss/language-server",
@@ -34,7 +34,7 @@
     },
     {
       "sourceId": "pkg:npm/svelte-language-server",
-      "version": "0.17.22"
+      "version": "0.17.23"
     },
     {
       "sourceId": "pkg:npm/typescript-language-server",
@@ -58,7 +58,7 @@
     },
     {
       "sourceId": "pkg:npm/@typescript/native-preview",
-      "version": "7.0.0-dev.20251205.1"
+      "version": "7.0.0-dev.20251220.1"
     }
   ]
 }
