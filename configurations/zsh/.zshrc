@@ -39,6 +39,13 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 # Carapace can't be cached, for whatever reason
 source <(carapace env zsh)
 
+# Zana completions
+source <(zana completion zsh)
+
+# bun completions
+[ -s "/home/marco/.bun/_bun" ] && source "/home/marco/.bun/_bun"
+
+
 # store the absolute path of the current directory.
 typeset -g ZSH_CWD="$PWD"
 
@@ -46,11 +53,6 @@ typeset -g ZSH_CWD="$PWD"
 function chpwd() {
     ZSH_CWD="$PWD"
 }
-
-# Zana
-# getzana.net
-_evalcache zana env zsh
-_evalcache zana completion zsh
 
 ###
 #  Enable vi keybindings
@@ -167,9 +169,6 @@ export GOPATH="$HOME/go"
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
 
-# bun completions
-[ -s "/home/marco/.bun/_bun" ] && source "/home/marco/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -245,6 +244,11 @@ export PATH="/opt/google-cloud-cli/bin:$PATH"
 
 # Deno
 . "/home/marco/.deno/env"
+
+# Zana
+# getzana.net
+# As late as possible, so it can override other completions
+_evalcache zana env zsh
 
 # My own scripts take precedence
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
