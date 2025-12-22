@@ -50,6 +50,7 @@ function chpwd() {
 # Zana
 # getzana.net
 _evalcache zana env zsh
+_evalcache zana completion zsh
 
 ###
 #  Enable vi keybindings
