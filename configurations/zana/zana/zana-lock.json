@@ -59,6 +59,10 @@
     {
       "sourceId": "pypi:yamllint",
       "version": "1.37.1"
+    },
+    {
+      "sourceId": "pypi:yamlfix",
+      "version": "1.19.1"
     }
   ]
 }

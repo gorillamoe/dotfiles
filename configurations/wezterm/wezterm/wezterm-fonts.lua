@@ -52,5 +52,6 @@ config.font_rules = {
 }
 
 config.font_size = 14.0
+config.line_height = 1.0
 
 return config

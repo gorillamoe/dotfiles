@@ -39,9 +39,6 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 # Carapace can't be cached, for whatever reason
 source <(carapace env zsh)
 
-# Zana completions
-source <(zana completion zsh)
-
 # bun completions
 [ -s "/home/marco/.bun/_bun" ] && source "/home/marco/.bun/_bun"
 
@@ -237,18 +234,22 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 # Google Cloud CLI
 export PATH="/opt/google-cloud-cli/bin:$PATH"
 
-[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
-
 # rustup
 [[ -d $HOME/.cargo/env ]] && . "$HOME/.cargo/env"
 
 # Deno
 . "/home/marco/.deno/env"
 
+# Local user binaries
+[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
+
 # Zana
 # getzana.net
 # As late as possible, so it can override other completions
 _evalcache zana env zsh
+
+# Zana completions
+source <(zana completion zsh)
 
 # My own scripts take precedence
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
