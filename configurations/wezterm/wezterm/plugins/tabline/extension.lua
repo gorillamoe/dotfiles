@@ -17,7 +17,7 @@ end
 
 local function refresh_tabline(window)
   if window and window.window_id then
-    require("tabline.component").set_status(window)
+    require("plugins.tabline.component").set_status(window)
   end
 end
 
@@ -97,7 +97,7 @@ end
 function M.load()
   for _, extension in ipairs(config.opts.extensions) do
     if type(extension) == "string" then
-      local internal_extension = require("tabline.extensions." .. extension)
+      local internal_extension = require("plugins.tabline.extensions." .. extension)
       for _, ext in ipairs(internal_extension) do
         setup_extension(ext)
       end

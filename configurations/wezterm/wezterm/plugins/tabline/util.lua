@@ -62,15 +62,15 @@ local reset_attributes = {
 local function require_component(object, v)
   local component
   if object.tab_id then
-    component = "tabline.components.tab." .. v
+    component = "plugins.tabline.components.tab." .. v
   else
-    component = "tabline.components.window." .. v
+    component = "plugins.tabline.components.window." .. v
   end
   return component
 end
 
 function M.extract_components(components_opts, attributes, object, format)
-  local component_opts = require("tabline.config").component_opts
+  local component_opts = require("plugins.tabline.config").component_opts
   local components = {}
   for _, v in ipairs(components_opts) do
     if type(v) == "string" then
