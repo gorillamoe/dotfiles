@@ -97,6 +97,7 @@ pamac install --no-confirm \
   tk \
   vale \
   vhs \
+  vivid \
   wezterm \
   wget \
   xz \

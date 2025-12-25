@@ -19,6 +19,7 @@ if [[ ! -d $ZINIT_HOME ]]; then
 fi
 
 source "$ZINIT_HOME/zinit.zsh"
+
 zinit wait lucid for \
   zdharma-continuum/fast-syntax-highlighting \
   zdharma-continuum/history-search-multi-word \
@@ -27,17 +28,11 @@ zinit wait lucid for \
   atload"bindkey '^n' autosuggest-accept" \
   zsh-users/zsh-autosuggestions
 
-# Completion system MUST be initialized ONCE
+# Completion system MUST be initialized ONLY ONCE
 autoload -Uz compinit
 compinit
 
 compdef g=git
-
-# Carapace must come AFTER compinit
-export CARAPACE_BRIDGES='zsh,bash,inshellisense'
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-# Carapace can't be cached, for whatever reason
-source <(carapace env zsh)
 
 # bun completions
 [ -s "/home/marco/.bun/_bun" ] && source "/home/marco/.bun/_bun"
@@ -51,9 +46,9 @@ function chpwd() {
     ZSH_CWD="$PWD"
 }
 
-###
-#  Enable vi keybindings
-###
+##########################
+###  Enable vi keybindings
+##########################
 
 # Custom widget to edit command line in Neovim in
 # the current working directory
@@ -84,19 +79,27 @@ bindkey -M vicmd v zle-edit-command-line-cwd
 bindkey -v
 export VI_MODE_SET_CURSOR=true
 
-# change cursor shape in vi mode
-zle-keymap-select () {
-    if [[ $KEYMAP == vicmd ]]; then
-        # the command mode for vi
-        echo -ne "\e[2 q"
-    else
-        # the insert mode for vi
-        echo -ne "\e[5 q"
-    fi
+function set-cursor-shape {
+  case $KEYMAP in
+    vicmd)
+      print -n -- $'\e[2 q'
+      ;;
+    *)
+      print -n -- $'\e[5 q'
+      ;;
+  esac
 }
 
-precmd_functions+=(zle-keymap-select)
+function zle-keymap-select {
+  set-cursor-shape
+  zle -R
+}
+
 zle -N zle-keymap-select
+
+function precmd {
+  set-cursor-shape
+}
 
 # Keybindings
 ## Home key
@@ -155,7 +158,7 @@ if ! command -v oh-my-posh &> /dev/null; then
   curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
-_evalcache oh-my-posh init zsh --config $HOME/.config/oh-my-posh/default.toml
+ _evalcache oh-my-posh init zsh --config $HOME/.config/oh-my-posh/default.toml
 
 # Cargo path
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -243,13 +246,33 @@ export PATH="/opt/google-cloud-cli/bin:$PATH"
 # Local user binaries
 [[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
 
+### fzf configuration
+# Set default options to use Ctrl-T for toggling all items
+export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
+
 # Zana
 # getzana.net
-# As late as possible, so it can override other completions
+# As late as possible,
+# so it can has precedence over other things in PATH
 _evalcache zana env zsh
 
 # Zana completions
-source <(zana completion zsh)
+_evalcache zana completion zsh
 
-# My own scripts take precedence
+# LS_COLORS using vivid
+# used by ls, eza, also by fzf for colored previews,
+# carapace for colored completions, etc.
+export LS_COLORS=$(vivid generate dracula)
+
+# INFO:
+# Carapace must come AFTER basically everything that has completions
+# because it overrides them otherwise
+export CARAPACE_BRIDGES='zsh,bash,inshellisense'
+# This enables the menu selection for completions
+zstyle ':completion:*' menu select group-order 'main commands' 'alias commands' 'external commands' 
+# This enables colored completions
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} "ma=48;5;206;38;5;0"
+_evalcache carapace _carapace
+
+# My own scripts take precedence over everything 🤪
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
