@@ -99,8 +99,6 @@ zle -N zle-keymap-select
 
 function precmd {
   set-cursor-shape
-  # reload history from file
-  fc -RI
 }
 
 # Keybindings
