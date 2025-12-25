@@ -20,8 +20,9 @@ COLORIZED_NEW_TAG=""
 CONFIRM_TAG_CREATION="n"
 CONFIRM_TAG_PUSH="n"
 
-colorize() {
+colorize_text() {
   local color_code
+  local no_newline=$3
   case "$1" in
     red) color_code="\033[0;31m";;
     green) color_code="\033[0;32m";;
@@ -31,6 +32,10 @@ colorize() {
     cyan) color_code="\033[0;36m";;
     *) color_code="\033[0m";;
   esac
+  if [ -n "$no_newline" ]; then
+    echo -ne "${color_code}$2\033[0m"
+    return
+  fi
   echo -e "${color_code}$2\033[0m"
 }
 
@@ -39,28 +44,32 @@ set_latest_tag() {
   if [ ! -z "$(git tag)" ]; then
     lt="$(git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 "$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=1 | tail -n 1)")"
     if [ -z "$lt" ]; then
-      echo "No valid semver tags found. Starting from $LATEST_TAG"
+      colorize_text yellow "Warning: ";
+      colorize_text yellow "No valid semver tags found in the repository. ";
+      colorize_text yellow "Starting from $LATEST_TAG";
     else
       LATEST_TAG="$lt"
-      echo "Found latest tag: $LATEST_TAG"
+      colorize_text green "Latest tag found: $LATEST_TAG";
     fi
   else
-    echo "No existing tags found. Starting from $LATEST_TAG"
+    colorize_text yellow "Warning: ";
+    colorize_text yellow "Git repository has no tags. ";
+    colorize_text yellow "Starting from $LATEST_TAG";
   fi
 }
 
 get_colorized_part_new_tag() {
-  IFS='.' read -r -a parts <<< "${NEW_TAG#v}"
+  IFS='.' read -r -a parts <<< "${NEW_TAG#v}";
   MAJOR=${parts[0]};
   MINOR=${parts[1]};
   PATCH=${parts[2]};
 
   case "$1" in
-    major) echo "$(colorize magenta "v$MAJOR").$MINOR.$PATCH";;
-    minor) echo "v$MAJOR.$(colorize magenta "$MINOR").$PATCH";;
-    patch) echo "v$MAJOR.$MINOR.$(colorize magenta "$PATCH")";;
+    major) echo "$(colorize_text magenta "v$MAJOR").$MINOR.$PATCH";;
+    minor) echo "v$MAJOR.$(colorize_text magenta "$MINOR").$PATCH";;
+    patch) echo "v$MAJOR.$MINOR.$(colorize_text magenta "$PATCH")";;
     *)
-      echo "Usage: get_colorized_part_tag [major|minor|patch]"
+      echo "Usage: get_colorized_part_tag [major|minor|patch]";
       return 1;;
   esac
 }
@@ -83,39 +92,42 @@ set_new_tag() {
       NEW_TAG="v$MAJOR.$MINOR.$((PATCH + 1))";
       COLORIZED_NEW_TAG=$(get_colorized_part_new_tag "patch");;
     *)
-      echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [<create release message boolean>]"
+      echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [<create release message boolean>]";
       return 1;;
   esac
 }
 
 prompt_for_confirmation() {
-  echo -ne "Create tag $COLORIZED_NEW_TAG? (y/n) "
-  read -r -n 1 CONFIRM_TAG_CREATION
-  echo
+  echo -ne "Create tag $COLORIZED_NEW_TAG? (y/n) ";
+  read -r -n 1 CONFIRM_TAG_CREATION;
+  echo;
 
   if [[ "$CONFIRM_TAG_CREATION" != "y" ]]; then
-    colorize red "Tag creation aborted."
-    exit 0
+    colorize_text red "Tag creation aborted.";
+    exit 0;
   fi
 
   if [[ -n "$CREATE_RELEASE_MESSAGE" ]]; then
     if ! git tag -a "$NEW_TAG" -e; then
-      colorize red "Tag creation aborted."
-      exit 1
+      colorize_text red "Tag creation aborted.";
+      exit 1;
     fi
   else
-    git tag "$NEW_TAG"
+    git tag "$NEW_TAG";
   fi
 
-  echo -ne "Do you want to push the new tag to the remote repository? (y/n) "
-  read -r -n 1 CONFIRM_TAG_PUSH
-  echo
+  echo -ne "Do you want to push the new tag to the remote repository? (y/n) ";
+  read -r -n 1 CONFIRM_TAG_PUSH;
+  echo;
 
   if [[ "$CONFIRM_TAG_PUSH" == "y" ]]; then
-    git push origin "$NEW_TAG"
-    colorize green "Pushed tag $COLORIZED_NEW_TAG to remote."
+    git push origin "$NEW_TAG";
+    colorize_text green "Pushed tag $COLORIZED_NEW_TAG" true;
+    colorize_text green " to remote.";
   else
-    echo "Tag $COLORIZED_NEW_TAG created locally but not pushed."
+    colorize_text yellow "Warning: ";
+    colorize_text yellow "You chose not to push the tag to the remote. ";
+    colorize_text yellow "Tag $COLORIZED_NEW_TAG created locally but not pushed."
   fi
 }
 
