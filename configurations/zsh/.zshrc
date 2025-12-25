@@ -99,6 +99,8 @@ zle -N zle-keymap-select
 
 function precmd {
   set-cursor-shape
+  # reload history from file
+  fc -RI
 }
 
 # Keybindings
@@ -133,15 +135,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 # do not find them when searching history
 setopt HIST_FIND_NO_DUPS
 
-# NOTE:
-# The following should be turned off,
-# if sharing history via setopt SHARE_HISTORY
-
-# INFO:
-# It immediately writes the history to the file,
-# instead of waiting for the shell to exit
-setopt INC_APPEND_HISTORY
-
 # INFO:
 # Do not write lines starting
 # with space to the history file
@@ -152,6 +145,14 @@ setopt HIST_IGNORE_SPACE
 setopt EXTENDED_HISTORY
 
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+
+# NOTE:
+# Share history between all sessions
+# immediately
+# Therefore INC_APPEND_HISTORY and APPEND_HISTORY must be unset
+setopt SHARE_HISTORY
+unsetopt INC_APPEND_HISTORY
+unsetopt APPEND_HISTORY
 
 # Install oh-my-posh, if not already installed
 if ! command -v oh-my-posh &> /dev/null; then
