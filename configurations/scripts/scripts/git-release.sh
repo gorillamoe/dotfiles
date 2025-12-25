@@ -49,8 +49,8 @@ set_latest_tag() {
   fi
 }
 
-get_colorized_part_tag() {
-  IFS='.' read -r -a parts <<< "${LATEST_TAG#v}"
+get_colorized_part_new_tag() {
+  IFS='.' read -r -a parts <<< "${NEW_TAG#v}"
   MAJOR=${parts[0]};
   MINOR=${parts[1]};
   PATCH=${parts[2]};
@@ -75,13 +75,13 @@ set_new_tag() {
   case "$RELEASE_TYPE" in
     major|break|breaking)
       NEW_TAG="v$((MAJOR + 1)).0.0";
-      COLORIZED_NEW_TAG=$(get_colorized_part_tag "major");;
+      COLORIZED_NEW_TAG=$(get_colorized_part_new_tag "major");;
     minor|feat|feature)
       NEW_TAG="v$MAJOR.$((MINOR + 1)).0";
-      COLORIZED_NEW_TAG=$(get_colorized_part_tag "minor");;
+      COLORIZED_NEW_TAG=$(get_colorized_part_new_tag "minor");;
     patch|bug|bugfix|fix|"")
       NEW_TAG="v$MAJOR.$MINOR.$((PATCH + 1))";
-      COLORIZED_NEW_TAG=$(get_colorized_part_tag "patch");;
+      COLORIZED_NEW_TAG=$(get_colorized_part_new_tag "patch");;
     *)
       echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [<create release message boolean>]"
       return 1;;
