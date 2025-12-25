@@ -114,6 +114,7 @@
 
 [pager]
   diff = false
+  log = false
 
 [core]
   whitespace = -blank-at-eof
