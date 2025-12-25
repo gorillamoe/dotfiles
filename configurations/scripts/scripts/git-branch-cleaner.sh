@@ -34,7 +34,6 @@ selected_branches=$(echo "$branches" | fzf --multi \
     --height 95% \
     --border \
     --ansi \
-    --bind 'ctrl-a:select-all' \
     --bind 'space:toggle' \
     --info 'inline' \
     --layout 'reverse')
