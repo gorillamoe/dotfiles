@@ -1,3 +1,6 @@
 [submodule "configurations/wezterm/wezterm/themes/vhs-era"]
 	path = configurations/wezterm/wezterm/themes/vhs-era
 	url = git@github.com:mistweaverco/vhs-era-theme.terminal.git
+[submodule "configurations/vale"]
+	path = configurations/vale
+	url = https://github.com/mistweaverco/vale-config
