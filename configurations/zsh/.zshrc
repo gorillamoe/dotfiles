@@ -1,25 +1,43 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/marco/.zsh/completions:"* ]]; then export FPATH="/home/marco/.zsh/completions:$FPATH"; fi
+# Basic Zsh configuration setup
 
-# Antigen
+## Add custom completions directory to FPATH
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+
+## Define XDG_DATA_HOME if not already defined
+### Makes it less repetitive to type later on
+export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
+## Define XDG_CONFIG_HOME if not already defined
+### Makes it less repetitive to type later on
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
+
+## Antigen, the GOAT of Zsh plugin managers
+## Sadly, this can't be cached with evalcache,
+## because antigen needs to be sourced before any antigen commands are run
 source /usr/share/zsh/share/antigen.zsh
-# Evalcache
+
+## Evalcache, the GOAT of caching for shell scripts
 antigen bundle mroth/evalcache
 antigen apply
 
-# Zinit
+# NOTE:
+# I probobly should switch fully to Antigen at some point
 
-# Set the directory where we want to store zinit and the plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+## Zinit, IDK why I still use it alongside Antigen, but whatever
 
-# Download and install zinit if it's not already installed
+### Set the directory where we want to store zinit and the plugins
+export ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+
+### Download and install zinit if it's not already installed
 if [[ ! -d $ZINIT_HOME ]]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+### Don't cache this with evalcache
+#### Must be sourced directly, but has built-in caching anyway
 source "$ZINIT_HOME/zinit.zsh"
 
+### Load zinit plugins
 zinit wait lucid for \
   zdharma-continuum/fast-syntax-highlighting \
   zdharma-continuum/history-search-multi-word \
@@ -28,30 +46,37 @@ zinit wait lucid for \
   atload"bindkey '^n' autosuggest-accept" \
   zsh-users/zsh-autosuggestions
 
-# Completion system MUST be initialized ONLY ONCE
+#------------------------------------------#
+
+## Completion system MUST be initialized ONLY ONCE
+
+### I tried multiple locations for this,
+### this is the one that I found to be the most reliable
 autoload -Uz compinit
 compinit
 
 compdef g=git
 
-# bun completions
-[ -s "/home/marco/.bun/_bun" ] && source "/home/marco/.bun/_bun"
+#------------------------------------------#
 
-
-# store the absolute path of the current directory.
+## store the absolute path of the current directory.
+### This is useful for custom widgets that need to know the current directory.
 typeset -g ZSH_CWD="$PWD"
 
-# Zsh executes this after every directory change.
+## Update ZSH_CWD on directory change
+### Can add more logic here if needed in the future
 function chpwd() {
     ZSH_CWD="$PWD"
 }
 
-##########################
-###  Enable vi keybindings
-##########################
+#------------------------------------------#
 
-# Custom widget to edit command line in Neovim in
-# the current working directory
+## Vim-like keybindings
+
+### Edit command line in Neovim in the current working directory
+#### C-XC-E opens the command line in Neovim by default,
+#### but it opens it in the home directory by default,
+#### which is not what I want.
 function zle-edit-command-line-cwd {
   local temp_file=$(mktemp -t zsh_cmd_XXXXXXXXXXX -p "$ZSH_CWD")
   print -r -- $BUFFER > $temp_file
@@ -69,16 +94,22 @@ function zle-edit-command-line-cwd {
   fi
 }
 
-# Register the widget with Zsh's line editor
+#### Register the widget with Zsh's line editor
 zle -N zle-edit-command-line-cwd
 
-# Bind the new widget to 'v' in vi command mode
+#### Bind the new widget to 'v' in vi command mode
+##### so that pressing 'v' opens the command line in Neovim
 bindkey -M vicmd v zle-edit-command-line-cwd
 
-# Enable vi keybindings
+### Enable default vi keybindings
 bindkey -v
+
+### Set cursor shape based on mode, blinking block for command mode, blinking bar for insert mode
+#### This is just sprinkling some extra UX goodness, but I'm a sucker for that
 export VI_MODE_SET_CURSOR=true
 
+### Function to set cursor shape based on keymap
+#### Works in wezterm, might work in other terminals as well
 function set-cursor-shape {
   case $KEYMAP in
     vicmd)
@@ -90,94 +121,152 @@ function set-cursor-shape {
   esac
 }
 
+#### Function to be called on keymap change
 function zle-keymap-select {
   set-cursor-shape
   zle -R
 }
 
+#### Register the function as a ZLE widget
 zle -N zle-keymap-select
 
+#### Call the function before each prompt
 function precmd {
   set-cursor-shape
 }
 
-# Keybindings
-## Home key
+#------------------------------------------#
+
+## Keybindings in general
+
+### Vim-like keybindings for inserting the last word of the previous command
+#### Inspired by bash's Alt + . behavior
+#### Doesn't usually work in vi mode by default, so we need to define it ourselves
+
+#### Bind Alt + . for Insert mode
+bindkey -M viins '^[.' insert-last-word
+
+#### 2. Bind Alt + . for Command mode
+bindkey -M vicmd '^[.' insert-last-word
+
+### Keybindings for working for wezterm, possibly others
+
+## Home key, jump to beginning of line
 bindkey  "^[[H"   beginning-of-line
-## End key
+
+## End key, jump to end of line
 bindkey  "^[[F"   end-of-line
-## Delete key
+
+## Delete key, delete character under cursor
 bindkey  "^[[3~"  delete-char
 
-# Preferred editor for local and remote sessions
+#------------------------------------------#
+
+## Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  # I would use nvim over vi for remote sessions,
+  # but nvim is not always available on remote systems
+  # so we fall back to vi, which is hopefully always available
+  export EDITOR='vi'
 else
   export EDITOR='nvim'
 fi
 
+#------------------------------------------#
+
+## History configuration
+
+### Increase history size, to a maximum of 50000 entries
 export HISTSIZE=50000
 export SAVEHIST=50000
+
+### Define history file location
 export HISTFILE=~/.zsh_history
 
-# INFO:
-# Do not write duplicate entries
+### Do not write duplicate entries
 setopt HIST_IGNORE_ALL_DUPS
 
-# INFO:
-# delete duplicates first, when HISTFILE exceeds HISTSIZE
+### delete duplicates first, when HISTFILE exceeds HISTSIZE
 setopt HIST_EXPIRE_DUPS_FIRST
 
-# INFO:
-# Even if there are duplicates,
-# do not find them when searching history
+### Even if there are duplicates, do not find them when searching history
 setopt HIST_FIND_NO_DUPS
 
-# INFO:
-# Do not write lines starting
-# with space to the history file
+### Do not write lines starting with space to the history file
 setopt HIST_IGNORE_SPACE
 
-# INFO:
-# Record time of command in history
+### Record time of command in history
 setopt EXTENDED_HISTORY
 
+### Enable multi-word history search plugin settings
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 
 # NOTE:
-# Share history between all sessions
-# immediately
+# Share history between all sessions immediately
 # Therefore INC_APPEND_HISTORY and APPEND_HISTORY must be unset
+# In fact it is "immediately" in quotation marks,
+# because you still need to press enter once to have the command
+# appear in the other session's history
+# but that is good enough for me
 setopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 unsetopt APPEND_HISTORY
 
-# Install oh-my-posh, if not already installed
+#------------------------------------------#
+
+## Prompt configuration
+
+### oh-my-posh, the GOAT of prompts
+#### Install oh-my-posh if not already installed
 if ! command -v oh-my-posh &> /dev/null; then
   curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
- _evalcache oh-my-posh init zsh --config $HOME/.config/oh-my-posh/default.toml
+#### Cache oh-my-posh init for faster startups
+ _evalcache oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/default.toml
 
-# Cargo path
+#------------------------------------------#
+
+## Path settings
+### It would be great, if all these tools would align on a common standard,
+### but alas, that is not the case in late 2025... 😥
+
+### Cargo (Rust), the Rust package manager -- https://www.rust-lang.org/tools/install
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Go path
+### Go, the gopher language -- https://golang.org
+#### Did I mention that this is my second favorite language after TypeScript?
 export GOPATH="$HOME/go"
-
-# If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
 
-# bun
+### Bun, the all-in-one JavaScript runtime -- https://bun.com
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# better ls
-alias ls='eza --icons=always'
+### Node Modules, the JavaScript ecosystem -- https://nodejs.org
+export PATH="node_modules/.bin:$PATH"
 
-# git aliasses
-# with arguments, pass them to git
-# e.g. g commit -m "message"
+### .NET tools, the Microsoft ecosystem -- https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.400-linux-x64-installer
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+### Google Cloud CLI
+#### Google being exceptionally creative with installation paths
+export PATH="/opt/google-cloud-cli/bin:$PATH"
+
+### Local user binaries
+#### Coming in last to have precedence over mostly everything else
+[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
+
+#------------------------------------------#
+
+## Aliases
+
+### File and directory listing with eza
+alias 'ls'='eza --icons=always'
+alias 'll'='eza -la --icons=always --group-directories-first'
+
+### Git shorthand
+#### git alias that shows status if no arguments are given
 g() {
   if [ "$#" -eq 0 ]; then
     git status
@@ -186,22 +275,29 @@ g() {
   git "$@"
 }
 
-# I <3 Neovim
-alias vim=nvim
-alias vi=nvim
+### Neovim as default editor
+#### My muscle memory still prefers vim and vi 🤷
+alias 'vim''=nvim'
+alias 'vi'='nvim'
 
-alias 'll'='ls -la'
+### Open files with default application
+#### TBH, I rarely use this alias, but it is nice to have it around
 alias 'gopen'='xdg-open'
 
+### bat alias if batcat is available
+#### On some distributions (e.g., Debian/Ubuntu), the binary is named batcat
 if command -v batcat &> /dev/null; then
   alias 'bat'='batcat'
 fi
 
+### fd alias if fdfind is available
+#### On some distributions (e.g., Debian/Ubuntu), the binary is named fdfind
 if command -v fdfind &> /dev/null; then
   alias 'fd'='fdfind'
 fi
 
-# Use yazi to change directory and update shell cwd
+### Yazi alias that also changes directory if needed
+#### Opens yazi and on exit changes directory to the one selected in yazi
 yy() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
   yazi "$@" --cwd-file="$tmp"
@@ -211,67 +307,79 @@ yy() {
   rm -f -- "$tmp"
 }
 
-# shorthand for yazi
+### Simple yazi alias
 alias 'y'='yazi'
 
-# Mise
+#------------------------------------------#
+
+## Source environment scripts
+### utilize evalcache for caching
+
+### Mise, the minimalistic shell environment manager
 _evalcache mise activate zsh
 
-# https://direnv.net/docs/hook.html#zsh
+### Direnv
+#### Supercharge your DX, automatically load and unload environment variables
+#### https://direnv.net/docs/hook.html#zsh
 _evalcache direnv hook zsh
 
-# Zoxide
+### Zoxide, a smarter cd command
 _evalcache zoxide init zsh
 
-# Node Modules
-# This neeeds to come after nvm
-# so that it always prefers the local version
-export PATH="node_modules/.bin:$PATH"
+# Bun, the all-in-one JavaScript runtime
+[ -s "$HOME/.bun/_bun" ] && _evalcache cat "$HOME/.bun/_bun"
 
-# .NET tools
-export PATH="$PATH:/home/marco/.dotnet/tools"
+### Rustup
+#### Preferered way to install and manage Rust toolchains
+[[ -d $HOME/.cargo/env ]] && _evalcache cat "$HOME/.cargo/env"
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+### Deno
+[[ -d $HOME/.deno/env ]] && _evalcache cat "$HOME/.deno/env"
 
-# Google Cloud CLI
-export PATH="/opt/google-cloud-cli/bin:$PATH"
-
-# rustup
-[[ -d $HOME/.cargo/env ]] && . "$HOME/.cargo/env"
-
-# Deno
-. "/home/marco/.deno/env"
-
-# Local user binaries
-[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
-
-### fzf configuration
-# Set default options to use Ctrl-T for toggling all items
-export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
-
-# Zana
-# getzana.net
-# As late as possible,
-# so it can has precedence over other things in PATH
+### Zana, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
+#### Source as late as possible, so it can has precedence over other things in PATH
 _evalcache zana env zsh
-
-# Zana completions
+#### Completions
 _evalcache zana completion zsh
 
-# LS_COLORS using vivid
-# used by ls, eza, also by fzf for colored previews,
-# carapace for colored completions, etc.
+### Kuba, the GOAT of using cloud secrets in your environment
+#### https://kuba.mwco.app
+_evalcache kuba completion zsh
+
+#------------------------------------------#
+
+## Exports
+
+### LS_COLORS using vivid
+#### used by ls, eza, also by fzf for colored previews,
+#### carapace for colored completions, etc.
 export LS_COLORS=$(vivid generate dracula)
+
+### Needed for SSH agent to pick up the correct socket
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+### fzf configuration
+#### Set default options to use Ctrl-T for toggling all items
+export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
 
 # INFO:
 # Carapace must come AFTER basically everything that has completions
 # because it overrides them otherwise
+# or my configurations are somehow broken otherwise 🤪
+
+### Carapace, the GOAT of completion engines
 export CARAPACE_BRIDGES='zsh,bash,inshellisense'
-# This enables the menu selection for completions
-zstyle ':completion:*' menu select group-order 'main commands' 'alias commands' 'external commands' 
-# This enables colored completions
+#### This enables the menu selection for completions
+zstyle ':completion:*' menu select group-order 'main commands' 'alias commands' 'external commands'
+#### This enables colored completions
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} "ma=48;5;206;38;5;0"
+#### Initialize carapace with evalcache for caching
 _evalcache carapace _carapace
 
-# My own scripts take precedence over everything 🤪
+#------------------------------------------#
+
+## Custom scripts path
+
+### My own scripts take precedence over everything 🥷
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
+
