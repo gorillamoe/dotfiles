@@ -33,6 +33,18 @@ function M.apply_to_config(config)
   config.status_update_interval = 500
 end
 
+function M.toggle(window)
+  local overrides = window:get_config_overrides() or {}
+
+  if overrides.enable_tab_bar == false then
+    overrides.enable_tab_bar = nil
+  else
+    overrides.enable_tab_bar = false
+  end
+
+  window:set_config_overrides(overrides)
+end
+
 function M.get_config()
   return require("plugins.tabline.config").opts
 end
@@ -46,6 +58,11 @@ function M.set_theme(theme, overrides)
 end
 
 function M.refresh(window, tab)
+  if not M.get_config().enabled then
+    wezterm.log_error("Tabline plugin is disabled; skipping refresh")
+    return
+  end
+  wezterm.log_error("Tabline plugin is refreshing")
   if window then
     require("plugins.tabline.component").set_status(window)
   end

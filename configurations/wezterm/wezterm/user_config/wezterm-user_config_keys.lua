@@ -8,6 +8,14 @@ local workspace_switcher = require("plugins.workspace-switcher")
 return {
   ---@type wezterm.KeyBinding[]
   keys = {
+    -- toggle tabline plugin
+    {
+      mods = "LEADER",
+      key = "t",
+      action = act_callback(function(window)
+        require("plugins.tabline").toggle(window)
+      end),
+    },
     -- increase of decrease the window size
     {
       mods = "LEADER",
