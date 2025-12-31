@@ -8,6 +8,16 @@ local workspace_switcher = require("plugins.workspace-switcher")
 return {
   ---@type wezterm.KeyBinding[]
   keys = {
+    -- flashlight 🔦 mode
+    {
+      mods = "LEADER",
+      key = "f",
+      action = wezterm.action.QuickSelectArgs {
+        label = 'Flashlight Mode 🔦',
+        patterns = { [[\b\w+\b]] },
+        action = act.CopyTo("Clipboard"),
+      },
+    },
     -- toggle tabline plugin
     {
       mods = "LEADER",
