@@ -69,6 +69,7 @@ pamac install --no-confirm \
   jq \
   bzip2 \
   libffi \
+  libwebp-utils \
   ncdu \
   ncurses \
   pandoc \
