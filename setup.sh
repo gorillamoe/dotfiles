@@ -6,12 +6,6 @@ set -euo pipefail
 # add ILoveCandy in your /etc/pacman.conf file
 # in the Misc options, for a fancier pacman experience
 
-# Shazam release tag to install
-SHAZAM_RELEASE_TAG="v1.0.0"
-
-# Zana release tag to install
-ZANA_RELEASE_TAG="v0.8.0"
-
 # Update git submodules
 echo "🔄 Updating git submodules"
 git submodule update --init --recursive --remote
@@ -38,75 +32,8 @@ else
   sudo cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules /etc/polkit-1/rules.d/
 fi
 
-echo "📦 Updating system packages"
-pamac install --no-confirm \
-  antigen \
-  aspnet-runtime \
-  bandwhich \
-  bat \
-  btop \
-  carapace-bin \
-  cargo \
-  cosign \
-  curl \
-  direnv \
-  docker \
-  docker-buildx \
-  dos2unix \
-  dotnet-sdk \
-  dust \
-  eza \
-  fastfetch \
-  fd \
-  fuse3 \
-  fzf \
-  gcc \
-  gcr-4 \
-  gnome \
-  gnome-shell-extensions \
-  pamac-gnome-integration \
-  htop \
-  jq \
-  bzip2 \
-  libffi \
-  libwebp-utils \
-  ncdu \
-  ncurses \
-  pandoc \
-  readline \
-  sqlite3 \
-  llvm \
-  lua \
-  lua-lanes \
-  lua-language-server \
-  luacheck \
-  luarocks \
-  make \
-  marksman \
-  mise \
-  netcat \
-  net-tools \
-  openssl \
-  oryx \
-  ripgrep \
-  shellcheck \
-  slides \
-  stylua \
-  terraform-ls \
-  terragrunt \
-  tfswitch \
-  tk \
-  vale \
-  vhs \
-  vivid \
-  wezterm \
-  wget \
-  xz \
-  yazi \
-  zlib \
-  zls \
-  zoxide \
-  zsh
+echo "📦 Installing default packages from default-packages.txt"
+xargs -a ./setup/default-packages.txt pamac update --no-confirm
 
 # Ensure $HOME/.local/bin directory exists
 echo "📁 Ensuring ~/.local/bin directory exists"
@@ -115,96 +42,7 @@ if [ ! -d ~/.local/bin ]; then
 fi
 
 # Install fonts
-echo "🔤 Installing Nerd Fonts (Fira Code and Victor Mono)"
-FONTS_INSTALLED=0
-if [ ! -d ~/.local/share/fonts ]; then
-  mkdir -p ~/.local/share/fonts
-fi
-if [ -f ~/.local/share/fonts/FiraCodeNerdFont-Regular.ttf ]; then
-  echo "📦 FiraCodeNerdFont already installed"
-  echo "💡 Skipping FiraCode installation"
-else
-  cp -p ./configurations/fonts/fira-code-nerd-font/* ~/.local/share/fonts/
-  rm ~/.local/share/fonts/*.md
-  rm ~/.local/share/fonts/LICENSE*
-  FONTS_INSTALLED=1
-fi
-if [ -f ~/.local/share/fonts/VictorMonoNerdFont-Regular.ttf ]; then
-  echo "📦 VictorMonoNerdFont already installed"
-  echo "💡 Skipping VictorMono installation"
-else
-  cp -p ./configurations/fonts/victor-mono-nerd-font/* ~/.local/share/fonts/
-  rm ~/.local/share/fonts/*.md
-  rm ~/.local/share/fonts/LICENSE*
-  FONTS_INSTALLED=1
-fi
-if [ $FONTS_INSTALLED -eq 1 ]; then
-  echo "🔤 Rebuilding font cache"
-  fc-cache -f -v
-fi
-
-# Install bun
-echo "📦 Installing bun JavaScript/TypeScript runtime"
-if [ -d ~/.bun ]; then
-  echo "📦 bun already installed"
-  echo "💡 Skipping bun installation"
-else
-  curl -fsSL https://bun.sh/install | bash
-fi
-
-# Install deno
-echo "📦 Installing deno JavaScript/TypeScript runtime"
-if [ -d ~/.deno ]; then
-  echo "📦 deno already installed"
-  echo "💡 Skipping deno installation"
-else
-  curl -fsSL https://deno.land/install.sh | sh
-fi
-
-# Install rustup
-if [ -d ~/.cargo ]; then
-  echo "📦 rustup already installed"
-  echo "💡 Skipping rustup installation"
-else
-  echo "📦 Installing rustup (Rust toolchain manager)"
-  if command -v rust &>/dev/null; then
-    echo "📦 Rust already installed"
-    echo "💡 Removing existing Rust installation to avoid conflicts"
-    pamac remove --no-confirm rust
-  fi
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
-
-# Install dotnet packages
-echo "📦 Installing .NET global tools"
-dotnet tool install --global csharp-ls
-dotnet tool install --global csharpier
-
-# Install shazam.sh and symlink dotfiles
-echo "📦 Installing shazam.sh for dotfiles management"
-if [ -f /usr/bin/shazam ]; then
-  echo "📦 shazam.sh already installed"
-  echo "💡 Skipping shazam.sh installation"
-else
-  wget "https://github.com/mistweaverco/shazam.sh/releases/download/$SHAZAM_RELEASE_TAG/shazam-linux"
-  chmod +x shazam-linux
-  mv shazam-linux "$HOME/.local/bin/shazam"
-fi
-
-# Install shazam.sh and symlink dotfiles
-echo "📦 Installing Zana for LSP and Linter management"
-if [ -f "$HOME/.local/bin/zana" ]; then
-  echo "📦 Zana already installed"
-  echo "💡 Skipping Zana installation"
-else
-  wget "https://github.com/mistweaverco/zana-client/releases/download/$ZANA_RELEASE_TAG/zana-linux-amd64"
-  chmod +x zana-linux-amd64
-  mv zana-linux-amd64 "$HOME/.local/bin/zana"
-fi
-
-# Symlink dotfiles
-echo "🔗 Symlinking dotfiles using shazam.sh"
-shazam
+bash setup/install-fonts.sh
 
 # Make zsh the default shell
 echo "🔄 Setting zsh as the default shell"
@@ -243,5 +81,8 @@ else
   sudo systemctl enable containerd.service
   sudo systemctl start docker.service
 fi
+
+# Install extras
+bash setup/install-extras.sh
 
 echo "✅ Setup completed successfully! Please reboot your system to apply all changes."

@@ -9,7 +9,12 @@ the way I love it ❤️.
 ## The following software will be installed
 
 Various software will be installed from the package manager,
-see [setup.sh](./setup.sh) for more details.
+see [setup/default-packages.txt](./setup/default-packages.txt)
+for more details.
+
+Additionally I like to install some [extras](./setup/extras.d/),
+that are currently not supported by either the package manager
+or [Zana](https://getzana.net).
 
 ## The following software will be configured / symlinked
 
