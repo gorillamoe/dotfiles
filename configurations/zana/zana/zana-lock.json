@@ -26,7 +26,7 @@
     },
     {
       "sourceId": "npm:pyright",
-      "version": "1.1.407"
+      "version": "1.1.408"
     },
     {
       "sourceId": "npm:sql-language-server",
@@ -59,6 +59,10 @@
     {
       "sourceId": "pypi:yamllint",
       "version": "1.37.1"
+    },
+    {
+      "sourceId": "npm:tree-sitter-cli",
+      "version": "0.26.3"
     }
   ]
 }
