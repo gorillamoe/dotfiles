@@ -58,7 +58,7 @@
     },
     {
       "sourceId": "pypi:yamllint",
-      "version": "1.37.1"
+      "version": "1.38.0"
     },
     {
       "sourceId": "npm:tree-sitter-cli",
