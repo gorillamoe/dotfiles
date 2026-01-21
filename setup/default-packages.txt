@@ -62,6 +62,7 @@ vhs
 vivid
 wezterm
 wget
+witr
 xz
 yazi
 zlib
