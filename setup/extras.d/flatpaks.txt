@@ -1,1 +1,2 @@
+flathub com.github.tchx84.Flatseal
 https://appcenter.elementary.io/com.github.phase1geo.annotator/
