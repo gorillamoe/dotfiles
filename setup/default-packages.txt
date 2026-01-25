@@ -65,6 +65,7 @@ wget
 witr
 xz
 yazi
+zen-browser-bin
 zlib
 zls
 zoxide
