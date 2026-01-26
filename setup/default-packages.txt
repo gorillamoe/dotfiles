@@ -35,10 +35,11 @@ ncurses
 pandoc
 readline
 sqlite3
+libicns
 llvm
+lollypop
 lua
 lua-lanes
-lollypop
 lua-language-server
 luacheck
 luarocks
