@@ -55,10 +55,6 @@ user_tabline.apply_to_config(config)
 
 -- misc settings --
 
--- set a fixed dpi to avoid scaling issues and crashes on wayland
--- see: https://github.com/wezterm/wezterm/issues/5263#issuecomment-3189609408
-config.dpi = 96.0
-
 -- this can crash on wayland without manually setting dpi
 config.enable_wayland = true
 
