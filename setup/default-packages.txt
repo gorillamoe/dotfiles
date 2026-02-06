@@ -51,6 +51,7 @@ openssl
 oryx
 ripgrep
 shellcheck
+showmethekey
 slides
 stylua
 terraform-ls
