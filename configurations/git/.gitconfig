@@ -26,7 +26,7 @@
   # just an alias for rebase --continue
   reco = rebase --continue
   # adds all changes, including deletions
-  wip = commit -m "wip" -a
+  wip = "!f() { git add -A; git commit -m 'wip'; }; f"
   # reset to x commits back (where x is the first argument),
   # but keep the changes in the working directory
   undo = "!f() { if [[ -z $1 ]]; then echo 'Undo count is required!'; else git reset --soft \"HEAD~$1\";git log -1;git status; fi; }; f"
