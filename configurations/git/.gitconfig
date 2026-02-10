@@ -25,17 +25,11 @@
   cb = "!git-branch-cleaner.sh"
   # just an alias for rebase --continue
   reco = rebase --continue
-  # git wip
-  # checks if the latest commit message contains "wip" (ignoring case)
-  # if it does, it amends the commit with all current changes
-  # if it doesn't, it stages all changes and creates a new commit with message "WIP"
-  wip = "!f() { \
-    if git log -1 --pretty=%B | grep -iq 'wip'; then \
-      git commit --amend --no-edit; \
-    else \
-      git add -A && git commit -m 'WIP'; \
-    fi; \
-  }; f"
+  # adds all changes, including deletions
+  wip = commit -m "wip" -a
+  # reset to x commits back (where x is the first argument),
+  # but keep the changes in the working directory
+  undo = "!f() { if [[ -z $1 ]]; then echo 'Undo count is required!'; else git reset --soft \"HEAD~$1\";git log -1;git status; fi; }; f"
   # Adds all changes, including deletions, amends, but opens editor for changing commit message
   amend = commit --amend --reset-author -a
   # like am, but keep the author info
