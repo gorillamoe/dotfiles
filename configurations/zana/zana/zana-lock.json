@@ -34,7 +34,7 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.17.28"
+      "version": "0.17.29"
     },
     {
       "sourceId": "npm:typescript-language-server",
@@ -50,11 +50,11 @@
     },
     {
       "sourceId": "npm:yaml-language-server",
-      "version": "1.20.0"
+      "version": "1.21.0"
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260225.1"
+      "version": "7.0.0-dev.20260227.1"
     },
     {
       "sourceId": "pypi:yamllint",
@@ -62,7 +62,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.5"
+      "version": "0.26.6"
     }
   ]
 }
