@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.5.0"
+      "version": "31.5.15"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -54,7 +54,7 @@
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260219.1"
+      "version": "7.0.0-dev.20260225.1"
     },
     {
       "sourceId": "pypi:yamllint",
