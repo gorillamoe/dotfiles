@@ -58,6 +58,16 @@ compinit
 compdef g=git
 
 #------------------------------------------#
+## JJ configuration, baseed on the current directory
+setup_jj_config() {
+    # Override jj config for specific directories, e.g., work projects
+    if [[ "$PWD" == "$HOME/projects/work"* ]]; then export JJ_CONFIG="$HOME/.config/jj/config-work.toml"
+    else export JJ_CONFIG="$HOME/.config/jj/config.toml"
+    fi
+}
+setup_jj_config
+
+#------------------------------------------#
 
 ## store the absolute path of the current directory.
 ### This is useful for custom widgets that need to know the current directory.
@@ -67,6 +77,7 @@ typeset -g ZSH_CWD="$PWD"
 ### Can add more logic here if needed in the future
 function chpwd() {
     ZSH_CWD="$PWD"
+    setup_jj_config
 }
 
 #------------------------------------------#
