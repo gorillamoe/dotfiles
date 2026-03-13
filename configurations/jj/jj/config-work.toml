@@ -8,3 +8,6 @@ email = "marco.kellershoff@tbint.de"
 behavior = "own"
 backend = "gpg"
 backends.gpg.program = "gpg2"
+
+[ui]
+default-command = "log"

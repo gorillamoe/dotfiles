@@ -8,3 +8,6 @@ email = "marco@mistweaverco.com"
 behavior = "own"
 backend = "gpg"
 backends.gpg.program = "gpg2"
+
+[ui]
+default-command = "log"
