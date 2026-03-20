@@ -10,4 +10,4 @@ backend = "gpg"
 backends.gpg.program = "gpg2"
 
 [ui]
-default-command = "log"
+default-command = "status"
