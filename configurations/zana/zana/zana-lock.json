@@ -54,7 +54,7 @@
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260313.1"
+      "version": "7.0.0-dev.20260321.1"
     },
     {
       "sourceId": "pypi:yamllint",
@@ -62,7 +62,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.6"
+      "version": "0.26.7"
     }
   ]
 }
