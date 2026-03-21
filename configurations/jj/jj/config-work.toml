@@ -9,5 +9,9 @@ behavior = "own"
 backend = "gpg"
 backends.gpg.program = "gpg2"
 
+[aliases]
+slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj log -n 5"]
+
 [ui]
-default-command = "status"
+default-command = "slog"
+pager = "cat"
