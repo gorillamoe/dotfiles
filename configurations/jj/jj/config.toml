@@ -11,6 +11,8 @@ backends.gpg.program = "gpg2"
 
 [aliases]
 slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj log -n 5"]
+p = ["git", "push"]
+re = ["rebase"]
 
 [ui]
 default-command = "slog"
