@@ -22,18 +22,8 @@ $USER ALL=(ALL) NOPASSWD: ALL
 EOF
 fi
 
-# Copy polkit rules to allow pamac to run without password
-echo "🔒 Setting up polkit rules for pamac"
-if [ -f "/etc/polkit-1/rules.d/99-pamac-overrides.rules" ]; then
-  echo "📦 Polkit rules for pamac already exist"
-  echo "💡 Skipping polkit rules setup"
-else
-  echo "🔄 Copying polkit rules for pamac"
-  sudo cp ./configurations/polkit-1/rules.d/99-pamac-overrides.rules /etc/polkit-1/rules.d/
-fi
-
 echo "📦 Installing default packages from default-packages.txt"
-xargs -a ./setup/default-packages.txt pamac update --no-confirm
+xargs -a ./setup/default-packages.txt paru --no-confirm --needed --upgrade --sync
 
 # Ensure $HOME/.local/bin directory exists
 echo "📁 Ensuring ~/.local/bin directory exists"

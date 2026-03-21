@@ -9,7 +9,7 @@ else
   if command -v rust &>/dev/null; then
     echo "📦 Rust already installed"
     echo "💡 Removing existing Rust installation to avoid conflicts"
-    pamac remove --no-confirm rust
+    paru --no-confirm --needed --upgrade --sync --remove rust
   fi
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi

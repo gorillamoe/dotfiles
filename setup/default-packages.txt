@@ -26,7 +26,6 @@ gcr-4
 gnome
 gnome-podcasts
 gnome-shell-extensions
-pamac-gnome-integration
 htop
 jq
 bzip2
