@@ -6,6 +6,7 @@ btop
 carapace-bin
 cargo
 cosign
+csvq-git
 curl
 direnv
 docker
