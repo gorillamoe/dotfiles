@@ -16,4 +16,4 @@ re = ["rebase"]
 
 [ui]
 default-command = "slog"
-pager = "cat"
+paginate = "never"
