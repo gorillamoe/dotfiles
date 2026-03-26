@@ -347,6 +347,9 @@ _evalcache zoxide init zsh
 ### Deno
 [[ -d $HOME/.deno/env ]] && _evalcache cat "$HOME/.deno/env"
 
+# Vite+ bin (https://viteplus.dev)
+[[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
+
 ### Zana, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
 #### Source as late as possible, so it can has precedence over other things in PATH
 _evalcache zana env zsh
@@ -393,4 +396,5 @@ _evalcache carapace _carapace
 
 ### My own scripts take precedence over everything 🥷
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
+
 
