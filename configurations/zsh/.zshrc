@@ -347,6 +347,10 @@ _evalcache zoxide init zsh
 ### Deno
 [[ -d $HOME/.deno/env ]] && _evalcache cat "$HOME/.deno/env"
 
+# PNPM, the performant JavaScript package manager
+export PNPM_HOME="/home/marco/.local/share/pnpm"
+[[ -d $HOME/.local/share/pnpm ]] && export PATH="$PNPM_HOME:$PATH"
+
 # Vite+ bin (https://viteplus.dev)
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
 
@@ -396,5 +400,4 @@ _evalcache carapace _carapace
 
 ### My own scripts take precedence over everything 🥷
 [[ -d $HOME/.local/scripts ]] && export PATH="$HOME/.local/scripts:$PATH"
-
 
