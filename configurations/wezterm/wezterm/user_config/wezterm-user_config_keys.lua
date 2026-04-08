@@ -119,15 +119,9 @@ return {
     },
     -- reset font size
     { key = "0", mods = "CTRL", action = act.ResetFontSize },
-    -- workspace switcher
     {
-      mods = "CTRL",
-      key = "k",
-      action = workspace_switcher.switch_workspace(),
-    },
-    {
-      mods = "LEADER|CTRL", -- use LEADER + CTRL + k to avoid conflict with CTRL + k in neovim
-      key = "k",
+      mods = "CTRL", -- use CTRL + SHIFT + K to avoid conflict with vim motions
+      key = "K",
       action = workspace_switcher.switch_workspace(),
     },
     -- fullscreen

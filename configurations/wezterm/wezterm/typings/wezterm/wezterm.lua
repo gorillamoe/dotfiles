@@ -24,7 +24,7 @@
 ---@alias wezterm.ColorSpec table<"wezterm.AnsiColor", wezterm.AnsiColor>|table<"wezterm.Color", string>
 
 ---@class wezterm.FormatItemAttribute
----@field Underline "None"|"Single"|"Double"|"Curly"|"Dotted"|"Dashed"
+---@field Underline? "None"|"Single"|"Double"|"Curly"|"Dotted"|"Dashed"
 ---@field Intensity? "Normal"|"Bold"|"Half"
 ---@field Italic? boolean
 

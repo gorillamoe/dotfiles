@@ -15,7 +15,7 @@ local is_windows = string.find(wezterm.target_triple, "windows") ~= nil
 
 ---@class public_module
 ---@field zoxide_path string
----@field choices {get_zoxide_elements: (fun(choices: InputSelector_choices, opts: choice_opts?): InputSelector_choices), get_workspace_elements: (fun(choices: InputSelector_choices): (InputSelector_choices, workspace_ids))}
+---@field choices {get_zoxide_elements: (fun(choices: InputSelector_choices, opts: choice_opts?): InputSelector_choices), get_workspace_elements: (fun(choices: InputSelector_choices, active_workspace?: string): (InputSelector_choices, workspace_ids))}
 ---@field workspace_formatter fun(label: string, is_active: boolean): string
 ---@field zoxide_formatter fun(label: string): string
 local M = {
@@ -42,47 +42,29 @@ local M = {
   ---Format a workspace row using theme-derived colors.
   ---@param label string
   ---@param is_active boolean
-  ---@param colors any
   ---@return string
-  workspace_formatter = function(label, is_active, colors)
+  workspace_formatter = function(label, is_active)
     -- Style workspace entries (as opposed to zoxide paths) so they're easy to spot.
     -- WezTerm doesn't currently expose "hovered/selected row" state to the
     -- formatter. To make the workspace name visually consistent with the
     -- shortcut label column, we explicitly style the full label here.
-    local text = label
-
-    -- Derive colors from the currently effective config/theme.
-    -- Prefer tab_bar.active_tab, then to sane defaults.
-    local active_bg = "#ee5396"
-    local active_fg = "#161616"
-
-    if colors then
-      local tab_bar = colors.tab_bar
-      if tab_bar and tab_bar.active_tab then
-        active_bg = tab_bar.active_tab.bg_color or active_bg
-        active_fg = tab_bar.active_tab.fg_color or active_fg
-      end
-    end
 
     if is_active then
-      text = "⚡ " .. label
       return wezterm.format({
         { Attribute = { Intensity = "Bold" } },
-        { Background = { Color = active_bg } },
-        { Foreground = { Color = active_fg } },
-        { Text = text },
+        { Foreground = { AnsiColor = "Lime" } },
+        { Text = label },
       })
     end
 
     return wezterm.format({
-      { Background = { Color = active_fg } },
-      { Foreground = { Color = active_bg } },
-      { Text = text },
+      { Foreground = { AnsiColor = "Lime" } },
+      { Text = label },
     })
   end,
   zoxide_formatter = function(label)
     return wezterm.format({
-      { Foreground = { AnsiColor = "Grey" } },
+      { Foreground = { AnsiColor = "Blue" } },
       { Text = label },
     })
   end,
@@ -151,9 +133,8 @@ end
 
 ---@param choice_table InputSelector_choices
 ---@param active_workspace string|nil
----@param colors any
 ---@return InputSelector_choices, workspace_ids
-function M.choices.get_workspace_elements(choice_table, active_workspace, colors)
+function M.choices.get_workspace_elements(choice_table, active_workspace)
   local workspace_ids = {}
   if active_workspace == nil then
     active_workspace = mux.get_active_workspace()
@@ -183,7 +164,7 @@ function M.choices.get_workspace_elements(choice_table, active_workspace, colors
     local display = M._strip_escapes(workspace)
     table.insert(choice_table, {
       id = workspace,
-      label = M.workspace_formatter(display, tostring(workspace) == tostring(active_workspace), colors),
+      label = M.workspace_formatter(display, tostring(workspace) == tostring(active_workspace)),
     })
     workspace_ids[workspace] = true
   end
@@ -206,7 +187,7 @@ function M.choices.get_zoxide_elements(choice_table, opts)
       table.insert(choice_table, {
         id = path,
         -- Keep the label plain; we use it as the workspace name on creation.
-        label = updated_path,
+        label = M.zoxide_formatter(updated_path),
       })
     end
   end
@@ -216,15 +197,14 @@ end
 ---Returns choices for the InputSelector
 ---@param opts? choice_opts
 ---@param active_workspace? string
----@param colors? any
 ---@return InputSelector_choices
-function M.get_choices(opts, active_workspace, colors)
+function M.get_choices(opts, active_workspaces)
   if opts == nil then
     opts = { extra_args = "" }
   end
   ---@type InputSelector_choices
   local choices = {}
-  choices, opts.workspace_ids = M.choices.get_workspace_elements(choices, active_workspace, colors)
+  choices, opts.workspace_ids = M.choices.get_workspace_elements(choices, active_workspace)
   choices = M.choices.get_zoxide_elements(choices, opts)
   return choices
 end
@@ -308,8 +288,7 @@ end
 function M.switch_workspace(opts)
   return wezterm.action_callback(function(window, pane)
     wezterm.emit("workspace_switcher.workspace_switcher.start", window, pane)
-    local effective = window:effective_config()
-    local choices = M.get_choices(opts, window:active_workspace(), effective and effective.colors or nil)
+    local choices = M.get_choices(opts, window:active_workspace())
 
     window:perform_action(
       act.InputSelector({
