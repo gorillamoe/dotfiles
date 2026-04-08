@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.6.0"
+      "version": "31.9.0"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -34,7 +34,7 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.17.29"
+      "version": "0.17.30"
     },
     {
       "sourceId": "npm:typescript-language-server",
@@ -54,7 +54,7 @@
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260321.1"
+      "version": "7.0.0-dev.20260408.1"
     },
     {
       "sourceId": "pypi:yamllint",
@@ -62,7 +62,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.7"
+      "version": "0.26.8"
     }
   ]
 }
