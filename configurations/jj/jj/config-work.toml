@@ -17,3 +17,11 @@ re = ["rebase"]
 [ui]
 default-command = "slog"
 paginate = "never"
+
+[merge-tools.diffconflicts]
+program = "nvim"
+merge-args = [
+  "-c", "let g:jj_diffconflicts_marker_length=$marker_length",
+  "-c", "DiffConflictsWithHistory", "$output", "$base", "$left", "$right",
+]
+merge-tool-edits-conflict-markers = true
