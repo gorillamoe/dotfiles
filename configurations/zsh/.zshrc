@@ -115,6 +115,11 @@ bindkey -M vicmd v zle-edit-command-line-cwd
 ### Enable default vi keybindings
 bindkey -v
 
+### In vicmd, prevent j/k from falling back to history at buffer edges
+### (arrow keys still works)
+bindkey -M vicmd 'k' up-line
+bindkey -M vicmd 'j' down-line
+
 ### Set cursor shape based on mode, blinking block for command mode, blinking bar for insert mode
 #### This is just sprinkling some extra UX goodness, but I'm a sucker for that
 export VI_MODE_SET_CURSOR=true
@@ -162,14 +167,39 @@ bindkey -M vicmd '^[.' insert-last-word
 
 ### Keybindings for working for wezterm, possibly others
 
-## Home key, jump to beginning of line
-bindkey  "^[[H"   beginning-of-line
+## Home/End behavior
+## - In multiline buffers, beginning/end-of-line only affects the current line.
+##   Use custom widgets to jump to start/end of the whole input.
+## - Bind in both vi insert/command keymaps, and cover common escape sequences.
+function zle-home-buffer {
+  CURSOR=0
+}
+function zle-end-buffer {
+  CURSOR=$#BUFFER
+}
+zle -N zle-home-buffer
+zle -N zle-end-buffer
 
-## End key, jump to end of line
-bindkey  "^[[F"   end-of-line
+# Tell zsh-syntax-highlighting these widgets are fine (avoids warnings).
+typeset -gA ZSH_HIGHLIGHT_WIDGETS
+ZSH_HIGHLIGHT_WIDGETS+=(zle-home-buffer none zle-end-buffer none)
 
-## Delete key, delete character under cursor
-bindkey  "^[[3~"  delete-char
+for km in viins vicmd; do
+  # terminfo-aware (preferred when available)
+  [[ -n ${terminfo[khome]-} ]] && bindkey -M $km "${terminfo[khome]}" zle-home-buffer
+  [[ -n ${terminfo[kend]-}  ]] && bindkey -M $km "${terminfo[kend]}"  zle-end-buffer
+
+  # common xterm/wezterm sequences
+  bindkey -M $km "^[[H"  zle-home-buffer   # Home
+  bindkey -M $km "^[[F"  zle-end-buffer    # End
+  bindkey -M $km "^[[1~" zle-home-buffer   # Home
+  bindkey -M $km "^[[4~" zle-end-buffer    # End
+  bindkey -M $km "^[[7~" zle-home-buffer   # Home (rxvt)
+  bindkey -M $km "^[[8~" zle-end-buffer    # End  (rxvt)
+
+  # Delete key, delete character under cursor
+  bindkey -M $km "^[[3~" delete-char
+done
 
 #------------------------------------------#
 

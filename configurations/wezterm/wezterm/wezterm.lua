@@ -33,6 +33,9 @@ config.font_size = font_settings.font_size
 config.colors = vhs_era_theme.colors
 config.window_frame = vhs_era_theme.window_frame
 config.inactive_pane_hsb = vhs_era_theme.inactive_pane_hsb
+-- InputSelector (workspace switcher) uses the command palette overlay colors
+config.command_palette_bg_color = vhs_era_theme.colors.background
+config.command_palette_fg_color = vhs_era_theme.colors.foreground
 
 user_tabline.setup({
   options = {
