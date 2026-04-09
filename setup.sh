@@ -23,7 +23,7 @@ EOF
 fi
 
 echo "📦 Installing default packages from default-packages.txt"
-xargs -a ./setup/default-packages.txt paru --no-confirm --needed --upgrade --sync
+xargs -a ./setup/default-packages.txt paru -S
 
 # Ensure $HOME/.local/bin directory exists
 echo "📁 Ensuring ~/.local/bin directory exists"

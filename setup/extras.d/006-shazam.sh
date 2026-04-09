@@ -14,5 +14,5 @@ else
   mv shazam-linux "$HOME/.local/bin/shazam"
   # Symlink dotfiles
   echo "🔗 Symlinking dotfiles using shazam.sh"
-  shazam
+  "$HOME/.local/bin/shazam"
 fi
