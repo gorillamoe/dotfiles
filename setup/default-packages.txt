@@ -53,6 +53,7 @@ oh-my-posh
 openssl
 oryx
 pandoc
+pnpm
 readline
 ripgrep
 shellcheck
