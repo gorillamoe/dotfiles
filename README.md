@@ -56,3 +56,22 @@ Download private GPG keys and import them:
 ```sh
 gpg --import path/to/private/key.asc
 ```
+
+Enable Gnome <-> GPG/SSH Password Store/Retrieval:
+
+Make sure these lines exist
+
+```
+auth       optional     pam_gnome_keyring.so
+session    optional     pam_gnome_keyring.so auto_start
+```
+
+- `/etc/pam.d/login`
+- `/etc/pam.d/passwd`
+
+and then run:
+
+```sh
+gpgconf --kill gpg-agent
+```
+
