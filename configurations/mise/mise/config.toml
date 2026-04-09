@@ -1,6 +1,6 @@
 [tools]
-node = "latest"
-python = "latest"
+node = "24"
+python = "3.14"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

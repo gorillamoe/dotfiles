@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Zana release tag to install
-ZANA_RELEASE_TAG="v0.8.0"
+ZANA_RELEASE_TAG="v1.7.1"
 
 # Install zana for LSP and Linter management
 echo "📦 Installing Zana for LSP and Linter management"
