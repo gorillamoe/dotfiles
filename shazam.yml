@@ -14,6 +14,8 @@ configurations:
         destination: $HOME/Pictures/wallpaper.webp
       - source: avatar.png
         destination: $HOME/Pictures/avatar.png
+      - source: avatar-minimal.png
+        destination: $HOME/Pictures/avatar-minimal.png
   # sane defaults for editorconfig
   - name: editorconfig
     files:
