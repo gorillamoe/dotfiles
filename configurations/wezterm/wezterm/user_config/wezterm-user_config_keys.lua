@@ -120,8 +120,8 @@ return {
     -- reset font size
     { key = "0", mods = "CTRL", action = act.ResetFontSize },
     {
-      mods = "CTRL", -- use CTRL + SHIFT + K to avoid conflict with vim motions
-      key = "K",
+      mods = "CTRL", -- use CTRL + SHIFT + P to avoid conflict with vim motions
+      key = "P",
       action = workspace_switcher.switch_workspace(),
     },
     -- fullscreen
