@@ -9,11 +9,18 @@ behavior = "own"
 backend = "gpg"
 backends.gpg.program = "gpg2"
 
+# HACK:
+# To get aliases to auto-complete that have more than one argument,
+# we need to re-alias them to a single alias.
 [aliases]
-slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj logall -n 10"]
+show-slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj show-logall -n 5"]
+slog = ["show-slog"]
 p = ["git", "push"]
 re = ["rebase"]
-logall = ["log", "-r", "hidden() | all()"]
+show-logall = ["log", "-r", "hidden() | all()"]
+logall = ["show-logall"]
+show-summary = ["show", "--summary"]
+summary = ["show-summary"]
 
 [ui]
 default-command = "slog"
