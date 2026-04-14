@@ -18,6 +18,7 @@ logall = ["log", "-r", "hidden() | all()"]
 [ui]
 default-command = "slog"
 paginate = "never"
+show-cryptographic-signatures = true
 
 [merge-tools.diffconflicts]
 program = "nvim"
