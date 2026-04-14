@@ -17,6 +17,7 @@ dos2unix
 dotnet-sdk
 dust
 easytag
+excalidraw-desktop-bin
 eza
 fastfetch
 fd
