@@ -10,9 +10,10 @@ backend = "gpg"
 backends.gpg.program = "gpg2"
 
 [aliases]
-slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj log -n 5"]
+slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj logall -n 10"]
 p = ["git", "push"]
 re = ["rebase"]
+logall = ["log", "-r", "hidden() | all()"]
 
 [ui]
 default-command = "slog"
