@@ -5,6 +5,7 @@ bandwhich
 bat
 btop
 bzip2
+calibre
 carapace-bin
 cargo
 cliamp-bin
