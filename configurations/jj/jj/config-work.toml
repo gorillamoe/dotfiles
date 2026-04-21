@@ -3,38 +3,3 @@
 [user]
 name = "Marco Kellershoff"
 email = "marco.kellershoff@tbint.de"
-
-[signing]
-behavior = "own"
-backend = "gpg"
-backends.gpg.program = "gpg2"
-
-# HACK:
-# To get aliases to auto-complete that have more than one argument,
-# we need to re-alias them to a single alias.
-[aliases]
-show-slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj show-logall -n 5"]
-slog = ["show-slog"]
-show-tags-helper = ["util", "exec", "--", "git-tags-helper.sh"]
-tags-helper = ["show-tags-helper"]
-show-release = ["util", "exec", "--", "git-release.sh"]
-release = ["show-release"]
-p = ["git", "push"]
-re = ["rebase"]
-show-logall = ["log", "-r", "hidden() | all()"]
-logall = ["show-logall"]
-show-summary = ["show", "--summary"]
-summary = ["show-summary"]
-
-[ui]
-default-command = "slog"
-paginate = "never"
-show-cryptographic-signatures = true
-
-[merge-tools.diffconflicts]
-program = "nvim"
-merge-args = [
-  "-c", "let g:jj_diffconflicts_marker_length=$marker_length",
-  "-c", "DiffConflictsWithHistory", "$output", "$base", "$left", "$right",
-]
-merge-tool-edits-conflict-markers = true
