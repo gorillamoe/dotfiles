@@ -209,10 +209,10 @@ toast {
  ***************/
 .background {
   color: #C3C7D1;
-  background-color: #161925; }
+  background-color: transparent; }
   .background:backdrop {
     color: #6d707b;
-    background-color: #161925;
+    background-color: transparent;
     text-shadow: none;
     -gtk-icon-shadow: none; }
 
