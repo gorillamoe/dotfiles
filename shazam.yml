@@ -1,5 +1,21 @@
 ---
 configurations:
+  # GTK Themes
+  - name: themes
+    files:
+      - source: Sweet
+        destination: $HOME/.themes/Sweet/
+      - source: Sweassets
+        destination: $HOME/.config/gtk-4assets
+      - source: Sweet/gtk-4.0/gtk.css
+        destination: $HOME/.config/gtk-4.0/gtk.css
+      - source: Sweet/gtk-4.0/gtk-dark.css
+        destination: $HOME/.config/gtk-4.0/gtk-dark.css
+  # Icons
+  - name: icons
+    files:
+      - source: candy-icons
+        destination: $HOME/.icons/candy-icons/
   # halloy irc client configuration
   - name: halloy
     files:
