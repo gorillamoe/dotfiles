@@ -207,6 +207,17 @@ toast {
 /***************
  * Base States *
  ***************/
+window.background {
+    background-color: #161925;
+}
+window.background.csd:backdrop {
+    background-color: #161925;
+    opacity: 1.0;
+}
+tooltip .background,
+popover .background {
+    background-color: #161925;
+}
 .background {
   color: #C3C7D1;
   background-color: transparent; }
