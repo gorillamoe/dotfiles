@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Shazam release tag to install
-SHAZAM_RELEASE_TAG="v1.0.0"
+SHAZAM_RELEASE_TAG="v1.1.0"
 
 # Install shazam.sh and symlink dotfiles
 echo "📦 Installing shazam.sh for dotfiles management"
