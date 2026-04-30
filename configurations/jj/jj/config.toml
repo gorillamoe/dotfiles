@@ -35,6 +35,6 @@ show-cryptographic-signatures = true
 program = "nvim"
 merge-args = [
   "-c", "let g:jj_diffconflicts_marker_length=$marker_length",
-  "-c", "DiffConflictsWithHistory", "$output", "$base", "$left", "$right",
+  "-c", "DiffConflicts", "$output", "$base", "$left", "$right",
 ]
 merge-tool-edits-conflict-markers = true
