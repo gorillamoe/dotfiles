@@ -25,6 +25,8 @@ show-logall = ["log", "-r", "hidden() | all()"]
 logall = ["show-logall"]
 show-summary = ["show", "--summary"]
 summary = ["show-summary"]
+show-diffconflicts = ["resolve", "--tool", "diffconflicts"]
+diffconflicts = ["show-diffconflicts"]
 
 [ui]
 default-command = "slog"
