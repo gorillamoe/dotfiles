@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.9.0"
+      "version": "31.10.0"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -22,7 +22,7 @@
     },
     {
       "sourceId": "npm:intelephense",
-      "version": "1.16.5"
+      "version": "1.18.0"
     },
     {
       "sourceId": "npm:pyright",
@@ -54,7 +54,7 @@
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260422.1"
+      "version": "7.0.0-dev.20260430.1"
     },
     {
       "sourceId": "pypi:yamllint",
