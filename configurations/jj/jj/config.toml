@@ -27,6 +27,8 @@ show-summary = ["show", "--summary"]
 summary = ["show-summary"]
 show-resolveconflicts = ["resolve", "--tool", "diffconflicts"]
 resolveconflicts = ["show-resolveconflicts"]
+show-fetchremote = ["git", "fetch"]
+fetchremote = ["show-fetchremote"]
 
 [ui]
 default-command = "slog"
