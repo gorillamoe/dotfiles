@@ -15,7 +15,7 @@ _TAG_FILTER="${1:-"all"}"
 _TAG_TYPE="${2:-"semver"}"
 
 _show_usage() {
-  echo "Usage: $0 [all|latest|previous] semver"
+  echo "Usage: $0 [latest|previous|all] [semver]"
 }
 
 if [[ "$_TAG_TYPE" == "semver" ]] && ! [[ "$_TAG_FILTER" =~ ^(all|latest|previous|prev)$ ]]; then
