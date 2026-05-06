@@ -6,30 +6,34 @@
 # - show you the previous (semver) tag before the latest (semver) tag
 # - show you all (semver) tags
 # Usage:
-# - ./git-tags-helper.sh semver all
-# - ./git-tags-helper.sh semver latest
-# - ./git-tags-helper.sh semver previous
+# - ./git-tags-helper.sh all semver
+# - ./git-tags-helper.sh latest semver
+# - ./git-tags-helper.sh previous semver
 
 
-_COMMAND="${1:-""}"
-_ACTION="${2:-""}"
+_TAG_FILTER="${1:-"all"}"
+_TAG_TYPE="${2:-"semver"}"
 
-if ! [[ "$_COMMAND" =~ ^(semver)$ ]]; then
-  echo "Usage: $0 [semver]"
+_show_usage() {
+  echo "Usage: $0 [all|latest|previous] semver"
+}
+
+if [[ "$_TAG_TYPE" == "semver" ]] && ! [[ "$_TAG_FILTER" =~ ^(all|latest|previous|prev)$ ]]; then
+  _show_usage
   exit 1
 fi
 
-if [[ "$_COMMAND" == "semver" ]] && ! [[ "$_ACTION" =~ ^(all|latest|previous)$ ]]; then
-  echo "Usage: $0 semver [all|latest|previous]"
+if ! [[ "$_TAG_TYPE" =~ ^(semver)$ ]]; then
+  _show_usage
   exit 1
 fi
 
-if [[ "$_COMMAND" == "semver" ]]; then
-  if [[ "$_ACTION" == "all" ]]; then
+if [[ "$_TAG_TYPE" == "semver" ]]; then
+  if [[ "$_TAG_FILTER" == "all" ]]; then
     git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=v:refname
-  elif [[ "$_ACTION" == "latest" ]]; then
+  elif [[ "$_TAG_FILTER" == "latest" ]]; then
     git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 "$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=1 | tail -n 1)"
-  elif [[ "$_ACTION" == "previous" ]]; then
+  elif [[ "$_TAG_FILTER" == "previous" ]] || [[ "$_TAG_FILTER" == "prev" ]]; then
     git describe --tags --match 'v[0-9]*.[0-9]*.[0-9]*' --abbrev=0 "$(git rev-list --tags='v[0-9]*.[0-9]*.[0-9]*' --max-count=2 | tail -n 1)"
   else
     echo "Usage: $0 [latest|previous]"
