@@ -63,6 +63,190 @@
     {
       "sourceId": "npm:tree-sitter-cli",
       "version": "0.26.8"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-typescript",
+      "version": "v0.23.2"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-bash",
+      "version": "v0.25.1"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-c-sharp",
+      "version": "v0.23.5"
+    },
+    {
+      "sourceId": "github:stsewd/tree-sitter-comment",
+      "version": "v0.3.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-css",
+      "version": "v0.25.0"
+    },
+    {
+      "sourceId": "github:serenadeai/tree-sitter-scss",
+      "version": "v1.0.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-csv",
+      "version": "v1.2.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-diff",
+      "version": "v0.1.0"
+    },
+    {
+      "sourceId": "github:gbprod/tree-sitter-gitcommit",
+      "version": "v0.5.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-go",
+      "version": "v0.25.0"
+    },
+    {
+      "sourceId": "github:camdencheek/tree-sitter-go-mod",
+      "version": "v1.1.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-go-sum",
+      "version": "v1.0.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-html",
+      "version": "v0.23.2"
+    },
+    {
+      "sourceId": "github:rest-nvim/tree-sitter-http",
+      "version": "v3.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-javascript",
+      "version": "v0.25.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-jsdoc",
+      "version": "v0.25.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-json",
+      "version": "v0.24.8"
+    },
+    {
+      "sourceId": "github:Joakker/tree-sitter-json5",
+      "version": "v0.1.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-lua",
+      "version": "v0.5.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-luadoc",
+      "version": "v1.1.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-markdown",
+      "version": "v0.5.3"
+    },
+    {
+      "sourceId": "github:victorhqc/tree-sitter-prisma",
+      "version": "v1.6.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-python",
+      "version": "v0.25.0"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-rust",
+      "version": "v0.24.2"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-toml",
+      "version": "v0.7.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-vim",
+      "version": "v0.8.1"
+    },
+    {
+      "sourceId": "github:neovim/tree-sitter-vimdoc",
+      "version": "v4.1.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-xml",
+      "version": "v0.7.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-yaml",
+      "version": "v0.7.2"
+    },
+    {
+      "sourceId": "github:tree-sitter/tree-sitter-php",
+      "version": "v0.24.2"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-svelte",
+      "version": "v1.0.2"
+    },
+    {
+      "sourceId": "github:opa-oz/tree-sitter-nginx",
+      "version": "v1.0.1"
+    },
+    {
+      "sourceId": "github:ngalaiko/tree-sitter-go-template",
+      "version": "aa71f63de226c5592dfbfc1f29949522d7c95fac"
+    },
+    {
+      "sourceId": "github:omertuc/tree-sitter-go-work",
+      "version": "949a8a470559543857a62102c84700d291fc984c"
+    },
+    {
+      "sourceId": "github:chaozwn/tree-sitter-goctl",
+      "version": "49c43532689fe1f53e8b9e009d0521cab02c432b"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-hcl",
+      "version": "v1.2.0"
+    },
+    {
+      "sourceId": "github:opa-oz/tree-sitter-caddy",
+      "version": "v0.1.1"
+    },
+    {
+      "sourceId": "github:bkegley/tree-sitter-graphql",
+      "version": "5e66e961eee421786bdda8495ed1db045e06b5fe"
+    },
+    {
+      "sourceId": "github:monaqa/tree-sitter-mermaid",
+      "version": "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc"
+    },
+    {
+      "sourceId": "github:derekstride/tree-sitter-sql",
+      "version": "v0.3.11"
+    },
+    {
+      "sourceId": "github:the-mikedavis/tree-sitter-git-config",
+      "version": "0fbc9f99d5a28865f9de8427fb0672d66f9d83a5"
+    },
+    {
+      "sourceId": "github:the-mikedavis/tree-sitter-git-rebase",
+      "version": "v1.0.0"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-gitattributes",
+      "version": "v0.1.6"
+    },
+    {
+      "sourceId": "github:shunsambongi/tree-sitter-gitignore",
+      "version": "f4685bf11ac466dd278449bcfe5fd014e94aa504"
+    },
+    {
+      "sourceId": "github:charmbracelet/tree-sitter-vhs",
+      "version": "0c6fae9d2cfc5b217bfd1fe84a7678f5917116db"
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-zig",
+      "version": "v1.1.2"
     }
   ]
 }
