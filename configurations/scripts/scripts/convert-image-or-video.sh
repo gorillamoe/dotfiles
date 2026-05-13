@@ -10,15 +10,22 @@ DRY_RUN=${DRY_RUN:-false}
 convert_mp4_to_webm() {
   input_files=("$@")
   for input_file in "${input_files[@]}"; do
-    ffmpeg -i "$input_file" -an -c:v libvpx-vp9 -crf 30 -b:v 0 "${input_file%.*}.webm"
+    ffmpeg -i "$input_file" -hide_banner -loglevel error -an -c:v libvpx-vp9 -crf 30 -b:v 0 "${input_file%.*}.webm"
   done
 }
 
 # convert video files to animated webp using ffmpeg
+convert_gif_to_webm() {
+  input_files=("$@")
+  for input_file in "${input_files[@]}"; do
+    ffmpeg -i "$input_file" -hide_banner -loglevel error -an -c:v libvpx-vp9 -crf 30 -b:v 0 -strict experimental "${input_file%.*}.webm"
+  done
+}
+
 convert_mp4_to_webp() {
   input_files=("$@")
   for input_file in "${input_files[@]}"; do
-    ffmpeg -i "$input_file" -vf "fps=15,scale=-1:-1:flags=lanczos" -loop 0 "${input_file%.*}.webp"
+    ffmpeg -i "$input_file" -hide_banner -loglevel error -vf "fps=15,scale=-1:-1:flags=lanczos" -loop 0 "${input_file%.*}.webp"
   done
 }
 
@@ -39,6 +46,9 @@ convert_files() {
           convert_mp4_to_webm "$input_file"
         fi
         convert_mp4_to_webp "$input_file"
+        ;;
+      gif)
+        convert_gif_to_webm "$input_file"
         ;;
       jpg|jpeg|png|bmp|tiff)
         convert_images_to_webp "$input_file"
