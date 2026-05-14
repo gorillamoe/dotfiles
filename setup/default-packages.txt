@@ -75,6 +75,7 @@ vivid
 wezterm
 wget
 witr
+wl-clipboard
 xz
 yazi
 zls
