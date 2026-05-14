@@ -1,16 +1,5 @@
 ---
 configurations:
-  # GTK Themes
-  - name: themes
-    files:
-      - source: Sweet
-        destination: $HOME/.themes/Sweet/
-      - source: Sweet/assets
-        destination: $HOME/.config/gtk-4.0/assets
-      - source: Sweet/gtk-4.0/gtk.css
-        destination: $HOME/.config/gtk-4.0/gtk.css
-      - source: Sweet/gtk-4.0/gtk-dark.css
-        destination: $HOME/.config/gtk-4.0/gtk-dark.css
   # Icons
   - name: icons
     files:
