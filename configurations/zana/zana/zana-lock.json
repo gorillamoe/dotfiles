@@ -910,6 +910,14 @@
           }
         ]
       }
+    },
+    {
+      "sourceId": "github:tree-sitter-grammars/tree-sitter-odin",
+      "version": "v1.3.0"
+    },
+    {
+      "sourceId": "github:DanielGavin/ols",
+      "version": "dev-2026-05"
     }
   ],
   "$schema": "https://getzana.net/zana-lock.schema.json"
