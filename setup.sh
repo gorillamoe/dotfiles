@@ -22,6 +22,10 @@ $USER ALL=(ALL) NOPASSWD: ALL
 EOF
 fi
 
+# Disable arch-update-tray and arch-update timer
+sudo systemctl --global disable arch-update-tray.service
+sudo systemctl --global disable arch-update.timer
+
 echo "📦 Installing default packages from default-packages.txt"
 xargs -a ./setup/default-packages.txt paru -S
 
