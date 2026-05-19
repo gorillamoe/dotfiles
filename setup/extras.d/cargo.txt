@@ -1,0 +1,1 @@
+stylua --features luajit --features lua52 --features lua53 --features lua54
