@@ -62,7 +62,9 @@ compdef g=git
 setup_jj_config() {
     export JJ_CONFIG="$HOME/.config/jj/config.toml"
     # Override / merge base with work config if we're in a work project directory
-    if [[ "$PWD" == "$HOME/projects/work"* ]]; then export JJ_CONFIG="$JJ_CONFIG:$HOME/.config/jj/config-work.toml"; fi
+    if [[ "$PWD" == $HOME/[Pp]rojects/work* ]]; then
+      export JJ_CONFIG="$JJ_CONFIG:$HOME/.config/jj/config-work.toml";
+    fi
 }
 setup_jj_config
 
