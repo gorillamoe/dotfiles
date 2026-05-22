@@ -6,14 +6,26 @@
 # git release minor|feat|feature, it will create tag v1.3.0
 # git release patch|bug|bugfix|fix will create v1.2.4
 # git release major|break|breaking will create v2.0.0
+#
 # If there are no tags, it will create v0.1.0 for minor,
 # v0.0.1 for patch and v1.0.0 for major
-# It will also push the tag to the remote
+#
 # Usage: git-release.sh [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [<create release message boolean>]
+# Usage: git-release.sh [pre|nightly|beta|alpha|rc] [<create release message boolean>] suffix resulting in vLATEST_TAG-suffix
 # Defaults to patch if no argument is given
+#
+# git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [nightly|pre|beta|alpha|rc] [<create release message boolean>] [suffix]
+#
+# Usage: git release feat nightly-foobar "" foo
+#   will create v1.2.0-nightly-foobar (if v1.1.3 is the latest known tag)
+#   or, if there are no tags v0.1.0-nightly-foobar
+#
+set -eo pipefail
 
 RELEASE_TYPE="$1"
-CREATE_RELEASE_MESSAGE="$2"
+CREATE_RELEASE_MESSAGE="${2:-0}"
+PRE_RELEASE="${3:-0}"
+RELEASE_SUFFIX="${4:-""}"
 LATEST_TAG="v0.0.0"
 NEW_TAG=""
 COLORIZED_NEW_TAG=""
@@ -95,9 +107,25 @@ set_new_tag() {
       echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [<create release message boolean>]";
       return 1;;
   esac
+
+  case "$PRE_RELEASE" in
+    pre|nightly|beta|alpha|rc)
+      if [ -z "$RELEASE_SUFFIX" ]; then
+        echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [pre|nightly|beta|alpha|rc] [<create release message boolean>] [suffix]";
+        return 1;
+      fi
+      NEW_TAG="$NEW_TAG-$RELEASE_SUFFIX";
+      COLORIZED_NEW_TAG="$COLORIZED_NEW_TAG-$(colorize_text cyan "$RELEASE_SUFFIX")";
+      ;;
+    *)
+      echo "Usage: git release [patch|bug|bugfix|fix|minor|feat|feature|major|break|breaking] [pre|nightly|beta|alpha|rc] [<create release message boolean>]";
+      return 1;;
+  esac
 }
 
 prompt_for_confirmation() {
+  local create_tag_with_description=""
+
   echo -ne "Create tag $COLORIZED_NEW_TAG? (y/n) ";
   read -r -n 1 CONFIRM_TAG_CREATION;
   echo;
@@ -107,13 +135,17 @@ prompt_for_confirmation() {
     exit 0;
   fi
 
-  if [[ -n "$CREATE_RELEASE_MESSAGE" ]]; then
-    if ! git tag -a "$NEW_TAG" -e; then
-      colorize_text red "Tag creation aborted.";
-      exit 1;
-    fi
+  if [[ "$CREATE_RELEASE_MESSAGE" != "" ]] &&
+    [[ "$CREATE_RELEASE_MESSAGE" != false ]] &&
+    [[ "$CREATE_RELEASE_MESSAGE" != 0 ]]; then
+    create_tag_with_description="-a";
   else
-    git tag "$NEW_TAG";
+    create_tag_with_description="";
+  fi
+
+  if ! git tag "$NEW_TAG" $create_tag_with_description; then
+    colorize_text red "Tag creation aborted.";
+    exit 1;
   fi
 
   echo -ne "Do you want to push the new tag to the remote repository? (y/n) ";
