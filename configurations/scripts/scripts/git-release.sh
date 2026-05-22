@@ -108,6 +108,10 @@ set_new_tag() {
       return 1;;
   esac
 
+  if [ "$PRE_RELEASE" == "0" ] || [ -z "$PRE_RELEASE" ]; then
+    return;
+  fi
+
   case "$PRE_RELEASE" in
     pre|nightly|beta|alpha|rc)
       if [ -z "$RELEASE_SUFFIX" ]; then
