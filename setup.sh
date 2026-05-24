@@ -26,6 +26,11 @@ fi
 sudo systemctl --global disable arch-update-tray.service
 sudo systemctl --global disable arch-update.timer
 
+# Make window switching via alt+tab work
+# the way I grew up
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+
 echo "📦 Installing default packages from default-packages.txt"
 xargs -a ./setup/default-packages.txt paru -S
 
