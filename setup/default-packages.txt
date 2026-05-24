@@ -1,5 +1,6 @@
 annotator
 antigen
+appimagelauncher
 aspnet-runtime
 bandwhich
 bat
