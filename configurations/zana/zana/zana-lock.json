@@ -867,7 +867,29 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-javascript",
-      "version": "v0.25.0"
+      "version": "v0.25.0",
+      "extras": {
+        "integrations": [
+          "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "ecma",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-ecma",
+            "ref": "463d2e55597e7328334a1b46a2a8378cb75132b4"
+          },
+          {
+            "language": "javascript",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-javascript",
+            "ref": "60cc37d9acbb83b7a8b988a6221920806ac648e6"
+          },
+          {
+            "language": "jsx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-jsx",
+            "ref": "d001822416e222101414aac94c59d8c2c2e035a3"
+          }
+        ]
+      }
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-hcl",
