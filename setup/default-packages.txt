@@ -29,6 +29,7 @@ fuse3
 fzf
 gcc
 gcr-4
+gimp
 gnome
 gnome-browser-connector
 gnome-podcasts
@@ -36,7 +37,9 @@ gnome-shell-extensions
 htop
 jq
 jujutsu
+lazydocker
 libffi
+libreoffice-fresh
 libwebp-utils
 llvm
 lollypop
@@ -46,6 +49,7 @@ lua-language-server
 luacheck
 luarocks
 make
+mariadb-clients
 marksman
 mise
 ncdu
@@ -69,6 +73,7 @@ stylua
 terraform-ls
 terragrunt
 tfswitch
+time
 tk
 vale
 vhs
