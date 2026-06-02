@@ -12,11 +12,11 @@ return {
     {
       mods = "LEADER",
       key = "f",
-      action = wezterm.action.QuickSelectArgs {
-        label = 'Flashlight Mode 🔦',
+      action = wezterm.action.QuickSelectArgs({
+        label = "Flashlight Mode 🔦",
         patterns = { [[\b\w+\b]] },
         action = act.CopyTo("Clipboard"),
-      },
+      }),
     },
     -- toggle tabline plugin
     {
@@ -118,16 +118,27 @@ return {
       action = act.Search({ CaseInSensitiveString = "" }),
     },
     -- reset font size
-    { key = "0", mods = "CTRL", action = act.ResetFontSize },
+    { key = "0", mods = "CTRL|SHIFT", action = act.ResetFontSize },
     {
       mods = "CTRL", -- use CTRL + SHIFT + P to avoid conflict with vim motions
       key = "P",
       action = workspace_switcher.switch_workspace(),
     },
+    -- increase/decrease font size
+    {
+      mods = "CTRL|SHIFT",
+      key = "UpArrow",
+      action = act.IncreaseFontSize,
+    },
+    {
+      mods = "CTRL|SHIFT",
+      key = "DownArrow",
+      action = act.DecreaseFontSize,
+    },
     -- fullscreen
     {
       mods = "LEADER",
-      key = "o",
+      key = "Z",
       action = act.ToggleFullScreen,
     },
   },

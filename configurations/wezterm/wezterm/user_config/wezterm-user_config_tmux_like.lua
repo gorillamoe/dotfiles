@@ -105,10 +105,18 @@ config.keys = {
     key = "Space",
     action = wezterm.action.RotatePanes("Clockwise"),
   },
+  -- show the pane selection mode, and switch to the selected pane
+  {
+    mods = "LEADER",
+    key = "k",
+    action = wezterm.action.PaneSelect({
+      mode = "Activate",
+    }),
+  },
   -- show the pane selection mode, but have it swap the active and selected panes
   {
     mods = "LEADER",
-    key = "0",
+    key = "K",
     action = wezterm.action.PaneSelect({
       mode = "SwapWithActive",
     }),
