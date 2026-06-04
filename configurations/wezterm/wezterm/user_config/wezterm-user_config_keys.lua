@@ -118,7 +118,7 @@ return {
       action = act.Search({ CaseInSensitiveString = "" }),
     },
     -- reset font size
-    { key = "0", mods = "CTRL|SHIFT", action = act.ResetFontSize },
+    { key = "l", mods = "CTRL|SHIFT", action = act.ResetFontSize },
     {
       mods = "CTRL", -- use CTRL + SHIFT + P to avoid conflict with vim motions
       key = "P",
@@ -127,12 +127,12 @@ return {
     -- increase/decrease font size
     {
       mods = "CTRL|SHIFT",
-      key = "UpArrow",
+      key = "k",
       action = act.IncreaseFontSize,
     },
     {
       mods = "CTRL|SHIFT",
-      key = "DownArrow",
+      key = "j",
       action = act.DecreaseFontSize,
     },
     -- fullscreen
