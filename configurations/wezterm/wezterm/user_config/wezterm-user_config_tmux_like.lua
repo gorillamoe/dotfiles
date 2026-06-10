@@ -108,7 +108,7 @@ config.keys = {
   -- show the pane selection mode, and switch to the selected pane
   {
     mods = "LEADER",
-    key = "K",
+    key = "J",
     action = wezterm.action.PaneSelect({
       mode = "Activate",
     }),
