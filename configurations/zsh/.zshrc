@@ -47,17 +47,6 @@ zinit wait lucid for \
   zsh-users/zsh-autosuggestions
 
 #------------------------------------------#
-
-## Completion system MUST be initialized ONLY ONCE
-
-### I tried multiple locations for this,
-### this is the one that I found to be the most reliable
-autoload -Uz compinit
-compinit
-
-compdef g=git
-
-#------------------------------------------#
 ## JJ configuration, baseed on the current directory
 setup_jj_config() {
     export JJ_CONFIG="$HOME/.config/jj/config.toml"
@@ -410,6 +399,14 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 ### fzf configuration
 #### Set default options to use Ctrl-T for toggling all items
 export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
+
+#------------------------------------------#
+## Completion system MUST be initialized ONLY ONCE
+
+### I tried multiple locations for this,
+### this is the one that I found to be the most reliable
+autoload -Uz compinit
+compinit
 
 # INFO:
 # Carapace must come AFTER basically everything that has completions
