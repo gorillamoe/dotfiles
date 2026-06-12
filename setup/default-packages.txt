@@ -51,6 +51,7 @@ luarocks
 make
 mariadb-clients
 marksman
+miller
 mise
 ncdu
 ncurses
