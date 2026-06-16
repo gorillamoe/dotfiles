@@ -45,3 +45,6 @@ merge-args = [
   "-c", "DiffConflicts", "$output", "$base", "$left", "$right",
 ]
 merge-tool-edits-conflict-markers = true
+
+[templates]
+auto-track-bookmarks = "*"
