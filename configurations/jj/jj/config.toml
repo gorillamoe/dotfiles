@@ -46,5 +46,5 @@ merge-args = [
 ]
 merge-tool-edits-conflict-markers = true
 
-[templates]
+[remotes.origin]
 auto-track-bookmarks = "*"
