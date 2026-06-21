@@ -1,5 +1,10 @@
 ---
 configurations:
+  # Kitty Terminal
+  - name: kitty
+    files:
+      - source: kitty
+        destination: $HOME/.config/kitty
   # Icons
   - name: icons
     files:

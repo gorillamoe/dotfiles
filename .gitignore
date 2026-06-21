@@ -1,2 +1,3 @@
 tags
 *.lock
+/configurations/kitty/kitty/bin/__pycache__/
