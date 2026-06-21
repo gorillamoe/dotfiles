@@ -209,7 +209,7 @@ def pick_entry(
     lines = "\n".join(f"{index}\t{label}" for index, (label, _, _) in enumerate(entries))
     picked = fzf_pick(
         lines,
-        header="enter: switch  |  ctrl-x / ctrl-d / delete: delete session",
+        header="enter: switch  |  ctrl-x : delete session",
         expect="ctrl-x,ctrl-d,delete",
     )
     if picked is None:
