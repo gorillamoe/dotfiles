@@ -10,6 +10,11 @@ import subprocess
 import sys
 from pathlib import Path, PurePath
 
+_BIN = Path(__file__).resolve().parent
+if str(_BIN) not in sys.path:
+    sys.path.insert(0, str(_BIN))
+from session_persist import save_active_session
+
 SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
 ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-9;]*m")
 DELETE_KEYS = frozenset({"ctrl-x"})
@@ -358,6 +363,7 @@ def main() -> int:
             run(["zoxide", "add", zoxide_path], check=False)
 
         assert session_file is not None
+        save_active_session()
         code = goto_session(session_file)
         close_launcher()
         return code
