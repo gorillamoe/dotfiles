@@ -32,9 +32,14 @@ def _session_dir() -> Path:
 
 
 def _session_path(session_name: str) -> str | None:
+    import os
+
     from kitty.session import seen_session_paths
 
     path = seen_session_paths.get(session_name)
+    if path and not os.path.isfile(path):
+        del seen_session_paths[session_name]
+        path = None
     if path:
         return path
 

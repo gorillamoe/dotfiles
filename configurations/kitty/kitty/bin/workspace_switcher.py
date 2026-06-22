@@ -17,7 +17,7 @@ from session_persist import save_active_session
 
 SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
 ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-9;]*m")
-DELETE_KEYS = frozenset({"ctrl-x"})
+DELETE_KEYS = frozenset({"ctrl-x", "ctrl-d", "delete"})
 
 
 def session_dir() -> Path:
@@ -232,21 +232,48 @@ def pick_entry(
     return action, session_file, zoxide_path
 
 
-def confirm_delete(stem: str) -> bool:
-    message = (
-        f"Delete kitty session '{stem}'?\n"
-        "This removes the session file and closes its windows.\n"
-        "The path will remain in zoxide."
-    )
-    picked = fzf_pick(
-        "no\tNo\nyes\tYes",
-        header=message,
-        expect=None,
-    )
-    if picked is None:
+def ask_yesno(*, message: str, title: str, name: str) -> bool | None:
+    try:
+        result = run(
+            [
+                "kitty",
+                "@",
+                "kitten",
+                "ask",
+                "--type=yesno",
+                "--message",
+                message,
+                "--title",
+                title,
+                "--name",
+                name,
+            ],
+            check=False,
+        )
+    except FileNotFoundError:
+        print("workspace_switcher: kitty/kitten ask is required", file=sys.stderr)
+        return None
+    # For yesno, kitty may not print the answer to stdout. Use return code as
+    # the primary signal, with stdout as a fallback.
+    out = result.stdout.strip().lower()
+    if out in {"y", "yes", "true", "1"}:
+        return True
+    if out in {"n", "no", "false", "0"}:
         return False
-    _, choice = picked
-    return choice.strip().lower() == "yes"
+    return result.returncode == 0
+
+
+def confirm_delete(stem: str) -> bool:
+    answer = ask_yesno(
+        message=(
+            f"Delete kitty session '{stem}'?\n"
+            "This removes the session file and closes its windows.\n"
+            "The path will remain in zoxide."
+        ),
+        title=f"Delete session: {stem}",
+        name="kitty-delete-session",
+    )
+    return answer is True
 
 
 def notify(message: str) -> None:
@@ -264,6 +291,49 @@ def notify(message: str) -> None:
         input_text="ok\tPress Enter to continue",
         check=False,
     )
+
+
+def _session_name_from_ls(data: object) -> str | None:
+    names: list[str] = []
+
+    def collect(obj: object) -> None:
+        if isinstance(obj, dict):
+            value = obj.get("created_in_session_name")
+            if isinstance(value, str) and value.strip():
+                names.append(value.strip())
+            for value in obj.values():
+                collect(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                collect(item)
+
+    collect(data)
+    if not names:
+        return None
+    return format_session_name(names[0])
+
+
+def launcher_session_stem() -> str | None:
+    launcher_id = os.environ.get("KITTY_WINDOW_ID")
+    if not launcher_id:
+        return None
+    try:
+        result = run(
+            ["kitty", "@", "ls", "--match", f"id:{launcher_id}", "--output-format=json"],
+            check=False,
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            return None
+        return _session_name_from_ls(json.loads(result.stdout))
+    except (json.JSONDecodeError, subprocess.CalledProcessError):
+        return None
+
+
+def launcher_session_has_file() -> bool:
+    stem = launcher_session_stem()
+    if stem is None:
+        return True
+    return bool(session_files_for_stem(stem))
 
 
 def session_window_ids(stem: str) -> list[int]:
@@ -294,6 +364,16 @@ def session_window_ids(stem: str) -> list[int]:
     return ids
 
 
+def launcher_in_session(stem: str) -> bool:
+    launcher_id = os.environ.get("KITTY_WINDOW_ID")
+    if not launcher_id:
+        return False
+    try:
+        return int(launcher_id) in session_window_ids(stem)
+    except ValueError:
+        return False
+
+
 def close_session_windows(stem: str) -> None:
     launcher_id = os.environ.get("KITTY_WINDOW_ID")
     for window_id in session_window_ids(stem):
@@ -313,23 +393,25 @@ def remove_session_files(stem: str) -> bool:
     return removed
 
 
-def delete_session(session_file: Path) -> bool:
+def delete_session(session_file: Path) -> str:
     stem = session_stem(session_file)
     if not confirm_delete(stem):
-        return False
+        return "cancelled"
 
+    # Close windows before deleting the file. Deleting first leaves kitty's
+    # session autosave with a cached path and it will recreate the file.
+    launcher_in_deleted = launcher_in_session(stem)
+    close_session_windows(stem)
     if not remove_session_files(stem):
         notify(f"Could not delete session file for '{stem}'.")
-        return False
-
-    close_session_windows(stem)
-    return True
+        return "failed"
+    if launcher_in_deleted:
+        return "exit"
+    return "ok"
 
 
 def goto_session(session_file: Path) -> int:
-    result = run(["kitty", "@", "action", "goto_session", str(session_file)], check=False)
-    run(["kitty", "@", "set-tab-title", session_stem(session_file)], check=False)
-    return result.returncode
+    return run(["kitty", "@", "action", "goto_session", str(session_file)], check=False).returncode
 
 
 def main() -> int:
@@ -354,7 +436,10 @@ def main() -> int:
             if session_file is None:
                 notify("Only saved kitty sessions can be deleted (not zoxide paths).")
                 continue
-            delete_session(session_file)
+            result = delete_session(session_file)
+            if result == "exit":
+                close_launcher()
+                return 0
             continue
 
         if session_file is None and zoxide_path is not None:
@@ -363,7 +448,8 @@ def main() -> int:
             run(["zoxide", "add", zoxide_path], check=False)
 
         assert session_file is not None
-        save_active_session()
+        if launcher_session_has_file():
+            save_active_session()
         code = goto_session(session_file)
         close_launcher()
         return code
