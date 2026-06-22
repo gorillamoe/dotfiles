@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import PurePath
 
-from kitty.fast_data_types import Screen, get_boss
+from kitty.fast_data_types import Screen, get_boss, get_options
 from kitty.session import most_recent_session
 from kitty.tab_bar import (
     DrawData,
@@ -57,8 +57,9 @@ def draw_session_badge(
 ) -> None:
     separator_symbol, _ = powerline_symbols.get(draw_data.powerline_style, ("", ""))
 
-    badge_bg = as_rgb(color_as_int(draw_data.active_bg))
-    badge_fg = as_rgb(color_as_int(draw_data.active_fg))
+    opts = get_options()
+    badge_bg = as_rgb(color_as_int(opts.color4))
+    badge_fg = as_rgb(color_as_int(opts.background))
 
     screen.cursor.bg = badge_bg
     screen.cursor.fg = badge_fg
@@ -91,13 +92,30 @@ def draw_tab(
     is_last: bool,
     extra_data: ExtraData,
 ) -> int:
+    tab_draw_data = draw_data_for_tab(draw_data, tab)
+    drew_badge = False
     if screen.cursor.x == 0:
         label = workspace_name(tab)
         if label:
-            draw_session_badge(draw_data, screen, label, draw_data_for_tab(draw_data, tab).tab_bg(tab))
+            draw_session_badge(draw_data, screen, label, draw_data.tab_bg(tab))
+            drew_badge = True
+
+    # INFO:
+    # Kitty presets per-tab colors and font style before draw_tab; restore after
+    # the badge so the first tab matches every other tab (see TabBar.update).
+    opts = get_options()
+    tab_bg = as_rgb(draw_data.tab_bg(tab))
+    screen.cursor.bg = tab_bg
+    screen.cursor.fg = as_rgb(draw_data.tab_fg(tab))
+    screen.cursor.bold, screen.cursor.italic = (
+        opts.active_tab_font_style if tab.is_active else opts.inactive_tab_font_style
+    )
+    if drew_badge:
+        # draw_tab_with_powerline only adds leading padding at cursor.x == 0
+        screen.draw(" ")
 
     return draw_tab_with_powerline(
-        draw_data_for_tab(draw_data, tab),
+        draw_data if drew_badge else tab_draw_data,
         screen,
         tab,
         before,
