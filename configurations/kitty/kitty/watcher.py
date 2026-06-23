@@ -11,6 +11,7 @@ WORKSPACE_SWITCHER = Path.home() / ".config/kitty/bin/workspace_switcher.py"
 
 _save_timer_id: int | None = None
 _periodic_timer_id: int | None = None
+_quitting: bool = False
 AUTOSAVE_INTERVAL_S = 10.0
 LAYOUT_SAVE_DELAY_S = 1.5
 
@@ -102,6 +103,9 @@ def _save_session(boss, session_name: str) -> None:
     opts, _ = parse_save_as_options_spec_args(
         ["--save-only", f"--match=session:{session_name}"]
     )
+    session_lines = list(boss.serialize_state_as_session(path, opts))
+    if not any(line.strip() for line in session_lines):
+        return
     save_as_session_part2(boss, opts, path)
 
 
@@ -150,7 +154,16 @@ def on_load(boss, data) -> None:
     _periodic_timer_id = add_timer(autosave, AUTOSAVE_INTERVAL_S, True)
 
 
+def _kitty_is_quitting(boss) -> bool:
+    return _quitting or boss.shutting_down
+
+
 def on_close(boss, window, data) -> None:
+    if _kitty_is_quitting(boss):
+        # on_quit already saved every session while windows were still alive;
+        # saving again here would serialize closing windows and wipe session files.
+        return
+
     session_name = window.created_in_session_name
     if not session_name:
         return
@@ -178,7 +191,13 @@ def on_resize(boss, window, data) -> None:
 
 
 def on_quit(boss, window, data) -> None:
+    global _quitting
     _cancel_debounced_save()
+    if data.get("confirmed"):
+        _quitting = True
+        save_loaded_sessions(boss)
+    else:
+        _quitting = False
 
 
 def on_tab_bar_dirty(boss, window, data) -> None:

@@ -16,6 +16,7 @@ if str(_BIN) not in sys.path:
 from session_persist import save_active_session
 
 SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
+MRU_FILE_NAME = "session-mru.json"
 ANSI_ESCAPE_RE = re.compile(r"\x1b\[[0-9;]*m")
 DELETE_KEYS = frozenset({"ctrl-x", "ctrl-d", "delete"})
 
@@ -24,6 +25,79 @@ def session_dir() -> Path:
     data_home = os.environ.get("XDG_DATA_HOME")
     base = Path(data_home) if data_home else Path.home() / ".local" / "share"
     return base / "kitty" / "sessions"
+
+
+def mru_file() -> Path:
+    return session_dir() / MRU_FILE_NAME
+
+
+def load_session_mru() -> list[str]:
+    path = mru_file()
+    if not path.is_file():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    if not isinstance(data, list):
+        return []
+    return [item for item in data if isinstance(item, str) and item.strip()]
+
+
+def save_session_mru(names: list[str]) -> None:
+    directory = session_dir()
+    directory.mkdir(parents=True, exist_ok=True)
+    mru_file().write_text(json.dumps(names, indent=2) + "\n", encoding="utf-8")
+
+
+def touch_session_mru(stem: str) -> None:
+    names = [name for name in load_session_mru() if name != stem]
+    names.insert(0, stem)
+    save_session_mru(names)
+
+
+def remove_session_mru(stem: str) -> None:
+    names = load_session_mru()
+    filtered = [name for name in names if name != stem]
+    if len(filtered) != len(names):
+        save_session_mru(filtered)
+
+
+def session_focus_times() -> dict[str, float]:
+    times: dict[str, float] = {}
+    try:
+        result = run(["kitty", "@", "ls", "--output-format=json"])
+        data = json.loads(result.stdout)
+    except (FileNotFoundError, subprocess.CalledProcessError, json.JSONDecodeError):
+        return times
+
+    def collect(obj: object) -> None:
+        if isinstance(obj, dict):
+            name = obj.get("created_in_session_name")
+            focused_at = obj.get("last_focused_at")
+            if (
+                isinstance(name, str)
+                and name.strip()
+                and isinstance(focused_at, (int, float))
+            ):
+                stem = format_session_name(name.strip())
+                times[stem] = max(times.get(stem, 0.0), float(focused_at))
+            for value in obj.values():
+                collect(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                collect(item)
+
+    collect(data)
+    return times
+
+
+def session_recency_key(
+    stem: str, mru: list[str], focus_times: dict[str, float]
+) -> tuple:
+    mru_rank = mru.index(stem) if stem in mru else len(mru)
+    focus_rank = -focus_times.get(stem, 0.0)
+    return (mru_rank, focus_rank, stem.lower())
 
 
 def template_path() -> Path:
@@ -68,8 +142,12 @@ def list_session_files() -> list[Path]:
     files: list[Path] = []
     for suffix in SESSION_SUFFIXES:
         files.extend(directory.glob(f"*{suffix}"))
+    unique = sorted({path.resolve() for path in files})
+    mru = load_session_mru()
+    focus_times = session_focus_times()
     return sorted(
-        {path.resolve() for path in files}, key=lambda path: session_stem(path).lower()
+        unique,
+        key=lambda path: session_recency_key(session_stem(path), mru, focus_times),
     )
 
 
@@ -420,6 +498,7 @@ def delete_session(session_file: Path) -> str:
     if not remove_session_files(stem):
         notify(f"Could not delete session file for '{stem}'.")
         return "failed"
+    remove_session_mru(stem)
     if launcher_in_deleted:
         return "exit"
     return "ok"
@@ -470,6 +549,7 @@ def main() -> int:
         if launcher_session_has_file():
             save_active_session()
         code = goto_session(session_file)
+        touch_session_mru(session_stem(session_file))
         close_launcher()
         return code
 
