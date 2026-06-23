@@ -34,7 +34,9 @@ def strip_ansi(text: str) -> str:
     return ANSI_ESCAPE_RE.sub("", text)
 
 
-def run(cmd: list[str], *, input_text: str | None = None, check: bool = True) -> subprocess.CompletedProcess[str]:
+def run(
+    cmd: list[str], *, input_text: str | None = None, check: bool = True
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         cmd,
         input=input_text,
@@ -66,7 +68,9 @@ def list_session_files() -> list[Path]:
     files: list[Path] = []
     for suffix in SESSION_SUFFIXES:
         files.extend(directory.glob(f"*{suffix}"))
-    return sorted({path.resolve() for path in files}, key=lambda path: session_stem(path).lower())
+    return sorted(
+        {path.resolve() for path in files}, key=lambda path: session_stem(path).lower()
+    )
 
 
 def active_session_names() -> set[str]:
@@ -211,7 +215,9 @@ def pick_entry(
     if not entries:
         return None
 
-    lines = "\n".join(f"{index}\t{label}" for index, (label, _, _) in enumerate(entries))
+    lines = "\n".join(
+        f"{index}\t{label}" for index, (label, _, _) in enumerate(entries)
+    )
     picked = fzf_pick(
         lines,
         header="enter: switch  |  ctrl-x : delete session",
@@ -319,7 +325,14 @@ def launcher_session_stem() -> str | None:
         return None
     try:
         result = run(
-            ["kitty", "@", "ls", "--match", f"id:{launcher_id}", "--output-format=json"],
+            [
+                "kitty",
+                "@",
+                "ls",
+                "--match",
+                f"id:{launcher_id}",
+                "--output-format=json",
+            ],
             check=False,
         )
         if result.returncode != 0 or not result.stdout.strip():
@@ -389,7 +402,9 @@ def remove_session_files(stem: str) -> bool:
             path.unlink()
             removed = True
         except OSError as exc:
-            print(f"workspace_switcher: failed to delete {path}: {exc}", file=sys.stderr)
+            print(
+                f"workspace_switcher: failed to delete {path}: {exc}", file=sys.stderr
+            )
     return removed
 
 
@@ -411,14 +426,18 @@ def delete_session(session_file: Path) -> str:
 
 
 def goto_session(session_file: Path) -> int:
-    return run(["kitty", "@", "action", "goto_session", str(session_file)], check=False).returncode
+    return run(
+        ["kitty", "@", "action", "goto_session", str(session_file)], check=False
+    ).returncode
 
 
 def main() -> int:
     while True:
         entries = build_entries()
         if not entries:
-            print("workspace_switcher: no sessions or zoxide paths found", file=sys.stderr)
+            print(
+                "workspace_switcher: no sessions or zoxide paths found", file=sys.stderr
+            )
             return 1
 
         picked = pick_entry(entries)

@@ -18,7 +18,9 @@ def session_dir() -> Path:
     return base / "kitty" / "sessions"
 
 
-def run(cmd: list[str], *, input_text: str | None = None, check: bool = True) -> subprocess.CompletedProcess[str]:
+def run(
+    cmd: list[str], *, input_text: str | None = None, check: bool = True
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         cmd,
         input=input_text,
@@ -38,7 +40,15 @@ def close_launcher() -> None:
 def ask_line(message: str) -> str | None:
     try:
         result = run(
-            ["kitten", "ask", "--type=line", "--message", message, "--name", "kitty-rename-session"],
+            [
+                "kitten",
+                "ask",
+                "--type=line",
+                "--message",
+                message,
+                "--name",
+                "kitty-rename-session",
+            ],
             check=False,
         )
     except FileNotFoundError:

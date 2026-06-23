@@ -7,6 +7,7 @@ from pathlib import Path
 DEFAULT_TITLE = "default"
 GENERIC_TITLES = frozenset(("", "Terminal", "kitty", "Kitty"))
 SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
+WORKSPACE_SWITCHER = Path.home() / ".config/kitty/bin/workspace_switcher.py"
 
 _save_timer_id: int | None = None
 _periodic_timer_id: int | None = None
@@ -53,16 +54,43 @@ def _session_path(session_name: str) -> str | None:
     return None
 
 
-def _session_names_for_window(boss, window) -> set[str]:
+def _session_names_for_window(_boss, window) -> set[str]:
     names: set[str] = set()
     if window.created_in_session_name:
         names.add(window.created_in_session_name)
     tab = window.tabref()
     if tab is not None and tab.created_in_session_name:
         names.add(tab.created_in_session_name)
-    if boss.active_session:
-        names.add(boss.active_session)
     return names
+
+
+def _windows_in_session(boss, session_name: str, *, exclude=None) -> list:
+    return [
+        other
+        for other in boss.all_windows
+        if other is not exclude and other.created_in_session_name == session_name
+    ]
+
+
+def _delete_session_files(session_name: str) -> None:
+    from kitty.session import seen_session_paths
+
+    seen_session_paths.pop(session_name, None)
+    for suffix in SESSION_SUFFIXES:
+        path = _session_dir() / f"{session_name}{suffix}"
+        if path.is_file():
+            path.unlink(missing_ok=True)
+
+
+def _open_workspace_switcher(boss, *, exclude=None) -> None:
+    script = str(WORKSPACE_SWITCHER)
+    if not WORKSPACE_SWITCHER.is_file():
+        return
+    other_windows = [w for w in boss.all_windows if w is not exclude]
+    if other_windows:
+        boss.launch("--type=overlay", "--allow-remote-control", "python3", script)
+    else:
+        boss.launch("--type=os_window", "--allow-remote-control", "python3", script)
 
 
 def _save_session(boss, session_name: str) -> None:
@@ -71,7 +99,9 @@ def _save_session(boss, session_name: str) -> None:
     path = _session_path(session_name)
     if not path:
         return
-    opts, _ = parse_save_as_options_spec_args(["--save-only", f"--match=session:{session_name}"])
+    opts, _ = parse_save_as_options_spec_args(
+        ["--save-only", f"--match=session:{session_name}"]
+    )
     save_as_session_part2(boss, opts, path)
 
 
@@ -121,19 +151,22 @@ def on_load(boss, data) -> None:
 
 
 def on_close(boss, window, data) -> None:
-    names = _session_names_for_window(boss, window)
-    if not names:
+    session_name = window.created_in_session_name
+    if not session_name:
         return
 
-    for name in names:
-        siblings = [
-            other
-            for other in boss.all_windows
-            if other is not window and other.created_in_session_name == name
-        ]
-        if siblings:
-            _cancel_debounced_save()
-            _save_session(boss, name)
+    siblings = _windows_in_session(boss, session_name, exclude=window)
+    if siblings:
+        _cancel_debounced_save()
+        _save_session(boss, session_name)
+        return
+
+    if not _session_path(session_name):
+        return
+
+    _cancel_debounced_save()
+    _delete_session_files(session_name)
+    _open_workspace_switcher(boss, exclude=window)
 
 
 def on_resize(boss, window, data) -> None:
@@ -146,7 +179,6 @@ def on_resize(boss, window, data) -> None:
 
 def on_quit(boss, window, data) -> None:
     _cancel_debounced_save()
-    save_loaded_sessions(boss)
 
 
 def on_tab_bar_dirty(boss, window, data) -> None:

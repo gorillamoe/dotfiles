@@ -49,7 +49,10 @@ def save_session(name: str, *, path: Path | str | None = None) -> bool:
         check=False,
     )
     if result.returncode != 0 and result.stderr.strip():
-        print(f"session_persist: failed to save {name}: {result.stderr.strip()}", file=sys.stderr)
+        print(
+            f"session_persist: failed to save {name}: {result.stderr.strip()}",
+            file=sys.stderr,
+        )
     return result.returncode == 0
 
 
@@ -84,23 +87,55 @@ def save_all_loaded_sessions() -> None:
         return
 
 
+def active_session_name() -> str | None:
+    try:
+        result = subprocess.run(
+            ["kitty", "@", "ls", "--output-format=json"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            check=False,
+        )
+        if result.returncode != 0:
+            return None
+        data = json.loads(result.stdout)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return None
+
+    best_score = -1
+    best_name: str | None = None
+
+    def visit(obj: object) -> None:
+        nonlocal best_score, best_name
+        if isinstance(obj, dict):
+            name = obj.get("created_in_session_name")
+            if isinstance(name, str) and name.strip():
+                stem = Path(name).name if "/" in name else name.strip()
+                score = 0
+                if obj.get("is_focused"):
+                    score += 4
+                if obj.get("is_active"):
+                    score += 2
+                if obj.get("last_focused"):
+                    score += 1
+                if score > best_score:
+                    best_score = score
+                    best_name = stem
+            for value in obj.values():
+                visit(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                visit(item)
+
+    visit(data)
+    return best_name
+
+
 def save_active_session() -> bool:
-    result = subprocess.run(
-        [
-            "kitty",
-            "@",
-            "action",
-            "save_as_session",
-            "--save-only",
-            "--match=session:.",
-            ".",
-        ],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        check=False,
-    )
-    return result.returncode == 0
+    name = active_session_name()
+    if not name:
+        return False
+    return save_session(name)
 
 
 if __name__ == "__main__":

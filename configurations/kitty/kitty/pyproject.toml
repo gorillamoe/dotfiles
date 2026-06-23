@@ -1,0 +1,5 @@
+[tool.pyright]
+extraPaths = ["/usr/lib/kitty"]
+pythonVersion = "3.14"
+typeCheckingMode = "basic"
+reportMissingImports = "warning"
