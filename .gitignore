@@ -3,3 +3,4 @@ tags
 /configurations/kitty/kitty/bin/__pycache__/
 .direnv
 *.log
+__pycache__

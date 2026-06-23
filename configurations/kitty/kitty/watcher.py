@@ -10,9 +10,7 @@ SESSION_SUFFIXES = (".kitty-session", ".kitty_session", ".session")
 WORKSPACE_SWITCHER = Path.home() / ".config/kitty/bin/workspace_switcher.py"
 
 _save_timer_id: int | None = None
-_periodic_timer_id: int | None = None
 _quitting: bool = False
-AUTOSAVE_INTERVAL_S = 10.0
 LAYOUT_SAVE_DELAY_S = 1.5
 
 
@@ -55,7 +53,7 @@ def _session_path(session_name: str) -> str | None:
     return None
 
 
-def _session_names_for_window(_boss, window) -> set[str]:
+def _session_names_for_window(_, window) -> set[str]:
     names: set[str] = set()
     if window.created_in_session_name:
         names.add(window.created_in_session_name)
@@ -143,17 +141,6 @@ def schedule_session_save(boss) -> None:
     _save_timer_id = add_timer(save, LAYOUT_SAVE_DELAY_S, False)
 
 
-def on_load(boss, data) -> None:
-    global _periodic_timer_id
-    from kitty.fast_data_types import add_timer
-
-    def autosave() -> None:
-        if boss.all_loaded_session_names:
-            save_loaded_sessions(boss)
-
-    _periodic_timer_id = add_timer(autosave, AUTOSAVE_INTERVAL_S, True)
-
-
 def _kitty_is_quitting(boss) -> bool:
     return _quitting or boss.shutting_down
 
@@ -190,7 +177,7 @@ def on_resize(boss, window, data) -> None:
         schedule_session_save(boss)
 
 
-def on_quit(boss, window, data) -> None:
+def on_quit(boss, _, data) -> None:
     global _quitting
     _cancel_debounced_save()
     if data.get("confirmed"):
