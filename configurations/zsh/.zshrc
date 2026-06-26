@@ -380,9 +380,9 @@ _evalcache zana env zsh
 #### Completions
 _evalcache zana completion zsh
 
-### Kuba, the GOAT of using cloud secrets in your environment
-#### https://kuba.mwco.app
-_evalcache kuba completion zsh
+### withsecrets, the GOAT of using cloud secrets in your environment
+#### https://withsecrets.com
+_evalcache ws completion zsh
 
 #------------------------------------------#
 
