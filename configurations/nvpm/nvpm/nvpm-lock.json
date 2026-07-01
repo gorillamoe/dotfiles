@@ -947,9 +947,26 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "dtd",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-dtd",
+            "ref": "9591020fe06b876f8f24eb0e50d7892e626e7b61"
+          },
+          {
+            "language": "xml",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-dtd",
+            "ref": "9591020fe06b876f8f24eb0e50d7892e626e7b61"
+          },
+          {
+            "language": "xml",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-xml",
+            "ref": "e3ba32fcb11591779aaffe181ff25b5a5a5f597f"
+          }
         ]
       }
     }
   ],
-  "$schema": "https://getzana.net/zana-lock.schema.json"
+  "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
 }

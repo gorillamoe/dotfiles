@@ -374,11 +374,11 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 # Vite+ bin (https://viteplus.dev)
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
 
-### Zana, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
+### nvpm, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
 #### Source as late as possible, so it can has precedence over other things in PATH
-_evalcache zana env zsh
+_evalcache nvpm env zsh
 #### Completions
-_evalcache zana completion zsh
+_evalcache nvpm completion zsh
 
 ### withsecrets, the GOAT of using cloud secrets in your environment
 #### https://withsecrets.com

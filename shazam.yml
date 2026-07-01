@@ -73,11 +73,11 @@ configurations:
     files:
       - source: .ssh/config
         destination: $HOME/.ssh/config
-  # Zana 🌈 package manager 📦 configuration
-  - name: zana
+  # nvpm 🌈 package manager 📦 configuration
+  - name: nvpm
     files:
-      - source: zana
-        destination: $HOME/.config/zana
+      - source: nvpm
+        destination: $HOME/.config/nvpm
   # Vale linter configuration
   - name: vale
     files:
