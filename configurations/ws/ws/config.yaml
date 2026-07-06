@@ -1,0 +1,9 @@
+---
+cache:
+  enabled: false
+  ttl: 12h0m0s
+defaults:
+  providers:
+    gcp:
+      regions:
+        - europe-west3

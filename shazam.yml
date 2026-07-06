@@ -1,5 +1,10 @@
 ---
 configurations:
+  # ws (withsecrets.com - minimalist doppler.com) configuration
+  - name: ws
+    files:
+      - source: ws
+        destination: $HOME/.config/ws
   # Kitty Terminal
   - name: kitty
     files:
