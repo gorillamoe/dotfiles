@@ -10,6 +10,40 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"
 ### Makes it less repetitive to type later on
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"
 
+#------------------------------------------#
+
+## Path settings
+### It would be great, if all these tools would align on a common standard,
+### but alas, that is not the case in late 2025... 😥
+
+### Cargo (Rust), the Rust package manager -- https://www.rust-lang.org/tools/install
+export PATH="$HOME/.cargo/bin:$PATH"
+
+### Go, the gopher language -- https://golang.org
+#### Did I mention that this is my second favorite language after TypeScript?
+export GOPATH="$HOME/go"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
+
+### Bun, the all-in-one JavaScript runtime -- https://bun.com
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+### Node Modules, the JavaScript ecosystem -- https://nodejs.org
+export PATH="node_modules/.bin:$PATH"
+
+### .NET tools, the Microsoft ecosystem -- https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.400-linux-x64-installer
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+### Google Cloud CLI
+#### Google being exceptionally creative with installation paths
+export PATH="/opt/google-cloud-cli/bin:$PATH"
+
+### Local user binaries
+#### Coming in last to have precedence over mostly everything else
+[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
+
+#------------------------------------------#
+
 ## Antigen, the GOAT of Zsh plugin managers
 ## Sadly, this can't be cached with evalcache,
 ## because antigen needs to be sourced before any antigen commands are run
@@ -258,38 +292,6 @@ fi
 
 #------------------------------------------#
 
-## Path settings
-### It would be great, if all these tools would align on a common standard,
-### but alas, that is not the case in late 2025... 😥
-
-### Cargo (Rust), the Rust package manager -- https://www.rust-lang.org/tools/install
-export PATH="$HOME/.cargo/bin:$PATH"
-
-### Go, the gopher language -- https://golang.org
-#### Did I mention that this is my second favorite language after TypeScript?
-export GOPATH="$HOME/go"
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
-
-### Bun, the all-in-one JavaScript runtime -- https://bun.com
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-### Node Modules, the JavaScript ecosystem -- https://nodejs.org
-export PATH="node_modules/.bin:$PATH"
-
-### .NET tools, the Microsoft ecosystem -- https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.400-linux-x64-installer
-export PATH="$PATH:$HOME/.dotnet/tools"
-
-### Google Cloud CLI
-#### Google being exceptionally creative with installation paths
-export PATH="/opt/google-cloud-cli/bin:$PATH"
-
-### Local user binaries
-#### Coming in last to have precedence over mostly everything else
-[[ -d $HOME/.local/bin ]] && export PATH="$HOME/.local/bin:$PATH"
-
-#------------------------------------------#
-
 ## Aliases
 
 ### File and directory listing with eza
@@ -375,14 +377,9 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
 
 ### nvpm, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
+#### https://nvpm.dev
 #### Source as late as possible, so it can has precedence over other things in PATH
 _evalcache nvpm env zsh
-#### Completions
-_evalcache nvpm completion zsh
-
-### withsecrets, the GOAT of using cloud secrets in your environment
-#### https://withsecrets.com
-_evalcache ws completion zsh
 
 #------------------------------------------#
 
@@ -402,11 +399,28 @@ export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
 
 #------------------------------------------#
 ## Completion system MUST be initialized ONLY ONCE
-
-### I tried multiple locations for this,
-### this is the one that I found to be the most reliable
 autoload -Uz compinit
 compinit
+
+#### Completions
+
+if [[ ! -d "$HOME/.zsh/completions" ]]; then
+  mkdir -p "$HOME/.zsh/completions"
+fi
+if [[ ! -f "$HOME/.zsh/completions/_ws" ]]; then
+  ws completion zsh > "$HOME/.zsh/completions/_ws"
+fi
+if [[ ! -f "$HOME/.zsh/completions/_nvpm" ]]; then
+  nvpm completion zsh > "$HOME/.zsh/completions/_nvpm"
+fi
+if [[ ! -f "$HOME/.zsh/completions/_task" ]]; then
+  # HACK:
+  # The arch package has go-task instead of task.
+  # We use go-task to generate the completions for task (_task).
+  # And then I use my wrapper script
+  # configurations/scripts/scripts/task to call "go-task"
+  go-task --completion zsh > "$HOME/.zsh/completions/_task"
+fi
 
 # INFO:
 # Carapace must come AFTER basically everything that has completions
