@@ -1,6 +1,7 @@
 tags
 *.lock
 /configurations/kitty/kitty/bin/__pycache__/
+/configurations/nvpm/nvpm/discovery.json
 .direnv
 *.log
 __pycache__
