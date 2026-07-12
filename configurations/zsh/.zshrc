@@ -1,7 +1,8 @@
 # Basic Zsh configuration setup
 
 ## Add custom completions directory to FPATH
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+typeset -gU fpath FPATH
+fpath=("$HOME/.zsh/completions" $fpath)
 
 ## Define XDG_DATA_HOME if not already defined
 ### Makes it less repetitive to type later on
@@ -70,6 +71,12 @@ fi
 ### Don't cache this with evalcache
 #### Must be sourced directly, but has built-in caching anyway
 source "$ZINIT_HOME/zinit.zsh"
+
+zinit ice as"completion" blockf
+zinit light "$HOME/.zsh/completions"
+
+# INFO: If completion is missing, run:
+# zinit creinstall "$HOME/.zsh/completions"
 
 ### Load zinit plugins
 zinit wait lucid for \
@@ -375,11 +382,6 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 
 # Vite+ bin (https://viteplus.dev)
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
-
-### nvpm, the niche CLI for managing LSP servers, DAP servers, linters, and formatters
-#### https://nvpm.dev
-#### Source as late as possible, so it can has precedence over other things in PATH
-_evalcache nvpm env zsh
 
 #------------------------------------------#
 
