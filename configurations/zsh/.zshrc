@@ -383,6 +383,9 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 # Vite+ bin (https://viteplus.dev)
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
 
+# nvpm - source so the PATH is appended, only if nvpm is installed
+if command -v nvpm &> /dev/null; then _evalcache nvpm env; fi
+
 #------------------------------------------#
 
 ## Exports
