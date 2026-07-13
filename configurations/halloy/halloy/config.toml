@@ -17,23 +17,22 @@ click_username = "replace-pane"
 [actions.sidebar]
 buffer = "replace-pane"
 
-[servers.liberachat]
+[servers.irctoday]
 should_ghost = true
 ghost_sequence = ["REGAIN"]
 nickname = "GorillaMoe"
 username = "GorillaMoe"
-server = "irc.libera.chat"
+server = "irctoday.com"
 channels = [
   "#mistweaverco",
-  "#technicalrenaissance"
 ]
 nick_password_file_first_line_only = true
-nick_password_file = "~/.config/halloy/passwords/liberachat"
+nick_password_file = "~/.config/halloy/passwords/irctoday"
 
-[servers.liberachat.sasl.plain]
+[servers.irctoday.sasl.plain]
 username = "GorillaMoe"
 password_file_first_line_only = true
-password_file = "~/.config/halloy/passwords/liberachat"
+password_file = "~/.config/halloy/passwords/irctoday"
 
 [buffer.channel.topic]
 enabled = true
