@@ -399,11 +399,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 #### Set default options to use Ctrl-T for toggling all items
 export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
 
-#------------------------------------------#
-## Completion system MUST be initialized ONLY ONCE
-autoload -Uz compinit
-compinit
-
 #### Completions
 
 if [[ ! -d "$HOME/.zsh/completions" ]]; then
@@ -437,6 +432,11 @@ zstyle ':completion:*' menu select group-order 'main commands' 'alias commands' 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} "ma=48;5;206;38;5;0"
 #### Initialize carapace with evalcache for caching
 _evalcache carapace _carapace
+
+#------------------------------------------#
+## Completion system MUST be initialized ONLY ONCE
+autoload -Uz compinit
+compinit
 
 #------------------------------------------#
 
