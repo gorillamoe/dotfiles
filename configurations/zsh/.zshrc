@@ -317,7 +317,7 @@ g() {
 
 ### Neovim as default editor
 #### My muscle memory still prefers vim and vi 🤷
-alias 'vim''=nvim'
+alias 'vim'='nvim'
 alias 'vi'='nvim'
 
 ### Open files with default application
