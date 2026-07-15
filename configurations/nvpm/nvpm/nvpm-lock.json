@@ -50,11 +50,11 @@
     },
     {
       "sourceId": "npm:yaml-language-server",
-      "version": "1.23.0"
+      "version": "1.24.0"
     },
     {
       "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260702.3"
+      "version": "7.0.0-dev.20260707.2"
     },
     {
       "sourceId": "pypi:yamllint",
@@ -62,7 +62,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.10",
+      "version": "0.26.11",
       "extras": {
         "integrations": [
           "neovim"
