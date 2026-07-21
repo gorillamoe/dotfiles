@@ -2,12 +2,20 @@
 
 # Install fonts
 echo "🔤 Installing Nerd Fonts (DepartureMono, Fira Code and Victor Mono)"
+echo " - https://font.subf.dev/en/"
 echo " - https://departuremono.com"
 echo " - https://github.com/tonsky/FiraCode"
 echo " - https://rubjo.github.io/victor-mono"
 FONTS_INSTALLED=0
 if [ ! -d ~/.local/share/fonts ]; then
   mkdir -p ~/.local/share/fonts
+fi
+if [ -f ~/.local/share/fonts/MapleMono-Regular.otf ]; then
+  echo "📦 MapleMono already installed"
+  echo "💡 Skipping MapleMono installation"
+else
+  cp -p ./configurations/fonts/maple-mono/*.otf ~/.local/share/fonts/
+  FONTS_INSTALLED=1
 fi
 if [ -f ~/.local/share/fonts/DepartureMonoNerdFont-Regular.otf ]; then
   echo "📦 DepartureMonoNerdFont already installed"
