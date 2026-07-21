@@ -6,7 +6,7 @@
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
-      "version": "0.14.29"
+      "version": "0.16.0"
     },
     {
       "sourceId": "npm:bash-language-server",
