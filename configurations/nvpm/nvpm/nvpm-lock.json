@@ -1016,6 +1016,23 @@
           }
         ]
       }
+    },
+    {
+      "sourceId": "github:ribru17/tree-sitter-jjdescription",
+      "version": "v1.0.3",
+      "commit": "964941cff90d0556f46160bb018755943962c67f",
+      "extras": {
+        "integrations": [
+          "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "jjdescription",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-jjdescription",
+            "ref": "a1ffa4757c2839cc9afee07c7062b27655d867db"
+          }
+        ]
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
