@@ -34,6 +34,7 @@ gnome
 gnome-browser-connector
 gnome-podcasts
 gnome-shell-extensions
+harper
 htop
 jq
 jujutsu
