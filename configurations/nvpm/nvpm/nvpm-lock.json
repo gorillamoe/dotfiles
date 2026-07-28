@@ -1036,8 +1036,11 @@
     },
     {
       "sourceId": "github:mistweaverco/nvpm.nvim",
-      "version": "v1.0.0",
-      "commit": "c073f7c8738e66595c3263e2bcd546f9ac40ded2"
+      "version": "v2.0.0",
+      "commit": "4290c8c39dfdd3fe9b360a249975917a8bf7b4f7",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     },
     {
       "sourceId": "github:FabijanZulj/blame.nvim",
@@ -1050,7 +1053,7 @@
     {
       "sourceId": "github:MagicDuck/grug-far.nvim",
       "version": "main",
-      "commit": "0f6a5d0d7a70659b11bbcd6b3673ee0fe61b6024",
+      "commit": "6e05398cf6cad05b3fb46569db96b1ccfcbbd402",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1210,7 +1213,7 @@
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
       "version": "main",
-      "commit": "22b7106406e65cf34a3cd03ff066bae55da2b787",
+      "commit": "24e2c4fdf31c7d1e2dbf00f05d84cdbdac89e86a",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1426,7 +1429,7 @@
     {
       "sourceId": "github:Saghen/blink.cmp",
       "version": "main",
-      "commit": "d33327a0ed7bfe3cd5dfa2fdd2738ad74f9e0ea3",
+      "commit": "dbcf63b90b358f058637ea370202e3849013383b",
       "extras": {
         "kind": "neovim-plugin"
       }
