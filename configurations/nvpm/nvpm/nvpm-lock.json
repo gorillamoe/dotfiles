@@ -1033,6 +1033,427 @@
           }
         ]
       }
+    },
+    {
+      "sourceId": "github:mistweaverco/nvpm.nvim",
+      "version": "v1.0.0",
+      "commit": "c073f7c8738e66595c3263e2bcd546f9ac40ded2"
+    },
+    {
+      "sourceId": "github:FabijanZulj/blame.nvim",
+      "version": "main",
+      "commit": "179da7aaacce7c52874af636255ede72dd6fe796",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:MagicDuck/grug-far.nvim",
+      "version": "main",
+      "commit": "0f6a5d0d7a70659b11bbcd6b3673ee0fe61b6024",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:MeanderingProgrammer/render-markdown.nvim",
+      "version": "main",
+      "commit": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:brenoprata10/nvim-highlight-colors",
+      "version": "main",
+      "commit": "e4c7af0211866162d999ce0bdd6a029302e19139",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:echasnovski/mini.indentscope",
+      "version": "main",
+      "commit": "92fbaf895f83c59575ec599df532b297ebf62b14",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/flash.nvim",
+      "version": "main",
+      "commit": "b6346946d10d07998efee029fb0f7a593806d0cd",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/lazydev.nvim",
+      "version": "main",
+      "commit": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/todo-comments.nvim",
+      "version": "main",
+      "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/trouble.nvim",
+      "version": "main",
+      "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/ts-comments.nvim",
+      "version": "main",
+      "commit": "a59d6092213447450191122c9346f309161504cb",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/which-key.nvim",
+      "version": "main",
+      "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:folke/zen-mode.nvim",
+      "version": "main",
+      "commit": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:ibhagwan/fzf-lua",
+      "version": "main",
+      "commit": "28440c741e927592877514fba3db21eb188caec8",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:lewis6991/gitsigns.nvim",
+      "version": "main",
+      "commit": "31d6fb2d618bca1482b9f274751ead5f03461408",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mfussenegger/nvim-dap",
+      "version": "master",
+      "commit": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mfussenegger/nvim-lint",
+      "version": "master",
+      "commit": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/bafa.nvim",
+      "version": "main",
+      "commit": "87968d01e72660826bce00f9956515bd1d0d5b74",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/diffconflicts.nvim",
+      "version": "main",
+      "commit": "3a9f6fb55de1f15ba5de4f0c46af3c999552e5ca",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/discord.nvim",
+      "version": "main",
+      "commit": "0d71db6b412c3cdc00fcce454953a7461f2affeb",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/floaterm.nvim",
+      "version": "main",
+      "commit": "4ed170f129da5ca1c2c1c32594466c077287e262",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/fzf-symbols.nvim",
+      "version": "main",
+      "commit": "ed9c2558182dbfd3fc5de0ad8db23f636247aab6",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/jujutsu.nvim",
+      "version": "main",
+      "commit": "22b7106406e65cf34a3cd03ff066bae55da2b787",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/juu.nvim",
+      "version": "main",
+      "commit": "6bee7b9977ee187b4cd632f5bfc41fdd50bbbdab",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/kikao.nvim",
+      "version": "main",
+      "commit": "b7718a3baa6a5e96f67f7e600924c7989a8b294e",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/kulala.nvim",
+      "version": "main",
+      "commit": "e4e8615dc07d9423f3dd52ad5af962db09d26a52",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/snap.nvim",
+      "version": "main",
+      "commit": "2dfa910160552e8906875c2bade099bc972658ac",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mistweaverco/vhs-era-theme.nvim",
+      "version": "main",
+      "commit": "9512568849bae77b5783d807f842f7dbd3ce49d1",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mrcjkb/rustaceanvim",
+      "version": "main",
+      "commit": "ae030cf5f8ab6aea56e03fa7e55b063111c0b833",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:nanozuki/tabby.nvim",
+      "version": "main",
+      "commit": "3c130e1fcb598ce39a9c292847e32d7c3987cf11",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:neovim/nvim-lspconfig",
+      "version": "master",
+      "commit": "7ab79bb1b57160a537f427ac8a6026102f12b701",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:nvim-lualine/lualine.nvim",
+      "version": "master",
+      "commit": "221ce6b2d999187044529f49da6554a92f740a96",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:nvim-tree/nvim-tree.lua",
+      "version": "master",
+      "commit": "4213bd6eabac38b16dd6615002b6243b23cf3bf6",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:rachartier/tiny-code-action.nvim",
+      "version": "main",
+      "commit": "0d040ed81f7953118b81cd12681fcdfcac069803",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:rachartier/tiny-glimmer.nvim",
+      "version": "main",
+      "commit": "9a48d8a7436231cb16d47c88f924702e5602870a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:rachartier/tiny-inline-diagnostic.nvim",
+      "version": "main",
+      "commit": "6264451f14119d63a52580e5198d6baf8518b0b2",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:ray-x/lsp_signature.nvim",
+      "version": "master",
+      "commit": "b7ace9ddb1640ce266012a45a672dfdaedfa5ec6",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:sindrets/diffview.nvim",
+      "version": "main",
+      "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:stevearc/conform.nvim",
+      "version": "master",
+      "commit": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:yorickpeterse/nvim-window",
+      "version": "main",
+      "commit": "48e44d492d2adaf9aac72a0f4ff21d6caae1b6a2",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:hashivim/vim-terraform",
+      "version": "master",
+      "commit": "520498fab16a3a11f2ae1b8cb65e0a1684bc317a",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:mustache/vim-mustache-handlebars",
+      "version": "master",
+      "commit": "0153fe03a919add2d6cf2d41b2d5b6e1188bc0e0",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:ntpeters/vim-better-whitespace",
+      "version": "master",
+      "commit": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:tpope/vim-repeat",
+      "version": "master",
+      "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:tpope/vim-surround",
+      "version": "master",
+      "commit": "3d188ed2113431cf8dac77be61b842acb64433d9",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:github/copilot.vim",
+      "version": "release",
+      "commit": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:kyazdani42/nvim-web-devicons",
+      "version": "master",
+      "commit": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:igorlfs/nvim-dap-view",
+      "version": "main",
+      "commit": "b8c8aa91f42055d7f69012587cde4f1d99f2a701",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:nvim-lua/plenary.nvim",
+      "version": "master",
+      "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:Saghen/blink.cmp",
+      "version": "main",
+      "commit": "d33327a0ed7bfe3cd5dfa2fdd2738ad74f9e0ea3",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:FylerOrg/fyler.nvim",
+      "version": "main",
+      "commit": "bc1f8e420f566dd3b3db1f0aff2e6932947bdd71",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:fatih/vim-go",
+      "version": "master",
+      "commit": "bd1fcfeb79908001ff2a6f4b382a5a55da5ce11e",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:saghen/blink.cmp",
+      "version": "v1.10.2",
+      "commit": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
