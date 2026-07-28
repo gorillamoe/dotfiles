@@ -1454,6 +1454,23 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "github:microsoft/vscode-js-debug",
+      "version": "v1.117.0",
+      "commit": "496a6f1a4fc8198bcd563f97b84a07aa39917404"
+    },
+    {
+      "sourceId": "npm:@mistweaverco/kulala-fmt",
+      "version": "4.5.2"
+    },
+    {
+      "sourceId": "github:theHamsta/nvim-dap-virtual-text",
+      "version": "master",
+      "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
