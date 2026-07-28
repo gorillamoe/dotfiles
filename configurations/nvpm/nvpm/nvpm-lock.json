@@ -1036,8 +1036,8 @@
     },
     {
       "sourceId": "github:mistweaverco/nvpm.nvim",
-      "version": "v2.0.0",
-      "commit": "4290c8c39dfdd3fe9b360a249975917a8bf7b4f7",
+      "version": "v2.1.0",
+      "commit": "f0a9d91b58d4a202141728966a291736170fc330",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1212,8 +1212,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "main",
-      "commit": "24e2c4fdf31c7d1e2dbf00f05d84cdbdac89e86a",
+      "version": "v1.3.0",
+      "commit": "543d03fe546a4ffef365ded389492d23b0e8885c",
       "extras": {
         "kind": "neovim-plugin"
       }
