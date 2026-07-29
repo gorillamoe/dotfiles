@@ -1275,14 +1275,6 @@
       }
     },
     {
-      "sourceId": "github:neovim/nvim-lspconfig",
-      "version": "master",
-      "commit": "7ab79bb1b57160a537f427ac8a6026102f12b701",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "github:nvim-lualine/lualine.nvim",
       "version": "master",
       "commit": "221ce6b2d999187044529f49da6554a92f740a96",
