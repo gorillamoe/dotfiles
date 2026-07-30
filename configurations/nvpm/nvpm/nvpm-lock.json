@@ -1043,14 +1043,6 @@
       }
     },
     {
-      "sourceId": "github:FabijanZulj/blame.nvim",
-      "version": "main",
-      "commit": "179da7aaacce7c52874af636255ede72dd6fe796",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "github:MagicDuck/grug-far.nvim",
       "version": "main",
       "commit": "6e05398cf6cad05b3fb46569db96b1ccfcbbd402",
@@ -1318,14 +1310,6 @@
       "sourceId": "github:ray-x/lsp_signature.nvim",
       "version": "master",
       "commit": "b7ace9ddb1640ce266012a45a672dfdaedfa5ec6",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
-      "sourceId": "github:sindrets/diffview.nvim",
-      "version": "main",
-      "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a",
       "extras": {
         "kind": "neovim-plugin"
       }
