@@ -1139,14 +1139,6 @@
       }
     },
     {
-      "sourceId": "github:lewis6991/gitsigns.nvim",
-      "version": "main",
-      "commit": "31d6fb2d618bca1482b9f274751ead5f03461408",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "github:mfussenegger/nvim-dap",
       "version": "master",
       "commit": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
@@ -1204,8 +1196,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.4.0",
-      "commit": "5e127ecc0361e21943a145e98c5b2ed99dac1482",
+      "version": "v1.5.0",
+      "commit": "8ddbf690011ad20c4560c78f2f04a217997d5eca",
       "extras": {
         "kind": "neovim-plugin"
       }
