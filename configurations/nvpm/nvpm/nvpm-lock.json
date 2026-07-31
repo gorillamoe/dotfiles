@@ -1036,8 +1036,8 @@
     },
     {
       "sourceId": "github:mistweaverco/nvpm.nvim",
-      "version": "v2.2.0",
-      "commit": "bf9d4971fc4540805a5d6800aa217b6825711a7e",
+      "version": "v2.4.1",
+      "commit": "33c13e6d95b4a8b7dad8d759829b52738d372654",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1062,14 +1062,6 @@
       "sourceId": "github:brenoprata10/nvim-highlight-colors",
       "version": "main",
       "commit": "e4c7af0211866162d999ce0bdd6a029302e19139",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
-      "sourceId": "github:echasnovski/mini.indentscope",
-      "version": "main",
-      "commit": "92fbaf895f83c59575ec599df532b297ebf62b14",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1180,8 +1172,8 @@
     },
     {
       "sourceId": "github:mistweaverco/floaterm.nvim",
-      "version": "main",
-      "commit": "4ed170f129da5ca1c2c1c32594466c077287e262",
+      "version": "v1.1.0",
+      "commit": "19198f485082474248b5919f6aa0e473a2dd9726",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1196,8 +1188,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.6.0",
-      "commit": "937af23edfdbafb99c1f89cf85a0eed683ec7d8b",
+      "version": "v1.7.2",
+      "commit": "59049c9b24e718fedd6f17980cefb35c7b34fd06",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1420,8 +1412,8 @@
     },
     {
       "sourceId": "github:saghen/blink.cmp",
-      "version": "v1.10.2",
-      "commit": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "version": "main",
+      "commit": "005f8c859997f40f65bfbec5f4b400c45fecc06a",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1439,6 +1431,26 @@
       "sourceId": "github:theHamsta/nvim-dap-virtual-text",
       "version": "master",
       "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:nvim-mini/mini.indentscope",
+      "version": "v0.18.0",
+      "commit": "d3f955f09b1a05d25d5a7740338fba2baaee41a3",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "golang:golang.org/x/tools/gopls",
+      "version": "v0.23.0"
+    },
+    {
+      "sourceId": "github:saghen/blink.lib",
+      "version": "main",
+      "commit": "8b04d0e0acc8565cfa4dd291a89a9212b7262633",
       "extras": {
         "kind": "neovim-plugin"
       }
