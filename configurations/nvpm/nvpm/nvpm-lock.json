@@ -1425,7 +1425,7 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-fmt",
-      "version": "4.5.2"
+      "version": "4.5.3"
     },
     {
       "sourceId": "github:theHamsta/nvim-dap-virtual-text",
@@ -1454,6 +1454,10 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "npm:@mistweaverco/kulala-cli",
+      "version": "0.14.2"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
