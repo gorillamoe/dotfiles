@@ -1188,8 +1188,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.7.2",
-      "commit": "59049c9b24e718fedd6f17980cefb35c7b34fd06",
+      "version": "v1.11.1",
+      "commit": "cd63dad57909aa8a7dc8598e0303a262c07603be",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1387,14 +1387,6 @@
       }
     },
     {
-      "sourceId": "github:Saghen/blink.cmp",
-      "version": "main",
-      "commit": "dbcf63b90b358f058637ea370202e3849013383b",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "github:FylerOrg/fyler.nvim",
       "version": "main",
       "commit": "bc1f8e420f566dd3b3db1f0aff2e6932947bdd71",
@@ -1406,14 +1398,6 @@
       "sourceId": "github:fatih/vim-go",
       "version": "master",
       "commit": "bd1fcfeb79908001ff2a6f4b382a5a55da5ce11e",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
-      "sourceId": "github:saghen/blink.cmp",
-      "version": "main",
-      "commit": "005f8c859997f40f65bfbec5f4b400c45fecc06a",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1458,6 +1442,14 @@
     {
       "sourceId": "npm:@mistweaverco/kulala-cli",
       "version": "0.14.2"
+    },
+    {
+      "sourceId": "github:saghen/blink.cmp",
+      "version": "main",
+      "commit": "cba53eff1948109ec0f47cbead4f07494d1e25c9",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
