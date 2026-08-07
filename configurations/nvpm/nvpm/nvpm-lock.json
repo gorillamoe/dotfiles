@@ -1195,8 +1195,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.11.1",
-      "commit": "cd63dad57909aa8a7dc8598e0303a262c07603be",
+      "version": "v1.11.2",
+      "commit": "0fd839ff5af2d4a4ccf2d37007709848b5b5e15f",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
