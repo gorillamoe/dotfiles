@@ -873,12 +873,13 @@
     },
     {
       "sourceId": "github:mistweaverco/tree-sitter-kulala-http",
-      "version": "4f74101f44abd9742faab549f929dc339c86bd56",
-      "commit": "4f74101f44abd9742faab549f929dc339c86bd56",
+      "version": "v0.3.1",
+      "commit": "630e2b8523c775ba866564c2b4ad88d649a56c00",
       "extras": {
         "integrations": [
           "neovim"
-        ]
+        ],
+        "always_trust": true
       }
     },
     {
@@ -1039,7 +1040,8 @@
       "version": "v2.4.1",
       "commit": "33c13e6d95b4a8b7dad8d759829b52738d372654",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1148,34 +1150,38 @@
     },
     {
       "sourceId": "github:mistweaverco/bafa.nvim",
-      "version": "main",
+      "version": "v1.12.3",
       "commit": "87968d01e72660826bce00f9956515bd1d0d5b74",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/diffconflicts.nvim",
-      "version": "main",
+      "version": "v1.4.0",
       "commit": "3a9f6fb55de1f15ba5de4f0c46af3c999552e5ca",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/discord.nvim",
-      "version": "main",
+      "version": "v1.4.2",
       "commit": "0d71db6b412c3cdc00fcce454953a7461f2affeb",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/floaterm.nvim",
-      "version": "v1.1.0",
-      "commit": "19198f485082474248b5919f6aa0e473a2dd9726",
+      "version": "v1.0.1",
+      "commit": "b6d5bbdad765fce1691b79ac398e398f95c2b32a",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1183,7 +1189,8 @@
       "version": "main",
       "commit": "ed9c2558182dbfd3fc5de0ad8db23f636247aab6",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1191,7 +1198,8 @@
       "version": "v1.11.1",
       "commit": "cd63dad57909aa8a7dc8598e0303a262c07603be",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1199,23 +1207,26 @@
       "version": "main",
       "commit": "6bee7b9977ee187b4cd632f5bfc41fdd50bbbdab",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/kikao.nvim",
-      "version": "main",
+      "version": "v3.4.0",
       "commit": "b7718a3baa6a5e96f67f7e600924c7989a8b294e",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/kulala.nvim",
-      "version": "main",
-      "commit": "e4e8615dc07d9423f3dd52ad5af962db09d26a52",
+      "version": "v6.23.2",
+      "commit": "7c10bd7b56f11dca25e5e948f817ca4eee1cb669",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1223,15 +1234,17 @@
       "version": "main",
       "commit": "2dfa910160552e8906875c2bade099bc972658ac",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
       "sourceId": "github:mistweaverco/vhs-era-theme.nvim",
-      "version": "main",
+      "version": "v1.2.0",
       "commit": "9512568849bae77b5783d807f842f7dbd3ce49d1",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "always_trust": true
       }
     },
     {
@@ -1409,7 +1422,10 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-fmt",
-      "version": "4.5.3"
+      "version": "4.5.3",
+      "extras": {
+        "always_trust": true
+      }
     },
     {
       "sourceId": "github:theHamsta/nvim-dap-virtual-text",
@@ -1441,7 +1457,10 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-cli",
-      "version": "0.14.2"
+      "version": "0.14.2",
+      "extras": {
+        "always_trust": true
+      }
     },
     {
       "sourceId": "github:saghen/blink.cmp",
