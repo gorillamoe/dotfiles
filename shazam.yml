@@ -1,5 +1,20 @@
 ---
 configurations:
+  # Gromit-MPX
+  # Screen annotation tool that works with any Unix desktop environment
+  # under X11 as well as Wayland.
+  # Map buttons in Gnome-Settings > Graphics Tablets > Map Buttons:
+  # (    F9     |     F8    |  Shift+F8  |  Shift+F9  )
+  - name: gromit-mpx
+    files:
+      - source: gromit-mpx.cfg
+        destination: $HOME/.config/gromit-mpx.cfg
+      - source: gromit-mpx.ini
+        destination: $HOME/.config/gromit-mpx.ini
+  - name: withsecrets
+    files:
+      - source: withsecrets
+        destination: $HOME/.config/withsecrets/
   # ws (withsecrets.com - minimalist doppler.com) configuration
   - name: withsecrets
     files:
