@@ -1469,6 +1469,11 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "github:elijah-potter/harper",
+      "version": "v2.7.0",
+      "commit": "dc1182cc2b33603748105df074d6bb47f0de3720"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
