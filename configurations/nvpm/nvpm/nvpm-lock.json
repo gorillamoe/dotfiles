@@ -93,6 +93,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "c_sharp",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-c_sharp",
+            "ref": "eb4d32749dfc13ec21f7339703b7669cba1d6bf6"
+          }
         ]
       }
     },
@@ -103,6 +110,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "comment",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-comment",
+            "ref": "d92210c0f53cd17061466d430615d154dabcff51"
+          }
         ]
       }
     },
@@ -152,6 +166,33 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "csv",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-csv",
+            "ref": "8cf49b4959a311d33ede80109fcd55254fc33f7e"
+          },
+          {
+            "language": "csv",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-tsv",
+            "ref": "1b38a959f6ee416160affeda526fd2219950b739"
+          },
+          {
+            "language": "psv",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-psv",
+            "ref": "b5cfc67d344c83476a2d962482a7676f57540ba4"
+          },
+          {
+            "language": "psv",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-tsv",
+            "ref": "1b38a959f6ee416160affeda526fd2219950b739"
+          },
+          {
+            "language": "tsv",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-tsv",
+            "ref": "1b38a959f6ee416160affeda526fd2219950b739"
+          }
         ]
       }
     },
@@ -162,6 +203,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "diff",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-diff",
+            "ref": "f497afe10935f8d1657a965a86d0ee09008d610c"
+          }
         ]
       }
     },
@@ -172,6 +220,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "gitcommit",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gitcommit",
+            "ref": "967d325b13ec9035c64c1b0b34a1e897032ebe7d"
+          }
         ]
       }
     },
@@ -182,6 +237,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "gomod",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gomod",
+            "ref": "bc557f6f12577a19ef255649d77eabda04082ed6"
+          }
         ]
       }
     },
@@ -192,6 +254,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "gosum",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gosum",
+            "ref": "f06e88e804f23a7cac96e7572f674c0dfb00b683"
+          }
         ]
       }
     },
@@ -202,6 +271,18 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "html",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html",
+            "ref": "9d72f6d2983e4d523156f21e927d2c92adcaf003"
+          },
+          {
+            "language": "html_tags",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html_tags",
+            "ref": "402a2b822ccb6fcd1b0ad71fdcc5ef35b92ac7df"
+          }
         ]
       }
     },
@@ -229,6 +310,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "json",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-json",
+            "ref": "26578bdf15e56b4e565c92edcc021665d41c6ca4"
+          }
         ]
       }
     },
@@ -239,6 +327,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "json5",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-json5",
+            "ref": "d03f987acc8fa40695a422a326981748fa0c5ebf"
+          }
         ]
       }
     },
@@ -266,6 +361,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "luadoc",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-luadoc",
+            "ref": "d7c6f861c59ee1393072e7e705237549032a99a6"
+          }
         ]
       }
     },
@@ -320,6 +422,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "python",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-python",
+            "ref": "c0cde822ca01632f282eefcd5a1103aa2017e01a"
+          }
         ]
       }
     },
@@ -364,6 +473,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "vim",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-vim",
+            "ref": "06bc8fc373b27c67625b7c1abb601301b8feffb2"
+          }
         ]
       }
     },
@@ -374,6 +490,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "vimdoc",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-vimdoc",
+            "ref": "bcdd17cadcbce0ee7b012991f831667c8ad8128a"
+          }
         ]
       }
     },
@@ -384,6 +507,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "yaml",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-yaml",
+            "ref": "5bba7d65a4bc1b586d5edb3b3c92fe6030bac843"
+          }
         ]
       }
     },
@@ -394,6 +524,23 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "php",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-php",
+            "ref": "2a349b41d039bdd60a7fa848c72e1b1e68253561"
+          },
+          {
+            "language": "php",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-php_only",
+            "ref": "8371436710daea32c73bff98e20557cd3f2971ee"
+          },
+          {
+            "language": "php_only",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-php_only",
+            "ref": "8371436710daea32c73bff98e20557cd3f2971ee"
+          }
         ]
       }
     },
@@ -404,6 +551,18 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "html_tags",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-html_tags",
+            "ref": "402a2b822ccb6fcd1b0ad71fdcc5ef35b92ac7df"
+          },
+          {
+            "language": "svelte",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-svelte",
+            "ref": "69f24ae54390ac0e9fdc0bda64c6da45042808c9"
+          }
         ]
       }
     },
@@ -414,6 +573,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "nginx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-nginx",
+            "ref": "ae4f24a7d84d894181d2f4ed1f63a4f7e4caf05b"
+          }
         ]
       }
     },
@@ -480,6 +646,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "caddy",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-caddy",
+            "ref": "fee3fee687cc452e05ed2393b46f00339486e1b6"
+          }
         ]
       }
     },
@@ -524,6 +697,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "sql",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-sql",
+            "ref": "19a0e8ed7ba81bdab9836c38d4d439a50f083258"
+          }
         ]
       }
     },
@@ -534,6 +714,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "git_config",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-git_config",
+            "ref": "f4bd83aed326464cb57ec1da12886a454f7e0f21"
+          }
         ]
       }
     },
@@ -544,6 +731,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "git_rebase",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-git_rebase",
+            "ref": "7104c5084a0f070bfa7706e77716305c07d5951c"
+          }
         ]
       }
     },
@@ -554,6 +748,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "gitattributes",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gitattributes",
+            "ref": "21a3ae05332c167e187a1fa7618d60216a0fe7a1"
+          }
         ]
       }
     },
@@ -598,6 +799,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "zig",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-zig",
+            "ref": "5f21013ec728cbe98326dc344f51566389d2cd10"
+          }
         ]
       }
     },
@@ -608,6 +816,33 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "ecma",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-ecma",
+            "ref": "463d2e55597e7328334a1b46a2a8378cb75132b4"
+          },
+          {
+            "language": "jsx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-jsx",
+            "ref": "d001822416e222101414aac94c59d8c2c2e035a3"
+          },
+          {
+            "language": "tsx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-tsx",
+            "ref": "35593fbb9fa4bf384108d5dfa4e27e57a6025443"
+          },
+          {
+            "language": "tsx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-typescript",
+            "ref": "a0659042394b37f5b952b57574e8bd79dc4aa20d"
+          },
+          {
+            "language": "typescript",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-typescript",
+            "ref": "a0659042394b37f5b952b57574e8bd79dc4aa20d"
+          }
         ]
       }
     },
@@ -629,6 +864,23 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "ecma",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-ecma",
+            "ref": "463d2e55597e7328334a1b46a2a8378cb75132b4"
+          },
+          {
+            "language": "javascript",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-javascript",
+            "ref": "60cc37d9acbb83b7a8b988a6221920806ac648e6"
+          },
+          {
+            "language": "jsx",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-jsx",
+            "ref": "d001822416e222101414aac94c59d8c2c2e035a3"
+          }
         ]
       }
     },
@@ -639,6 +891,23 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "hcl",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-hcl",
+            "ref": "378d8e85d3f4e2f392ac40244a12138380929a3d"
+          },
+          {
+            "language": "terraform",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-hcl",
+            "ref": "378d8e85d3f4e2f392ac40244a12138380929a3d"
+          },
+          {
+            "language": "terraform",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-terraform",
+            "ref": "816342a06dd3d9b991926e86b860bd36cb5f5bbf"
+          }
         ]
       }
     },
@@ -649,6 +918,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "go",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-go",
+            "ref": "90ad6c7104390f9373a4a6fabe2da9e90f891252"
+          }
         ]
       }
     },
@@ -697,6 +973,23 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "dtd",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-dtd",
+            "ref": "9591020fe06b876f8f24eb0e50d7892e626e7b61"
+          },
+          {
+            "language": "xml",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-dtd",
+            "ref": "9591020fe06b876f8f24eb0e50d7892e626e7b61"
+          },
+          {
+            "language": "xml",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-xml",
+            "ref": "e3ba32fcb11591779aaffe181ff25b5a5a5f597f"
+          }
         ]
       }
     },
@@ -707,6 +1000,13 @@
       "extras": {
         "integrations": [
           "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "jjdescription",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-jjdescription",
+            "ref": "a1ffa4757c2839cc9afee07c7062b27655d867db"
+          }
         ]
       }
     },
