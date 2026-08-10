@@ -22,9 +22,8 @@ $USER ALL=(ALL) NOPASSWD: ALL
 EOF
 fi
 
-# Disable arch-update-tray and arch-update timer
-sudo systemctl --global disable arch-update-tray.service
-sudo systemctl --global disable arch-update.timer
+# Remove arch-update..
+sudo pacman -Rs cachy-update
 
 # Make window switching via alt+tab work
 # the way I grew up
