@@ -897,8 +897,8 @@
     },
     {
       "sourceId": "github:mistweaverco/kulala.nvim",
-      "version": "v6.23.2",
-      "commit": "7c10bd7b56f11dca25e5e948f817ca4eee1cb669",
+      "version": "v6.24.0",
+      "commit": "6216c08d8479c06c19220839b7db72ed0a8bf950",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1132,7 +1132,7 @@
     {
       "sourceId": "github:saghen/blink.cmp",
       "version": "main",
-      "commit": "cba53eff1948109ec0f47cbead4f07494d1e25c9",
+      "commit": "8ca29c2eb34f5ce4770bffc0d62e6f636a4e8526",
       "extras": {
         "kind": "neovim-plugin"
       }
