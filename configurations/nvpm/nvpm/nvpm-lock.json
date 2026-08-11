@@ -1197,8 +1197,8 @@
     },
     {
       "sourceId": "github:mistweaverco/kulala.nvim",
-      "version": "v6.24.0",
-      "commit": "6216c08d8479c06c19220839b7db72ed0a8bf950",
+      "version": "v6.27.0",
+      "commit": "81cbb767749bfe23666e8ff099306044a2743012",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1424,7 +1424,7 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-cli",
-      "version": "0.14.2",
+      "version": "0.15.0",
       "extras": {
         "always_trust": true
       }
@@ -1444,8 +1444,8 @@
     },
     {
       "sourceId": "github:stevearc/oil.nvim",
-      "version": "v2.16.0",
-      "commit": "17c0a8faaf48298a0c0cfb0d757c0eaee4ff7a32",
+      "version": "master",
+      "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "extras": {
         "kind": "neovim-plugin"
       }
