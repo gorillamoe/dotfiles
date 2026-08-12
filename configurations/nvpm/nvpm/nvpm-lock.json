@@ -1197,8 +1197,8 @@
     },
     {
       "sourceId": "github:mistweaverco/kulala.nvim",
-      "version": "v6.27.0",
-      "commit": "81cbb767749bfe23666e8ff099306044a2743012",
+      "version": "v6.28.0",
+      "commit": "b1c1cd9430d1f506e9b7add09cc2f2aac067565f",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1424,7 +1424,7 @@
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-cli",
-      "version": "0.15.0",
+      "version": "0.16.0",
       "extras": {
         "always_trust": true
       }
