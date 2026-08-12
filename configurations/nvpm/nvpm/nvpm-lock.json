@@ -1153,7 +1153,7 @@
     {
       "sourceId": "github:mistweaverco/floaterm.nvim",
       "version": "v1.1.0",
-      "commit": "19198f485082474248b5919f6aa0e473a2dd9726",
+      "commit": "301ea764263d0c1a42a8fc2985047c0012347401",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
