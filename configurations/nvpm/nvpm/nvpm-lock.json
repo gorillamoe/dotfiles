@@ -53,10 +53,6 @@
       "version": "1.24.0"
     },
     {
-      "sourceId": "npm:@typescript/native-preview",
-      "version": "7.0.0-dev.20260707.2"
-    },
-    {
       "sourceId": "pypi:yamllint",
       "version": "1.38.0"
     },
@@ -1449,6 +1445,10 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "npm:typescript",
+      "version": "7.0.2"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
