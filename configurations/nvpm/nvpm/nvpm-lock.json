@@ -26,7 +26,7 @@
     },
     {
       "sourceId": "npm:pyright",
-      "version": "1.1.411"
+      "version": "1.1.412"
     },
     {
       "sourceId": "npm:sql-language-server",
@@ -34,11 +34,27 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.18.3"
+      "version": "0.18.4",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:typescript-svelte-plugin",
+            "version": "0.3.52"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "5.3.0"
+      "version": "5.3.0",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:typescript",
+            "version": "6.0.3"
+          }
+        ]
+      }
     },
     {
       "sourceId": "npm:vim-language-server",
@@ -58,7 +74,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.11",
+      "version": "0.26.12",
       "extras": {
         "integrations": [
           "neovim"
@@ -195,7 +211,7 @@
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-diff",
       "version": "main",
-      "commit": "0f8fe525b2ff5fbd7f21d0dcfb756fbbe30ca844",
+      "commit": "0400db1417a28145bec93001f1ee1411155a7363",
       "extras": {
         "integrations": [
           "neovim"
@@ -931,8 +947,8 @@
     },
     {
       "sourceId": "github:DanielGavin/ols",
-      "version": "dev-2026-05",
-      "commit": "16172aaca1e1fa3fea197b3f21016b332757b5ca"
+      "version": "nightly",
+      "commit": "941615b32d35661ea031d9ece79c343b7999ec4a"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
@@ -1017,8 +1033,8 @@
     },
     {
       "sourceId": "github:MagicDuck/grug-far.nvim",
-      "version": "main",
-      "commit": "6e05398cf6cad05b3fb46569db96b1ccfcbbd402",
+      "version": "1.6.77",
+      "commit": "46df5eff7c55593f43891cf521fbf3f6c2c69de8",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1098,7 +1114,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "28440c741e927592877514fba3db21eb188caec8",
+      "commit": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1114,7 +1130,7 @@
     {
       "sourceId": "github:mfussenegger/nvim-lint",
       "version": "master",
-      "commit": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
+      "commit": "9b99aad869102ac01775187abd8d49017b148612",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1220,8 +1236,8 @@
     },
     {
       "sourceId": "github:mrcjkb/rustaceanvim",
-      "version": "main",
-      "commit": "ae030cf5f8ab6aea56e03fa7e55b063111c0b833",
+      "version": "v9.2.0",
+      "commit": "f4051fb4662c43a568ce809a37e47c0f4e3d7a31",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1244,8 +1260,8 @@
     },
     {
       "sourceId": "github:nvim-tree/nvim-tree.lua",
-      "version": "master",
-      "commit": "4213bd6eabac38b16dd6615002b6243b23cf3bf6",
+      "version": "v1.18.0",
+      "commit": "531b807b8f0d6f75016a0ee1e0cd5ce2086e9d95",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1285,7 +1301,7 @@
     {
       "sourceId": "github:stevearc/conform.nvim",
       "version": "master",
-      "commit": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "commit": "016802de402556da54c36bd7359b441266b01cdd",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1356,8 +1372,8 @@
     },
     {
       "sourceId": "github:igorlfs/nvim-dap-view",
-      "version": "main",
-      "commit": "b8c8aa91f42055d7f69012587cde4f1d99f2a701",
+      "version": "v1.2.1",
+      "commit": "210b2c0e4acc08aad23fbd5a7989dd0169f716d0",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1413,7 +1429,7 @@
     {
       "sourceId": "github:saghen/blink.lib",
       "version": "main",
-      "commit": "8b04d0e0acc8565cfa4dd291a89a9212b7262633",
+      "commit": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1428,15 +1444,15 @@
     {
       "sourceId": "github:saghen/blink.cmp",
       "version": "main",
-      "commit": "8ca29c2eb34f5ce4770bffc0d62e6f636a4e8526",
+      "commit": "0e63407c28bd09ef0d3604478823f7f92dd8d9ec",
       "extras": {
         "kind": "neovim-plugin"
       }
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v2.7.0",
-      "commit": "dc1182cc2b33603748105df074d6bb47f0de3720"
+      "version": "v2.8.0",
+      "commit": "5d2053bec94f49daaed3cdeae4cc328b897036c6"
     },
     {
       "sourceId": "github:stevearc/oil.nvim",
@@ -1449,6 +1465,27 @@
     {
       "sourceId": "npm:typescript",
       "version": "7.0.2"
+    },
+    {
+      "sourceId": "github:virchau13/tree-sitter-astro",
+      "version": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee",
+      "commit": "213f6e6973d9b456c6e50e86f19f66877e7ef0ee"
+    },
+    {
+      "sourceId": "npm:@astrojs/language-server",
+      "version": "2.16.14",
+      "extras": {
+        "extra_packages": [
+          {
+            "id": "npm:@astrojs/ts-plugin",
+            "version": "1.10.10"
+          },
+          {
+            "id": "npm:typescript",
+            "version": "6.0.3"
+          }
+        ]
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
