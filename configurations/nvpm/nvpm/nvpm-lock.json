@@ -1024,8 +1024,8 @@
     },
     {
       "sourceId": "github:mistweaverco/nvpm.nvim",
-      "version": "v2.4.1",
-      "commit": "33c13e6d95b4a8b7dad8d759829b52738d372654",
+      "version": "v2.4.2",
+      "commit": "caad4092cc3358f57bc63517565413dec3bb81e0",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
