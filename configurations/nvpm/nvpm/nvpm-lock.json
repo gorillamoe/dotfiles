@@ -955,6 +955,9 @@
       "version": "v0.25.0",
       "commit": "b2ac15e27fce703d2f37a79ccd94a5c0cbe9720b",
       "extras": {
+        "integrations": [
+          "neovim"
+        ],
         "treesitter_external_queries": [
           {
             "language": "regex",
