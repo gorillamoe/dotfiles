@@ -1036,8 +1036,8 @@
     },
     {
       "sourceId": "github:MagicDuck/grug-far.nvim",
-      "version": "1.6.77",
-      "commit": "46df5eff7c55593f43891cf521fbf3f6c2c69de8",
+      "version": "1.6.78",
+      "commit": "11595bf747edc270bce2069d1020502ad4ae56cf",
       "extras": {
         "kind": "neovim-plugin"
       }
