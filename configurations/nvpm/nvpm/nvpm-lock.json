@@ -948,7 +948,7 @@
     {
       "sourceId": "github:DanielGavin/ols",
       "version": "nightly",
-      "commit": "941615b32d35661ea031d9ece79c343b7999ec4a"
+      "commit": "a8144fc23a479ad51e59dd7279f74b55790ea184"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
