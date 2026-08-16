@@ -80,12 +80,7 @@ zinit light "$HOME/.zsh/completions"
 
 ### Load zinit plugins
 zinit wait lucid for \
-  zdharma-continuum/fast-syntax-highlighting \
-  zdharma-continuum/history-search-multi-word \
-  blockf \
-  zsh-users/zsh-completions \
-  atload"bindkey '^n' autosuggest-accept" \
-  zsh-users/zsh-autosuggestions
+  zdharma-continuum/fast-syntax-highlighting
 
 #------------------------------------------#
 ## JJ configuration, baseed on the current directory
@@ -386,6 +381,9 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 # nvpm - source so the PATH is appended, only if nvpm is installed
 if command -v nvpm &> /dev/null; then _evalcache nvpm env; fi
 
+# syncsh - privacy first atuin alternative
+if command -v syncsh &> /dev/null; then _evalcache syncsh init zsh; fi
+
 #------------------------------------------#
 
 ## Exports
@@ -412,6 +410,10 @@ if [[ ! -f "$HOME/.zsh/completions/_ws" ]]; then
 fi
 if [[ ! -f "$HOME/.zsh/completions/_nvpm" ]]; then
   nvpm completion zsh > "$HOME/.zsh/completions/_nvpm"
+fi
+# syncsh - privacy first atuin alternative
+if [[ ! -f "$HOME/.zsh/completions/_syncsh" ]]; then
+  syncsh completion zsh > "$HOME/.zsh/completions/_syncsh"
 fi
 if [[ ! -f "$HOME/.zsh/completions/_task" ]]; then
   # HACK:
