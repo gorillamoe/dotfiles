@@ -14,7 +14,7 @@ for more details.
 
 Additionally I like to install some [extras](./setup/extras.d/),
 that are currently not supported by either the package manager
-or [Zana](https://getzana.net).
+or [nvpm](https://nvpm.dev).
 
 ## The following software will be configured / symlinked
 
