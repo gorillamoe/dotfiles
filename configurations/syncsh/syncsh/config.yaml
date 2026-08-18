@@ -4,4 +4,4 @@ sync:
     directory:
         path: $HOME/GoogleDrive/syncsh
     callbacks:
-        - rclone sync gdrive:/syncsh /home/marco/GoogleDrive/syncsh
+        - rclone bisync gdrive:/syncsh $HOME/GoogleDrive/syncsh
