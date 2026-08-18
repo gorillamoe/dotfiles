@@ -1158,8 +1158,8 @@
     },
     {
       "sourceId": "github:mistweaverco/discord.nvim",
-      "version": "v1.4.2",
-      "commit": "0d71db6b412c3cdc00fcce454953a7461f2affeb",
+      "version": "v1.5.0",
+      "commit": "fd18789185f2b77b767106370f900c720b6db120",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1185,8 +1185,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.11.3",
-      "commit": "c1323220dd2f96a24e40f92e36c81472e0ba225b",
+      "version": "v1.12.0",
+      "commit": "1d0feb306db0cc0d607618ce5152f23934f96c41",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1212,8 +1212,8 @@
     },
     {
       "sourceId": "github:mistweaverco/kulala.nvim",
-      "version": "v6.28.0",
-      "commit": "b1c1cd9430d1f506e9b7add09cc2f2aac067565f",
+      "version": "v6.29.0",
+      "commit": "232a9939919fe9bc88d573bce92de50f2f160c60",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1419,8 +1419,8 @@
     },
     {
       "sourceId": "github:nvim-mini/mini.indentscope",
-      "version": "v0.18.0",
-      "commit": "d3f955f09b1a05d25d5a7740338fba2baaee41a3",
+      "version": "main",
+      "commit": "92fbaf895f83c59575ec599df532b297ebf62b14",
       "extras": {
         "kind": "neovim-plugin"
       }
