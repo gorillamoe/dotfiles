@@ -1,0 +1,7 @@
+version: 1
+sync:
+    transport: directory
+    directory:
+        path: $HOME/GoogleDrive/syncsh
+    callbacks:
+        - rclone sync gdrive:/syncsh /home/marco/GoogleDrive/syncsh

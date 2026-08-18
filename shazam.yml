@@ -1,5 +1,10 @@
 ---
 configurations:
+  # syncsh - privacy focused Atuin clone
+  - name: syncsh
+    files:
+      - source: syncsh
+        destination: $HOME/.config/syncsh
   # Gromit-MPX
   # Screen annotation tool that works with any Unix desktop environment
   # under X11 as well as Wayland.
@@ -11,10 +16,6 @@ configurations:
         destination: $HOME/.config/gromit-mpx.cfg
       - source: gromit-mpx.ini
         destination: $HOME/.config/gromit-mpx.ini
-  - name: withsecrets
-    files:
-      - source: withsecrets
-        destination: $HOME/.config/withsecrets/
   # ws (withsecrets.com - minimalist doppler.com) configuration
   - name: withsecrets
     files:
