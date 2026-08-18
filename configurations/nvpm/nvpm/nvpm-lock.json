@@ -26,7 +26,7 @@
     },
     {
       "sourceId": "npm:pyright",
-      "version": "1.1.412"
+      "version": "1.1.413"
     },
     {
       "sourceId": "npm:sql-language-server",
@@ -210,8 +210,8 @@
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-diff",
-      "version": "main",
-      "commit": "0400db1417a28145bec93001f1ee1411155a7363",
+      "version": "v0.2.0",
+      "commit": "ada384ac7bfc1307f32de474620120add29998fb",
       "extras": {
         "integrations": [
           "neovim"
@@ -318,7 +318,7 @@
     {
       "sourceId": "github:tree-sitter/tree-sitter-json",
       "version": "master",
-      "commit": "001c28d7a29832b06b0e831ec77845553c89b56d",
+      "commit": "254c42a6476413b776221e03982ac8ae159eeb72",
       "extras": {
         "integrations": [
           "neovim"
@@ -1027,8 +1027,8 @@
     },
     {
       "sourceId": "github:mistweaverco/nvpm.nvim",
-      "version": "v2.4.2",
-      "commit": "caad4092cc3358f57bc63517565413dec3bb81e0",
+      "version": "v2.5.0",
+      "commit": "38d90bce053e7fa168a4a2ea93f790a255ac03c4",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1045,7 +1045,7 @@
     {
       "sourceId": "github:MeanderingProgrammer/render-markdown.nvim",
       "version": "main",
-      "commit": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "commit": "4663eb3ecd538bd5062628fb6d95bbe6bdca78f6",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1185,8 +1185,8 @@
     },
     {
       "sourceId": "github:mistweaverco/jujutsu.nvim",
-      "version": "v1.11.2",
-      "commit": "0fd839ff5af2d4a4ccf2d37007709848b5b5e15f",
+      "version": "v1.11.3",
+      "commit": "c1323220dd2f96a24e40f92e36c81472e0ba225b",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
