@@ -100,8 +100,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-c-sharp",
-      "version": "master",
-      "commit": "9150f7d56bb47f1a809fa23623f1ba1413e93fa9",
+      "version": "v0.23.5",
+      "commit": "cac6d5fb595f5811a076336682d5d595ac1c9e85",
       "extras": {
         "integrations": [
           "neovim"
@@ -278,8 +278,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-html",
-      "version": "master",
-      "commit": "73a3947324f6efddf9e17c0ea58d454843590cc0",
+      "version": "v0.23.2",
+      "commit": "5a5ca8551a179998360b4a4ca2c0f366a35acc03",
       "extras": {
         "integrations": [
           "neovim"
