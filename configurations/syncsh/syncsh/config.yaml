@@ -1,7 +1,15 @@
 version: 1
 sync:
-    transport: directory
-    directory:
-        path: $HOME/GoogleDrive/syncsh
-    callbacks:
-        - rclone bisync gdrive:/syncsh $HOME/GoogleDrive/syncsh
+    enabled: true
+    transport: rclone
+    rclone:
+        engine: embedded
+        primary: gdrive
+        remotes:
+            - id: gdrive
+              name: gdrive
+              rclone_remote: gdrive
+              provider: custom
+              path: syncsh
+              enabled: true
+suggest: {}
