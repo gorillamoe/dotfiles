@@ -42,19 +42,18 @@ git_dirty = "#D08770"
     [blocks.segments.options]
     fetch_status = true
     fetch_upstream_icon = false
-    source = "cli"
 
   [[blocks.segments]]
     type = "git"
     style = "plain"
     foreground = "p:green"
     foreground_templates = [ "{{ if or (.Working.Changed) (.Staging.Changed) }}#FFEB3B{{ end }}", "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}", "{{ if gt .Ahead 0 }}#B388FF{{ end }}", "{{ if gt .Behind 0 }}#B388FB{{ end }}" ]
-    # INFO: Only render if jujutsu is not active, otherwise it will be redundant
-    template = "{{ if not .Segments.Jujutsu }}{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ end }}"
+    template = "{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
     [blocks.segments.options]
     fetch_status = true
     fetch_upstream_icon = false
-    source = "cli"
+    native_status = true
+    disable_with_jj = true
 
 [[blocks]]
   type = "prompt"
