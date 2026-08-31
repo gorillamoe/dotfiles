@@ -1,7 +1,8 @@
 ---
 cache:
-  enabled: false
-  ttl: 12h0m0s
+  enabled: true
+  # 14 days
+  ttl: 336h0m0s
 defaults:
   providers:
     gcp:
