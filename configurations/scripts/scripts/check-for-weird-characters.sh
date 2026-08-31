@@ -20,6 +20,7 @@ WEIRD_CHARACTERS_ARRAY=(
   "﹘"
   "﹣"
   "－"
+  "…"
 )
 
 REPLACE_WITH_CHARACTERS_ARRAY=(
@@ -31,6 +32,7 @@ REPLACE_WITH_CHARACTERS_ARRAY=(
   "-"
   "-"
   "-"
+  "..."
 )
 
 # True if the --fix flag is passed, false otherwise
