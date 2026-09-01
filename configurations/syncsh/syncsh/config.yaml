@@ -1,3 +1,4 @@
+---
 version: 1
 sync:
     enabled: true
@@ -12,4 +13,9 @@ sync:
               provider: custom
               path: syncsh
               enabled: true
-suggest: {}
+suggest:
+    enabled: true
+    menu: true
+    menu_max: 12
+    accept:
+        - Right
