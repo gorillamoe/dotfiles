@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.11.0"
+      "version": "31.12.0"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -46,7 +46,7 @@
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "5.3.0",
+      "version": "6.0.0",
       "extras": {
         "extra_packages": [
           {
@@ -74,7 +74,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.26.12",
+      "version": "0.27.0",
       "extras": {
         "integrations": [
           "neovim"
@@ -948,7 +948,7 @@
     {
       "sourceId": "github:DanielGavin/ols",
       "version": "nightly",
-      "commit": "a8144fc23a479ad51e59dd7279f74b55790ea184"
+      "commit": "aa09af028e14238203d3ec46590e223e32a0a3b2"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
@@ -1194,8 +1194,8 @@
     },
     {
       "sourceId": "github:mistweaverco/juu.nvim",
-      "version": "main",
-      "commit": "6bee7b9977ee187b4cd632f5bfc41fdd50bbbdab",
+      "version": "v1.3.3",
+      "commit": "9f32124b7730d6d233ede2f38e0b0b40c89c551d",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1239,8 +1239,8 @@
     },
     {
       "sourceId": "github:mrcjkb/rustaceanvim",
-      "version": "v9.2.0",
-      "commit": "f4051fb4662c43a568ce809a37e47c0f4e3d7a31",
+      "version": "v9.2.1",
+      "commit": "9cb125de42c0256ed1bc1f9ded8d8f0381317a17",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1476,12 +1476,12 @@
     },
     {
       "sourceId": "npm:@astrojs/language-server",
-      "version": "2.16.14",
+      "version": "2.16.16",
       "extras": {
         "extra_packages": [
           {
             "id": "npm:@astrojs/ts-plugin",
-            "version": "1.10.10"
+            "version": "1.10.11"
           },
           {
             "id": "npm:typescript",
