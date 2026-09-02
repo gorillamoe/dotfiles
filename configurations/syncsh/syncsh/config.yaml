@@ -16,6 +16,7 @@ sync:
 suggest:
     enabled: true
     menu: true
+    completions: true
     menu_max: 12
     accept:
         - Right

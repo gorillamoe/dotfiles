@@ -389,8 +389,7 @@ if command -v syncsh &> /dev/null; then _evalcache syncsh init zsh; fi
 ## Exports
 
 ### LS_COLORS using vivid
-#### used by ls, eza, also by fzf for colored previews,
-#### carapace for colored completions, etc.
+#### used by ls, eza, also by fzf for colored previews
 export LS_COLORS=$(vivid generate dracula)
 
 ### Needed for SSH agent to pick up the correct socket
@@ -402,6 +401,11 @@ export FZF_DEFAULT_OPTS='--bind ctrl-t:toggle-all'
 
 #### Completions
 
+#------------------------------------------#
+## Completion system MUST be initialized ONLY ONCE
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
 if [[ ! -d "$HOME/.zsh/completions" ]]; then
   mkdir -p "$HOME/.zsh/completions"
 fi
@@ -411,10 +415,6 @@ fi
 if [[ ! -f "$HOME/.zsh/completions/_nvpm" ]]; then
   nvpm completion zsh > "$HOME/.zsh/completions/_nvpm"
 fi
-# syncsh - privacy first atuin alternative
-if [[ ! -f "$HOME/.zsh/completions/_syncsh" ]]; then
-  syncsh completion zsh > "$HOME/.zsh/completions/_syncsh"
-fi
 if [[ ! -f "$HOME/.zsh/completions/_task" ]]; then
   # HACK:
   # The arch package has go-task instead of task.
@@ -423,25 +423,17 @@ if [[ ! -f "$HOME/.zsh/completions/_task" ]]; then
   # configurations/scripts/scripts/task to call "go-task"
   go-task --completion zsh > "$HOME/.zsh/completions/_task"
 fi
-
-# INFO:
-# Carapace must come AFTER basically everything that has completions
-# because it overrides them otherwise
-# or my configurations are somehow broken otherwise 🤪
-
-### Carapace, the GOAT of completion engines
-export CARAPACE_BRIDGES='zsh,bash,inshellisense'
-#### This enables the menu selection for completions
-zstyle ':completion:*' menu select group-order 'main commands' 'alias commands' 'external commands'
-#### This enables colored completions
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} "ma=48;5;206;38;5;0"
-#### Initialize carapace with evalcache for caching
-_evalcache carapace _carapace
-
-#------------------------------------------#
-## Completion system MUST be initialized ONLY ONCE
-autoload -Uz compinit
-compinit
+# syncsh - privacy first atuin alternative
+if [[ ! -f "$HOME/.zsh/completions/_syncsh" ]]; then
+  syncsh completion zsh > "$HOME/.zsh/completions/_syncsh"
+fi
+if command -v aws_completer &>/dev/null; then
+  complete -C aws_completer aws
+fi
+if [ -f "/opt/google-cloud-cli/path.zsh.inc" ] && [ -f "/opt/google-cloud-cli/completion.zsh.inc" ]; then
+  source "/opt/google-cloud-cli/path.zsh.inc"
+  source "/opt/google-cloud-cli/completion.zsh.inc"
+fi
 
 #------------------------------------------#
 
