@@ -1489,6 +1489,11 @@
           }
         ]
       }
+    },
+    {
+      "sourceId": "github:golangci/golangci-lint",
+      "version": "v2.13.2",
+      "commit": "27774aaf853a4fd21f1dd5e69439459dc1b26e68"
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
