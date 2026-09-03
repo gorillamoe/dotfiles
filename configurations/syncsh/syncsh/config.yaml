@@ -1,18 +1,15 @@
 ---
-version: 1
+version: 2
 sync:
     enabled: true
-    transport: rclone
-    rclone:
-        engine: embedded
-        primary: gdrive
-        remotes:
-            - id: gdrive
-              name: gdrive
-              rclone_remote: gdrive
-              provider: custom
-              path: syncsh
-              enabled: true
+    rclone_engine: embedded
+    endpoints:
+        - id: google-drive
+          type: rclone
+          rclone_remote: gdrive
+          provider: google-drive
+          path: syncsh
+          enabled: true
 suggest:
     enabled: true
     menu: true
