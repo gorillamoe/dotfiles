@@ -37,6 +37,8 @@ REPLACE_WITH_CHARACTERS_ARRAY=(
 
 # True if the --fix flag is passed, false otherwise
 SHOULD_FIX=false
+# True if the --matches flag is passed, false otherwise
+SHOW_MATCHES=false
 
 DIR_ARGS=()
 
@@ -44,6 +46,8 @@ DIR_ARGS=()
 for arg in "$@"; do
   if [ "$arg" == "--fix" ]; then
     SHOULD_FIX=true
+  elif [ "$arg" == "--matches" ] || [ "$arg" == "--match" ]; then
+    SHOW_MATCHES=true
   else
     DIR_ARGS+=("$arg")
   fi
@@ -72,6 +76,12 @@ done
 if [ "$SHOULD_FIX" = true ] && [ ${#FOUND_WEIRD_CHARS_IN_FILES[@]} -gt 0 ]; then
   print_color "Fixing weird char usage in files..." "" "yellow"
   for file in "${FOUND_WEIRD_CHARS_IN_FILES[@]}"; do
+    if [ "$SHOW_MATCHES" = true ]; then
+      print_color "Matches in $file:" "" "yellow"
+      for weird_char in "${WEIRD_CHARACTERS_ARRAY[@]}"; do
+        rg --fixed-strings --ignore-case -- "$weird_char" "$file" || true
+      done
+    fi
     for i in "${!WEIRD_CHARACTERS_ARRAY[@]}"; do
       weird_char="${WEIRD_CHARACTERS_ARRAY[$i]}"
       replace_with="${REPLACE_WITH_CHARACTERS_ARRAY[$i]}"
@@ -89,5 +99,10 @@ else
   print_color "Weird characters found in the following files:" "" "red"
   for file in "${FOUND_WEIRD_CHARS_IN_FILES[@]}"; do
     print_color " - $file" "" "red"
+    if [ "$SHOW_MATCHES" = true ]; then
+      for weird_char in "${WEIRD_CHARACTERS_ARRAY[@]}"; do
+        rg --fixed-strings --ignore-case -- "$weird_char" "$file" || true
+      done
+    fi
   done
 fi
