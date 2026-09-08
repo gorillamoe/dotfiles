@@ -1,5 +1,8 @@
 ---
 version: 2
+pty_proxy:
+    enabled: true
+    height: 40%
 sync:
     enabled: true
     rclone_engine: embedded
