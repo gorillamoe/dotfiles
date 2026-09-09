@@ -1,10 +1,10 @@
 ---
 configurations:
-  # syncsh - privacy focused Atuin clone
-  - name: syncsh
+  # remnix - privacy focused Atuin clone
+  - name: remnix
     files:
-      - source: syncsh
-        destination: $HOME/.config/syncsh
+      - source: remnix
+        destination: $HOME/.config/remnix
   # Gromit-MPX
   # Screen annotation tool that works with any Unix desktop environment
   # under X11 as well as Wayland.

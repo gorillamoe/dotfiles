@@ -381,8 +381,8 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 # nvpm - source so the PATH is appended, only if nvpm is installed
 if command -v nvpm &> /dev/null; then _evalcache nvpm env; fi
 
-# syncsh - privacy first atuin alternative
-if command -v syncsh &> /dev/null; then _evalcache syncsh init zsh; fi
+# remnix - privacy first atuin alternative
+if command -v remnix &> /dev/null; then _evalcache remnix init zsh; fi
 
 #------------------------------------------#
 
@@ -423,9 +423,9 @@ if [[ ! -f "$HOME/.zsh/completions/_task" ]]; then
   # configurations/scripts/scripts/task to call "go-task"
   go-task --completion zsh > "$HOME/.zsh/completions/_task"
 fi
-# syncsh - privacy first atuin alternative
-if [[ ! -f "$HOME/.zsh/completions/_syncsh" ]]; then
-  syncsh completion zsh > "$HOME/.zsh/completions/_syncsh"
+# remnix - privacy first atuin alternative
+if [[ ! -f "$HOME/.zsh/completions/_remnix" ]]; then
+  remnix completion zsh > "$HOME/.zsh/completions/_remnix"
 fi
 if command -v aws_completer &>/dev/null; then
   complete -C aws_completer aws
