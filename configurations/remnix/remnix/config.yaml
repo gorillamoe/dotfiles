@@ -5,12 +5,12 @@ sync:
   enabled: true
   rclone_engine: embedded
   endpoints:
-    - id: gdrive
+    - id: remnix-google-drive
       type: rclone
-      name: gdrive
+      name: Google Drive
       enabled: true
-      rclone_remote: gdrive
-      provider: custom
+      rclone_remote: remnix-google-drive
+      provider: google-drive
       path: remnix
 suggest:
   enabled: true
@@ -22,3 +22,26 @@ suggest:
 pty_proxy:
   enabled: true
   height: 40
+ui:
+  colors:
+    accent: "#FF7EDB"
+    title: "#FF7EDB"
+    muted: "#848BBD"
+    rule: "#495495"
+    badge: "#03EDF9"
+    duration: "#72F1B8"
+    failed: "#FE4450"
+    time: "#848BBD"
+    text: "#FFFFFF"
+    syntax:
+      command: "#36F9F6"
+      keyword: "#FEDE5D"
+      flag: "#F97E72"
+      string: "#FF8B39"
+      comment: "#848BBD"
+      operator: "#FEDE5D"
+      variable: "#FF7EDB"
+      path: "#72F1B8"
+      number: "#F97E72"
+      argument: "#FFFFFF"
+  icons: {}
