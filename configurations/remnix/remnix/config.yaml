@@ -12,6 +12,9 @@ sync:
       rclone_remote: remnix-google-drive
       provider: google-drive
       path: remnix
+  interval: 5m
+  gc_interval: 1h
+  callbacks: []
 suggest:
   enabled: true
   menu: true
@@ -19,9 +22,17 @@ suggest:
   completions: true
   accept:
     - Right
+  icons:
+    typed: "›"
+    history: "*"
+    completion: "+"
 pty_proxy:
   enabled: true
   height: 40
+daemon:
+  compact_interval: 5m
+  config_watch_interval: 30s
+disable_auto_migrate: false
 ui:
   colors:
     accent: "#FF7EDB"
@@ -44,4 +55,10 @@ ui:
       path: "#72F1B8"
       number: "#F97E72"
       argument: "#FFFFFF"
-  icons: {}
+  icons:
+    cursor: "❯"
+    suggestion_typed: "›"
+    suggestion_history: "*"
+    suggestion_completion: "+"
+    separator: "·"
+    move_up_down: "↑↓"
