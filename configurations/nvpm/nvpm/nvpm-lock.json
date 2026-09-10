@@ -1458,14 +1458,6 @@
       "commit": "5d2053bec94f49daaed3cdeae4cc328b897036c6"
     },
     {
-      "sourceId": "github:stevearc/oil.nvim",
-      "version": "master",
-      "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "npm:typescript",
       "version": "7.0.2"
     },
@@ -1494,6 +1486,14 @@
       "sourceId": "github:golangci/golangci-lint",
       "version": "v2.13.2",
       "commit": "27774aaf853a4fd21f1dd5e69439459dc1b26e68"
+    },
+    {
+      "sourceId": "github:barrettruth/canola.nvim",
+      "version": "main",
+      "commit": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
