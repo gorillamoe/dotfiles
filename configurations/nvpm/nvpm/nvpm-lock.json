@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.12.0"
+      "version": "31.12.8"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -26,7 +26,7 @@
     },
     {
       "sourceId": "npm:pyright",
-      "version": "1.1.413"
+      "version": "1.1.414"
     },
     {
       "sourceId": "npm:sql-language-server",
@@ -278,8 +278,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-html",
-      "version": "v0.23.2",
-      "commit": "5a5ca8551a179998360b4a4ca2c0f366a35acc03",
+      "version": "master",
+      "commit": "73a3947324f6efddf9e17c0ea58d454843590cc0",
       "extras": {
         "integrations": [
           "neovim"
@@ -698,23 +698,6 @@
             "language": "mermaid",
             "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-mermaid",
             "ref": "906b88223f4da2283479ce713306d0ef4993f581"
-          }
-        ]
-      }
-    },
-    {
-      "sourceId": "github:derekstride/tree-sitter-sql",
-      "version": "main",
-      "commit": "c2e1e08db1ea20dc23bdb8d228a81a8756e9c450",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "sql",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-sql",
-            "ref": "19a0e8ed7ba81bdab9836c38d4d439a50f083258"
           }
         ]
       }
@@ -1194,8 +1177,8 @@
     },
     {
       "sourceId": "github:mistweaverco/juu.nvim",
-      "version": "v1.3.3",
-      "commit": "9f32124b7730d6d233ede2f38e0b0b40c89c551d",
+      "version": "v1.3.4",
+      "commit": "184ca126aa1583ee5af33333e5c32c64ee883caa",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1203,8 +1186,8 @@
     },
     {
       "sourceId": "github:mistweaverco/kikao.nvim",
-      "version": "v3.4.0",
-      "commit": "b7718a3baa6a5e96f67f7e600924c7989a8b294e",
+      "version": "v3.5.0",
+      "commit": "db8b69bfcd7c1112d98539d09e717cbb83d600a4",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1263,8 +1246,8 @@
     },
     {
       "sourceId": "github:nvim-tree/nvim-tree.lua",
-      "version": "v1.18.0",
-      "commit": "531b807b8f0d6f75016a0ee1e0cd5ce2086e9d95",
+      "version": "master",
+      "commit": "882c54f2815bf6d02663d482c2cf9dbadf4e9b07",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1454,8 +1437,8 @@
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v2.8.0",
-      "commit": "5d2053bec94f49daaed3cdeae4cc328b897036c6"
+      "version": "v2.10.0",
+      "commit": "e2773c6c8b55f028c24574819d266ca03f45c701"
     },
     {
       "sourceId": "npm:typescript",
@@ -1493,6 +1476,23 @@
       "commit": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
       "extras": {
         "kind": "neovim-plugin"
+      }
+    },
+    {
+      "sourceId": "github:EmranMR/tree-sitter-blade",
+      "version": "main",
+      "commit": "b5291d1ba207a8ebb8383b2ecb8a8a6535210a50",
+      "extras": {
+        "integrations": [
+          "neovim"
+        ],
+        "treesitter_external_queries": [
+          {
+            "language": "blade",
+            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-blade",
+            "ref": "43d79a1f11282306b17e56f51dc3eb42678ac583"
+          }
+        ]
       }
     }
   ],
