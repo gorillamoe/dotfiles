@@ -429,8 +429,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-python",
-      "version": "master",
-      "commit": "26855eabccb19c6abf499fbc5b8dc7cc9ab8bc64",
+      "version": "v0.25.0",
+      "commit": "293fdc02038ee2bf0e2e206711b69c90ac0d413f",
       "extras": {
         "integrations": [
           "neovim"
@@ -931,7 +931,7 @@
     {
       "sourceId": "github:DanielGavin/ols",
       "version": "nightly",
-      "commit": "8a347aa84a6f42aee3b102a3c051baa5465f560a"
+      "commit": "63aa6eacdb50a3e57117943c8dec5555bf0452bf"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
