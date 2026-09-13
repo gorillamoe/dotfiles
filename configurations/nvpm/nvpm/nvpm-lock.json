@@ -1471,14 +1471,6 @@
       "commit": "27774aaf853a4fd21f1dd5e69439459dc1b26e68"
     },
     {
-      "sourceId": "github:barrettruth/canola.nvim",
-      "version": "main",
-      "commit": "608cd79544c3adc853d0400f1f540e4f2aa4c024",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "github:EmranMR/tree-sitter-blade",
       "version": "main",
       "commit": "b5291d1ba207a8ebb8383b2ecb8a8a6535210a50",
@@ -1493,6 +1485,14 @@
             "ref": "43d79a1f11282306b17e56f51dc3eb42678ac583"
           }
         ]
+      }
+    },
+    {
+      "sourceId": "github:nvim-mini/mini.files",
+      "version": "main",
+      "commit": "f1cfece89892274f4f4a59d71f24eb90dcfe1b5a",
+      "extras": {
+        "kind": "neovim-plugin"
       }
     }
   ],
