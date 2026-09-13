@@ -1,0 +1,9 @@
+exit
+jj
+jj ci
+ll
+ls
+ls -la
+ls -lah
+nvim
+vim
