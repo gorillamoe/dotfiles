@@ -1,6 +1,7 @@
 exit
 jj
 jj ci
+jj f
 ll
 ls
 ls -la
