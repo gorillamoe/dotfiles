@@ -1,3 +1,4 @@
+^cp
 ^exit
 ^git
 ^jj
@@ -6,6 +7,7 @@
 ^npm
 ^nvim
 ^pnpm
+^rm
 ^task
 ^vim
 ^yarn
