@@ -5,11 +5,13 @@
 ^jj
 ^ll
 ^ls
+^mkdir
+^mv
 ^npm
 ^nvim
-^mkdir
 ^pnpm
 ^rm
 ^task
+^touch
 ^vim
 ^yarn
