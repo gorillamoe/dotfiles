@@ -1494,6 +1494,14 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "github:seblyng/roslyn.nvim",
+      "version": "main",
+      "commit": "bf1bd4e70bc7068d1b4aebf4ce03cc19a86615be",
+      "extras": {
+        "kind": "neovim-plugin"
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
