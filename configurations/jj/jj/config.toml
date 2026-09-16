@@ -13,6 +13,7 @@ backends.gpg.program = "gpg2"
 # To get aliases to auto-complete that have more than one argument,
 # we need to re-alias them to a single alias.
 [aliases]
+ba = ["bookmark", "set", "-r", "@-", "--"]
 show-slog = ["util", "exec", "--", "sh", "-c", "jj st && echo --- && jj show-logall -n 5"]
 slog = ["show-slog"]
 do-git-tags-helper = ["util", "exec", "--", "git-tags-helper.sh"]
