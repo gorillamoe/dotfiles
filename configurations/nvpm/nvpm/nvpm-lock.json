@@ -2,7 +2,7 @@
   "packages": [
     {
       "sourceId": "npm:@prisma/language-server",
-      "version": "31.12.8"
+      "version": "31.12.10"
     },
     {
       "sourceId": "npm:@tailwindcss/language-server",
@@ -10,7 +10,7 @@
     },
     {
       "sourceId": "npm:bash-language-server",
-      "version": "5.6.0"
+      "version": "5.8.0"
     },
     {
       "sourceId": "npm:diagnostic-languageserver",
@@ -1027,8 +1027,8 @@
     },
     {
       "sourceId": "github:MeanderingProgrammer/render-markdown.nvim",
-      "version": "main",
-      "commit": "4663eb3ecd538bd5062628fb6d95bbe6bdca78f6",
+      "version": "v8.14.0",
+      "commit": "640a3ec6d538bad17c328be373c7cad0293d9589",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1437,8 +1437,8 @@
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v2.10.0",
-      "commit": "e2773c6c8b55f028c24574819d266ca03f45c701"
+      "version": "v2.11.0",
+      "commit": "c821f511f83c24401993e207f7e5cdb51ae872e6"
     },
     {
       "sourceId": "npm:typescript",
@@ -1451,12 +1451,12 @@
     },
     {
       "sourceId": "npm:@astrojs/language-server",
-      "version": "2.16.16",
+      "version": "2.17.0",
       "extras": {
         "extra_packages": [
           {
             "id": "npm:@astrojs/ts-plugin",
-            "version": "1.10.11"
+            "version": "1.10.12"
           },
           {
             "id": "npm:typescript",
