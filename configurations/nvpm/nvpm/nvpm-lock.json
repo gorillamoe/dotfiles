@@ -10,7 +10,7 @@
     },
     {
       "sourceId": "npm:bash-language-server",
-      "version": "5.8.0"
+      "version": "5.8.1"
     },
     {
       "sourceId": "npm:diagnostic-languageserver",
@@ -931,7 +931,7 @@
     {
       "sourceId": "github:DanielGavin/ols",
       "version": "nightly",
-      "commit": "63aa6eacdb50a3e57117943c8dec5555bf0452bf"
+      "commit": "f6166da1684bc2ff1be9b2a25eed0619ccc99869"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
@@ -1100,7 +1100,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
+      "commit": "13bb178a299f7493dd64427a58e61904c4b58ecb",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1351,7 +1351,7 @@
     {
       "sourceId": "github:kyazdani42/nvim-web-devicons",
       "version": "master",
-      "commit": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
+      "commit": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
       "extras": {
         "kind": "neovim-plugin"
       }
