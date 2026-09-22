@@ -434,6 +434,9 @@ if [ -f "/opt/google-cloud-cli/path.zsh.inc" ] && [ -f "/opt/google-cloud-cli/co
   source "/opt/google-cloud-cli/path.zsh.inc"
   source "/opt/google-cloud-cli/completion.zsh.inc"
 fi
+if [[ ! -f "$HOME/.zsh/completions/_jj" ]]; then
+  COMPLETE=zsh jj > "$HOME/.zsh/completions/_jj"
+fi
 
 #------------------------------------------#
 
