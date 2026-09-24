@@ -1177,8 +1177,8 @@
     },
     {
       "sourceId": "github:mistweaverco/juu.nvim",
-      "version": "v1.3.4",
-      "commit": "184ca126aa1583ee5af33333e5c32c64ee883caa",
+      "version": "v1.4.0",
+      "commit": "6aa9783c7e8109a6ef7eedb470bda0f3f482f9b3",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1255,7 +1255,7 @@
     {
       "sourceId": "github:rachartier/tiny-code-action.nvim",
       "version": "main",
-      "commit": "0d040ed81f7953118b81cd12681fcdfcac069803",
+      "commit": "91a9c32228e9a7761d241023d9ebb9d11d8fb10d",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1382,8 +1382,8 @@
     },
     {
       "sourceId": "github:microsoft/vscode-js-debug",
-      "version": "v1.117.0",
-      "commit": "496a6f1a4fc8198bcd563f97b84a07aa39917404"
+      "version": "v1.140.0",
+      "commit": "bccbbafdcb6bb96ab0706f411a1e66681d5bc4de"
     },
     {
       "sourceId": "npm:@mistweaverco/kulala-fmt",
@@ -1451,7 +1451,7 @@
     },
     {
       "sourceId": "npm:@astrojs/language-server",
-      "version": "2.17.0",
+      "version": "2.17.1",
       "extras": {
         "extra_packages": [
           {
@@ -1467,8 +1467,8 @@
     },
     {
       "sourceId": "github:golangci/golangci-lint",
-      "version": "v2.13.2",
-      "commit": "27774aaf853a4fd21f1dd5e69439459dc1b26e68"
+      "version": "v2.14.0",
+      "commit": "114493f9b3e7257d29e4130f2b4a4aadefbb6845"
     },
     {
       "sourceId": "github:EmranMR/tree-sitter-blade",
