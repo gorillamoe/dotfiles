@@ -361,8 +361,8 @@ _evalcache direnv hook zsh
 ### Zoxide, a smarter cd command
 _evalcache zoxide init zsh
 
-# Bun, the all-in-one JavaScript runtime
-[ -s "$HOME/.bun/_bun" ] && _evalcache cat "$HOME/.bun/_bun"
+### pnpm, the performant JavaScript package manager
+_evalcache pnpm completion zsh
 
 ### Rustup
 #### Preferered way to install and manage Rust toolchains
@@ -379,10 +379,10 @@ export PNPM_HOME="/home/marco/.local/share/pnpm"
 [[ -d $HOME/.vite-plugs/env ]] && _evalcache cat "$HOME/.vite-plugs/env"
 
 # nvpm - source so the PATH is appended, only if nvpm is installed
-if command -v nvpm &> /dev/null; then _evalcache nvpm env; fi
+_evalcache nvpm env
 
 # remnix - privacy first atuin alternative
-if command -v remnix &> /dev/null; then _evalcache remnix init zsh; fi
+_evalcache remnix init zsh
 
 #------------------------------------------#
 
