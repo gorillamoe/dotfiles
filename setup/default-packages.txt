@@ -38,6 +38,7 @@ harper
 htop
 jq
 jujutsu
+kitty
 lazydocker
 libffi
 libreoffice-fresh
@@ -80,7 +81,6 @@ tk
 vale
 vhs
 vivid
-wezterm
 wget
 witr
 wl-clipboard

@@ -1,2 +1,3 @@
 com.github.tchx84.Flatseal
 io.github.mmarco94.tambourine
+co.hyprlab.Hylki.flatpakref
