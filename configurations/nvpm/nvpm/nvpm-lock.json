@@ -531,8 +531,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-php",
-      "version": "master",
-      "commit": "3fda2fb9577166c6399834917f9844f30370beea",
+      "version": "v0.25.0",
+      "commit": "92b5271b60bec77fb65b5e5bc41561e8dac81299",
       "extras": {
         "integrations": [
           "neovim"
@@ -842,7 +842,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/tree-sitter-kulala-http",
+      "sourceId": "github:dont-be-evil-company/tree-sitter-kulala-http",
       "version": "v0.3.1",
       "commit": "630e2b8523c775ba866564c2b4ad88d649a56c00",
       "extras": {
@@ -931,7 +931,7 @@
     {
       "sourceId": "github:DanielGavin/ols",
       "version": "nightly",
-      "commit": "f6166da1684bc2ff1be9b2a25eed0619ccc99869"
+      "commit": "e67f5803fe923a16d4741aa6f6a65c961af37b22"
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-regex",
@@ -1009,7 +1009,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/nvpm.nvim",
+      "sourceId": "github:dont-be-evil-company/nvpm.nvim",
       "version": "v2.5.0",
       "commit": "38d90bce053e7fa168a4a2ea93f790a255ac03c4",
       "extras": {
@@ -1122,7 +1122,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/bafa.nvim",
+      "sourceId": "github:dont-be-evil-company/bafa.nvim",
       "version": "v1.12.3",
       "commit": "87968d01e72660826bce00f9956515bd1d0d5b74",
       "extras": {
@@ -1131,7 +1131,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/diffconflicts.nvim",
+      "sourceId": "github:dont-be-evil-company/diffconflicts.nvim",
       "version": "v1.4.0",
       "commit": "3a9f6fb55de1f15ba5de4f0c46af3c999552e5ca",
       "extras": {
@@ -1140,7 +1140,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/discord.nvim",
+      "sourceId": "github:dont-be-evil-company/discord.nvim",
       "version": "v1.5.0",
       "commit": "fd18789185f2b77b767106370f900c720b6db120",
       "extras": {
@@ -1149,7 +1149,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/floaterm.nvim",
+      "sourceId": "github:dont-be-evil-company/floaterm.nvim",
       "version": "v1.1.0",
       "commit": "301ea764263d0c1a42a8fc2985047c0012347401",
       "extras": {
@@ -1158,7 +1158,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/fzf-symbols.nvim",
+      "sourceId": "github:dont-be-evil-company/fzf-symbols.nvim",
       "version": "main",
       "commit": "ed9c2558182dbfd3fc5de0ad8db23f636247aab6",
       "extras": {
@@ -1167,7 +1167,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/jujutsu.nvim",
+      "sourceId": "github:dont-be-evil-company/jujutsu.nvim",
       "version": "v1.12.0",
       "commit": "1d0feb306db0cc0d607618ce5152f23934f96c41",
       "extras": {
@@ -1176,7 +1176,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/juu.nvim",
+      "sourceId": "github:dont-be-evil-company/juu.nvim",
       "version": "v1.4.0",
       "commit": "6aa9783c7e8109a6ef7eedb470bda0f3f482f9b3",
       "extras": {
@@ -1185,7 +1185,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/kikao.nvim",
+      "sourceId": "github:dont-be-evil-company/kikao.nvim",
       "version": "v3.5.0",
       "commit": "db8b69bfcd7c1112d98539d09e717cbb83d600a4",
       "extras": {
@@ -1194,7 +1194,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/kulala.nvim",
+      "sourceId": "github:dont-be-evil-company/kulala.nvim",
       "version": "v6.29.0",
       "commit": "232a9939919fe9bc88d573bce92de50f2f160c60",
       "extras": {
@@ -1203,7 +1203,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/snap.nvim",
+      "sourceId": "github:dont-be-evil-company/snap.nvim",
       "version": "main",
       "commit": "2dfa910160552e8906875c2bade099bc972658ac",
       "extras": {
@@ -1212,7 +1212,7 @@
       }
     },
     {
-      "sourceId": "github:mistweaverco/vhs-era-theme.nvim",
+      "sourceId": "github:dont-be-evil-company/vhs-era-theme.nvim",
       "version": "v1.2.0",
       "commit": "9512568849bae77b5783d807f842f7dbd3ce49d1",
       "extras": {
@@ -1386,8 +1386,8 @@
       "commit": "bccbbafdcb6bb96ab0706f411a1e66681d5bc4de"
     },
     {
-      "sourceId": "npm:@mistweaverco/kulala-fmt",
-      "version": "4.5.3",
+      "sourceId": "npm:@dont-be-evil-company/kulala-fmt",
+      "version": "v4.6.1",
       "extras": {
         "always_trust": true
       }
@@ -1418,13 +1418,6 @@
       "commit": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "extras": {
         "kind": "neovim-plugin"
-      }
-    },
-    {
-      "sourceId": "npm:@mistweaverco/kulala-cli",
-      "version": "0.16.0",
-      "extras": {
-        "always_trust": true
       }
     },
     {
