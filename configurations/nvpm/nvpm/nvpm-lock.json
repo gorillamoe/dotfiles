@@ -46,7 +46,7 @@
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "6.0.0",
+      "version": "6.0.1",
       "extras": {
         "extra_packages": [
           {
@@ -597,8 +597,8 @@
     },
     {
       "sourceId": "github:ngalaiko/tree-sitter-go-template",
-      "version": "aa71f63de226c5592dfbfc1f29949522d7c95fac",
-      "commit": "aa71f63de226c5592dfbfc1f29949522d7c95fac",
+      "version": "master",
+      "commit": "06b2fd2ac32a7be71cdcf925eeeb868a68e2acde",
       "extras": {
         "integrations": [
           "neovim"
@@ -1100,7 +1100,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "13bb178a299f7493dd64427a58e61904c4b58ecb",
+      "commit": "d5c12c6d72ed84554f0f8dacb84f20da094b6a2d",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1123,8 +1123,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/bafa.nvim",
-      "version": "v1.12.3",
-      "commit": "87968d01e72660826bce00f9956515bd1d0d5b74",
+      "version": "v2.0.0",
+      "commit": "9de396c78f56392b0d033ebd93c492d2fc8353eb",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1132,8 +1132,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/diffconflicts.nvim",
-      "version": "v1.4.0",
-      "commit": "3a9f6fb55de1f15ba5de4f0c46af3c999552e5ca",
+      "version": "v2.0.0",
+      "commit": "4c12c6a6ef1e27dd463803302c6b104eeb18771d",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1141,8 +1141,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/discord.nvim",
-      "version": "v1.5.0",
-      "commit": "fd18789185f2b77b767106370f900c720b6db120",
+      "version": "v2.0.0",
+      "commit": "cb7c6f36dd48fe451859a2fe80a72d5b99546c80",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1150,8 +1150,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/floaterm.nvim",
-      "version": "v1.1.0",
-      "commit": "301ea764263d0c1a42a8fc2985047c0012347401",
+      "version": "v2.0.0",
+      "commit": "aa1a4051e945ea294540c9240f8fb666c1d53591",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1168,8 +1168,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/jujutsu.nvim",
-      "version": "v1.12.0",
-      "commit": "1d0feb306db0cc0d607618ce5152f23934f96c41",
+      "version": "v2.0.0",
+      "commit": "76f7e404d7686248244a144a000d975c29111333",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1177,8 +1177,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/juu.nvim",
-      "version": "v1.4.0",
-      "commit": "6aa9783c7e8109a6ef7eedb470bda0f3f482f9b3",
+      "version": "v2.0.0",
+      "commit": "1b9a7539cc4f80f29f4b2218a7e8dac43420f980",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1186,8 +1186,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/kikao.nvim",
-      "version": "v3.5.0",
-      "commit": "db8b69bfcd7c1112d98539d09e717cbb83d600a4",
+      "version": "v4.0.0",
+      "commit": "f8507da781399a151db1000f5e8ea9a40bbfea82",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1195,8 +1195,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/kulala.nvim",
-      "version": "v6.29.0",
-      "commit": "232a9939919fe9bc88d573bce92de50f2f160c60",
+      "version": "v6.33.1",
+      "commit": "1517fd8779b5d83ef7064709a3a7d03e72a899bf",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1213,8 +1213,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/vhs-era-theme.nvim",
-      "version": "v1.2.0",
-      "commit": "9512568849bae77b5783d807f842f7dbd3ce49d1",
+      "version": "v2.0.0",
+      "commit": "d0ce3fd7de16d34efbe25f57fe44d4562ac9f4fb",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1247,7 +1247,7 @@
     {
       "sourceId": "github:nvim-tree/nvim-tree.lua",
       "version": "master",
-      "commit": "882c54f2815bf6d02663d482c2cf9dbadf4e9b07",
+      "commit": "478c69c0fe253caea88de9c5e138bfa77395a59a",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1422,16 +1422,19 @@
     },
     {
       "sourceId": "github:saghen/blink.cmp",
-      "version": "main",
+      "version": "0e63407c28bd09ef0d3604478823f7f92dd8d9ec",
       "commit": "0e63407c28bd09ef0d3604478823f7f92dd8d9ec",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "integrations": [
+          "neovim"
+        ]
       }
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v2.11.0",
-      "commit": "c821f511f83c24401993e207f7e5cdb51ae872e6"
+      "version": "v2.12.0",
+      "commit": "b0ab21f5500da525c76553c56ca1b6b7669c6a78"
     },
     {
       "sourceId": "npm:typescript",
