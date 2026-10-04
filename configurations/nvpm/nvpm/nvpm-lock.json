@@ -1498,6 +1498,13 @@
       "extras": {
         "kind": "neovim-plugin"
       }
+    },
+    {
+      "sourceId": "npm:@dont-be-evil-company/kulala-cli",
+      "version": "1.2.0",
+      "extras": {
+        "always_trust": true
+      }
     }
   ],
   "$schema": "https://nvpm.dev/nvpm-lock.schema.json"
