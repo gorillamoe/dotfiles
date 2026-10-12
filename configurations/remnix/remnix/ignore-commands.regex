@@ -1,4 +1,1 @@
-^(?:sudo(?:\s+-E)?\s+)
-^cd
 ^exit
-^rm
