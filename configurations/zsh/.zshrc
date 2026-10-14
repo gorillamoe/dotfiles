@@ -324,6 +324,7 @@ alias 'gopen'='xdg-open'
 if command -v batcat &> /dev/null; then
   alias 'bat'='batcat'
 fi
+export MANPAGER="bat -plman"
 
 ### fd alias if fdfind is available
 #### On some distributions (e.g., Debian/Ubuntu), the binary is named fdfind
