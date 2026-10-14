@@ -226,23 +226,6 @@
       }
     },
     {
-      "sourceId": "github:gbprod/tree-sitter-gitcommit",
-      "version": "main",
-      "commit": "49715a9e6f19ce3d33b875aacdd6ad8ddaee0ffe",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "gitcommit",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gitcommit",
-            "ref": "967d325b13ec9035c64c1b0b34a1e897032ebe7d"
-          }
-        ]
-      }
-    },
-    {
       "sourceId": "github:camdencheek/tree-sitter-go-mod",
       "version": "main",
       "commit": "2e886870578eeba1927a2dc4bd2e2b3f598c5f9a",
@@ -698,74 +681,6 @@
             "language": "mermaid",
             "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-mermaid",
             "ref": "906b88223f4da2283479ce713306d0ef4993f581"
-          }
-        ]
-      }
-    },
-    {
-      "sourceId": "github:the-mikedavis/tree-sitter-git-config",
-      "version": "main",
-      "commit": "3a61756a81a86291a0f48e3eeeaa0692b9981aa9",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "git_config",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-git_config",
-            "ref": "f4bd83aed326464cb57ec1da12886a454f7e0f21"
-          }
-        ]
-      }
-    },
-    {
-      "sourceId": "github:the-mikedavis/tree-sitter-git-rebase",
-      "version": "main",
-      "commit": "32686d6b72980b36f876ae2d07719c9c3ed154e2",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "git_rebase",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-git_rebase",
-            "ref": "7104c5084a0f070bfa7706e77716305c07d5951c"
-          }
-        ]
-      }
-    },
-    {
-      "sourceId": "github:tree-sitter-grammars/tree-sitter-gitattributes",
-      "version": "master",
-      "commit": "1b7af09d45b579f9f288453b95ad555f1f431645",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "gitattributes",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gitattributes",
-            "ref": "21a3ae05332c167e187a1fa7618d60216a0fe7a1"
-          }
-        ]
-      }
-    },
-    {
-      "sourceId": "github:shunsambongi/tree-sitter-gitignore",
-      "version": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
-      "commit": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "treesitter_external_queries": [
-          {
-            "language": "gitignore",
-            "repo_url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-gitignore",
-            "ref": "d399e451073d5732562b1551d21ba1bd31cdad3d"
           }
         ]
       }
