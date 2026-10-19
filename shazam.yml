@@ -74,7 +74,7 @@ configurations:
       - source: .gitconfig
         destination: $HOME/.gitconfig
       - source: work/.gitconfig
-        destination: $HOME/projects/work/.gitconfig
+        destination: $HOME/Projects/work/.gitconfig
   # sane defaults for jj
   - name: jj
     files:
