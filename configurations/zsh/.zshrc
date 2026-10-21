@@ -300,6 +300,9 @@ fi
 alias 'ls'='eza --icons=always'
 alias 'll'='eza -la --icons=always --group-directories-first'
 
+### Kitty SSH
+alias 'ssh'='kitty +kitten ssh'
+
 ### Git shorthand
 #### git alias that shows status if no arguments are given
 g() {
