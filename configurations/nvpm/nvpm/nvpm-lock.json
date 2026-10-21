@@ -1083,8 +1083,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/jujutsu.nvim",
-      "version": "v2.1.2",
-      "commit": "883604dac6f632f507298da76c0eacc42193c2ec",
+      "version": "v2.2.0",
+      "commit": "e8a0319dc64c4d2ab049e09ca749e932735ad0ee",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1140,7 +1140,8 @@
       "version": "v9.2.1",
       "commit": "9cb125de42c0256ed1bc1f9ded8d8f0381317a17",
       "extras": {
-        "kind": "neovim-plugin"
+        "kind": "neovim-plugin",
+        "pinned": true
       }
     },
     {
@@ -1316,14 +1317,6 @@
       }
     },
     {
-      "sourceId": "github:nvim-mini/mini.indentscope",
-      "version": "main",
-      "commit": "14eecb1cf33d1db35b8ac665b1aab4d3c9b47fe3",
-      "extras": {
-        "kind": "neovim-plugin"
-      }
-    },
-    {
       "sourceId": "golang:golang.org/x/tools/gopls",
       "version": "v0.24.0"
     },
@@ -1343,7 +1336,8 @@
         "kind": "neovim-plugin",
         "integrations": [
           "neovim"
-        ]
+        ],
+        "pinned": true
       }
     },
     {
@@ -1401,7 +1395,7 @@
     {
       "sourceId": "github:nvim-mini/mini.files",
       "version": "main",
-      "commit": "3fe8e33d37a8c455762800c39bab9af317dd53b4",
+      "commit": "638b80cb985c89ca2a98eed72c552c8d485a3d5b",
       "extras": {
         "kind": "neovim-plugin"
       }
