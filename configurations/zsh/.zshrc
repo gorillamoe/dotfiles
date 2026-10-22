@@ -302,6 +302,14 @@ alias 'll'='eza -la --icons=always --group-directories-first'
 
 ### Kitty SSH
 alias 'ssh'='kitty +kitten ssh'
+gcloud() {
+  if [[ "$1" == "compute" && "$2" == "ssh" ]]; then
+    shift 2
+    gcloud-compute-kitten-ssh.sh "$@"
+  else
+    command gcloud "$@"
+  fi
+}
 
 ### Git shorthand
 #### git alias that shows status if no arguments are given
