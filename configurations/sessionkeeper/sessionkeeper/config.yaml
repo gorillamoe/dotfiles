@@ -1,0 +1,37 @@
+ui:
+  tui:
+    show_icons: true
+    show_windows: true
+    prompt: "⚡"
+    placeholder: "Choose a session"
+    group_separator: true
+    preview: true
+sources:
+  kitty: { icon: "🟢" }
+  config: { icon: "🔧" }
+  zoxide: { icon: "📁" }
+sessions:
+  - name: Documents
+    path: ~/Documents
+    icon: "📄"
+    alias: doc
+    alias_auto_connect: true
+  - name: Dotfiles
+    path: ~/Projects/personal/dotfiles
+    icon: "🛠️"
+    alias: dot
+    alias_auto_connect: true
+  - name: Neovim Config
+    path: ~/Projects/personal/neovimfiles
+    icon: "📝"
+    alias: neo
+    alias_auto_connect: true
+wildcards:
+  - pattern: ~/Projects/work/**
+    icon: "💼"
+  - pattern: ~/Projects/personal/**
+    icon: "🏡"
+sort_order:
+  - kitty
+  - [config, zoxide]
+cache: true

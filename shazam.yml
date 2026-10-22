@@ -1,5 +1,10 @@
 ---
 configurations:
+  # sessionkeeper.dev
+  - name: sessionkeeper
+    files:
+      - source: sessionkeeper
+        destination: $HOME/.config/sessionkeeper
   # remnix - privacy focused Atuin clone
   - name: remnix
     files:
