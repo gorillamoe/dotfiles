@@ -757,17 +757,6 @@
       }
     },
     {
-      "sourceId": "github:dont-be-evil-company/tree-sitter-kulala-http",
-      "version": "v0.3.1",
-      "commit": "630e2b8523c775ba866564c2b4ad88d649a56c00",
-      "extras": {
-        "integrations": [
-          "neovim"
-        ],
-        "always_trust": true
-      }
-    },
-    {
       "sourceId": "github:tree-sitter/tree-sitter-javascript",
       "version": "master",
       "commit": "58404d8cf191d69f2674a8fd507bd5776f46cb11",
@@ -1015,7 +1004,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "348df165f1773dd08c5d710add3fd0db6d421e6a",
+      "commit": "5dca84ef44f37b960a128a43d044ee348ff86fb4",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1056,8 +1045,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/discord.nvim",
-      "version": "v2.0.0",
-      "commit": "cb7c6f36dd48fe451859a2fe80a72d5b99546c80",
+      "version": "v2.1.0",
+      "commit": "cf322994e2a9f12dbbf034ed378ac80d8172622f",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1083,8 +1072,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/jujutsu.nvim",
-      "version": "v2.2.0",
-      "commit": "e8a0319dc64c4d2ab049e09ca749e932735ad0ee",
+      "version": "v2.3.0",
+      "commit": "98e995bc2af75834e82555a35792dff3a5067236",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1110,8 +1099,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/kulala.nvim",
-      "version": "v6.35.2",
-      "commit": "b91206cd33fa903dd9a7eb0b6ea78098a0a875be",
+      "version": "v7.0.0",
+      "commit": "125751ea9f41c1ee966c5c7e3032e3539dd2f33e",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1162,8 +1151,8 @@
     },
     {
       "sourceId": "github:nvim-tree/nvim-tree.lua",
-      "version": "master",
-      "commit": "e2f08a1cdbe5a37ad4d7691ea7918e91e4b5b89f",
+      "version": "v1.19.0",
+      "commit": "9a2e0006d42f292eb3ade7dfdff201a7429a780c",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1356,7 +1345,7 @@
     },
     {
       "sourceId": "npm:@astrojs/language-server",
-      "version": "2.17.2",
+      "version": "2.17.3",
       "extras": {
         "extra_packages": [
           {
