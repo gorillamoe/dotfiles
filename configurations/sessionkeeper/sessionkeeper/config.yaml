@@ -21,11 +21,13 @@ sessions:
     icon: "🛠️"
     alias: dot
     alias_auto_connect: true
+    startup_command: nvim
   - name: Neovim Config
     path: ~/Projects/personal/neovimfiles
     icon: "📝"
     alias: neo
     alias_auto_connect: true
+    startup_command: nvim
 wildcards:
   - pattern: ~/Projects/work/**
     icon: "💼"
@@ -33,5 +35,6 @@ wildcards:
     icon: "🏡"
 sort_order:
   - kitty
-  - [config, zoxide]
+  - config
+  - zoxide
 cache: true
