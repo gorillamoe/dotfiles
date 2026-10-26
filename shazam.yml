@@ -31,11 +31,15 @@ configurations:
     files:
       - source: kitty
         destination: $HOME/.config/kitty
-  # Icons
+  # Gnome Theming
   - name: icons
     files:
+      # Retro/Neon icons
       - source: candy-icons
         destination: $HOME/.icons/candy-icons/
+      # Moga White - Best cursor theme for Linux
+      - source: moga-white
+        destination: $HOME/.icons/moga-white/
   # halloy irc client configuration
   - name: halloy
     files:
@@ -100,10 +104,3 @@ configurations:
     files:
       - source: nvpm
         destination: $HOME/.config/nvpm
-  # Vale linter configuration
-  - name: vale
-    files:
-      - source: .vale
-        destination: $HOME/.vale
-      - source: vale.ini
-        destination: $HOME/vale.ini
