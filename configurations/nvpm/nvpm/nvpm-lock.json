@@ -368,8 +368,8 @@
     },
     {
       "sourceId": "github:tree-sitter-grammars/tree-sitter-markdown",
-      "version": "v0.5.3",
-      "commit": "f969cd3ae3f9fbd4e43205431d0ae286014c05b5",
+      "version": "v0.5.4",
+      "commit": "41ff24a6c775492c543b09228aeb98d1cd2b3a0f",
       "extras": {
         "integrations": [
           "neovim"
@@ -923,8 +923,8 @@
     },
     {
       "sourceId": "github:MagicDuck/grug-far.nvim",
-      "version": "1.6.79",
-      "commit": "bbde8ef5ae46ceee2c3bd8b21fc048c5f8ffbfc0",
+      "version": "1.6.80",
+      "commit": "91b7e58b6ffc6ddad5acb7a7c1df21257724449e",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1004,7 +1004,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "5dca84ef44f37b960a128a43d044ee348ff86fb4",
+      "commit": "5b88d6f0af7fcb41d4a8bb340bf70d7e3824ee9d",
       "extras": {
         "kind": "neovim-plugin"
       }
