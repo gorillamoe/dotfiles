@@ -34,7 +34,7 @@
     },
     {
       "sourceId": "npm:svelte-language-server",
-      "version": "0.18.5",
+      "version": "0.18.6",
       "extras": {
         "extra_packages": [
           {
@@ -46,7 +46,7 @@
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "6.0.2",
+      "version": "6.0.3",
       "extras": {
         "extra_packages": [
           {
@@ -74,7 +74,7 @@
     },
     {
       "sourceId": "npm:tree-sitter-cli",
-      "version": "0.27.1",
+      "version": "0.27.2",
       "extras": {
         "integrations": [
           "neovim"
@@ -1004,7 +1004,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "5b88d6f0af7fcb41d4a8bb340bf70d7e3824ee9d",
+      "commit": "22f0bbd3140a8a3b34fec75e5a640513ca6d4ce3",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1020,7 +1020,7 @@
     {
       "sourceId": "github:mfussenegger/nvim-lint",
       "version": "master",
-      "commit": "f6230a5c06ba59e6059c14637f1dbe29a7978b9b",
+      "commit": "52107ce2076a27a285af781248e2c59bad817cd0",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1256,15 +1256,15 @@
     {
       "sourceId": "github:kyazdani42/nvim-web-devicons",
       "version": "master",
-      "commit": "ec309a0eaff6ea967e58c275996155ab5c16938d",
+      "commit": "0dc0cfb0c6858041174a53c7aa4adaf65e994b3c",
       "extras": {
         "kind": "neovim-plugin"
       }
     },
     {
       "sourceId": "github:igorlfs/nvim-dap-view",
-      "version": "main",
-      "commit": "b4486a6e83c45db4712849c09a76ef95b41a2133",
+      "version": "v1.3.0",
+      "commit": "bfaf50b3f513f78d8ab3e5fe02128dda05be4945",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1331,8 +1331,8 @@
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v2.13.0",
-      "commit": "f4ebc61d77df1fc00b6aa8bc604e91af3534dad1"
+      "version": "v3.1.0",
+      "commit": "d52aeac0a6de1cdb030b231705ab7e7e4e12e197"
     },
     {
       "sourceId": "npm:typescript",
@@ -1384,7 +1384,7 @@
     {
       "sourceId": "github:nvim-mini/mini.files",
       "version": "main",
-      "commit": "638b80cb985c89ca2a98eed72c552c8d485a3d5b",
+      "commit": "f031f95dcaa5efd30f12983d5e40020c4d75f694",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1392,7 +1392,7 @@
     {
       "sourceId": "github:seblyng/roslyn.nvim",
       "version": "main",
-      "commit": "bf1bd4e70bc7068d1b4aebf4ce03cc19a86615be",
+      "commit": "13103877cd3adcc395e80740fa5de104457eb22b",
       "extras": {
         "kind": "neovim-plugin"
       }
