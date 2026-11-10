@@ -44,7 +44,7 @@ selectruns() {
 
   gh api --paginate "/repos/$repo/actions/runs" \
     | jq -r -f <(jqscript) \
-    | fzf --multi
+    | fzf --multi --bind 'ctrl-a:select-all,ctrl-d:deselect-all' \
 
 }
 
