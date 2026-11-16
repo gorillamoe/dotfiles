@@ -10,6 +10,7 @@ calibre
 carapace-bin
 cargo
 cliamp-bin
+copyq
 cosign
 csvq-git
 curl
@@ -25,6 +26,7 @@ eza
 fastfetch
 fd
 flameshot
+ftop-bin
 fuse3
 fzf
 gcc
@@ -55,6 +57,7 @@ mariadb-clients
 marksman
 miller
 mise
+moor
 ncdu
 ncurses
 neovim
@@ -64,7 +67,7 @@ oh-my-posh
 openssl
 oryx
 pandoc
-pnpm
+px_ptop
 readline
 ripgrep
 seahorse

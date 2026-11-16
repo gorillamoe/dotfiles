@@ -337,6 +337,9 @@ if command -v batcat &> /dev/null; then
 fi
 export MANPAGER="bat -plman"
 
+# Nicer pager
+export PAGER="moor"
+
 ### fd alias if fdfind is available
 #### On some distributions (e.g., Debian/Ubuntu), the binary is named fdfind
 if command -v fdfind &> /dev/null; then
