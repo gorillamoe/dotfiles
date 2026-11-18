@@ -1292,7 +1292,7 @@
     },
     {
       "sourceId": "npm:@dont-be-evil-company/kulala-fmt",
-      "version": "4.8.0",
+      "version": "4.8.1",
       "extras": {
         "always_trust": true
       }
