@@ -46,7 +46,7 @@
     },
     {
       "sourceId": "npm:typescript-language-server",
-      "version": "6.0.3",
+      "version": "6.1.0",
       "extras": {
         "extra_packages": [
           {
@@ -931,8 +931,8 @@
     },
     {
       "sourceId": "github:MeanderingProgrammer/render-markdown.nvim",
-      "version": "v8.14.0",
-      "commit": "640a3ec6d538bad17c328be373c7cad0293d9589",
+      "version": "main",
+      "commit": "a67f826164c38c836fc6060f32b275c4c43317a7",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1004,7 +1004,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "22f0bbd3140a8a3b34fec75e5a640513ca6d4ce3",
+      "commit": "82ddfe6efc56480c052fd213e0cbb2f024dfd754",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1099,8 +1099,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/kulala.nvim",
-      "version": "v7.0.0",
-      "commit": "125751ea9f41c1ee966c5c7e3032e3539dd2f33e",
+      "version": "v8.0.0",
+      "commit": "b2c4fc8bb54c5c57aa18933b4c08f8d040f69e0b",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1287,12 +1287,12 @@
     },
     {
       "sourceId": "github:microsoft/vscode-js-debug",
-      "version": "v1.140.0",
-      "commit": "bccbbafdcb6bb96ab0706f411a1e66681d5bc4de"
+      "version": "v1.140.1",
+      "commit": "846959d9db7522d72a20185a0e93cdd8899b5bf5"
     },
     {
       "sourceId": "npm:@dont-be-evil-company/kulala-fmt",
-      "version": "4.7.0",
+      "version": "4.8.0",
       "extras": {
         "always_trust": true
       }
@@ -1331,8 +1331,8 @@
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v3.1.0",
-      "commit": "d52aeac0a6de1cdb030b231705ab7e7e4e12e197"
+      "version": "v3.2.0",
+      "commit": "ea9ab1b8f95be99a5d4040c53be92a6c2ad7f7f3"
     },
     {
       "sourceId": "npm:typescript",
@@ -1384,7 +1384,7 @@
     {
       "sourceId": "github:nvim-mini/mini.files",
       "version": "main",
-      "commit": "f031f95dcaa5efd30f12983d5e40020c4d75f694",
+      "commit": "52b6a0ff498edd0755c71c3476b30ba07798989a",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1399,7 +1399,7 @@
     },
     {
       "sourceId": "npm:@dont-be-evil-company/kulala-cli",
-      "version": "1.3.1",
+      "version": "1.4.0",
       "extras": {
         "always_trust": true
       }
