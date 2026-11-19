@@ -1099,8 +1099,8 @@
     },
     {
       "sourceId": "github:dont-be-evil-company/kulala.nvim",
-      "version": "v8.0.0",
-      "commit": "b2c4fc8bb54c5c57aa18933b4c08f8d040f69e0b",
+      "version": "v8.0.1",
+      "commit": "de0e6370e4ffa1a8da95cb4ff9b8a3057e0ac6e5",
       "extras": {
         "kind": "neovim-plugin",
         "always_trust": true
@@ -1331,8 +1331,8 @@
     },
     {
       "sourceId": "github:elijah-potter/harper",
-      "version": "v3.2.0",
-      "commit": "ea9ab1b8f95be99a5d4040c53be92a6c2ad7f7f3"
+      "version": "v3.3.0",
+      "commit": "8ad653e68d1dd4a809b3d1124249cad8573a4731"
     },
     {
       "sourceId": "npm:typescript",
