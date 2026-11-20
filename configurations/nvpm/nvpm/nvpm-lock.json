@@ -514,8 +514,8 @@
     },
     {
       "sourceId": "github:tree-sitter/tree-sitter-php",
-      "version": "v0.25.1",
-      "commit": "58d5643086ae60e93a3746cca648363ee97c8761",
+      "version": "v0.25.2",
+      "commit": "c1e13490bd656b8869cd47e6f74997ed46750a08",
       "extras": {
         "integrations": [
           "neovim"
@@ -1004,7 +1004,7 @@
     {
       "sourceId": "github:ibhagwan/fzf-lua",
       "version": "main",
-      "commit": "82ddfe6efc56480c052fd213e0cbb2f024dfd754",
+      "commit": "a8312697c30b4d3b110fa3dc56e3699107aed9a0",
       "extras": {
         "kind": "neovim-plugin"
       }
@@ -1020,7 +1020,7 @@
     {
       "sourceId": "github:mfussenegger/nvim-lint",
       "version": "master",
-      "commit": "52107ce2076a27a285af781248e2c59bad817cd0",
+      "commit": "6bf29b9dbdad60b38b489b23309c22ba6d4c915a",
       "extras": {
         "kind": "neovim-plugin"
       }
